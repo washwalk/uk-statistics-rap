@@ -1,0 +1,44 @@
+name: Update Labour Market Monitor
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "20 8 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Fetch ONS data
+        run: python src/fetch_ons.py
+
+      - name: Transform data
+        run: python src/transform.py
+
+      - name: Validate outputs
+        run: python src/validate.py
+
+      - name: Build site
+        run: python src/build_site.py
+
+      - name: Commit generated site updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update labour market monitor data
+          file_pattern: docs/data/indicators.json docs/index.html

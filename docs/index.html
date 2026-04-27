@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UK Labour Market Resilience Monitor</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">ONS API automated monitor</p>
+    <h1>UK Labour Market Resilience Monitor</h1>
+    <p class="lede">A reproducible dashboard tracking headline labour market signals from official ONS time series.</p>
+    <p class="small">Generated: 2026-04-27T14:51:54.160488+00:00</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Latest Snapshot</h2>
+      <div class="cards">
+        
+            <article class="card">
+              <div class="card-topline">LF24</div>
+              <h3>Employment rate</h3>
+              <p class="value">75.0%</p>
+              <p>2026 JAN</p>
+              <p>-0.1 percentage points since previous observation</p>
+              <p><span class="pill risk">Weakening</span></p>
+              <p class="small">Share of people aged 16 to 64 in employment.</p>
+            </article>
+            
+            <article class="card">
+              <div class="card-topline">MGSX</div>
+              <h3>Unemployment rate</h3>
+              <p class="value">4.9%</p>
+              <p>2026 JAN</p>
+              <p>-0.3 percentage points since previous observation</p>
+              <p><span class="pill good">Improving</span></p>
+              <p class="small">Share of economically active people who are unemployed.</p>
+            </article>
+            
+            <article class="card">
+              <div class="card-topline">LF2S</div>
+              <h3>Economic inactivity rate</h3>
+              <p class="value">21.0%</p>
+              <p>2026 JAN</p>
+              <p>+0.3 percentage points since previous observation</p>
+              <p><span class="pill risk">Weakening</span></p>
+              <p class="small">Share of people aged 16 to 64 who are economically inactive.</p>
+            </article>
+            
+            <article class="card">
+              <div class="card-topline">AP2Y</div>
+              <h3>Vacancies</h3>
+              <p class="value">711k</p>
+              <p>2026 FEB</p>
+              <p>-10.0 thousands since previous observation</p>
+              <p><span class="pill neutral">Neutral</span></p>
+              <p class="small">Number of vacancies in the UK economy.</p>
+            </article>
+            
+            <article class="card">
+              <div class="card-topline">KAC3</div>
+              <h3>Regular pay growth</h3>
+              <p class="value">3.8%</p>
+              <p>2026 FEB</p>
+              <p>-0.3 percentage points since previous observation</p>
+              <p><span class="pill risk">Weakening</span></p>
+              <p class="small">Annual growth in average weekly earnings excluding bonuses.</p>
+            </article>
+            
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Trend Explorer</h2>
+      <p>Select an indicator to inspect the published ONS series used in the monitor.</p>
+      <label for="indicatorSelect">Indicator</label>
+      <select id="indicatorSelect"></select>
+      <canvas id="trendChart" height="120"></canvas>
+    </section>
+
+    <section class="grid-two">
+      <div>
+        <h2>How To Read This</h2>
+        <p>The monitor uses simple direction checks between the latest and previous observations. It is designed as an accessible signal panel, not a forecast or causal model.</p>
+      </div>
+      <div>
+        <h2>Quality Notes</h2>
+        <p>Outputs are rebuilt from ONS source data, validated for expected structure and numeric values, and published as static files. Labour market statistics may be revised, so the latest run should be treated as the current reproducible view.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sources</h2>
+      <p>Data are from ONS public time series. See the project README and methodology for definitions, transformations, validation rules, and limitations.</p>
+      <p><a href="../methodology.md">Methodology</a> | <a href="data/indicators.json">Dashboard data JSON</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built as a reproducible analytical pipeline for a GSS interview portfolio project. ONS content is available under the Open Government Licence unless otherwise stated.</p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
