@@ -160,14 +160,15 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Build retail sales report
+        working-directory: ons-retail-sales-rap
         run: |
           python -m pip install -r requirements.txt
           python -m pytest
           python -m src.pipeline
           quarto render reports/statistical_summary.qmd --output-dir ${{ github.workspace }}/outputs
           mkdir -p ${{ github.workspace }}/_site/ons-retail-sales-rap
-          cp outputs/statistical_summary.html _site/ons-retail-sales-rap/index.html
-          cp -R outputs/figures _site/ons-retail-sales-rap/
+          cp ${{ github.workspace }}/outputs/statistical_summary.html ${{ github.workspace }}/_site/ons-retail-sales-rap/index.html
+          cp -R ${{ github.workspace }}/outputs/figures ${{ github.workspace }}/_site/ons-retail-sales-rap/
 
       - name: Set up Python 3.11 for housing affordability
         uses: actions/setup-python@v5
