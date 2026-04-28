@@ -1,0 +1,18 @@
+{
+  "project_name": "uk-gdp-release-summary",
+  "run_timestamp": "2026-04-28T21:31:26.485534+00:00",
+  "source_urls": [
+    "https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/abmi/pn2/data"
+  ],
+  "input_row_counts": {
+    "source_points": 284
+  },
+  "output_row_counts": {
+    "processed_data": 284
+  },
+  "outputs": {
+    "processed_data": "data/processed/analysis.csv",
+    "report": "docs/index.html"
+  },
+  "validation_status": "passed"
+}

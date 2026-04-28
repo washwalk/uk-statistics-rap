@@ -7,10 +7,21 @@ from pathlib import Path
 
 REQUIRED_COLUMNS = {"period", "period_type", "measure", "value", "change_from_previous", "source_series"}
 REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "input_row_counts", "output_row_counts", "outputs", "validation_status"}
+MONTHS = {"JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5, "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10, "NOV": 11, "DEC": 12}
 
 
 def load_config() -> dict:
     return json.loads(Path("config.json").read_text(encoding="utf-8"))
+
+
+def monthly_period_key(period: str) -> tuple[int, int] | None:
+    parts = period.split()
+    if len(parts) != 2 or parts[1] not in MONTHS:
+        return None
+    try:
+        return int(parts[0]), MONTHS[parts[1]]
+    except ValueError:
+        return None
 
 
 def validate() -> None:
@@ -35,9 +46,19 @@ def validate() -> None:
         keys = [(row["period"], row["measure"]) for row in rows]
         if len(keys) != len(set(keys)):
             errors.append("Processed data contains duplicate period-measure rows")
+        period_keys: list[tuple[int, int]] = []
         for row in rows:
             if not row["period"]:
                 errors.append("Processed data contains a blank period")
+            period_key = monthly_period_key(row["period"])
+            if row.get("period_type") != "months":
+                errors.append(f"Unexpected period type for period {row.get('period')}")
+            if period_key is None:
+                errors.append(f"Period is not in expected monthly format for period {row.get('period')}")
+            else:
+                period_keys.append(period_key)
+            if row.get("measure") != config["source"]["measure"]:
+                errors.append(f"Unexpected measure for period {row.get('period')}")
             if row["source_series"] != config["source"]["series_id"]:
                 errors.append(f"Unexpected source series for period {row.get('period')}")
             try:
@@ -49,6 +70,8 @@ def validate() -> None:
                     float(row["change_from_previous"])
                 except ValueError:
                     errors.append(f"Change is not numeric for period {row.get('period')}")
+        if period_keys and period_keys != sorted(period_keys):
+            errors.append("Processed data periods are not sorted ascending")
         if not any(row["change_from_previous"] for row in rows[1:]):
             errors.append("No previous-period changes were calculated")
 

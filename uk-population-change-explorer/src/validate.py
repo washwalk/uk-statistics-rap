@@ -13,6 +13,13 @@ def load_config() -> dict:
     return json.loads(Path("config.json").read_text(encoding="utf-8"))
 
 
+def annual_period_key(period: str) -> int | None:
+    try:
+        return int(period)
+    except ValueError:
+        return None
+
+
 def validate() -> None:
     config = load_config()
     errors: list[str] = []
@@ -34,9 +41,21 @@ def validate() -> None:
         keys = [(row["area_code"], row["period"]) for row in rows]
         if len(keys) != len(set(keys)):
             errors.append("Processed data contains duplicate area-period rows")
+        period_keys: list[int] = []
         for row in rows:
             if not row["period"]:
                 errors.append("Processed data contains a blank period")
+            period_key = annual_period_key(row["period"])
+            if row.get("period_type") != "years":
+                errors.append(f"Unexpected period type for period {row.get('period')}")
+            if period_key is None:
+                errors.append(f"Period is not in expected annual format for period {row.get('period')}")
+            else:
+                period_keys.append(period_key)
+            if row.get("area_code") != "K02000001" or row.get("area_name") != "United Kingdom":
+                errors.append(f"Unexpected area fields for period {row.get('period')}")
+            if row.get("measure") != config["source"]["measure"]:
+                errors.append(f"Unexpected measure for period {row.get('period')}")
             if row["source_series"] != config["source"]["series_id"]:
                 errors.append(f"Unexpected source series for period {row.get('period')}")
             try:
@@ -56,6 +75,8 @@ def validate() -> None:
                     float(row["percent_change_from_previous"])
                 except ValueError:
                     errors.append(f"Population percent change is not numeric for period {row.get('period')}")
+        if period_keys and period_keys != sorted(period_keys):
+            errors.append("Processed data periods are not sorted ascending")
         if not any(row["percent_change_from_previous"] for row in rows[1:]):
             errors.append("No previous-period population changes were calculated")
     if not metadata_path.exists():

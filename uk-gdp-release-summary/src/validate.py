@@ -13,6 +13,20 @@ def load_config() -> dict:
     return json.loads(Path("config.json").read_text(encoding="utf-8"))
 
 
+def quarterly_period_key(period: str) -> tuple[int, int] | None:
+    parts = period.split()
+    if len(parts) != 2 or len(parts[1]) != 2 or not parts[1].startswith("Q"):
+        return None
+    try:
+        year = int(parts[0])
+        quarter = int(parts[1][1])
+    except ValueError:
+        return None
+    if quarter not in {1, 2, 3, 4}:
+        return None
+    return year, quarter
+
+
 def validate() -> None:
     config = load_config()
     errors: list[str] = []
@@ -34,9 +48,19 @@ def validate() -> None:
         keys = [(row["period"], row["measure"]) for row in rows]
         if len(keys) != len(set(keys)):
             errors.append("Processed data contains duplicate period-measure rows")
+        period_keys: list[tuple[int, int]] = []
         for row in rows:
             if not row["period"]:
                 errors.append("Processed data contains a blank period")
+            period_key = quarterly_period_key(row["period"])
+            if row.get("period_type") != "quarters":
+                errors.append(f"Unexpected period type for period {row.get('period')}")
+            if period_key is None:
+                errors.append(f"Period is not in expected quarterly format for period {row.get('period')}")
+            else:
+                period_keys.append(period_key)
+            if row.get("measure") != config["source"]["measure"]:
+                errors.append(f"Unexpected measure for period {row.get('period')}")
             if row["source_series"] != config["source"]["series_id"]:
                 errors.append(f"Unexpected source series for period {row.get('period')}")
             try:
@@ -48,6 +72,8 @@ def validate() -> None:
                     float(row["growth_from_previous_percent"])
                 except ValueError:
                     errors.append(f"Growth rate is not numeric for period {row.get('period')}")
+        if period_keys and period_keys != sorted(period_keys):
+            errors.append("Processed data periods are not sorted ascending")
         if not any(row["growth_from_previous_percent"] for row in rows[1:]):
             errors.append("No previous-period growth rates were calculated")
     if not metadata_path.exists():

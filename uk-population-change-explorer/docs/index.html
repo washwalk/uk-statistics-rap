@@ -1,24 +1,43 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>UK Population Change Explorer</title></head>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Population Change Explorer</title>
+<style>body{font-family:Arial,sans-serif;margin:0;color:#172033;background:#f4f8f6}header{background:#164e63;color:white;padding:1rem 1.25rem}header a{color:white}.wrap{max-width:980px;margin:auto;padding:1.25rem}.hero,.panel,.metric{background:white;border:1px solid #d5e6df;border-radius:14px;padding:1.25rem;margin:1rem 0}.lede{font-size:1.2rem;color:#405a52}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#55706a}.value{font-size:2rem;font-weight:700;margin:.25rem 0}.change{font-weight:700;color:#0f766e}table{width:100%;border-collapse:collapse;background:white}th,td{border-bottom:1px solid #dcebe5;padding:.65rem;text-align:left}th{background:#e7f3ee}.downloads a{display:inline-block;margin-right:1rem}@media(max-width:640px){.wrap{padding:.75rem}table{font-size:.9rem}} </style>
+</head>
 <body>
-<p><a href="../">Back to UK Statistics RAP</a></p>
+<header><a href="../">UK Statistics RAP</a></header>
+<main class="wrap">
+<section class="hero">
+<p class="label">Official statistics RAP example</p>
 <h1>UK Population Change Explorer</h1>
-<p>Latest UK population estimate: <strong>69487000</strong> for 2025.</p>
-<h2>Method</h2>
-<p>The pipeline fetches one ONS UK population time series, standardises it to an area-period table, and calculates absolute and percentage change from the previous period.</p>
-<h2>Recent Observations</h2>
-<table><thead><tr><th>Period</th><th>Area</th><th>Population</th><th>Change from previous (%)</th></tr></thead><tbody>
-<tr><td>2018</td><td>United Kingdom</td><td>66286700</td><td>0.489</td></tr>
-<tr><td>2019</td><td>United Kingdom</td><td>66627500</td><td>0.514</td></tr>
-<tr><td>2020</td><td>United Kingdom</td><td>66739900</td><td>0.169</td></tr>
-<tr><td>2021</td><td>United Kingdom</td><td>66978000</td><td>0.357</td></tr>
-<tr><td>2022</td><td>United Kingdom</td><td>67636100</td><td>0.983</td></tr>
-<tr><td>2023</td><td>United Kingdom</td><td>68526200</td><td>1.316</td></tr>
-<tr><td>2024</td><td>United Kingdom</td><td>69281400</td><td>1.102</td></tr>
-<tr><td>2025</td><td>United Kingdom</td><td>69487000</td><td>0.297</td></tr>
+<p class="lede">UK population estimate summary with reproducible source capture, area-period transformation, validation, metadata, and static publication.</p>
+</section>
+<section class="metrics">
+<article class="metric"><p class="label">Latest period</p><p class="value">2025</p><p>United Kingdom</p></article>
+<article class="metric"><p class="label">Latest estimate</p><p class="value">69,487,000</p><p>UK population estimate</p></article>
+<article class="metric"><p class="label">Change from previous</p><p class="value">+205,600</p><p>+0.297%; previous period: 2024</p></article>
+</section>
+<section class="panel"><h2>Method</h2>
+<p>The pipeline fetches one ONS UK population time series, standardises it to an area-period table, and calculates absolute and percentage change from the previous annual observation.</p>
+<p>Offline tests validate transformation logic and committed outputs. Live ONS refresh checks are kept in <code>make integration-test</code>.</p></section>
+<section class="panel"><h2>Recent Observations</h2>
+<table><thead><tr><th>Period</th><th>Area</th><th>Population</th><th>Change</th><th>Change (%)</th></tr></thead><tbody>
+<tr><td>2018</td><td>United Kingdom</td><td>66,286,700</td><td>+322,400</td><td>+0.489%</td></tr>
+<tr><td>2019</td><td>United Kingdom</td><td>66,627,500</td><td>+340,800</td><td>+0.514%</td></tr>
+<tr><td>2020</td><td>United Kingdom</td><td>66,739,900</td><td>+112,400</td><td>+0.169%</td></tr>
+<tr><td>2021</td><td>United Kingdom</td><td>66,978,000</td><td>+238,100</td><td>+0.357%</td></tr>
+<tr><td>2022</td><td>United Kingdom</td><td>67,636,100</td><td>+658,100</td><td>+0.983%</td></tr>
+<tr><td>2023</td><td>United Kingdom</td><td>68,526,200</td><td>+890,100</td><td>+1.316%</td></tr>
+<tr><td>2024</td><td>United Kingdom</td><td>69,281,400</td><td>+755,200</td><td>+1.102%</td></tr>
+<tr><td>2025</td><td>United Kingdom</td><td>69,487,000</td><td>+205,600</td><td>+0.297%</td></tr>
 </tbody></table>
-<h2>Limitations</h2>
+</section>
+<section class="panel"><h2>Assurance and Downloads</h2>
+<p class="downloads"><a href="data/analysis.csv">Download processed CSV</a><a href="data/run-metadata.json">Download run metadata</a><a href="https://github.com/washwalk/uk-statistics-rap/blob/main/uk-population-change-explorer/methodology.md">Read methodology</a></p>
+</section>
+<section class="panel"><h2>Limitations</h2>
 <p>This compact example uses one UK-level series and does not include subnational breakdowns. Population estimates can be revised as methods and source inputs improve.</p>
-<p>Source: Office for National Statistics, Open Government Licence.</p>
+<p>Source: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop/data">Office for National Statistics</a>, Open Government Licence.</p></section>
+</main>
 </body></html>

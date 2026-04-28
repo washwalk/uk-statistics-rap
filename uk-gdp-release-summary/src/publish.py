@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import html
 import json
+import shutil
 from pathlib import Path
 
 
@@ -10,40 +11,82 @@ def load_config() -> dict:
     return json.loads(Path("config.json").read_text(encoding="utf-8"))
 
 
+def fmt_index(value: str) -> str:
+    return f"{float(value):,.0f}"
+
+
+def fmt_growth(value: str) -> str:
+    if not value:
+        return "not available"
+    growth = float(value)
+    sign = "+" if growth > 0 else ""
+    return f"{sign}{growth:.3f}%"
+
+
 def publish() -> None:
     config = load_config()
     processed_path = Path(config["paths"]["processed_data"])
+    metadata_path = Path(config["paths"]["run_metadata"])
     report_path = Path(config["paths"]["report"])
     report_path.parent.mkdir(parents=True, exist_ok=True)
+    data_dir = report_path.parent / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
     with processed_path.open(encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     latest = rows[-1]
+    previous = rows[-2] if len(rows) > 1 else None
     table_rows = "\n".join(
-        f"<tr><td>{html.escape(row['period'])}</td><td>{html.escape(row['value'])}</td><td>{html.escape(row['growth_from_previous_percent'])}</td></tr>"
+        "<tr>"
+        f"<td>{html.escape(row['period'])}</td>"
+        f"<td>{fmt_index(row['value'])}</td>"
+        f"<td>{html.escape(fmt_growth(row['growth_from_previous_percent']))}</td>"
+        "</tr>"
         for row in rows[-8:]
     )
+    shutil.copyfile(processed_path, data_dir / "analysis.csv")
+    shutil.copyfile(metadata_path, data_dir / "run-metadata.json")
     report_path.write_text(
         "\n".join(
             [
                 "<!doctype html>",
                 "<html lang=\"en\">",
-                "<head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>UK GDP Release Summary</title></head>",
+                "<head>",
+                "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+                "<title>UK GDP Release Summary</title>",
+                "<style>body{font-family:Arial,sans-serif;margin:0;color:#172033;background:#f6f4ef}header{background:#12372a;color:white;padding:1rem 1.25rem}header a{color:white}.wrap{max-width:980px;margin:auto;padding:1.25rem}.hero,.panel,.metric{background:white;border:1px solid #dfd7c8;border-radius:14px;padding:1.25rem;margin:1rem 0}.lede{font-size:1.2rem;color:#4d5a4f}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.label{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#65705f}.value{font-size:2rem;font-weight:700;margin:.25rem 0}.change{font-weight:700;color:#166534}table{width:100%;border-collapse:collapse;background:white}th,td{border-bottom:1px solid #e6ddce;padding:.65rem;text-align:left}th{background:#efe7d8}.downloads a{display:inline-block;margin-right:1rem}@media(max-width:640px){.wrap{padding:.75rem}table{font-size:.9rem}} </style>",
+                "</head>",
                 "<body>",
-                "<p><a href=\"../\">Back to UK Statistics RAP</a></p>",
+                "<header><a href=\"../\">UK Statistics RAP</a></header>",
+                "<main class=\"wrap\">",
+                "<section class=\"hero\">",
+                "<p class=\"label\">Official statistics RAP example</p>",
                 "<h1>UK GDP Release Summary</h1>",
-                f"<p>Latest {html.escape(latest['measure'])}: <strong>{html.escape(latest['value'])}</strong> for {html.escape(latest['period'])}.</p>",
-                "<h2>Method</h2>",
-                "<p>The pipeline fetches one ONS GDP index time series, keeps valid numeric observations, and calculates previous-period percentage growth.</p>",
-                "<h2>Recent Observations</h2>",
+                "<p class=\"lede\">Headline GDP index summary with reproducible source capture, transformation, validation, metadata, and static publication.</p>",
+                "</section>",
+                "<section class=\"metrics\">",
+                f"<article class=\"metric\"><p class=\"label\">Latest period</p><p class=\"value\">{html.escape(latest['period'])}</p><p>{html.escape(latest['measure'])}</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Latest index</p><p class=\"value\">{fmt_index(latest['value'])}</p><p>Chained volume measure index</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Growth from previous</p><p class=\"value\">{html.escape(fmt_growth(latest['growth_from_previous_percent']))}</p><p>Previous period: {html.escape(previous['period']) if previous else 'not available'}</p></article>",
+                "</section>",
+                "<section class=\"panel\"><h2>Method</h2>",
+                "<p>The pipeline fetches one ONS GDP index time series, keeps valid quarterly numeric observations, and calculates previous-period percentage growth.</p>",
+                "<p>Offline tests validate transformation logic and committed outputs. Live ONS refresh checks are kept in <code>make integration-test</code>.</p></section>",
+                "<section class=\"panel\"><h2>Recent Observations</h2>",
                 "<table><thead><tr><th>Period</th><th>Index</th><th>Growth from previous (%)</th></tr></thead><tbody>",
                 table_rows,
                 "</tbody></table>",
-                "<h2>Limitations</h2>",
+                "</section>",
+                "<section class=\"panel\"><h2>Assurance and Downloads</h2>",
+                "<p class=\"downloads\"><a href=\"data/analysis.csv\">Download processed CSV</a><a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-gdp-release-summary/methodology.md\">Read methodology</a></p>",
+                "</section>",
+                "<section class=\"panel\"><h2>Limitations</h2>",
                 "<p>This compact example uses one GDP series and does not reproduce the full national accounts release. Values can be revised in later releases.</p>",
-                "<p>Source: Office for National Statistics, Open Government Licence.</p>",
+                f"<p>Source: <a href=\"{html.escape(config['source']['url'])}\">Office for National Statistics</a>, Open Government Licence.</p></section>",
+                "</main>",
                 "</body></html>",
             ]
-        ),
+        )
+        + "\n",
         encoding="utf-8",
     )
 
