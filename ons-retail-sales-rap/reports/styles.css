@@ -1,0 +1,109 @@
+:root {
+  --ink: #111827;
+  --muted: #5b6472;
+  --line: #d8dee8;
+  --accent: #005ea5;
+  --soft: #f6f8fb;
+}
+
+body {
+  color: var(--ink);
+}
+
+.page-columns {
+  display: block;
+}
+
+.content {
+  max-width: 960px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.intro h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.eyebrow,
+.label {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+.metric {
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 1rem 1rem 0;
+}
+
+.value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0.25rem 0;
+}
+
+.small,
+.source-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.source-note {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    display: block;
+  }
+
+  .site-header nav {
+    margin-top: 0.75rem;
+  }
+}

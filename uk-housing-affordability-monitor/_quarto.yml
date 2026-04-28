@@ -4,27 +4,27 @@ project:
 
 website:
   title: "UK Housing Affordability Monitor"
-  site-url: "https://washwalk.github.io/uk-housing-affordability-monitor/"
-  repo-url: "https://github.com/washwalk/uk-housing-affordability-monitor"
+  site-url: "https://washwalk.github.io/uk-statistics-rap/uk-housing-affordability-monitor/"
+  repo-url: "https://github.com/washwalk/uk-statistics-rap"
   navbar:
-    background: "#123c69"
-    foreground: "#ffffff"
+    background: "#ffffff"
+    foreground: "#111827"
     left:
+      - href: https://washwalk.github.io/uk-statistics-rap/
+        text: UK Statistics RAP
       - href: index.qmd
-        text: Monitor
+        text: Housing
       - href: methodology.qmd
         text: Methodology
-      - href: about.qmd
-        text: About
     right:
       - icon: github
-        href: "https://github.com/washwalk/uk-housing-affordability-monitor"
+        href: "https://github.com/washwalk/uk-statistics-rap"
 
 format:
   html:
     theme: cosmo
     toc: false
-    page-layout: full
+    page-layout: article
     css: styles.css
 
 execute:

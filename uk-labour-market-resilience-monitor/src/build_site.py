@@ -43,14 +43,12 @@ def build_site() -> None:
         label, class_name = _signal(row)
         cards.append(
             f"""
-            <article class=\"card\">
-              <div class=\"card-topline\">{html.escape(row['series_id'])}</div>
+            <article class=\"metric\">
+              <div class=\"label\">{html.escape(row['series_id'])}</div>
               <h3>{html.escape(row['indicator'])}</h3>
               <p class=\"value\">{html.escape(_format_value(row))}</p>
-              <p>{html.escape(row['period'])}</p>
-              <p>{html.escape(_format_change(row))}</p>
-              <p><span class=\"pill {class_name}\">{label}</span></p>
-              <p class=\"small\">{html.escape(row['summary'])}</p>
+              <p class=\"change {class_name}\">{label}: {html.escape(_format_change(row))}</p>
+              <p class=\"small\">{html.escape(row['period'])}. {html.escape(row['summary'])}</p>
             </article>
             """
         )
@@ -65,50 +63,45 @@ def build_site() -> None:
   <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 </head>
 <body>
-  <header class=\"hero\">
-    <p class=\"eyebrow\">ONS API automated monitor</p>
-    <h1>UK Labour Market Resilience Monitor</h1>
-    <p class=\"lede\">A reproducible dashboard tracking headline labour market signals from official ONS time series.</p>
-    <p class=\"small\">Generated: {html.escape(snapshot['generated_at'])}</p>
+  <header class=\"site-header\">
+    <a class=\"brand\" href=\"../\">UK Statistics RAP</a>
+    <nav aria-label=\"Primary navigation\">
+      <a href=\"../uk-labour-market-resilience-monitor/\">Labour market</a>
+      <a href=\"../ons-retail-sales-rap/\">Retail sales</a>
+      <a href=\"../uk-housing-affordability-monitor/\">Housing</a>
+      <a href=\"https://github.com/washwalk/uk-statistics-rap\">GitHub</a>
+    </nav>
   </header>
 
   <main>
+    <section class=\"intro\">
+    <p class=\"eyebrow\">ONS labour market monitor</p>
+    <h1>UK Labour Market Resilience Monitor</h1>
+    <p class=\"lede\">Headline labour market signals from official ONS time series.</p>
+    <p class=\"small\">Last updated: {html.escape(snapshot['generated_at'])}</p>
+    </section>
+
     <section>
-      <h2>Latest Snapshot</h2>
-      <div class=\"cards\">
+      <h2>Latest values</h2>
+      <div class=\"metrics\">
         {''.join(cards)}
       </div>
     </section>
 
     <section class=\"panel\">
-      <h2>Trend Explorer</h2>
-      <p>Select an indicator to inspect the published ONS series used in the monitor.</p>
+      <h2>Trend</h2>
+      <p class=\"small\">Select a series to inspect the recent published trend.</p>
       <label for=\"indicatorSelect\">Indicator</label>
       <select id=\"indicatorSelect\"></select>
       <canvas id=\"trendChart\" height=\"120\"></canvas>
     </section>
 
-    <section class=\"grid-two\">
-      <div>
-        <h2>How To Read This</h2>
-        <p>The monitor uses simple direction checks between the latest and previous observations. It is designed as an accessible signal panel, not a forecast or causal model.</p>
-      </div>
-      <div>
-        <h2>Quality Notes</h2>
-        <p>Outputs are rebuilt from ONS source data, validated for expected structure and numeric values, and published as static files. Labour market statistics may be revised, so the latest run should be treated as the current reproducible view.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Sources</h2>
-      <p>Data are from ONS public time series. See the project README and methodology for definitions, transformations, validation rules, and limitations.</p>
-      <p><a href=\"../methodology.md\">Methodology</a> | <a href=\"data/indicators.json\">Dashboard data JSON</a></p>
+    <section class=\"note\">
+      <h2>Source and method</h2>
+      <p>Data are rebuilt from ONS public time series. Direction labels compare the latest observation with the previous observation and should be read as monitoring signals, not forecasts.</p>
+      <p><a href=\"data/indicators.json\">Download dashboard data JSON</a></p>
     </section>
   </main>
-
-  <footer>
-    <p>Built as a reproducible analytical pipeline for a GSS interview portfolio project. ONS content is available under the Open Government Licence unless otherwise stated.</p>
-  </footer>
   <script src=\"assets/site.js\"></script>
 </body>
 </html>

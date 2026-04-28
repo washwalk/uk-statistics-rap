@@ -167,6 +167,7 @@ jobs:
           python -m src.pipeline
           quarto render reports/statistical_summary.qmd --output-dir ${{ github.workspace }}/outputs
           mkdir -p ${{ github.workspace }}/_site/ons-retail-sales-rap
+          cp -R ${{ github.workspace }}/outputs/. ${{ github.workspace }}/_site/ons-retail-sales-rap/
           cp ${{ github.workspace }}/outputs/statistical_summary.html ${{ github.workspace }}/_site/ons-retail-sales-rap/index.html
           cp -R outputs/figures ${{ github.workspace }}/_site/ons-retail-sales-rap/
 
@@ -185,42 +186,8 @@ jobs:
           mkdir -p ../_site/uk-housing-affordability-monitor
           cp -R _site/. ../_site/uk-housing-affordability-monitor/
 
-      - name: Generate landing page
-        run: |
-          cat > _site/index.html <<'HTML'
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>UK Statistics RAP</title>
-            <style>
-              body {
-                max-width: 760px;
-                margin: 4rem auto;
-                padding: 0 1rem;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-                line-height: 1.5;
-              }
-              h1 {
-                margin-bottom: 0.5rem;
-              }
-              li {
-                margin: 0.75rem 0;
-              }
-            </style>
-          </head>
-          <body>
-            <h1>UK Statistics RAP</h1>
-            <p>Published statistical reports and monitors.</p>
-            <ul>
-              <li><a href="./uk-labour-market-resilience-monitor/">UK Labour Market Resilience Monitor</a></li>
-              <li><a href="./ons-retail-sales-rap/">ONS Retail Sales RAP</a></li>
-              <li><a href="./uk-housing-affordability-monitor/">UK Housing Affordability Monitor</a></li>
-            </ul>
-          </body>
-          </html>
-          HTML
+      - name: Copy landing page assets
+        run: cp -R site/. _site/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
