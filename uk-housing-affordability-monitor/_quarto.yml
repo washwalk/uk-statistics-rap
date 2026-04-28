@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "UK Housing Affordability Monitor"
+  site-url: "https://washwalk.github.io/uk-housing-affordability-monitor/"
+  repo-url: "https://github.com/washwalk/uk-housing-affordability-monitor"
+  navbar:
+    background: "#123c69"
+    foreground: "#ffffff"
+    left:
+      - href: index.qmd
+        text: Monitor
+      - href: methodology.qmd
+        text: Methodology
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: "https://github.com/washwalk/uk-housing-affordability-monitor"
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    page-layout: full
+    css: styles.css
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false

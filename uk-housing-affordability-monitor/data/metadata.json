@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-04-27T14:41:06+00:00",
+  "latest_year": 2021,
+  "area_count_latest": 322,
+  "median_ratio_latest": 10.71,
+  "least_affordable_area": {
+    "area_name": "Kensington and Chelsea",
+    "affordability_ratio": 32.04
+  },
+  "most_affordable_area": {
+    "area_name": "Copeland",
+    "affordability_ratio": 4.18
+  },
+  "sources": [
+    {
+      "dataset_id": "house-prices-local-authority",
+      "title": "House price statistics for small areas in England and Wales",
+      "release_date": "2022-09-14T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/house-prices-local-authority/editions/time-series/versions/10",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/house-prices-local-authority/editions/time-series/versions/10.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2020-11-05T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2015/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2015/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2020-11-05T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2016/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2016/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2020-11-06T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2017/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2017/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2020-11-06T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2018/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2018/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2019-10-29T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2019/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2019/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2020-11-03T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2020/versions/1",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2020/versions/1.csv"
+    },
+    {
+      "dataset_id": "ashe-tables-7-and-8",
+      "title": "Earnings and hours worked, place of work and residence by local authority: ASHE Tables 7 and 8 ",
+      "release_date": "2023-09-01T00:00:00.000Z",
+      "version_url": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8/editions/2021/versions/2",
+      "csv_url": "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2021/versions/2.csv"
+    }
+  ]
+}

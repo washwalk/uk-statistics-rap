@@ -1,0 +1,2164 @@
+year,area_code,area_name,median_house_price,median_annual_pay,affordability_ratio,area_type
+2015,E07000223,Adur,260000.0,21377.0,12.16,local_authority
+2015,E07000026,Allerdale,148000.0,19534.0,7.58,local_authority
+2015,E07000032,Amber Valley,150000.0,21380.0,7.02,local_authority
+2015,E07000224,Arun,240000.0,20337.0,11.8,local_authority
+2015,E07000170,Ashfield,125000.0,20125.0,6.21,local_authority
+2015,E07000105,Ashford,230000.0,22919.0,10.04,local_authority
+2015,E07000200,Babergh,225000.0,20517.0,10.97,local_authority
+2015,E09000002,Barking and Dagenham,235000.0,23901.0,9.83,local_authority
+2015,E09000003,Barnet,440000.0,26099.0,16.86,local_authority
+2015,E08000016,Barnsley,114950.0,20573.0,5.59,local_authority
+2015,E07000027,Barrow-in-Furness,110000.0,19349.0,5.69,local_authority
+2015,E07000066,Basildon,224995.0,22063.0,10.2,local_authority
+2015,E07000084,Basingstoke and Deane,245000.0,27860.0,8.79,local_authority
+2015,E07000171,Bassetlaw,130000.0,20630.0,6.3,local_authority
+2015,E06000022,Bath and North East Somerset,268000.0,22016.0,12.17,local_authority
+2015,E06000055,Bedford,226995.0,23362.0,9.72,local_authority
+2015,E09000004,Bexley,271000.0,25789.0,10.51,local_authority
+2015,E08000025,Birmingham,142000.0,20929.0,6.78,local_authority
+2015,E07000129,Blaby,176000.0,23762.0,7.41,local_authority
+2015,E06000008,Blackburn with Darwen,105000.0,18393.0,5.71,local_authority
+2015,E06000009,Blackpool,100000.0,16347.0,6.12,local_authority
+2015,W06000019,Blaenau Gwent,78000.0,19331.0,4.03,local_authority
+2015,E07000033,Bolsover,112000.0,18635.0,6.01,local_authority
+2015,E08000001,Bolton,119000.0,19921.0,5.97,local_authority
+2015,E07000136,Boston,135000.0,17778.0,7.59,local_authority
+2015,E06000036,Bracknell Forest,285000.0,26895.0,10.6,local_authority
+2015,E08000032,Bradford,125000.0,19944.0,6.27,local_authority
+2015,E07000143,Breckland,177000.0,17838.0,9.92,local_authority
+2015,E09000005,Brent,400000.0,24710.0,16.19,local_authority
+2015,E07000068,Brentwood,325000.0,31641.0,10.27,local_authority
+2015,W06000013,Bridgend,137500.0,20063.0,6.85,local_authority
+2015,E06000043,Brighton and Hove,295000.0,23001.0,12.83,local_authority
+2015,E06000023,"Bristol, City of",208000.0,23989.0,8.67,local_authority
+2015,E07000144,Broadland,205000.0,19727.0,10.39,local_authority
+2015,E09000006,Bromley,365000.0,31413.0,11.62,local_authority
+2015,E07000234,Bromsgrove,240000.0,23970.0,10.01,local_authority
+2015,E07000095,Broxbourne,277000.0,27099.0,10.22,local_authority
+2015,E07000172,Broxtowe,148000.0,24810.0,5.97,local_authority
+2015,E07000117,Burnley,77500.0,20254.0,3.83,local_authority
+2015,E08000002,Bury,144500.0,24154.0,5.98,local_authority
+2015,W06000018,Caerphilly,119950.0,21066.0,5.69,local_authority
+2015,E08000033,Calderdale,128000.0,20634.0,6.2,local_authority
+2015,E07000008,Cambridge,385500.0,26075.0,14.78,local_authority
+2015,E09000007,Camden,681000.0,33429.0,20.37,local_authority
+2015,E07000192,Cannock Chase,135000.0,21723.0,6.21,local_authority
+2015,E07000106,Canterbury,240000.0,23880.0,10.05,local_authority
+2015,W06000015,Cardiff,170000.0,22000.0,7.73,local_authority
+2015,E07000028,Carlisle,125000.0,19534.0,6.4,local_authority
+2015,W06000010,Carmarthenshire,129995.0,19579.0,6.64,local_authority
+2015,E06000056,Central Bedfordshire,240000.0,25971.0,9.24,local_authority
+2015,W06000008,Ceredigion,168000.0,19313.0,8.7,local_authority
+2015,E07000130,Charnwood,175000.0,23140.0,7.56,local_authority
+2015,E07000070,Chelmsford,270000.0,24722.0,10.92,local_authority
+2015,E07000078,Cheltenham,225000.0,23994.0,9.38,local_authority
+2015,E07000177,Cherwell,255000.0,24473.0,10.42,local_authority
+2015,E06000049,Cheshire East,192000.0,21973.0,8.74,local_authority
+2015,E06000050,Cheshire West and Chester,182000.0,22131.0,8.22,local_authority
+2015,E07000034,Chesterfield,130000.0,20789.0,6.25,local_authority
+2015,E07000225,Chichester,311000.0,20334.0,15.29,local_authority
+2015,E07000118,Chorley,161497.5,22227.0,7.27,local_authority
+2015,E07000071,Colchester,210000.0,21653.0,9.7,local_authority
+2015,W06000003,Conwy,145000.0,19722.0,7.35,local_authority
+2015,E07000029,Copeland,118000.0,29127.0,4.05,local_authority
+2015,E06000052,Cornwall,200000.0,18428.0,10.85,local_authority
+2015,E06000047,County Durham,110000.0,21448.0,5.13,local_authority
+2015,E08000026,Coventry,142000.0,21905.0,6.48,local_authority
+2015,E07000163,Craven,185000.0,20046.0,9.23,local_authority
+2015,E07000226,Crawley,245000.0,23166.0,10.58,local_authority
+2015,E09000008,Croydon,295000.0,26435.0,11.16,local_authority
+2015,E07000096,Dacorum,311000.0,25877.0,12.02,local_authority
+2015,E06000005,Darlington,131000.0,20659.0,6.34,local_authority
+2015,E07000107,Dartford,246250.0,26212.0,9.39,local_authority
+2015,W06000004,Denbighshire,135000.0,19759.0,6.83,local_authority
+2015,E06000015,Derby,136500.0,23381.0,5.84,local_authority
+2015,E07000035,Derbyshire Dales,224000.0,20764.0,10.79,local_authority
+2015,E08000017,Doncaster,124000.0,18820.0,6.59,local_authority
+2015,E08000027,Dudley,145000.0,21252.0,6.82,local_authority
+2015,E09000009,Ealing,415000.0,26402.0,15.72,local_authority
+2015,E07000009,East Cambridgeshire,229995.0,24148.0,9.52,local_authority
+2015,E07000040,East Devon,241250.0,21303.0,11.32,local_authority
+2015,E07000085,East Hampshire,310000.0,24739.0,12.53,local_authority
+2015,E07000242,East Hertfordshire,311000.0,27505.0,11.31,local_authority
+2015,E07000137,East Lindsey,145000.0,20995.0,6.91,local_authority
+2015,E06000011,East Riding of Yorkshire,153000.0,20999.0,7.29,local_authority
+2015,E07000193,East Staffordshire,159000.0,19284.0,8.25,local_authority
+2015,E07000061,Eastbourne,199950.0,20178.0,9.91,local_authority
+2015,E07000086,Eastleigh,237000.0,23168.0,10.23,local_authority
+2015,E07000030,Eden,182500.0,17712.0,10.3,local_authority
+2015,E07000207,Elmbridge,495000.0,30166.0,16.41,local_authority
+2015,E09000010,Enfield,320000.0,24577.0,13.02,local_authority
+2015,E07000072,Epping Forest,370000.0,27904.0,13.26,local_authority
+2015,E07000208,Epsom and Ewell,402000.0,28669.0,14.02,local_authority
+2015,E07000036,Erewash,134000.0,22144.0,6.05,local_authority
+2015,E07000041,Exeter,218747.5,20055.0,10.91,local_authority
+2015,E07000087,Fareham,243250.0,26161.0,9.3,local_authority
+2015,E07000010,Fenland,148500.0,20554.0,7.22,local_authority
+2015,W06000005,Flintshire,152500.0,21164.0,7.21,local_authority
+2015,E07000112,Folkestone and Hythe,200000.0,22612.0,8.84,local_authority
+2015,E07000080,Forest of Dean,178750.0,20796.0,8.6,local_authority
+2015,E07000119,Fylde,180000.0,20904.0,8.61,local_authority
+2015,E08000037,Gateshead,130000.0,21498.0,6.05,local_authority
+2015,E07000173,Gedling,147600.0,22164.0,6.66,local_authority
+2015,E07000081,Gloucester,165000.0,20758.0,7.95,local_authority
+2015,E07000088,Gosport,165000.0,22427.0,7.36,local_authority
+2015,E07000109,Gravesham,222000.0,23018.0,9.64,local_authority
+2015,E07000145,Great Yarmouth,146000.0,17445.0,8.37,local_authority
+2015,E09000011,Greenwich,331800.0,28000.0,11.85,local_authority
+2015,E07000209,Guildford,372000.0,28494.0,13.06,local_authority
+2015,W06000002,Gwynedd,145000.0,17804.0,8.14,local_authority
+2015,E09000012,Hackney,461500.0,28739.0,16.06,local_authority
+2015,E06000006,Halton,125000.0,21350.0,5.85,local_authority
+2015,E07000164,Hambleton,212000.0,19342.0,10.96,local_authority
+2015,E09000013,Hammersmith and Fulham,729400.0,34438.0,21.18,local_authority
+2015,E09000014,Haringey,421700.0,27082.0,15.57,local_authority
+2015,E07000165,Harrogate,239950.0,21843.0,10.99,local_authority
+2015,E09000015,Harrow,387000.0,26753.0,14.47,local_authority
+2015,E07000089,Hart,360000.0,31405.0,11.46,local_authority
+2015,E06000001,Hartlepool,124250.0,21855.0,5.69,local_authority
+2015,E07000062,Hastings,167500.0,19946.0,8.4,local_authority
+2015,E07000090,Havant,225000.0,22851.0,9.85,local_authority
+2015,E09000016,Havering,279995.0,27028.0,10.36,local_authority
+2015,E06000019,"Herefordshire, County of",203000.0,18269.0,11.11,local_authority
+2015,E07000098,Hertsmere,380000.0,24031.0,15.81,local_authority
+2015,E07000037,High Peak,160000.0,20376.0,7.85,local_authority
+2015,E09000017,Hillingdon,339000.0,26603.0,12.74,local_authority
+2015,E07000132,Hinckley and Bosworth,170000.0,22019.0,7.72,local_authority
+2015,E09000018,Hounslow,340000.0,25528.0,13.32,local_authority
+2015,E07000011,Huntingdonshire,210000.0,24556.0,8.55,local_authority
+2015,E07000120,Hyndburn,90000.0,19867.0,4.53,local_authority
+2015,E07000202,Ipswich,158000.0,20132.0,7.85,local_authority
+2015,W06000001,Isle of Anglesey,153225.0,21878.0,7.0,local_authority
+2015,E06000046,Isle of Wight,184997.5,20377.0,9.08,local_authority
+2015,E09000019,Islington,576500.0,33079.0,17.43,local_authority
+2015,E07000146,King's Lynn and West Norfolk,170000.0,19223.0,8.84,local_authority
+2015,E06000010,"Kingston upon Hull, City of",100000.0,17797.0,5.62,local_authority
+2015,E09000021,Kingston upon Thames,400000.0,30916.0,12.94,local_authority
+2015,E08000034,Kirklees,132000.0,20531.0,6.43,local_authority
+2015,E08000011,Knowsley,119000.0,20572.0,5.78,local_authority
+2015,E09000022,Lambeth,450000.0,28772.0,15.64,local_authority
+2015,E07000121,Lancaster,140000.0,19983.0,7.01,local_authority
+2015,E08000035,Leeds,154950.0,22054.0,7.03,local_authority
+2015,E06000016,Leicester,132000.0,17886.0,7.38,local_authority
+2015,E07000063,Lewes,274975.0,22678.0,12.13,local_authority
+2015,E09000023,Lewisham,348000.0,27513.0,12.65,local_authority
+2015,E07000194,Lichfield,197000.0,24303.0,8.11,local_authority
+2015,E07000138,Lincoln,130000.0,17992.0,7.23,local_authority
+2015,E08000012,Liverpool,120000.0,21100.0,5.69,local_authority
+2015,E06000032,Luton,182000.0,22000.0,8.27,local_authority
+2015,E07000110,Maidstone,245000.0,24296.0,10.08,local_authority
+2015,E07000074,Maldon,249972.5,26136.0,9.56,local_authority
+2015,E07000235,Malvern Hills,225000.0,18461.0,12.19,local_authority
+2015,E08000003,Manchester,139950.0,20585.0,6.8,local_authority
+2015,E07000174,Mansfield,120100.0,18107.0,6.63,local_authority
+2015,E06000035,Medway,185000.0,24859.0,7.44,local_authority
+2015,E07000187,Mendip,210000.0,19558.0,10.74,local_authority
+2015,W06000024,Merthyr Tydfil,90000.0,19925.0,4.52,local_authority
+2015,E09000024,Merton,396500.0,28865.0,13.74,local_authority
+2015,E07000042,Mid Devon,199000.0,20696.0,9.62,local_authority
+2015,E07000203,Mid Suffolk,208000.0,22907.0,9.08,local_authority
+2015,E07000228,Mid Sussex,315000.0,27457.0,11.47,local_authority
+2015,E06000002,Middlesbrough,124000.0,18732.0,6.62,local_authority
+2015,E06000042,Milton Keynes,225000.0,24845.0,9.06,local_authority
+2015,E07000210,Mole Valley,421000.0,26329.0,15.99,local_authority
+2015,W06000021,Monmouthshire,212420.0,24447.0,8.69,local_authority
+2015,W06000012,Neath Port Talbot,106500.0,20417.0,5.22,local_authority
+2015,E07000091,New Forest,281000.0,21741.0,12.92,local_authority
+2015,E08000021,Newcastle upon Tyne,150000.0,21165.0,7.09,local_authority
+2015,E07000195,Newcastle-under-Lyme,133000.0,20140.0,6.6,local_authority
+2015,E09000025,Newham,292650.0,22041.0,13.28,local_authority
+2015,W06000022,Newport,148500.0,20308.0,7.31,local_authority
+2015,E07000043,North Devon,212000.0,17073.0,12.42,local_authority
+2015,E07000038,North East Derbyshire,160000.0,19269.0,8.3,local_authority
+2015,E06000012,North East Lincolnshire,118625.0,18171.0,6.53,local_authority
+2015,E07000099,North Hertfordshire,279000.0,28459.0,9.8,local_authority
+2015,E07000139,North Kesteven,165000.0,21094.0,7.82,local_authority
+2015,E06000013,North Lincolnshire,124995.0,22648.0,5.52,local_authority
+2015,E07000147,North Norfolk,201000.0,18862.0,10.66,local_authority
+2015,E06000024,North Somerset,215000.0,23931.0,8.98,local_authority
+2015,E08000022,North Tyneside,155000.0,20635.0,7.51,local_authority
+2015,E07000218,North Warwickshire,167750.0,22467.0,7.47,local_authority
+2015,E07000134,North West Leicestershire,175000.0,20571.0,8.51,local_authority
+2015,E06000057,Northumberland,155000.0,20721.0,7.48,local_authority
+2015,E07000148,Norwich,165000.0,20315.0,8.12,local_authority
+2015,E06000018,Nottingham,112500.0,18065.0,6.23,local_authority
+2015,E07000219,Nuneaton and Bedworth,140000.0,22349.0,6.26,local_authority
+2015,E07000135,Oadby and Wigston,165000.0,18295.0,9.02,local_authority
+2015,E08000004,Oldham,117500.0,19304.0,6.09,local_authority
+2015,E07000178,Oxford,340000.0,26077.0,13.04,local_authority
+2015,W06000009,Pembrokeshire,158000.0,17395.0,9.08,local_authority
+2015,E07000122,Pendle,92000.0,20967.0,4.39,local_authority
+2015,E06000026,Plymouth,162000.0,20013.0,8.09,local_authority
+2015,E06000044,Portsmouth,170000.0,21793.0,7.8,local_authority
+2015,W06000023,Powys,162500.0,19436.0,8.36,local_authority
+2015,E07000123,Preston,125000.0,17574.0,7.11,local_authority
+2015,E06000038,Reading,246000.0,25610.0,9.61,local_authority
+2015,E09000026,Redbridge,340000.0,29331.0,11.59,local_authority
+2015,E06000003,Redcar and Cleveland,125000.0,18949.0,6.6,local_authority
+2015,E07000236,Redditch,170000.0,17156.0,9.91,local_authority
+2015,E07000211,Reigate and Banstead,347500.0,27071.0,12.84,local_authority
+2015,W06000016,Rhondda Cynon Taf,103750.0,20765.0,5.0,local_authority
+2015,E07000124,Ribble Valley,198000.0,24539.0,8.07,local_authority
+2015,E09000027,Richmond upon Thames,565000.0,35000.0,16.14,local_authority
+2015,E07000166,Richmondshire,185000.0,22329.0,8.29,local_authority
+2015,E08000005,Rochdale,123250.0,20158.0,6.11,local_authority
+2015,E07000125,Rossendale,125000.0,19583.0,6.38,local_authority
+2015,E08000018,Rotherham,130000.0,19816.0,6.56,local_authority
+2015,E07000220,Rugby,187500.0,25884.0,7.24,local_authority
+2015,E07000176,Rushcliffe,229995.0,25123.0,9.15,local_authority
+2015,E07000092,Rushmoor,246000.0,24486.0,10.05,local_authority
+2015,E06000017,Rutland,233995.0,24949.0,9.38,local_authority
+2015,E07000167,Ryedale,194475.0,18894.0,10.29,local_authority
+2015,E08000006,Salford,125000.0,20410.0,6.12,local_authority
+2015,E08000028,Sandwell,122000.0,20224.0,6.03,local_authority
+2015,E07000168,Scarborough,150000.0,19618.0,7.65,local_authority
+2015,E07000188,Sedgemoor,176995.0,19888.0,8.9,local_authority
+2015,E08000014,Sefton,148000.0,21071.0,7.02,local_authority
+2015,E07000111,Sevenoaks,350000.0,24081.0,14.53,local_authority
+2015,E08000019,Sheffield,138000.0,20173.0,6.84,local_authority
+2015,E06000051,Shropshire,182500.0,20317.0,8.98,local_authority
+2015,E06000039,Slough,249000.0,26274.0,9.48,local_authority
+2015,E08000029,Solihull,240000.0,24435.0,9.82,local_authority
+2015,E07000012,South Cambridgeshire,305000.0,26726.0,11.41,local_authority
+2015,E07000039,South Derbyshire,168500.0,23993.0,7.02,local_authority
+2015,E06000025,South Gloucestershire,222000.0,23033.0,9.64,local_authority
+2015,E07000140,South Holland,153000.0,21555.0,7.1,local_authority
+2015,E07000141,South Kesteven,173995.0,19813.0,8.78,local_authority
+2015,E07000031,South Lakeland,210253.0,20558.0,10.23,local_authority
+2015,E07000149,South Norfolk,205000.0,21950.0,9.34,local_authority
+2015,E07000179,South Oxfordshire,325000.0,27146.0,11.97,local_authority
+2015,E07000126,South Ribble,151000.0,21831.0,6.92,local_authority
+2015,E07000189,South Somerset,190000.0,19421.0,9.78,local_authority
+2015,E07000196,South Staffordshire,188000.0,23424.0,8.03,local_authority
+2015,E08000023,South Tyneside,130000.0,20265.0,6.42,local_authority
+2015,E06000045,Southampton,178000.0,21156.0,8.41,local_authority
+2015,E06000033,Southend-on-Sea,218250.0,22901.0,9.53,local_authority
+2015,E09000028,Southwark,460000.0,29980.0,15.34,local_authority
+2015,E07000213,Spelthorne,320000.0,29799.0,10.74,local_authority
+2015,E07000240,St Albans,440000.0,32143.0,13.69,local_authority
+2015,E08000013,St. Helens,120000.0,20975.0,5.72,local_authority
+2015,E07000197,Stafford,172500.0,21668.0,7.96,local_authority
+2015,E07000198,Staffordshire Moorlands,150000.0,21224.0,7.07,local_authority
+2015,E07000243,Stevenage,219995.0,25183.0,8.74,local_authority
+2015,E08000007,Stockport,180000.0,23058.0,7.81,local_authority
+2015,E06000004,Stockton-on-Tees,135000.0,21048.0,6.41,local_authority
+2015,E06000021,Stoke-on-Trent,98000.0,19090.0,5.13,local_authority
+2015,E07000221,Stratford-on-Avon,268500.0,23151.0,11.6,local_authority
+2015,E07000082,Stroud,219250.0,23195.0,9.45,local_authority
+2015,E08000024,Sunderland,120000.0,20367.0,5.89,local_authority
+2015,E07000214,Surrey Heath,345000.0,28856.0,11.96,local_authority
+2015,E09000029,Sutton,314000.0,26337.0,11.92,local_authority
+2015,E07000113,Swale,190000.0,23603.0,8.05,local_authority
+2015,W06000011,Swansea,133000.0,20035.0,6.64,local_authority
+2015,E06000030,Swindon,175000.0,23320.0,7.5,local_authority
+2015,E08000008,Tameside,124950.0,19746.0,6.33,local_authority
+2015,E07000199,Tamworth,147500.0,20494.0,7.2,local_authority
+2015,E07000215,Tandridge,375000.0,27536.0,13.62,local_authority
+2015,E07000045,Teignbridge,217300.0,19843.0,10.95,local_authority
+2015,E06000020,Telford and Wrekin,149995.0,19309.0,7.77,local_authority
+2015,E07000076,Tendring,172000.0,21366.0,8.05,local_authority
+2015,E07000093,Test Valley,255000.0,24625.0,10.36,local_authority
+2015,E07000083,Tewkesbury,224995.0,23468.0,9.59,local_authority
+2015,E07000114,Thanet,179250.0,17518.0,10.23,local_authority
+2015,E07000102,Three Rivers,400500.0,26369.0,15.19,local_authority
+2015,E06000034,Thurrock,213000.0,24190.0,8.81,local_authority
+2015,E07000115,Tonbridge and Malling,284000.0,27124.0,10.47,local_authority
+2015,E06000027,Torbay,175000.0,18185.0,9.62,local_authority
+2015,W06000020,Torfaen,121000.0,21227.0,5.7,local_authority
+2015,E07000046,Torridge,195000.0,17204.0,11.33,local_authority
+2015,E09000030,Tower Hamlets,409320.0,29552.0,13.85,local_authority
+2015,E08000009,Trafford,215999.0,24762.0,8.72,local_authority
+2015,E07000077,Uttlesford,330000.0,25213.0,13.09,local_authority
+2015,W06000014,Vale of Glamorgan,184000.0,22629.0,8.13,local_authority
+2015,E08000036,Wakefield,129896.0,19791.0,6.56,local_authority
+2015,E08000030,Walsall,134000.0,19401.0,6.91,local_authority
+2015,E09000031,Waltham Forest,360000.0,25620.0,14.05,local_authority
+2015,E09000032,Wandsworth,545000.0,35761.0,15.24,local_authority
+2015,E06000007,Warrington,164000.0,23068.0,7.11,local_authority
+2015,E07000222,Warwick,250000.0,25370.0,9.85,local_authority
+2015,E07000103,Watford,289950.0,27999.0,10.36,local_authority
+2015,E07000216,Waverley,390000.0,28712.0,13.58,local_authority
+2015,E07000065,Wealden,267000.0,23230.0,11.49,local_authority
+2015,E07000241,Welwyn Hatfield,295000.0,24173.0,12.2,local_authority
+2015,E06000037,West Berkshire,286250.0,27001.0,10.6,local_authority
+2015,E07000047,West Devon,205000.0,19981.0,10.26,local_authority
+2015,E07000127,West Lancashire,168500.0,21220.0,7.94,local_authority
+2015,E07000142,West Lindsey,150500.0,20963.0,7.18,local_authority
+2015,E07000181,West Oxfordshire,280000.0,25309.0,11.06,local_authority
+2015,E09000033,Westminster,877625.0,37930.0,23.14,local_authority
+2015,E08000010,Wigan,123000.0,21789.0,5.65,local_authority
+2015,E06000054,Wiltshire,225000.0,21426.0,10.5,local_authority
+2015,E06000040,Windsor and Maidenhead,415000.0,30016.0,13.83,local_authority
+2015,E08000015,Wirral,142000.0,22279.0,6.37,local_authority
+2015,E07000217,Woking,331950.0,26847.0,12.36,local_authority
+2015,E06000041,Wokingham,365000.0,30375.0,12.02,local_authority
+2015,E08000031,Wolverhampton,125250.0,20336.0,6.16,local_authority
+2015,E07000237,Worcester,178600.0,22272.0,8.02,local_authority
+2015,E07000229,Worthing,241000.0,22389.0,10.76,local_authority
+2015,W06000006,Wrexham,138500.0,21808.0,6.35,local_authority
+2015,E07000238,Wychavon,226000.0,21346.0,10.59,local_authority
+2015,E07000128,Wyre,140000.0,20042.0,6.99,local_authority
+2015,E07000239,Wyre Forest,157000.0,18910.0,8.3,local_authority
+2015,E06000014,York,210000.0,21425.0,9.8,local_authority
+2016,E07000223,Adur,285000.0,20611.0,13.83,local_authority
+2016,E07000032,Amber Valley,155000.0,22780.0,6.8,local_authority
+2016,E07000224,Arun,264995.0,21339.0,12.42,local_authority
+2016,E07000170,Ashfield,130000.0,20221.0,6.43,local_authority
+2016,E07000105,Ashford,242500.0,23758.0,10.21,local_authority
+2016,E07000200,Babergh,250000.0,22851.0,10.94,local_authority
+2016,E09000002,Barking and Dagenham,277000.0,23601.0,11.74,local_authority
+2016,E09000003,Barnet,470000.0,26000.0,18.08,local_authority
+2016,E08000016,Barnsley,117000.0,19886.0,5.88,local_authority
+2016,E07000027,Barrow-in-Furness,115000.0,21514.0,5.35,local_authority
+2016,E07000066,Basildon,259995.0,24047.0,10.81,local_authority
+2016,E07000084,Basingstoke and Deane,275000.0,28822.0,9.54,local_authority
+2016,E07000171,Bassetlaw,135995.0,21540.0,6.31,local_authority
+2016,E06000022,Bath and North East Somerset,292000.0,23730.0,12.31,local_authority
+2016,E06000055,Bedford,238000.0,24998.0,9.52,local_authority
+2016,E09000004,Bexley,321997.5,26754.0,12.04,local_authority
+2016,E08000025,Birmingham,150000.0,21697.0,6.91,local_authority
+2016,E07000129,Blaby,193000.0,23401.0,8.25,local_authority
+2016,E06000008,Blackburn with Darwen,104000.0,19295.0,5.39,local_authority
+2016,E06000009,Blackpool,105000.0,17630.0,5.96,local_authority
+2016,E07000033,Bolsover,120000.0,21669.0,5.54,local_authority
+2016,E08000001,Bolton,124995.0,20318.0,6.15,local_authority
+2016,E07000136,Boston,141000.0,18232.0,7.73,local_authority
+2016,E06000036,Bracknell Forest,320000.0,27067.0,11.82,local_authority
+2016,E08000032,Bradford,128000.0,20320.0,6.3,local_authority
+2016,E07000067,Braintree,250000.0,26207.0,9.54,local_authority
+2016,E07000143,Breckland,195995.0,19128.0,10.25,local_authority
+2016,E09000005,Brent,450000.0,24604.0,18.29,local_authority
+2016,E07000068,Brentwood,390000.0,31796.0,12.27,local_authority
+2016,W06000013,Bridgend,143000.0,21861.0,6.54,local_authority
+2016,E06000043,Brighton and Hove,320000.0,23957.0,13.36,local_authority
+2016,E06000023,"Bristol, City of",237000.0,23692.0,10.0,local_authority
+2016,E07000144,Broadland,220000.0,20401.0,10.78,local_authority
+2016,E09000006,Bromley,408995.0,31513.0,12.98,local_authority
+2016,E07000234,Bromsgrove,250000.0,24280.0,10.3,local_authority
+2016,E07000095,Broxbourne,325000.0,27989.0,11.61,local_authority
+2016,E07000172,Broxtowe,160000.0,25839.0,6.19,local_authority
+2016,E07000117,Burnley,89000.0,20798.0,4.28,local_authority
+2016,E08000002,Bury,150000.0,23872.0,6.28,local_authority
+2016,W06000018,Caerphilly,121000.0,20816.0,5.81,local_authority
+2016,E08000033,Calderdale,135000.0,22727.0,5.94,local_authority
+2016,E07000008,Cambridge,415000.0,27157.0,15.28,local_authority
+2016,E09000007,Camden,737250.0,33082.0,22.29,local_authority
+2016,E07000192,Cannock Chase,145000.0,22829.0,6.35,local_authority
+2016,E07000106,Canterbury,265000.0,22922.0,11.56,local_authority
+2016,W06000015,Cardiff,179950.0,22784.0,7.9,local_authority
+2016,E07000028,Carlisle,134000.0,19141.0,7.0,local_authority
+2016,W06000010,Carmarthenshire,134995.0,20255.0,6.66,local_authority
+2016,E07000069,Castle Point,265000.0,21114.0,12.55,local_authority
+2016,E06000056,Central Bedfordshire,265000.0,26586.0,9.97,local_authority
+2016,W06000008,Ceredigion,172000.0,20071.0,8.57,local_authority
+2016,E07000130,Charnwood,188000.0,22951.0,8.19,local_authority
+2016,E07000070,Chelmsford,300000.0,24265.0,12.36,local_authority
+2016,E07000078,Cheltenham,234000.0,24796.0,9.44,local_authority
+2016,E07000177,Cherwell,295000.0,26425.0,11.16,local_authority
+2016,E06000049,Cheshire East,201972.5,22645.0,8.92,local_authority
+2016,E06000050,Cheshire West and Chester,185000.0,22354.0,8.28,local_authority
+2016,E07000034,Chesterfield,135000.0,20134.0,6.71,local_authority
+2016,E07000225,Chichester,335000.0,22871.0,14.65,local_authority
+2016,E07000118,Chorley,162950.0,23301.0,6.99,local_authority
+2016,E07000071,Colchester,230000.0,22655.0,10.15,local_authority
+2016,E07000029,Copeland,125000.0,29191.0,4.28,local_authority
+2016,E06000052,Cornwall,210000.0,19093.0,11.0,local_authority
+2016,E07000079,Cotswold,330000.0,21399.0,15.42,local_authority
+2016,E06000047,County Durham,111000.0,21996.0,5.05,local_authority
+2016,E08000026,Coventry,153000.0,22116.0,6.92,local_authority
+2016,E07000163,Craven,187500.0,18372.0,10.21,local_authority
+2016,E07000226,Crawley,265525.0,24400.0,10.88,local_authority
+2016,E09000008,Croydon,331000.0,27897.0,11.87,local_authority
+2016,E07000096,Dacorum,335000.0,26335.0,12.72,local_authority
+2016,E06000005,Darlington,133000.0,22580.0,5.89,local_authority
+2016,E07000107,Dartford,275500.0,27622.0,9.97,local_authority
+2016,W06000004,Denbighshire,136700.0,19738.0,6.93,local_authority
+2016,E06000015,Derby,143000.0,24560.0,5.82,local_authority
+2016,E07000035,Derbyshire Dales,234500.0,24084.0,9.74,local_authority
+2016,E08000017,Doncaster,125000.0,19749.0,6.33,local_authority
+2016,E07000108,Dover,210000.0,22412.0,9.37,local_authority
+2016,E08000027,Dudley,150000.0,21689.0,6.92,local_authority
+2016,E09000009,Ealing,460000.0,27197.0,16.91,local_authority
+2016,E07000009,East Cambridgeshire,250000.0,24422.0,10.24,local_authority
+2016,E07000040,East Devon,240000.0,22406.0,10.71,local_authority
+2016,E07000085,East Hampshire,340000.0,27328.0,12.44,local_authority
+2016,E07000242,East Hertfordshire,354950.0,28874.0,12.29,local_authority
+2016,E07000137,East Lindsey,148000.0,20654.0,7.17,local_authority
+2016,E06000011,East Riding of Yorkshire,160000.0,21865.0,7.32,local_authority
+2016,E07000193,East Staffordshire,159995.0,19795.0,8.08,local_authority
+2016,E07000061,Eastbourne,218000.0,19557.0,11.15,local_authority
+2016,E07000086,Eastleigh,257500.0,24486.0,10.52,local_authority
+2016,E07000030,Eden,185000.0,17575.0,10.53,local_authority
+2016,E07000207,Elmbridge,527000.0,32371.0,16.28,local_authority
+2016,E09000010,Enfield,375000.0,25818.0,14.52,local_authority
+2016,E07000072,Epping Forest,407000.0,26237.0,15.51,local_authority
+2016,E07000208,Epsom and Ewell,450000.0,28340.0,15.88,local_authority
+2016,E07000036,Erewash,137000.0,22676.0,6.04,local_authority
+2016,E07000041,Exeter,225000.0,21005.0,10.71,local_authority
+2016,E07000087,Fareham,255000.0,26837.0,9.5,local_authority
+2016,E07000010,Fenland,160000.0,21612.0,7.4,local_authority
+2016,W06000005,Flintshire,155500.0,22688.0,6.85,local_authority
+2016,E07000112,Folkestone and Hythe,220000.0,21605.0,10.18,local_authority
+2016,E07000119,Fylde,190000.0,22241.0,8.54,local_authority
+2016,E08000037,Gateshead,130000.0,21306.0,6.1,local_authority
+2016,E07000173,Gedling,153000.0,22023.0,6.95,local_authority
+2016,E07000081,Gloucester,175000.0,21689.0,8.07,local_authority
+2016,E07000088,Gosport,179950.0,21650.0,8.31,local_authority
+2016,E07000109,Gravesham,255000.0,23409.0,10.89,local_authority
+2016,E07000145,Great Yarmouth,152250.0,18502.0,8.23,local_authority
+2016,E09000011,Greenwich,385000.0,28860.0,13.34,local_authority
+2016,E07000209,Guildford,410000.0,29110.0,14.08,local_authority
+2016,W06000002,Gwynedd,145000.0,17201.0,8.43,local_authority
+2016,E09000012,Hackney,537000.0,28847.0,18.62,local_authority
+2016,E06000006,Halton,134950.0,21537.0,6.27,local_authority
+2016,E07000164,Hambleton,220000.0,21531.0,10.22,local_authority
+2016,E09000013,Hammersmith and Fulham,730000.0,34685.0,21.05,local_authority
+2016,E07000131,Harborough,239972.5,27604.0,8.69,local_authority
+2016,E09000014,Haringey,460000.0,26477.0,17.37,local_authority
+2016,E07000073,Harlow,255000.0,22886.0,11.14,local_authority
+2016,E07000165,Harrogate,258000.0,22724.0,11.35,local_authority
+2016,E09000015,Harrow,443875.0,27487.0,16.15,local_authority
+2016,E07000089,Hart,385000.0,28214.0,13.65,local_authority
+2016,E06000001,Hartlepool,120000.0,22160.0,5.42,local_authority
+2016,E07000062,Hastings,189950.0,19304.0,9.84,local_authority
+2016,E07000090,Havant,245000.0,22949.0,10.68,local_authority
+2016,E09000016,Havering,325000.0,28106.0,11.56,local_authority
+2016,E06000019,"Herefordshire, County of",202790.0,19346.0,10.48,local_authority
+2016,E07000098,Hertsmere,430000.0,25355.0,16.96,local_authority
+2016,E07000037,High Peak,169000.0,22492.0,7.51,local_authority
+2016,E09000017,Hillingdon,390000.0,27456.0,14.2,local_authority
+2016,E07000132,Hinckley and Bosworth,172995.0,22071.0,7.84,local_authority
+2016,E07000227,Horsham,355000.0,26415.0,13.44,local_authority
+2016,E09000018,Hounslow,390000.0,26797.0,14.55,local_authority
+2016,E07000011,Huntingdonshire,225500.0,25372.0,8.89,local_authority
+2016,E07000120,Hyndburn,100000.0,20259.0,4.94,local_authority
+2016,E07000202,Ipswich,165000.0,20876.0,7.9,local_authority
+2016,W06000001,Isle of Anglesey,161750.0,22098.0,7.32,local_authority
+2016,E06000046,Isle of Wight,190000.0,20053.0,9.47,local_authority
+2016,E09000019,Islington,605000.0,31680.0,19.1,local_authority
+2016,E07000146,King's Lynn and West Norfolk,182500.0,20529.0,8.89,local_authority
+2016,E06000010,"Kingston upon Hull, City of",105000.0,18136.0,5.79,local_authority
+2016,E09000021,Kingston upon Thames,450000.0,31434.0,14.32,local_authority
+2016,E08000034,Kirklees,139950.0,21110.0,6.63,local_authority
+2016,E08000011,Knowsley,120000.0,21502.0,5.58,local_authority
+2016,E09000022,Lambeth,499950.0,29317.0,17.05,local_authority
+2016,E07000121,Lancaster,152000.0,20776.0,7.32,local_authority
+2016,E08000035,Leeds,162500.0,23369.0,6.95,local_authority
+2016,E06000016,Leicester,141000.0,18958.0,7.44,local_authority
+2016,E07000063,Lewes,291500.0,21156.0,13.78,local_authority
+2016,E09000023,Lewisham,387150.0,29202.0,13.26,local_authority
+2016,E07000138,Lincoln,135000.0,19248.0,7.01,local_authority
+2016,E08000012,Liverpool,120000.0,21754.0,5.52,local_authority
+2016,E06000032,Luton,217000.0,21072.0,10.3,local_authority
+2016,E07000110,Maidstone,265000.0,25011.0,10.6,local_authority
+2016,E07000074,Maldon,279995.0,29071.0,9.63,local_authority
+2016,E07000235,Malvern Hills,238000.0,19498.0,12.21,local_authority
+2016,E08000003,Manchester,148000.0,20163.0,7.34,local_authority
+2016,E07000174,Mansfield,127000.0,17749.0,7.16,local_authority
+2016,E06000035,Medway,212500.0,24559.0,8.65,local_authority
+2016,E07000133,Melton,185000.0,18843.0,9.82,local_authority
+2016,E07000187,Mendip,227500.0,21626.0,10.52,local_authority
+2016,W06000024,Merthyr Tydfil,89972.5,20348.0,4.42,local_authority
+2016,E09000024,Merton,457000.0,30725.0,14.87,local_authority
+2016,E07000042,Mid Devon,210000.0,21957.0,9.56,local_authority
+2016,E07000203,Mid Suffolk,225000.0,22456.0,10.02,local_authority
+2016,E07000228,Mid Sussex,350000.0,24829.0,14.1,local_authority
+2016,E06000002,Middlesbrough,131000.0,18687.0,7.01,local_authority
+2016,E06000042,Milton Keynes,247500.0,25507.0,9.7,local_authority
+2016,W06000021,Monmouthshire,210000.0,26744.0,7.85,local_authority
+2016,W06000012,Neath Port Talbot,105000.0,19909.0,5.27,local_authority
+2016,E07000091,New Forest,297250.0,23081.0,12.88,local_authority
+2016,E07000175,Newark and Sherwood,159000.0,19946.0,7.97,local_authority
+2016,E08000021,Newcastle upon Tyne,155000.0,22501.0,6.89,local_authority
+2016,E07000195,Newcastle-under-Lyme,135000.0,21474.0,6.29,local_authority
+2016,E09000025,Newham,340000.0,22501.0,15.11,local_authority
+2016,W06000022,Newport,154950.0,20644.0,7.51,local_authority
+2016,E07000043,North Devon,219000.0,17565.0,12.47,local_authority
+2016,E07000038,North East Derbyshire,165000.0,20629.0,8.0,local_authority
+2016,E06000012,North East Lincolnshire,123000.0,19151.0,6.42,local_authority
+2016,E07000099,North Hertfordshire,315000.0,27802.0,11.33,local_authority
+2016,E06000013,North Lincolnshire,127500.0,22588.0,5.64,local_authority
+2016,E07000147,North Norfolk,220000.0,17992.0,12.23,local_authority
+2016,E06000024,North Somerset,226000.0,23997.0,9.42,local_authority
+2016,E08000022,North Tyneside,155000.0,21037.0,7.37,local_authority
+2016,E07000218,North Warwickshire,179000.0,25003.0,7.16,local_authority
+2016,E07000134,North West Leicestershire,180000.0,21831.0,8.25,local_authority
+2016,E06000057,Northumberland,157500.0,21391.0,7.36,local_authority
+2016,E07000148,Norwich,172000.0,20286.0,8.48,local_authority
+2016,E06000018,Nottingham,120000.0,18985.0,6.32,local_authority
+2016,E07000219,Nuneaton and Bedworth,150000.0,21888.0,6.85,local_authority
+2016,E07000135,Oadby and Wigston,177000.0,17886.0,9.9,local_authority
+2016,E08000004,Oldham,122000.0,20108.0,6.07,local_authority
+2016,E07000178,Oxford,370000.0,26834.0,13.79,local_authority
+2016,W06000009,Pembrokeshire,160000.0,18587.0,8.61,local_authority
+2016,E07000122,Pendle,95250.0,20913.0,4.55,local_authority
+2016,E06000031,Peterborough,160000.0,21044.0,7.6,local_authority
+2016,E06000026,Plymouth,165000.0,20403.0,8.09,local_authority
+2016,E06000044,Portsmouth,185000.0,21877.0,8.46,local_authority
+2016,W06000023,Powys,165000.0,19994.0,8.25,local_authority
+2016,E07000123,Preston,129750.0,19989.0,6.49,local_authority
+2016,E06000038,Reading,279950.0,25334.0,11.05,local_authority
+2016,E09000026,Redbridge,380000.0,28690.0,13.25,local_authority
+2016,E06000003,Redcar and Cleveland,130000.0,19881.0,6.54,local_authority
+2016,E07000211,Reigate and Banstead,380000.0,27165.0,13.99,local_authority
+2016,W06000016,Rhondda Cynon Taf,110600.0,21452.0,5.16,local_authority
+2016,E07000124,Ribble Valley,207995.0,23648.0,8.8,local_authority
+2016,E09000027,Richmond upon Thames,605000.0,37704.0,16.05,local_authority
+2016,E08000005,Rochdale,125000.0,20602.0,6.07,local_authority
+2016,E07000075,Rochford,292500.0,25814.0,11.33,local_authority
+2016,E07000064,Rother,267247.5,19824.0,13.48,local_authority
+2016,E08000018,Rotherham,134950.0,19208.0,7.03,local_authority
+2016,E07000220,Rugby,196622.5,26106.0,7.53,local_authority
+2016,E07000212,Runnymede,370000.0,26096.0,14.18,local_authority
+2016,E07000176,Rushcliffe,249995.0,27975.0,8.94,local_authority
+2016,E07000092,Rushmoor,275000.0,25170.0,10.93,local_authority
+2016,E06000017,Rutland,241995.0,24970.0,9.69,local_authority
+2016,E07000167,Ryedale,206950.0,19560.0,10.58,local_authority
+2016,E08000006,Salford,136500.0,21505.0,6.35,local_authority
+2016,E08000028,Sandwell,126500.0,20562.0,6.15,local_authority
+2016,E07000168,Scarborough,145000.0,18137.0,7.99,local_authority
+2016,E07000188,Sedgemoor,188000.0,19728.0,9.53,local_authority
+2016,E08000014,Sefton,158500.0,21701.0,7.3,local_authority
+2016,E07000169,Selby,180000.0,23952.0,7.52,local_authority
+2016,E07000111,Sevenoaks,360000.0,25523.0,14.1,local_authority
+2016,E08000019,Sheffield,140000.0,21437.0,6.53,local_authority
+2016,E06000051,Shropshire,194000.0,21363.0,9.08,local_authority
+2016,E06000039,Slough,280000.0,25124.0,11.14,local_authority
+2016,E08000029,Solihull,244500.0,24882.0,9.83,local_authority
+2016,E07000012,South Cambridgeshire,335577.0,29374.0,11.42,local_authority
+2016,E07000039,South Derbyshire,175000.0,24588.0,7.12,local_authority
+2016,E06000025,South Gloucestershire,240000.0,23328.0,10.29,local_authority
+2016,E07000140,South Holland,160000.0,22195.0,7.21,local_authority
+2016,E07000141,South Kesteven,186725.0,19599.0,9.53,local_authority
+2016,E07000031,South Lakeland,217500.0,23569.0,9.23,local_authority
+2016,E07000149,South Norfolk,225000.0,22708.0,9.91,local_authority
+2016,E07000179,South Oxfordshire,355000.0,29892.0,11.88,local_authority
+2016,E07000126,South Ribble,155000.0,22269.0,6.96,local_authority
+2016,E07000189,South Somerset,194812.5,19812.0,9.83,local_authority
+2016,E07000196,South Staffordshire,197500.0,24025.0,8.22,local_authority
+2016,E08000023,South Tyneside,131950.0,21039.0,6.27,local_authority
+2016,E06000045,Southampton,190000.0,20908.0,9.09,local_authority
+2016,E06000033,Southend-on-Sea,235000.0,25124.0,9.35,local_authority
+2016,E09000028,Southwark,500000.0,30000.0,16.67,local_authority
+2016,E07000213,Spelthorne,365000.0,30754.0,11.87,local_authority
+2016,E08000013,St. Helens,128000.0,22850.0,5.6,local_authority
+2016,E07000197,Stafford,185000.0,22521.0,8.21,local_authority
+2016,E07000198,Staffordshire Moorlands,152000.0,21738.0,6.99,local_authority
+2016,E07000243,Stevenage,249995.0,23402.0,10.68,local_authority
+2016,E08000007,Stockport,194950.0,23271.0,8.38,local_authority
+2016,E06000004,Stockton-on-Tees,135000.0,21923.0,6.16,local_authority
+2016,E06000021,Stoke-on-Trent,105000.0,20020.0,5.24,local_authority
+2016,E07000221,Stratford-on-Avon,288000.0,24144.0,11.93,local_authority
+2016,E07000082,Stroud,230000.0,23783.0,9.67,local_authority
+2016,E08000024,Sunderland,120000.0,20916.0,5.74,local_authority
+2016,E07000214,Surrey Heath,370000.0,31432.0,11.77,local_authority
+2016,E09000029,Sutton,345000.0,26679.0,12.93,local_authority
+2016,E07000113,Swale,218000.0,23539.0,9.26,local_authority
+2016,W06000011,Swansea,137000.0,20506.0,6.68,local_authority
+2016,E06000030,Swindon,195000.0,24897.0,7.83,local_authority
+2016,E08000008,Tameside,127500.0,20023.0,6.37,local_authority
+2016,E07000199,Tamworth,165000.0,21882.0,7.54,local_authority
+2016,E07000215,Tandridge,390000.0,25930.0,15.04,local_authority
+2016,E07000045,Teignbridge,226000.0,19408.0,11.64,local_authority
+2016,E06000020,Telford and Wrekin,158995.0,20884.0,7.61,local_authority
+2016,E07000076,Tendring,185000.0,20682.0,8.94,local_authority
+2016,E07000093,Test Valley,279995.0,25451.0,11.0,local_authority
+2016,E07000083,Tewkesbury,234995.0,23321.0,10.08,local_authority
+2016,E07000114,Thanet,198000.0,18476.0,10.72,local_authority
+2016,E07000102,Three Rivers,444995.0,26383.0,16.87,local_authority
+2016,E06000034,Thurrock,250000.0,24788.0,10.09,local_authority
+2016,E07000115,Tonbridge and Malling,319247.5,27160.0,11.75,local_authority
+2016,E06000027,Torbay,180000.0,18763.0,9.59,local_authority
+2016,W06000020,Torfaen,125000.0,21758.0,5.75,local_authority
+2016,E07000046,Torridge,199950.0,19146.0,10.44,local_authority
+2016,E09000030,Tower Hamlets,462675.0,30824.0,15.01,local_authority
+2016,E08000009,Trafford,230000.0,26635.0,8.64,local_authority
+2016,E07000077,Uttlesford,357000.0,28964.0,12.33,local_authority
+2016,W06000014,Vale of Glamorgan,197250.0,24566.0,8.03,local_authority
+2016,E07000180,Vale of White Horse,325000.0,28877.0,11.25,local_authority
+2016,E08000036,Wakefield,136000.0,20782.0,6.54,local_authority
+2016,E08000030,Walsall,139000.0,19417.0,7.16,local_authority
+2016,E09000031,Waltham Forest,406000.0,26043.0,15.59,local_authority
+2016,E09000032,Wandsworth,625000.0,36538.0,17.11,local_authority
+2016,E06000007,Warrington,167000.0,23932.0,6.98,local_authority
+2016,E07000222,Warwick,275000.0,27820.0,9.88,local_authority
+2016,E07000103,Watford,337000.0,28243.0,11.93,local_authority
+2016,E07000216,Waverley,425000.0,30704.0,13.84,local_authority
+2016,E07000065,Wealden,285000.0,23081.0,12.35,local_authority
+2016,E07000241,Welwyn Hatfield,350000.0,25479.0,13.74,local_authority
+2016,E06000037,West Berkshire,325000.0,28347.0,11.47,local_authority
+2016,E07000047,West Devon,218250.0,20230.0,10.79,local_authority
+2016,E07000127,West Lancashire,179997.5,21218.0,8.48,local_authority
+2016,E07000142,West Lindsey,150000.0,20628.0,7.27,local_authority
+2016,E07000181,West Oxfordshire,305000.0,26542.0,11.49,local_authority
+2016,E09000033,Westminster,980000.0,35534.0,27.58,local_authority
+2016,E08000010,Wigan,125000.0,21672.0,5.77,local_authority
+2016,E06000054,Wiltshire,243000.0,21881.0,11.11,local_authority
+2016,E07000094,Winchester,365000.0,29740.0,12.27,local_authority
+2016,E06000040,Windsor and Maidenhead,450000.0,32188.0,13.98,local_authority
+2016,E08000015,Wirral,149950.0,22167.0,6.76,local_authority
+2016,E07000217,Woking,375000.0,28605.0,13.11,local_authority
+2016,E08000031,Wolverhampton,134000.0,20182.0,6.64,local_authority
+2016,E07000237,Worcester,182500.0,22483.0,8.12,local_authority
+2016,E07000229,Worthing,258500.0,21057.0,12.28,local_authority
+2016,W06000006,Wrexham,143875.0,20753.0,6.93,local_authority
+2016,E07000238,Wychavon,245000.0,22520.0,10.88,local_authority
+2016,E07000128,Wyre,145000.0,19930.0,7.28,local_authority
+2016,E07000239,Wyre Forest,162000.0,19695.0,8.23,local_authority
+2016,E06000014,York,216750.0,22010.0,9.85,local_authority
+2017,E07000223,Adur,300000.0,20338.0,14.75,local_authority
+2017,E07000026,Allerdale,156000.0,22471.0,6.94,local_authority
+2017,E07000032,Amber Valley,160000.0,23328.0,6.86,local_authority
+2017,E07000224,Arun,275000.0,21982.0,12.51,local_authority
+2017,E07000170,Ashfield,138000.0,21262.0,6.49,local_authority
+2017,E07000105,Ashford,265000.0,25237.0,10.5,local_authority
+2017,E07000200,Babergh,267500.0,24921.0,10.73,local_authority
+2017,E09000002,Barking and Dagenham,302000.0,24640.0,12.26,local_authority
+2017,E09000003,Barnet,511500.0,28040.0,18.24,local_authority
+2017,E08000016,Barnsley,122000.0,20547.0,5.94,local_authority
+2017,E07000066,Basildon,280000.0,24240.0,11.55,local_authority
+2017,E07000084,Basingstoke and Deane,302500.0,28780.0,10.51,local_authority
+2017,E07000171,Bassetlaw,146500.0,22322.0,6.56,local_authority
+2017,E06000022,Bath and North East Somerset,315000.0,23076.0,13.65,local_authority
+2017,E06000055,Bedford,265000.0,25539.0,10.38,local_authority
+2017,E09000004,Bexley,335000.0,27323.0,12.26,local_authority
+2017,E08000025,Birmingham,162000.0,21924.0,7.39,local_authority
+2017,E07000129,Blaby,204850.0,25226.0,8.12,local_authority
+2017,E06000008,Blackburn with Darwen,107500.0,18786.0,5.72,local_authority
+2017,E06000009,Blackpool,112000.0,17617.0,6.36,local_authority
+2017,W06000019,Blaenau Gwent,83000.0,21592.0,3.84,local_authority
+2017,E07000033,Bolsover,125000.0,18874.0,6.62,local_authority
+2017,E08000001,Bolton,127000.0,20631.0,6.16,local_authority
+2017,E07000136,Boston,147000.0,19037.0,7.72,local_authority
+2017,E06000036,Bracknell Forest,335000.0,27610.0,12.13,local_authority
+2017,E08000032,Bradford,133000.0,20542.0,6.47,local_authority
+2017,E07000067,Braintree,265000.0,25925.0,10.22,local_authority
+2017,E07000143,Breckland,209000.0,19162.0,10.91,local_authority
+2017,E09000005,Brent,475000.0,24645.0,19.27,local_authority
+2017,E07000068,Brentwood,405000.0,32852.0,12.33,local_authority
+2017,W06000013,Bridgend,148000.0,21889.0,6.76,local_authority
+2017,E06000043,Brighton and Hove,345000.0,24187.0,14.26,local_authority
+2017,E06000023,"Bristol, City of",255000.0,23506.0,10.85,local_authority
+2017,E07000144,Broadland,238500.0,21710.0,10.99,local_authority
+2017,E09000006,Bromley,435000.0,32827.0,13.25,local_authority
+2017,E07000234,Bromsgrove,267500.0,26170.0,10.22,local_authority
+2017,E07000095,Broxbourne,335000.0,27723.0,12.08,local_authority
+2017,E07000172,Broxtowe,162500.0,25654.0,6.33,local_authority
+2017,E07000117,Burnley,87000.0,20467.0,4.25,local_authority
+2017,E08000002,Bury,157500.0,23768.0,6.63,local_authority
+2017,W06000018,Caerphilly,122000.0,21665.0,5.63,local_authority
+2017,E08000033,Calderdale,135000.0,21726.0,6.21,local_authority
+2017,E07000008,Cambridge,430000.0,28821.0,14.92,local_authority
+2017,E09000007,Camden,766875.0,32685.0,23.46,local_authority
+2017,E07000192,Cannock Chase,159950.0,23890.0,6.7,local_authority
+2017,E07000106,Canterbury,285000.0,22851.0,12.47,local_authority
+2017,W06000015,Cardiff,183500.0,23245.0,7.89,local_authority
+2017,E07000028,Carlisle,132000.0,19657.0,6.72,local_authority
+2017,W06000010,Carmarthenshire,135000.0,20559.0,6.57,local_authority
+2017,E06000056,Central Bedfordshire,294950.0,27002.0,10.92,local_authority
+2017,W06000008,Ceredigion,175000.0,19124.0,9.15,local_authority
+2017,E07000130,Charnwood,200000.0,23024.0,8.69,local_authority
+2017,E07000070,Chelmsford,330000.0,25725.0,12.83,local_authority
+2017,E07000078,Cheltenham,255000.0,25779.0,9.89,local_authority
+2017,E07000177,Cherwell,299995.0,26654.0,11.26,local_authority
+2017,E06000049,Cheshire East,215000.0,23045.0,9.33,local_authority
+2017,E06000050,Cheshire West and Chester,197500.0,23596.0,8.37,local_authority
+2017,E07000034,Chesterfield,142500.0,20481.0,6.96,local_authority
+2017,E07000225,Chichester,355000.0,22423.0,15.83,local_authority
+2017,E07000225,Chichester,355000.0,22423.0,15.83,local_authority
+2017,E07000118,Chorley,172000.0,22534.0,7.63,local_authority
+2017,E07000071,Colchester,258000.0,23103.0,11.17,local_authority
+2017,W06000003,Conwy,158000.0,20242.0,7.81,local_authority
+2017,E06000052,Cornwall,215000.0,19920.0,10.79,local_authority
+2017,E06000047,County Durham,114000.0,22986.0,4.96,local_authority
+2017,E08000026,Coventry,164000.0,23021.0,7.12,local_authority
+2017,E07000163,Craven,200000.0,17468.0,11.45,local_authority
+2017,E07000226,Crawley,280000.0,24216.0,11.56,local_authority
+2017,E09000008,Croydon,360272.5,28163.0,12.79,local_authority
+2017,E07000096,Dacorum,375000.0,27322.0,13.73,local_authority
+2017,E06000005,Darlington,137975.0,22889.0,6.03,local_authority
+2017,E07000107,Dartford,305950.0,27011.0,11.33,local_authority
+2017,W06000004,Denbighshire,139950.0,20080.0,6.97,local_authority
+2017,E06000015,Derby,145430.0,24533.0,5.93,local_authority
+2017,E07000035,Derbyshire Dales,250000.0,25175.0,9.93,local_authority
+2017,E08000017,Doncaster,130000.0,19643.0,6.62,local_authority
+2017,E07000108,Dover,226000.0,22457.0,10.06,local_authority
+2017,E08000027,Dudley,155000.0,22510.0,6.89,local_authority
+2017,E09000009,Ealing,489950.0,26847.0,18.25,local_authority
+2017,E07000009,East Cambridgeshire,274000.0,25211.0,10.87,local_authority
+2017,E07000040,East Devon,264995.0,21793.0,12.16,local_authority
+2017,E07000085,East Hampshire,360000.0,28986.0,12.42,local_authority
+2017,E07000242,East Hertfordshire,383000.0,28083.0,13.64,local_authority
+2017,E07000137,East Lindsey,159997.5,21130.0,7.57,local_authority
+2017,E06000011,East Riding of Yorkshire,170000.0,22147.0,7.68,local_authority
+2017,E07000193,East Staffordshire,169000.0,21311.0,7.93,local_authority
+2017,E07000061,Eastbourne,229950.0,20483.0,11.23,local_authority
+2017,E07000086,Eastleigh,280000.0,23834.0,11.75,local_authority
+2017,E07000030,Eden,180100.0,20294.0,8.87,local_authority
+2017,E07000207,Elmbridge,570500.0,30000.0,19.02,local_authority
+2017,E09000010,Enfield,402000.0,25270.0,15.91,local_authority
+2017,E07000072,Epping Forest,430000.0,27300.0,15.75,local_authority
+2017,E07000208,Epsom and Ewell,472500.0,32128.0,14.71,local_authority
+2017,E07000036,Erewash,145000.0,22241.0,6.52,local_authority
+2017,E07000041,Exeter,240000.0,21049.0,11.4,local_authority
+2017,E07000087,Fareham,280000.0,27060.0,10.35,local_authority
+2017,E07000010,Fenland,175000.0,22244.0,7.87,local_authority
+2017,W06000005,Flintshire,157000.0,21524.0,7.29,local_authority
+2017,E07000112,Folkestone and Hythe,245000.0,22991.0,10.66,local_authority
+2017,E07000080,Forest of Dean,200000.0,21489.0,9.31,local_authority
+2017,E07000119,Fylde,199950.0,24096.0,8.3,local_authority
+2017,E08000037,Gateshead,130000.0,21085.0,6.17,local_authority
+2017,E07000173,Gedling,165000.0,23371.0,7.06,local_authority
+2017,E07000081,Gloucester,180000.0,21242.0,8.47,local_authority
+2017,E07000088,Gosport,198750.0,23982.0,8.29,local_authority
+2017,E07000109,Gravesham,279500.0,22467.0,12.44,local_authority
+2017,E07000145,Great Yarmouth,165000.0,17414.0,9.48,local_authority
+2017,E09000011,Greenwich,420000.0,28078.0,14.96,local_authority
+2017,E07000209,Guildford,430000.0,31250.0,13.76,local_authority
+2017,W06000002,Gwynedd,147500.0,18784.0,7.85,local_authority
+2017,E09000012,Hackney,530000.0,30016.0,17.66,local_authority
+2017,E06000006,Halton,137000.0,21426.0,6.39,local_authority
+2017,E07000164,Hambleton,229713.0,21881.0,10.5,local_authority
+2017,E09000013,Hammersmith and Fulham,765000.0,35995.0,21.25,local_authority
+2017,E07000131,Harborough,260000.0,27267.0,9.54,local_authority
+2017,E09000014,Haringey,530000.0,28698.0,18.47,local_authority
+2017,E07000073,Harlow,277750.0,24206.0,11.47,local_authority
+2017,E07000165,Harrogate,265000.0,23167.0,11.44,local_authority
+2017,E09000015,Harrow,500000.0,27969.0,17.88,local_authority
+2017,E07000089,Hart,402250.0,28601.0,14.06,local_authority
+2017,E06000001,Hartlepool,123000.0,22971.0,5.35,local_authority
+2017,E07000062,Hastings,205000.0,19904.0,10.3,local_authority
+2017,E07000090,Havant,260000.0,24137.0,10.77,local_authority
+2017,E09000016,Havering,350000.0,28826.0,12.14,local_authority
+2017,E06000019,"Herefordshire, County of",218500.0,19582.0,11.16,local_authority
+2017,E07000098,Hertsmere,450000.0,24287.0,18.53,local_authority
+2017,E07000037,High Peak,180000.0,23678.0,7.6,local_authority
+2017,E09000017,Hillingdon,415000.0,27085.0,15.32,local_authority
+2017,E07000132,Hinckley and Bosworth,187500.0,22383.0,8.38,local_authority
+2017,E07000227,Horsham,370000.0,23675.0,15.63,local_authority
+2017,E09000018,Hounslow,380000.0,26474.0,14.35,local_authority
+2017,E07000011,Huntingdonshire,251000.0,26819.0,9.36,local_authority
+2017,E07000120,Hyndburn,100500.0,19570.0,5.14,local_authority
+2017,E07000202,Ipswich,182500.0,20740.0,8.8,local_authority
+2017,W06000001,Isle of Anglesey,165000.0,23164.0,7.12,local_authority
+2017,E06000046,Isle of Wight,200000.0,20818.0,9.61,local_authority
+2017,E09000019,Islington,616000.0,33219.0,18.54,local_authority
+2017,E07000146,King's Lynn and West Norfolk,200000.0,19437.0,10.29,local_authority
+2017,E06000010,"Kingston upon Hull, City of",115000.0,18956.0,6.07,local_authority
+2017,E09000021,Kingston upon Thames,485000.0,31839.0,15.23,local_authority
+2017,E08000034,Kirklees,141000.0,21765.0,6.48,local_authority
+2017,E08000011,Knowsley,128000.0,21956.0,5.83,local_authority
+2017,E09000022,Lambeth,515000.0,31186.0,16.51,local_authority
+2017,E07000121,Lancaster,151000.0,22300.0,6.77,local_authority
+2017,E08000035,Leeds,169950.0,23644.0,7.19,local_authority
+2017,E06000016,Leicester,152000.0,18849.0,8.06,local_authority
+2017,E07000063,Lewes,308250.0,22245.0,13.86,local_authority
+2017,E09000023,Lewisham,420000.0,28092.0,14.95,local_authority
+2017,E07000194,Lichfield,225000.0,25771.0,8.73,local_authority
+2017,E07000138,Lincoln,143500.0,18585.0,7.72,local_authority
+2017,E08000012,Liverpool,124000.0,21792.0,5.69,local_authority
+2017,E06000032,Luton,235000.0,23332.0,10.07,local_authority
+2017,E07000110,Maidstone,294995.0,24285.0,12.15,local_authority
+2017,E07000074,Maldon,320000.0,27173.0,11.78,local_authority
+2017,E07000235,Malvern Hills,255000.0,23500.0,10.85,local_authority
+2017,E08000003,Manchester,160500.0,20555.0,7.81,local_authority
+2017,E07000174,Mansfield,127000.0,18523.0,6.86,local_authority
+2017,E06000035,Medway,232000.0,24828.0,9.34,local_authority
+2017,E07000133,Melton,194997.5,22241.0,8.77,local_authority
+2017,W06000024,Merthyr Tydfil,95000.0,21340.0,4.45,local_authority
+2017,E09000024,Merton,457750.0,30834.0,14.85,local_authority
+2017,E07000042,Mid Devon,219475.0,22007.0,9.97,local_authority
+2017,E07000203,Mid Suffolk,255000.0,22162.0,11.51,local_authority
+2017,E07000228,Mid Sussex,365000.0,28355.0,12.87,local_authority
+2017,E06000002,Middlesbrough,125000.0,18454.0,6.77,local_authority
+2017,E06000042,Milton Keynes,265000.0,26529.0,9.99,local_authority
+2017,W06000021,Monmouthshire,225000.0,25663.0,8.77,local_authority
+2017,W06000012,Neath Port Talbot,110000.0,20645.0,5.33,local_authority
+2017,E07000091,New Forest,315000.0,23079.0,13.65,local_authority
+2017,E07000175,Newark and Sherwood,169995.0,19014.0,8.94,local_authority
+2017,E08000021,Newcastle upon Tyne,156000.0,21253.0,7.34,local_authority
+2017,E07000195,Newcastle-under-Lyme,130750.0,20984.0,6.23,local_authority
+2017,E09000025,Newham,390000.0,23429.0,16.65,local_authority
+2017,W06000022,Newport,157500.0,21251.0,7.41,local_authority
+2017,E07000043,North Devon,228000.0,17672.0,12.9,local_authority
+2017,E07000038,North East Derbyshire,175000.0,20010.0,8.75,local_authority
+2017,E06000012,North East Lincolnshire,129000.0,18334.0,7.04,local_authority
+2017,E07000099,North Hertfordshire,335000.0,30627.0,10.94,local_authority
+2017,E07000139,North Kesteven,183000.0,22916.0,7.99,local_authority
+2017,E06000013,North Lincolnshire,132500.0,22397.0,5.92,local_authority
+2017,E07000147,North Norfolk,235000.0,19434.0,12.09,local_authority
+2017,E06000024,North Somerset,237500.0,22217.0,10.69,local_authority
+2017,E08000022,North Tyneside,165000.0,21973.0,7.51,local_authority
+2017,E07000218,North Warwickshire,190000.0,26289.0,7.23,local_authority
+2017,E07000134,North West Leicestershire,190000.0,21486.0,8.84,local_authority
+2017,E06000057,Northumberland,159950.0,22353.0,7.16,local_authority
+2017,E06000018,Nottingham,130000.0,18911.0,6.87,local_authority
+2017,E07000219,Nuneaton and Bedworth,160000.0,23224.0,6.89,local_authority
+2017,E07000135,Oadby and Wigston,186600.0,20931.0,8.92,local_authority
+2017,E08000004,Oldham,127000.0,20423.0,6.22,local_authority
+2017,E07000178,Oxford,395500.0,28788.0,13.74,local_authority
+2017,W06000009,Pembrokeshire,162000.0,18741.0,8.64,local_authority
+2017,E06000031,Peterborough,170737.0,19999.0,8.54,local_authority
+2017,E06000026,Plymouth,169000.0,21703.0,7.79,local_authority
+2017,E06000044,Portsmouth,200000.0,21924.0,9.12,local_authority
+2017,W06000023,Powys,174500.0,20458.0,8.53,local_authority
+2017,E07000123,Preston,139500.0,20254.0,6.89,local_authority
+2017,E06000038,Reading,295000.0,25420.0,11.61,local_authority
+2017,E09000026,Redbridge,415000.0,28999.0,14.31,local_authority
+2017,E06000003,Redcar and Cleveland,130000.0,20370.0,6.38,local_authority
+2017,E07000236,Redditch,186500.0,20579.0,9.06,local_authority
+2017,E07000211,Reigate and Banstead,395000.0,29333.0,13.47,local_authority
+2017,W06000016,Rhondda Cynon Taf,108500.0,21645.0,5.01,local_authority
+2017,E07000124,Ribble Valley,215000.0,22376.0,9.61,local_authority
+2017,E09000027,Richmond upon Thames,640000.0,36361.0,17.6,local_authority
+2017,E07000166,Richmondshire,195000.0,21034.0,9.27,local_authority
+2017,E08000005,Rochdale,127500.0,20348.0,6.27,local_authority
+2017,E07000075,Rochford,320000.0,24708.0,12.95,local_authority
+2017,E07000125,Rossendale,130050.0,21259.0,6.12,local_authority
+2017,E08000018,Rotherham,133245.0,20049.0,6.65,local_authority
+2017,E07000220,Rugby,210000.0,27324.0,7.69,local_authority
+2017,E07000212,Runnymede,399950.0,27100.0,14.76,local_authority
+2017,E07000176,Rushcliffe,265000.0,27503.0,9.64,local_authority
+2017,E07000092,Rushmoor,299950.0,25188.0,11.91,local_authority
+2017,E06000017,Rutland,250000.0,25081.0,9.97,local_authority
+2017,E07000167,Ryedale,216750.0,20058.0,10.81,local_authority
+2017,E08000006,Salford,158000.0,21702.0,7.28,local_authority
+2017,E08000028,Sandwell,135000.0,20254.0,6.67,local_authority
+2017,E07000168,Scarborough,157000.0,20463.0,7.67,local_authority
+2017,E07000188,Sedgemoor,205000.0,19759.0,10.38,local_authority
+2017,E08000014,Sefton,161250.0,22149.0,7.28,local_authority
+2017,E07000169,Selby,190000.0,24829.0,7.65,local_authority
+2017,E07000111,Sevenoaks,383625.0,27247.0,14.08,local_authority
+2017,E08000019,Sheffield,150000.0,21944.0,6.84,local_authority
+2017,E06000051,Shropshire,210000.0,22461.0,9.35,local_authority
+2017,E06000039,Slough,315000.0,25939.0,12.14,local_authority
+2017,E08000029,Solihull,260000.0,24179.0,10.75,local_authority
+2017,E07000012,South Cambridgeshire,365000.0,26584.0,13.73,local_authority
+2017,E07000039,South Derbyshire,195000.0,24689.0,7.9,local_authority
+2017,E06000025,South Gloucestershire,256500.0,23205.0,11.05,local_authority
+2017,E07000044,South Hams,280000.0,21666.0,12.92,local_authority
+2017,E07000140,South Holland,170000.0,21645.0,7.85,local_authority
+2017,E07000141,South Kesteven,195000.0,21422.0,9.1,local_authority
+2017,E07000149,South Norfolk,243250.0,22169.0,10.97,local_authority
+2017,E07000179,South Oxfordshire,381600.0,29826.0,12.79,local_authority
+2017,E07000126,South Ribble,155000.0,22944.0,6.76,local_authority
+2017,E07000189,South Somerset,210000.0,21469.0,9.78,local_authority
+2017,E07000196,South Staffordshire,212750.0,25063.0,8.49,local_authority
+2017,E08000023,South Tyneside,133000.0,20910.0,6.36,local_authority
+2017,E06000045,Southampton,205000.0,22465.0,9.13,local_authority
+2017,E06000033,Southend-on-Sea,260000.0,23855.0,10.9,local_authority
+2017,E09000028,Southwark,532500.0,30483.0,17.47,local_authority
+2017,E07000213,Spelthorne,394725.0,29218.0,13.51,local_authority
+2017,E07000240,St Albans,518500.0,32774.0,15.82,local_authority
+2017,E08000013,St. Helens,132750.0,21644.0,6.13,local_authority
+2017,E07000197,Stafford,195000.0,22700.0,8.59,local_authority
+2017,E07000198,Staffordshire Moorlands,158000.0,21833.0,7.24,local_authority
+2017,E07000243,Stevenage,264000.0,23490.0,11.24,local_authority
+2017,E08000007,Stockport,205000.0,24260.0,8.45,local_authority
+2017,E06000004,Stockton-on-Tees,142500.0,22428.0,6.35,local_authority
+2017,E06000021,Stoke-on-Trent,110000.0,21000.0,5.24,local_authority
+2017,E07000221,Stratford-on-Avon,297000.0,25441.0,11.67,local_authority
+2017,E07000082,Stroud,249997.0,24321.0,10.28,local_authority
+2017,E08000024,Sunderland,125000.0,21178.0,5.9,local_authority
+2017,E07000214,Surrey Heath,396500.0,34496.0,11.49,local_authority
+2017,E09000029,Sutton,359950.0,27383.0,13.15,local_authority
+2017,E07000113,Swale,235000.0,25406.0,9.25,local_authority
+2017,W06000011,Swansea,139250.0,21150.0,6.58,local_authority
+2017,E06000030,Swindon,214000.0,24677.0,8.67,local_authority
+2017,E08000008,Tameside,135000.0,20492.0,6.59,local_authority
+2017,E07000199,Tamworth,172000.0,22561.0,7.62,local_authority
+2017,E07000215,Tandridge,415000.0,30351.0,13.67,local_authority
+2017,E07000045,Teignbridge,237500.0,19275.0,12.32,local_authority
+2017,E06000020,Telford and Wrekin,164250.0,20687.0,7.94,local_authority
+2017,E07000076,Tendring,220000.0,21391.0,10.28,local_authority
+2017,E07000093,Test Valley,294995.0,26535.0,11.12,local_authority
+2017,E07000083,Tewkesbury,250000.0,23186.0,10.78,local_authority
+2017,E07000114,Thanet,216950.0,18111.0,11.98,local_authority
+2017,E07000102,Three Rivers,465000.0,27939.0,16.64,local_authority
+2017,E06000034,Thurrock,275000.0,25366.0,10.84,local_authority
+2017,E06000027,Torbay,188000.0,19574.0,9.6,local_authority
+2017,W06000020,Torfaen,130000.0,22972.0,5.66,local_authority
+2017,E07000046,Torridge,207500.0,20740.0,10.0,local_authority
+2017,E09000030,Tower Hamlets,485000.0,32554.0,14.9,local_authority
+2017,E08000009,Trafford,247000.0,26167.0,9.44,local_authority
+2017,E07000116,Tunbridge Wells,357500.0,27624.0,12.94,local_authority
+2017,E07000077,Uttlesford,389995.0,28339.0,13.76,local_authority
+2017,W06000014,Vale of Glamorgan,210000.0,24537.0,8.56,local_authority
+2017,E07000180,Vale of White Horse,340000.0,29913.0,11.37,local_authority
+2017,E08000036,Wakefield,145000.0,21089.0,6.88,local_authority
+2017,E08000030,Walsall,147000.0,19941.0,7.37,local_authority
+2017,E09000031,Waltham Forest,442267.0,26343.0,16.79,local_authority
+2017,E09000032,Wandsworth,657095.0,36590.0,17.96,local_authority
+2017,E06000007,Warrington,175000.0,24672.0,7.09,local_authority
+2017,E07000222,Warwick,285000.0,28202.0,10.11,local_authority
+2017,E07000103,Watford,360000.0,29884.0,12.05,local_authority
+2017,E07000216,Waverley,440000.0,30231.0,14.55,local_authority
+2017,E07000065,Wealden,310000.0,23157.0,13.39,local_authority
+2017,E07000241,Welwyn Hatfield,370000.0,28652.0,12.91,local_authority
+2017,E06000037,West Berkshire,336250.0,27586.0,12.19,local_authority
+2017,E07000047,West Devon,210000.0,20382.0,10.3,local_authority
+2017,E07000127,West Lancashire,180000.0,22150.0,8.13,local_authority
+2017,E07000142,West Lindsey,165000.0,23453.0,7.04,local_authority
+2017,E07000181,West Oxfordshire,330000.0,23827.0,13.85,local_authority
+2017,E09000033,Westminster,1050000.0,38089.0,27.57,local_authority
+2017,E08000010,Wigan,130000.0,22179.0,5.86,local_authority
+2017,E06000054,Wiltshire,259950.0,23173.0,11.22,local_authority
+2017,E07000094,Winchester,405000.0,30063.0,13.47,local_authority
+2017,E06000040,Windsor and Maidenhead,485000.0,33896.0,14.31,local_authority
+2017,E08000015,Wirral,155000.0,22350.0,6.94,local_authority
+2017,E07000217,Woking,400000.0,29966.0,13.35,local_authority
+2017,E06000041,Wokingham,420000.0,30990.0,13.55,local_authority
+2017,E08000031,Wolverhampton,137950.0,21179.0,6.51,local_authority
+2017,E07000237,Worcester,185000.0,24325.0,7.61,local_authority
+2017,E07000229,Worthing,279725.0,23015.0,12.15,local_authority
+2017,W06000006,Wrexham,146750.0,21764.0,6.74,local_authority
+2017,E07000238,Wychavon,259000.0,20561.0,12.6,local_authority
+2017,E07000239,Wyre Forest,170000.0,20182.0,8.42,local_authority
+2017,E06000014,York,227500.0,21575.0,10.54,local_authority
+2018,E07000223,Adur,305000.0,22605.0,13.49,local_authority
+2018,E07000026,Allerdale,163200.0,22720.0,7.18,local_authority
+2018,E07000032,Amber Valley,172000.0,22227.0,7.74,local_authority
+2018,E07000224,Arun,285000.0,22258.0,12.8,local_authority
+2018,E07000170,Ashfield,142000.0,22467.0,6.32,local_authority
+2018,E07000105,Ashford,285000.0,24119.0,11.82,local_authority
+2018,E07000200,Babergh,275000.0,25130.0,10.94,local_authority
+2018,E09000002,Barking and Dagenham,305000.0,25470.0,11.97,local_authority
+2018,E09000003,Barnet,515000.0,28740.0,17.92,local_authority
+2018,E08000016,Barnsley,129995.0,21657.0,6.0,local_authority
+2018,E07000027,Barrow-in-Furness,123000.0,26508.0,4.64,local_authority
+2018,E07000066,Basildon,295000.0,25454.0,11.59,local_authority
+2018,E07000084,Basingstoke and Deane,318975.0,28000.0,11.39,local_authority
+2018,E07000171,Bassetlaw,153000.0,21537.0,7.1,local_authority
+2018,E06000022,Bath and North East Somerset,325000.0,23752.0,13.68,local_authority
+2018,E06000055,Bedford,280000.0,24173.0,11.58,local_authority
+2018,E09000004,Bexley,350000.0,27561.0,12.7,local_authority
+2018,E08000025,Birmingham,171000.0,22151.0,7.72,local_authority
+2018,E07000129,Blaby,215000.0,24399.0,8.81,local_authority
+2018,E06000008,Blackburn with Darwen,120000.0,19879.0,6.04,local_authority
+2018,E06000009,Blackpool,110000.0,18210.0,6.04,local_authority
+2018,W06000019,Blaenau Gwent,83000.0,20690.0,4.01,local_authority
+2018,E07000033,Bolsover,128500.0,20898.0,6.15,local_authority
+2018,E08000001,Bolton,132500.0,20726.0,6.39,local_authority
+2018,E07000136,Boston,155000.0,19315.0,8.02,local_authority
+2018,E06000058,"Bournemouth, Christchurch and Poole",272000.0,22739.0,11.96,local_authority
+2018,E06000036,Bracknell Forest,336500.0,27050.0,12.44,local_authority
+2018,E08000032,Bradford,135000.0,21084.0,6.4,local_authority
+2018,E07000067,Braintree,277500.0,27414.0,10.12,local_authority
+2018,E07000143,Breckland,224000.0,21787.0,10.28,local_authority
+2018,E09000005,Brent,495000.0,25017.0,19.79,local_authority
+2018,W06000013,Bridgend,150000.0,23091.0,6.5,local_authority
+2018,E06000043,Brighton and Hove,345000.0,24448.0,14.11,local_authority
+2018,E06000023,"Bristol, City of",263500.0,24145.0,10.91,local_authority
+2018,E07000144,Broadland,246000.0,23593.0,10.43,local_authority
+2018,E09000006,Bromley,440000.0,33794.0,13.02,local_authority
+2018,E07000234,Bromsgrove,279975.0,25320.0,11.06,local_authority
+2018,E07000095,Broxbourne,351500.0,28005.0,12.55,local_authority
+2018,E07000172,Broxtowe,175000.0,25865.0,6.77,local_authority
+2018,E07000117,Burnley,90000.0,20801.0,4.33,local_authority
+2018,E08000002,Bury,164000.0,25433.0,6.45,local_authority
+2018,W06000018,Caerphilly,127000.0,22580.0,5.62,local_authority
+2018,E08000033,Calderdale,140750.0,22377.0,6.29,local_authority
+2018,E07000008,Cambridge,430000.0,29529.0,14.56,local_authority
+2018,E09000007,Camden,760000.0,34492.0,22.03,local_authority
+2018,E07000192,Cannock Chase,165000.0,23860.0,6.92,local_authority
+2018,E07000106,Canterbury,295000.0,22568.0,13.07,local_authority
+2018,W06000015,Cardiff,197500.0,23414.0,8.44,local_authority
+2018,E07000028,Carlisle,140000.0,21509.0,6.51,local_authority
+2018,W06000010,Carmarthenshire,136375.0,21029.0,6.49,local_authority
+2018,E07000069,Castle Point,295000.0,24853.0,11.87,local_authority
+2018,E06000056,Central Bedfordshire,313995.0,27754.0,11.31,local_authority
+2018,W06000008,Ceredigion,178000.0,20412.0,8.72,local_authority
+2018,E07000130,Charnwood,210000.0,23948.0,8.77,local_authority
+2018,E07000070,Chelmsford,345000.0,25584.0,13.48,local_authority
+2018,E07000078,Cheltenham,266000.0,25574.0,10.4,local_authority
+2018,E07000177,Cherwell,312000.0,26462.0,11.79,local_authority
+2018,E06000049,Cheshire East,232500.0,24028.0,9.68,local_authority
+2018,E06000050,Cheshire West and Chester,198000.0,24227.0,8.17,local_authority
+2018,E07000034,Chesterfield,150000.0,21345.0,7.03,local_authority
+2018,E07000225,Chichester,370000.0,21515.0,17.2,local_authority
+2018,E07000118,Chorley,165000.0,24349.0,6.78,local_authority
+2018,E07000071,Colchester,272000.0,23659.0,11.5,local_authority
+2018,W06000003,Conwy,159000.0,20452.0,7.77,local_authority
+2018,E06000052,Cornwall,222500.0,20305.0,10.96,local_authority
+2018,E07000079,Cotswold,350000.0,22359.0,15.65,local_authority
+2018,E06000047,County Durham,116995.0,23158.0,5.05,local_authority
+2018,E08000026,Coventry,175000.0,24296.0,7.2,local_authority
+2018,E07000226,Crawley,295000.0,24098.0,12.24,local_authority
+2018,E09000008,Croydon,375000.0,29299.0,12.8,local_authority
+2018,E07000096,Dacorum,380000.0,27006.0,14.07,local_authority
+2018,E06000005,Darlington,139000.0,21867.0,6.36,local_authority
+2018,E07000107,Dartford,308000.0,28763.0,10.71,local_authority
+2018,W06000004,Denbighshire,146000.0,20367.0,7.17,local_authority
+2018,E06000015,Derby,154950.0,26000.0,5.96,local_authority
+2018,E07000035,Derbyshire Dales,249950.0,22677.0,11.02,local_authority
+2018,E08000017,Doncaster,128000.0,21294.0,6.01,local_authority
+2018,E06000059,Dorset,285000.0,21526.0,13.24,local_authority
+2018,E07000108,Dover,244000.0,23593.0,10.34,local_authority
+2018,E08000027,Dudley,163500.0,22510.0,7.26,local_authority
+2018,E09000009,Ealing,467500.0,27673.0,16.89,local_authority
+2018,E07000009,East Cambridgeshire,280000.0,24885.0,11.25,local_authority
+2018,E07000040,East Devon,277000.0,21728.0,12.75,local_authority
+2018,E07000085,East Hampshire,365000.0,29632.0,12.32,local_authority
+2018,E07000242,East Hertfordshire,387000.0,29992.0,12.9,local_authority
+2018,E07000137,East Lindsey,165000.0,20989.0,7.86,local_authority
+2018,E06000011,East Riding of Yorkshire,175000.0,22553.0,7.76,local_authority
+2018,E07000193,East Staffordshire,182000.0,21429.0,8.49,local_authority
+2018,E07000244,East Suffolk,235000.0,22649.0,10.38,local_authority
+2018,E07000061,Eastbourne,238000.0,22840.0,10.42,local_authority
+2018,E07000086,Eastleigh,295000.0,23308.0,12.66,local_authority
+2018,E07000207,Elmbridge,570000.0,34003.0,16.76,local_authority
+2018,E09000010,Enfield,400000.0,26000.0,15.38,local_authority
+2018,E07000072,Epping Forest,450000.0,27985.0,16.08,local_authority
+2018,E07000208,Epsom and Ewell,475000.0,30696.0,15.47,local_authority
+2018,E07000036,Erewash,154950.0,22628.0,6.85,local_authority
+2018,E07000041,Exeter,250000.0,21367.0,11.7,local_authority
+2018,E07000087,Fareham,285000.0,27033.0,10.54,local_authority
+2018,E07000010,Fenland,185000.0,21914.0,8.44,local_authority
+2018,W06000005,Flintshire,160000.0,21631.0,7.4,local_authority
+2018,E07000112,Folkestone and Hythe,250000.0,22629.0,11.05,local_authority
+2018,E07000080,Forest of Dean,211000.0,22088.0,9.55,local_authority
+2018,E07000119,Fylde,193000.0,26437.0,7.3,local_authority
+2018,E08000037,Gateshead,136000.0,21560.0,6.31,local_authority
+2018,E07000173,Gedling,175000.0,23731.0,7.37,local_authority
+2018,E07000081,Gloucester,190000.0,22897.0,8.3,local_authority
+2018,E07000088,Gosport,203250.0,22206.0,9.15,local_authority
+2018,E07000109,Gravesham,290000.0,23423.0,12.38,local_authority
+2018,E09000011,Greenwich,430000.0,30923.0,13.91,local_authority
+2018,E07000209,Guildford,450000.0,31319.0,14.37,local_authority
+2018,W06000002,Gwynedd,155000.0,19084.0,8.12,local_authority
+2018,E09000012,Hackney,550000.0,29351.0,18.74,local_authority
+2018,E06000006,Halton,140000.0,21958.0,6.38,local_authority
+2018,E07000164,Hambleton,230000.0,22529.0,10.21,local_authority
+2018,E09000013,Hammersmith and Fulham,790000.0,35983.0,21.95,local_authority
+2018,E07000131,Harborough,269997.5,26362.0,10.24,local_authority
+2018,E09000014,Haringey,521000.0,28294.0,18.41,local_authority
+2018,E07000073,Harlow,280000.0,24229.0,11.56,local_authority
+2018,E07000165,Harrogate,275500.0,24343.0,11.32,local_authority
+2018,E09000015,Harrow,475500.0,27736.0,17.14,local_authority
+2018,E07000089,Hart,397500.0,29749.0,13.36,local_authority
+2018,E06000001,Hartlepool,124000.0,22322.0,5.56,local_authority
+2018,E07000062,Hastings,218225.0,20121.0,10.85,local_authority
+2018,E07000090,Havant,263000.0,23892.0,11.01,local_authority
+2018,E09000016,Havering,360000.0,27633.0,13.03,local_authority
+2018,E06000019,"Herefordshire, County of",235000.0,20003.0,11.75,local_authority
+2018,E07000098,Hertsmere,453000.0,29652.0,15.28,local_authority
+2018,E07000037,High Peak,185000.0,22248.0,8.32,local_authority
+2018,E09000017,Hillingdon,415000.0,26433.0,15.7,local_authority
+2018,E07000132,Hinckley and Bosworth,200000.0,22849.0,8.75,local_authority
+2018,E07000227,Horsham,380000.0,25662.0,14.81,local_authority
+2018,E09000018,Hounslow,410000.0,27564.0,14.87,local_authority
+2018,E07000011,Huntingdonshire,269995.0,27589.0,9.79,local_authority
+2018,E07000120,Hyndburn,100100.0,20522.0,4.88,local_authority
+2018,W06000001,Isle of Anglesey,169975.0,22862.0,7.43,local_authority
+2018,E06000046,Isle of Wight,204000.0,21565.0,9.46,local_authority
+2018,E09000019,Islington,589000.0,37502.0,15.71,local_authority
+2018,E09000020,Kensington and Chelsea,1450000.0,37191.0,38.99,local_authority
+2018,E07000146,King's Lynn and West Norfolk,210000.0,20545.0,10.22,local_authority
+2018,E06000010,"Kingston upon Hull, City of",112500.0,19268.0,5.84,local_authority
+2018,E09000021,Kingston upon Thames,485000.0,32160.0,15.08,local_authority
+2018,E08000034,Kirklees,150000.0,21719.0,6.91,local_authority
+2018,E08000011,Knowsley,133250.0,22287.0,5.98,local_authority
+2018,E09000022,Lambeth,525000.0,33307.0,15.76,local_authority
+2018,E07000121,Lancaster,154375.0,21848.0,7.07,local_authority
+2018,E08000035,Leeds,175106.0,23084.0,7.59,local_authority
+2018,E06000016,Leicester,167000.0,18940.0,8.82,local_authority
+2018,E07000063,Lewes,320000.0,24050.0,13.31,local_authority
+2018,E09000023,Lewisham,409000.0,29997.0,13.63,local_authority
+2018,E07000194,Lichfield,233000.0,26039.0,8.95,local_authority
+2018,E08000012,Liverpool,127000.0,22324.0,5.69,local_authority
+2018,E06000032,Luton,245000.0,21629.0,11.33,local_authority
+2018,E07000110,Maidstone,309250.0,23973.0,12.9,local_authority
+2018,E07000074,Maldon,320000.0,25049.0,12.77,local_authority
+2018,E07000235,Malvern Hills,265000.0,22758.0,11.64,local_authority
+2018,E08000003,Manchester,170000.0,22188.0,7.66,local_authority
+2018,E06000035,Medway,243000.0,25857.0,9.4,local_authority
+2018,E07000187,Mendip,260000.0,21006.0,12.38,local_authority
+2018,W06000024,Merthyr Tydfil,92500.0,20782.0,4.45,local_authority
+2018,E09000024,Merton,479000.0,32299.0,14.83,local_authority
+2018,E07000042,Mid Devon,235000.0,22274.0,10.55,local_authority
+2018,E07000203,Mid Suffolk,264697.5,23208.0,11.41,local_authority
+2018,E07000228,Mid Sussex,370000.0,30024.0,12.32,local_authority
+2018,E06000002,Middlesbrough,133000.0,19120.0,6.96,local_authority
+2018,E06000042,Milton Keynes,280000.0,26527.0,10.56,local_authority
+2018,E07000210,Mole Valley,480000.0,24362.0,19.7,local_authority
+2018,W06000021,Monmouthshire,240997.5,26095.0,9.24,local_authority
+2018,W06000012,Neath Port Talbot,115000.0,21916.0,5.25,local_authority
+2018,E07000091,New Forest,325000.0,22486.0,14.45,local_authority
+2018,E07000175,Newark and Sherwood,180000.0,21073.0,8.54,local_authority
+2018,E08000021,Newcastle upon Tyne,160000.0,21999.0,7.27,local_authority
+2018,E07000195,Newcastle-under-Lyme,142750.0,22656.0,6.3,local_authority
+2018,E09000025,Newham,410000.0,24805.0,16.53,local_authority
+2018,W06000022,Newport,162995.0,22165.0,7.35,local_authority
+2018,E07000043,North Devon,235000.0,18984.0,12.38,local_authority
+2018,E07000038,North East Derbyshire,181000.0,23013.0,7.87,local_authority
+2018,E06000012,North East Lincolnshire,128000.0,19954.0,6.41,local_authority
+2018,E06000013,North Lincolnshire,137500.0,21950.0,6.26,local_authority
+2018,E07000147,North Norfolk,246000.0,19989.0,12.31,local_authority
+2018,E06000024,North Somerset,250000.0,24333.0,10.27,local_authority
+2018,E08000022,North Tyneside,169475.0,23208.0,7.3,local_authority
+2018,E07000218,North Warwickshire,195000.0,25654.0,7.6,local_authority
+2018,E07000134,North West Leicestershire,210000.0,22452.0,9.35,local_authority
+2018,E06000057,Northumberland,165000.0,21382.0,7.72,local_authority
+2018,E07000148,Norwich,190500.0,21485.0,8.87,local_authority
+2018,E06000018,Nottingham,135000.0,19556.0,6.9,local_authority
+2018,E07000219,Nuneaton and Bedworth,175000.0,22725.0,7.7,local_authority
+2018,E08000004,Oldham,130000.0,20509.0,6.34,local_authority
+2018,E07000178,Oxford,394000.0,27060.0,14.56,local_authority
+2018,W06000009,Pembrokeshire,170000.0,19384.0,8.77,local_authority
+2018,E07000122,Pendle,105000.0,21915.0,4.79,local_authority
+2018,E06000031,Peterborough,185000.0,21548.0,8.59,local_authority
+2018,E06000026,Plymouth,175500.0,22465.0,7.81,local_authority
+2018,E06000044,Portsmouth,210000.0,22126.0,9.49,local_authority
+2018,W06000023,Powys,180000.0,20715.0,8.69,local_authority
+2018,E07000123,Preston,144000.0,21348.0,6.75,local_authority
+2018,E06000038,Reading,310000.0,27090.0,11.44,local_authority
+2018,E09000026,Redbridge,430000.0,29634.0,14.51,local_authority
+2018,E06000003,Redcar and Cleveland,134000.0,19859.0,6.75,local_authority
+2018,E07000236,Redditch,200000.0,21161.0,9.45,local_authority
+2018,E07000211,Reigate and Banstead,405000.0,32467.0,12.47,local_authority
+2018,W06000016,Rhondda Cynon Taf,110000.0,21711.0,5.07,local_authority
+2018,E07000124,Ribble Valley,215000.0,26476.0,8.12,local_authority
+2018,E09000027,Richmond upon Thames,628475.0,36098.0,17.41,local_authority
+2018,E07000166,Richmondshire,200000.0,21703.0,9.22,local_authority
+2018,E08000005,Rochdale,130000.0,20874.0,6.23,local_authority
+2018,E07000075,Rochford,335000.0,25850.0,12.96,local_authority
+2018,E07000125,Rossendale,130500.0,21436.0,6.09,local_authority
+2018,E07000064,Rother,285000.0,19868.0,14.34,local_authority
+2018,E08000018,Rotherham,138000.0,20578.0,6.71,local_authority
+2018,E07000220,Rugby,240000.0,28086.0,8.55,local_authority
+2018,E07000212,Runnymede,400000.0,27207.0,14.7,local_authority
+2018,E07000176,Rushcliffe,269950.0,27070.0,9.97,local_authority
+2018,E07000092,Rushmoor,295000.0,27419.0,10.76,local_authority
+2018,E06000017,Rutland,261500.0,23010.0,11.36,local_authority
+2018,E07000167,Ryedale,225000.0,20244.0,11.11,local_authority
+2018,E08000006,Salford,162995.0,21999.0,7.41,local_authority
+2018,E08000028,Sandwell,145000.0,21552.0,6.73,local_authority
+2018,E07000168,Scarborough,159950.0,20861.0,7.67,local_authority
+2018,E07000188,Sedgemoor,212000.0,20784.0,10.2,local_authority
+2018,E08000014,Sefton,166500.0,22606.0,7.37,local_authority
+2018,E07000169,Selby,202500.0,27200.0,7.44,local_authority
+2018,E07000111,Sevenoaks,416522.0,26384.0,15.79,local_authority
+2018,E08000019,Sheffield,157000.0,22320.0,7.03,local_authority
+2018,E06000051,Shropshire,215000.0,22534.0,9.54,local_authority
+2018,E06000039,Slough,320000.0,28078.0,11.4,local_authority
+2018,E08000029,Solihull,270000.0,25599.0,10.55,local_authority
+2018,E07000246,Somerset West and Taunton,225000.0,20012.0,11.24,local_authority
+2018,E07000012,South Cambridgeshire,364000.0,29794.0,12.22,local_authority
+2018,E07000039,South Derbyshire,204950.0,26709.0,7.67,local_authority
+2018,E06000025,South Gloucestershire,269000.0,23886.0,11.26,local_authority
+2018,E07000044,South Hams,298000.0,20889.0,14.27,local_authority
+2018,E07000140,South Holland,183000.0,22446.0,8.15,local_authority
+2018,E07000141,South Kesteven,210000.0,21032.0,9.98,local_authority
+2018,E07000149,South Norfolk,250997.5,24712.0,10.16,local_authority
+2018,E07000179,South Oxfordshire,385000.0,30672.0,12.55,local_authority
+2018,E07000126,South Ribble,163000.0,22721.0,7.17,local_authority
+2018,E07000189,South Somerset,220000.0,21342.0,10.31,local_authority
+2018,E07000196,South Staffordshire,215000.0,25913.0,8.3,local_authority
+2018,E08000023,South Tyneside,137000.0,22040.0,6.22,local_authority
+2018,E06000045,Southampton,213000.0,22039.0,9.66,local_authority
+2018,E06000033,Southend-on-Sea,275000.0,25597.0,10.74,local_authority
+2018,E09000028,Southwark,555000.0,32290.0,17.19,local_authority
+2018,E07000213,Spelthorne,382000.0,28472.0,13.42,local_authority
+2018,E07000240,St Albans,537500.0,34837.0,15.43,local_authority
+2018,E08000013,St. Helens,132000.0,22859.0,5.77,local_authority
+2018,E07000197,Stafford,200000.0,24168.0,8.28,local_authority
+2018,E07000198,Staffordshire Moorlands,165000.0,22139.0,7.45,local_authority
+2018,E08000007,Stockport,220000.0,25078.0,8.77,local_authority
+2018,E06000004,Stockton-on-Tees,146000.0,21781.0,6.7,local_authority
+2018,E06000021,Stoke-on-Trent,115000.0,22027.0,5.22,local_authority
+2018,E07000221,Stratford-on-Avon,315997.5,26453.0,11.95,local_authority
+2018,E07000082,Stroud,273500.0,24000.0,11.4,local_authority
+2018,E08000024,Sunderland,127000.0,20776.0,6.11,local_authority
+2018,E07000214,Surrey Heath,412000.0,34290.0,12.02,local_authority
+2018,E09000029,Sutton,385000.0,28617.0,13.45,local_authority
+2018,E07000113,Swale,245000.0,26609.0,9.21,local_authority
+2018,W06000011,Swansea,142000.0,22997.0,6.17,local_authority
+2018,E06000030,Swindon,228000.0,25407.0,8.97,local_authority
+2018,E08000008,Tameside,140000.0,21923.0,6.39,local_authority
+2018,E07000199,Tamworth,190100.0,22545.0,8.43,local_authority
+2018,E07000215,Tandridge,415000.0,30944.0,13.41,local_authority
+2018,E07000045,Teignbridge,245500.0,20279.0,12.11,local_authority
+2018,E06000020,Telford and Wrekin,165000.0,20919.0,7.89,local_authority
+2018,E07000076,Tendring,227500.0,21222.0,10.72,local_authority
+2018,E07000093,Test Valley,307000.0,25588.0,12.0,local_authority
+2018,E07000114,Thanet,229000.0,18880.0,12.13,local_authority
+2018,E07000102,Three Rivers,472000.0,27997.0,16.86,local_authority
+2018,E06000034,Thurrock,280000.0,24848.0,11.27,local_authority
+2018,E07000115,Tonbridge and Malling,346000.0,27587.0,12.54,local_authority
+2018,E06000027,Torbay,195000.0,19054.0,10.23,local_authority
+2018,W06000020,Torfaen,145000.0,23542.0,6.16,local_authority
+2018,E07000046,Torridge,220000.0,20667.0,10.64,local_authority
+2018,E09000030,Tower Hamlets,485000.0,32389.0,14.97,local_authority
+2018,E08000009,Trafford,257500.0,28566.0,9.01,local_authority
+2018,E07000116,Tunbridge Wells,370000.0,29912.0,12.37,local_authority
+2018,E07000077,Uttlesford,411000.0,30819.0,13.34,local_authority
+2018,W06000014,Vale of Glamorgan,214997.5,22774.0,9.44,local_authority
+2018,E07000180,Vale of White Horse,350000.0,30398.0,11.51,local_authority
+2018,E08000036,Wakefield,152000.0,21027.0,7.23,local_authority
+2018,E08000030,Walsall,155000.0,20693.0,7.49,local_authority
+2018,E09000031,Waltham Forest,450000.0,28630.0,15.72,local_authority
+2018,E09000032,Wandsworth,617500.0,38216.0,16.16,local_authority
+2018,E06000007,Warrington,180000.0,25373.0,7.09,local_authority
+2018,E07000222,Warwick,300000.0,27725.0,10.82,local_authority
+2018,E07000103,Watford,365000.0,27452.0,13.3,local_authority
+2018,E07000216,Waverley,475000.0,30785.0,15.43,local_authority
+2018,E07000241,Welwyn Hatfield,370000.0,26610.0,13.9,local_authority
+2018,E06000037,West Berkshire,345000.0,27628.0,12.49,local_authority
+2018,E07000127,West Lancashire,185000.0,22664.0,8.16,local_authority
+2018,E07000142,West Lindsey,175000.0,25097.0,6.97,local_authority
+2018,E07000181,West Oxfordshire,335000.0,25488.0,13.14,local_authority
+2018,E07000245,West Suffolk,248000.0,24585.0,10.09,local_authority
+2018,E09000033,Westminster,1060000.0,41606.0,25.48,local_authority
+2018,E08000010,Wigan,135000.0,22243.0,6.07,local_authority
+2018,E06000054,Wiltshire,270000.0,23656.0,11.41,local_authority
+2018,E07000094,Winchester,406000.0,31590.0,12.85,local_authority
+2018,E06000040,Windsor and Maidenhead,458200.0,33253.0,13.78,local_authority
+2018,E08000015,Wirral,160000.0,22953.0,6.97,local_authority
+2018,E07000217,Woking,390000.0,28303.0,13.78,local_authority
+2018,E06000041,Wokingham,425000.0,33716.0,12.61,local_authority
+2018,E08000031,Wolverhampton,147000.0,21607.0,6.8,local_authority
+2018,E07000229,Worthing,295000.0,23300.0,12.66,local_authority
+2018,W06000006,Wrexham,150000.0,22848.0,6.57,local_authority
+2018,E07000238,Wychavon,270000.0,22254.0,12.13,local_authority
+2018,E07000128,Wyre,154999.0,20476.0,7.57,local_authority
+2018,E07000239,Wyre Forest,180500.0,20235.0,8.92,local_authority
+2018,E06000014,York,235000.0,21435.0,10.96,local_authority
+2019,E07000223,Adur,312500.0,22784.0,13.72,local_authority
+2019,E07000026,Allerdale,165000.0,24026.0,6.87,local_authority
+2019,E07000032,Amber Valley,175000.0,22995.0,7.61,local_authority
+2019,E07000224,Arun,285000.0,21389.0,13.32,local_authority
+2019,E07000170,Ashfield,145000.0,22751.0,6.37,local_authority
+2019,E07000105,Ashford,280000.0,25109.0,11.15,local_authority
+2019,E07000200,Babergh,280000.0,25435.0,11.01,local_authority
+2019,E09000002,Barking and Dagenham,315250.0,25416.0,12.4,local_authority
+2019,E09000003,Barnet,515000.0,29469.0,17.48,local_authority
+2019,E08000016,Barnsley,135000.0,22032.0,6.13,local_authority
+2019,E07000027,Barrow-in-Furness,128000.0,27449.0,4.66,local_authority
+2019,E07000066,Basildon,295000.0,27369.0,10.78,local_authority
+2019,E07000084,Basingstoke and Deane,306000.0,30368.0,10.08,local_authority
+2019,E07000171,Bassetlaw,160000.0,22010.0,7.27,local_authority
+2019,E06000022,Bath and North East Somerset,324995.0,24425.0,13.31,local_authority
+2019,E06000055,Bedford,282500.0,25518.0,11.07,local_authority
+2019,E09000004,Bexley,355000.0,30502.0,11.64,local_authority
+2019,E08000025,Birmingham,180000.0,22519.0,7.99,local_authority
+2019,E07000129,Blaby,220000.0,26213.0,8.39,local_authority
+2019,E06000008,Blackburn with Darwen,122000.0,21152.0,5.77,local_authority
+2019,E06000009,Blackpool,114000.0,19460.0,5.86,local_authority
+2019,W06000019,Blaenau Gwent,89950.0,19518.0,4.61,local_authority
+2019,E07000033,Bolsover,133747.5,21045.0,6.36,local_authority
+2019,E08000001,Bolton,137000.0,22148.0,6.19,local_authority
+2019,E07000136,Boston,165000.0,19540.0,8.44,local_authority
+2019,E06000058,"Bournemouth, Christchurch and Poole",280000.0,25101.0,11.15,local_authority
+2019,E06000036,Bracknell Forest,350000.0,29374.0,11.92,local_authority
+2019,E08000032,Bradford,138000.0,21900.0,6.3,local_authority
+2019,E07000067,Braintree,290000.0,27043.0,10.72,local_authority
+2019,E07000143,Breckland,218000.0,22593.0,9.65,local_authority
+2019,E09000005,Brent,497500.0,26346.0,18.88,local_authority
+2019,E07000068,Brentwood,405500.0,32402.0,12.51,local_authority
+2019,W06000013,Bridgend,156250.0,23420.0,6.67,local_authority
+2019,E06000043,Brighton and Hove,360000.0,25740.0,13.99,local_authority
+2019,E06000023,"Bristol, City of",269000.0,25958.0,10.36,local_authority
+2019,E07000144,Broadland,255000.0,22891.0,11.14,local_authority
+2019,E09000006,Bromley,440000.0,33695.0,13.06,local_authority
+2019,E07000234,Bromsgrove,290000.0,27071.0,10.71,local_authority
+2019,E07000095,Broxbourne,350000.0,28326.0,12.36,local_authority
+2019,E07000172,Broxtowe,185000.0,25265.0,7.32,local_authority
+2019,E07000117,Burnley,92750.0,21771.0,4.26,local_authority
+2019,E08000002,Bury,173375.0,26184.0,6.62,local_authority
+2019,W06000018,Caerphilly,135000.0,22639.0,5.96,local_authority
+2019,E08000033,Calderdale,145000.0,23209.0,6.25,local_authority
+2019,E07000008,Cambridge,435000.0,28600.0,15.21,local_authority
+2019,E09000007,Camden,775000.0,34467.0,22.49,local_authority
+2019,E07000192,Cannock Chase,171000.0,23414.0,7.3,local_authority
+2019,E07000106,Canterbury,300000.0,25026.0,11.99,local_authority
+2019,W06000015,Cardiff,203000.0,24958.0,8.13,local_authority
+2019,E07000028,Carlisle,145000.0,20929.0,6.93,local_authority
+2019,W06000010,Carmarthenshire,140000.0,22561.0,6.21,local_authority
+2019,E06000056,Central Bedfordshire,315000.0,30018.0,10.49,local_authority
+2019,W06000008,Ceredigion,190000.0,21543.0,8.82,local_authority
+2019,E07000130,Charnwood,222500.0,25405.0,8.76,local_authority
+2019,E07000070,Chelmsford,355000.0,26497.0,13.4,local_authority
+2019,E07000078,Cheltenham,269975.0,26845.0,10.06,local_authority
+2019,E07000177,Cherwell,315000.0,26346.0,11.96,local_authority
+2019,E06000049,Cheshire East,238000.0,25696.0,9.26,local_authority
+2019,E06000050,Cheshire West and Chester,200000.0,25451.0,7.86,local_authority
+2019,E07000034,Chesterfield,152000.0,21879.0,6.95,local_authority
+2019,E07000225,Chichester,360000.0,24101.0,14.94,local_authority
+2019,E07000118,Chorley,170000.0,25020.0,6.79,local_authority
+2019,E07000071,Colchester,273000.0,24460.0,11.16,local_authority
+2019,E07000029,Copeland,125000.0,25960.0,4.82,local_authority
+2019,E06000052,Cornwall,225750.0,20352.0,11.09,local_authority
+2019,E07000079,Cotswold,355000.0,24675.0,14.39,local_authority
+2019,E06000047,County Durham,120995.0,24000.0,5.04,local_authority
+2019,E08000026,Coventry,181997.5,24214.0,7.52,local_authority
+2019,E07000163,Craven,214950.0,18532.0,11.6,local_authority
+2019,E07000226,Crawley,290000.0,23856.0,12.16,local_authority
+2019,E09000008,Croydon,385000.0,29804.0,12.92,local_authority
+2019,E07000096,Dacorum,372750.0,28175.0,13.23,local_authority
+2019,E06000005,Darlington,140000.0,23541.0,5.95,local_authority
+2019,E07000107,Dartford,310000.0,29064.0,10.67,local_authority
+2019,W06000004,Denbighshire,145000.0,20457.0,7.09,local_authority
+2019,E06000015,Derby,165000.0,25808.0,6.39,local_authority
+2019,E07000035,Derbyshire Dales,269950.0,23776.0,11.35,local_authority
+2019,E08000017,Doncaster,131500.0,22639.0,5.81,local_authority
+2019,E06000059,Dorset,285000.0,22780.0,12.51,local_authority
+2019,E07000108,Dover,250000.0,27044.0,9.24,local_authority
+2019,E08000027,Dudley,169975.0,24938.0,6.82,local_authority
+2019,E09000009,Ealing,470000.0,27893.0,16.85,local_authority
+2019,E07000040,East Devon,275000.0,22284.0,12.34,local_authority
+2019,E07000085,East Hampshire,375000.0,28145.0,13.32,local_authority
+2019,E07000242,East Hertfordshire,405000.0,32819.0,12.34,local_authority
+2019,E07000137,East Lindsey,172000.0,20517.0,8.38,local_authority
+2019,E06000011,East Riding of Yorkshire,182000.0,24345.0,7.48,local_authority
+2019,E07000244,East Suffolk,236000.0,23277.0,10.14,local_authority
+2019,E07000061,Eastbourne,242500.0,23368.0,10.38,local_authority
+2019,E07000086,Eastleigh,300000.0,24844.0,12.08,local_authority
+2019,E07000030,Eden,210000.0,20818.0,10.09,local_authority
+2019,E07000207,Elmbridge,578000.0,37034.0,15.61,local_authority
+2019,E09000010,Enfield,409000.0,25511.0,16.03,local_authority
+2019,E07000072,Epping Forest,450000.0,27280.0,16.5,local_authority
+2019,E07000036,Erewash,160000.0,22649.0,7.06,local_authority
+2019,E07000041,Exeter,249950.0,23371.0,10.69,local_authority
+2019,E07000087,Fareham,289500.0,28301.0,10.23,local_authority
+2019,E07000010,Fenland,189997.5,22510.0,8.44,local_authority
+2019,W06000005,Flintshire,165000.0,22781.0,7.24,local_authority
+2019,E07000112,Folkestone and Hythe,260000.0,25977.0,10.01,local_authority
+2019,E07000119,Fylde,198000.0,27574.0,7.18,local_authority
+2019,E08000037,Gateshead,140000.0,22144.0,6.32,local_authority
+2019,E07000173,Gedling,181000.0,22592.0,8.01,local_authority
+2019,E07000081,Gloucester,200000.0,22766.0,8.79,local_authority
+2019,E07000088,Gosport,205000.0,23720.0,8.64,local_authority
+2019,E07000109,Gravesham,291000.0,25623.0,11.36,local_authority
+2019,E07000145,Great Yarmouth,180000.0,19985.0,9.01,local_authority
+2019,E09000011,Greenwich,457800.0,30441.0,15.04,local_authority
+2019,E07000209,Guildford,430000.0,34207.0,12.57,local_authority
+2019,W06000002,Gwynedd,158000.0,20429.0,7.73,local_authority
+2019,E09000012,Hackney,577000.0,28766.0,20.06,local_authority
+2019,E06000006,Halton,147500.0,22695.0,6.5,local_authority
+2019,E07000164,Hambleton,230000.0,24055.0,9.56,local_authority
+2019,E09000013,Hammersmith and Fulham,730000.0,38661.0,18.88,local_authority
+2019,E09000014,Haringey,515000.0,29151.0,17.67,local_authority
+2019,E07000073,Harlow,285000.0,23301.0,12.23,local_authority
+2019,E07000165,Harrogate,272500.0,26754.0,10.19,local_authority
+2019,E09000015,Harrow,460000.0,29579.0,15.55,local_authority
+2019,E06000001,Hartlepool,129950.0,22258.0,5.84,local_authority
+2019,E07000062,Hastings,225000.0,20689.0,10.88,local_authority
+2019,E07000090,Havant,268250.0,24281.0,11.05,local_authority
+2019,E09000016,Havering,365000.0,29152.0,12.52,local_authority
+2019,E06000019,"Herefordshire, County of",235000.0,21519.0,10.92,local_authority
+2019,E07000098,Hertsmere,435000.0,29841.0,14.58,local_authority
+2019,E07000037,High Peak,191000.0,23060.0,8.28,local_authority
+2019,E09000017,Hillingdon,412000.0,28317.0,14.55,local_authority
+2019,E07000132,Hinckley and Bosworth,205000.0,23240.0,8.82,local_authority
+2019,E07000227,Horsham,375000.0,25944.0,14.45,local_authority
+2019,E09000018,Hounslow,410000.0,29787.0,13.76,local_authority
+2019,E07000011,Huntingdonshire,275000.0,27779.0,9.9,local_authority
+2019,E07000120,Hyndburn,102000.0,22849.0,4.46,local_authority
+2019,E07000202,Ipswich,200000.0,22257.0,8.99,local_authority
+2019,W06000001,Isle of Anglesey,170000.0,22547.0,7.54,local_authority
+2019,E06000046,Isle of Wight,210000.0,21105.0,9.95,local_authority
+2019,E09000019,Islington,600000.0,37654.0,15.93,local_authority
+2019,E09000020,Kensington and Chelsea,1300000.0,36776.0,35.35,local_authority
+2019,E07000146,King's Lynn and West Norfolk,219995.0,21993.0,10.0,local_authority
+2019,E06000010,"Kingston upon Hull, City of",120000.0,20682.0,5.8,local_authority
+2019,E09000021,Kingston upon Thames,490000.0,33581.0,14.59,local_authority
+2019,E08000034,Kirklees,155000.0,22811.0,6.79,local_authority
+2019,E08000011,Knowsley,150000.0,22695.0,6.61,local_authority
+2019,E09000022,Lambeth,532000.0,33096.0,16.07,local_authority
+2019,E07000121,Lancaster,155000.0,22756.0,6.81,local_authority
+2019,E08000035,Leeds,180000.0,24100.0,7.47,local_authority
+2019,E06000016,Leicester,177000.0,20753.0,8.53,local_authority
+2019,E07000063,Lewes,320000.0,24982.0,12.81,local_authority
+2019,E09000023,Lewisham,430000.0,28993.0,14.83,local_authority
+2019,E07000194,Lichfield,253500.0,28006.0,9.05,local_authority
+2019,E07000138,Lincoln,152500.0,21223.0,7.19,local_authority
+2019,E08000012,Liverpool,126995.0,23314.0,5.45,local_authority
+2019,E06000032,Luton,243000.0,24565.0,9.89,local_authority
+2019,E07000110,Maidstone,313000.0,26645.0,11.75,local_authority
+2019,E08000003,Manchester,180000.0,22306.0,8.07,local_authority
+2019,E07000174,Mansfield,145997.5,19561.0,7.46,local_authority
+2019,E06000035,Medway,247000.0,26520.0,9.31,local_authority
+2019,E07000133,Melton,221250.0,21504.0,10.29,local_authority
+2019,E07000187,Mendip,262500.0,22752.0,11.54,local_authority
+2019,W06000024,Merthyr Tydfil,97750.0,23324.0,4.19,local_authority
+2019,E09000024,Merton,470000.0,32692.0,14.38,local_authority
+2019,E07000042,Mid Devon,233500.0,22156.0,10.54,local_authority
+2019,E07000203,Mid Suffolk,260000.0,24639.0,10.55,local_authority
+2019,E07000228,Mid Sussex,380000.0,28139.0,13.5,local_authority
+2019,E06000002,Middlesbrough,134950.0,21080.0,6.4,local_authority
+2019,E06000042,Milton Keynes,285000.0,28702.0,9.93,local_authority
+2019,E07000210,Mole Valley,475000.0,26422.0,17.98,local_authority
+2019,W06000021,Monmouthshire,254995.0,26010.0,9.8,local_authority
+2019,W06000012,Neath Port Talbot,116000.0,23390.0,4.96,local_authority
+2019,E07000091,New Forest,327250.0,23940.0,13.67,local_authority
+2019,E07000175,Newark and Sherwood,187500.0,22514.0,8.33,local_authority
+2019,E08000021,Newcastle upon Tyne,164995.0,23502.0,7.02,local_authority
+2019,E07000195,Newcastle-under-Lyme,150000.0,21967.0,6.83,local_authority
+2019,E09000025,Newham,413750.0,26122.0,15.84,local_authority
+2019,W06000022,Newport,178000.0,23470.0,7.58,local_authority
+2019,E07000043,North Devon,249995.0,20021.0,12.49,local_authority
+2019,E07000038,North East Derbyshire,185000.0,23467.0,7.88,local_authority
+2019,E06000012,North East Lincolnshire,133000.0,21596.0,6.16,local_authority
+2019,E07000099,North Hertfordshire,350000.0,31418.0,11.14,local_authority
+2019,E07000139,North Kesteven,202500.0,23982.0,8.44,local_authority
+2019,E06000013,North Lincolnshire,142500.0,22009.0,6.47,local_authority
+2019,E06000024,North Somerset,257950.0,23909.0,10.79,local_authority
+2019,E08000022,North Tyneside,174000.0,23587.0,7.38,local_authority
+2019,E07000218,North Warwickshire,212500.0,26356.0,8.06,local_authority
+2019,E07000134,North West Leicestershire,207500.0,24046.0,8.63,local_authority
+2019,E06000057,Northumberland,169000.0,21943.0,7.7,local_authority
+2019,E07000148,Norwich,192000.0,23364.0,8.22,local_authority
+2019,E06000018,Nottingham,140000.0,20302.0,6.9,local_authority
+2019,E07000219,Nuneaton and Bedworth,182750.0,22256.0,8.21,local_authority
+2019,E07000135,Oadby and Wigston,215000.0,23715.0,9.07,local_authority
+2019,E08000004,Oldham,135000.0,21188.0,6.37,local_authority
+2019,E07000178,Oxford,390000.0,25886.0,15.07,local_authority
+2019,W06000009,Pembrokeshire,172000.0,20592.0,8.35,local_authority
+2019,E07000122,Pendle,110000.0,22186.0,4.96,local_authority
+2019,E06000031,Peterborough,195000.0,22847.0,8.54,local_authority
+2019,E06000026,Plymouth,178000.0,21662.0,8.22,local_authority
+2019,E06000044,Portsmouth,210000.0,23241.0,9.04,local_authority
+2019,W06000023,Powys,180000.0,22216.0,8.1,local_authority
+2019,E07000123,Preston,145000.0,21688.0,6.69,local_authority
+2019,E06000038,Reading,307000.0,28039.0,10.95,local_authority
+2019,E09000026,Redbridge,425500.0,29231.0,14.56,local_authority
+2019,E06000003,Redcar and Cleveland,130000.0,20928.0,6.21,local_authority
+2019,E07000236,Redditch,215000.0,21230.0,10.13,local_authority
+2019,E07000211,Reigate and Banstead,410000.0,32274.0,12.7,local_authority
+2019,W06000016,Rhondda Cynon Taf,113500.0,22494.0,5.05,local_authority
+2019,E09000027,Richmond upon Thames,635000.0,37613.0,16.88,local_authority
+2019,E07000166,Richmondshire,210000.0,23740.0,8.85,local_authority
+2019,E08000005,Rochdale,140000.0,21900.0,6.39,local_authority
+2019,E07000075,Rochford,335000.0,24689.0,13.57,local_authority
+2019,E07000125,Rossendale,135000.0,20806.0,6.49,local_authority
+2019,E07000064,Rother,290000.0,22203.0,13.06,local_authority
+2019,E08000018,Rotherham,140000.0,21201.0,6.6,local_authority
+2019,E07000220,Rugby,247500.0,25682.0,9.64,local_authority
+2019,E07000176,Rushcliffe,282500.0,28768.0,9.82,local_authority
+2019,E07000092,Rushmoor,300000.0,27456.0,10.93,local_authority
+2019,E06000017,Rutland,270000.0,25654.0,10.52,local_authority
+2019,E08000006,Salford,164950.0,22479.0,7.34,local_authority
+2019,E08000028,Sandwell,153000.0,21345.0,7.17,local_authority
+2019,E07000168,Scarborough,160000.0,20758.0,7.71,local_authority
+2019,E07000188,Sedgemoor,215000.0,21477.0,10.01,local_authority
+2019,E08000014,Sefton,173000.0,23520.0,7.36,local_authority
+2019,E07000169,Selby,205000.0,26887.0,7.62,local_authority
+2019,E07000111,Sevenoaks,395000.0,30308.0,13.03,local_authority
+2019,E08000019,Sheffield,160000.0,23295.0,6.87,local_authority
+2019,E06000051,Shropshire,218000.0,23709.0,9.19,local_authority
+2019,E06000039,Slough,321000.0,28125.0,11.41,local_authority
+2019,E08000029,Solihull,277000.0,27551.0,10.05,local_authority
+2019,E07000246,Somerset West and Taunton,229995.0,21585.0,10.66,local_authority
+2019,E07000012,South Cambridgeshire,364140.0,32841.0,11.09,local_authority
+2019,E07000039,South Derbyshire,218000.0,27421.0,7.95,local_authority
+2019,E06000025,South Gloucestershire,275000.0,24832.0,11.07,local_authority
+2019,E07000044,South Hams,292500.0,20113.0,14.54,local_authority
+2019,E07000140,South Holland,185000.0,23839.0,7.76,local_authority
+2019,E07000141,South Kesteven,214300.0,22519.0,9.52,local_authority
+2019,E07000031,South Lakeland,240000.0,24590.0,9.76,local_authority
+2019,E07000149,South Norfolk,260000.0,25162.0,10.33,local_authority
+2019,E07000179,South Oxfordshire,390000.0,32715.0,11.92,local_authority
+2019,E07000126,South Ribble,165000.0,22824.0,7.23,local_authority
+2019,E07000189,South Somerset,221000.0,22945.0,9.63,local_authority
+2019,E07000196,South Staffordshire,225000.0,26077.0,8.63,local_authority
+2019,E08000023,South Tyneside,135895.0,20797.0,6.53,local_authority
+2019,E06000045,Southampton,215000.0,24298.0,8.85,local_authority
+2019,E06000033,Southend-on-Sea,290000.0,27087.0,10.71,local_authority
+2019,E09000028,Southwark,560000.0,35015.0,15.99,local_authority
+2019,E07000213,Spelthorne,387150.0,29203.0,13.26,local_authority
+2019,E07000240,St Albans,530000.0,34101.0,15.54,local_authority
+2019,E08000013,St. Helens,135000.0,24644.0,5.48,local_authority
+2019,E07000197,Stafford,210000.0,26685.0,7.87,local_authority
+2019,E07000198,Staffordshire Moorlands,170000.0,24693.0,6.88,local_authority
+2019,E07000243,Stevenage,270000.0,25247.0,10.69,local_authority
+2019,E08000007,Stockport,225000.0,25829.0,8.71,local_authority
+2019,E06000004,Stockton-on-Tees,146500.0,22973.0,6.38,local_authority
+2019,E06000021,Stoke-on-Trent,120000.0,22143.0,5.42,local_authority
+2019,E07000221,Stratford-on-Avon,315000.0,25708.0,12.25,local_authority
+2019,E07000082,Stroud,267000.0,23985.0,11.13,local_authority
+2019,E08000024,Sunderland,130000.0,21665.0,6.0,local_authority
+2019,E07000214,Surrey Heath,423000.0,33879.0,12.49,local_authority
+2019,E09000029,Sutton,380000.0,29609.0,12.83,local_authority
+2019,E07000113,Swale,250000.0,26448.0,9.45,local_authority
+2019,W06000011,Swansea,150000.0,23019.0,6.52,local_authority
+2019,E06000030,Swindon,230000.0,26917.0,8.54,local_authority
+2019,E08000008,Tameside,148500.0,22674.0,6.55,local_authority
+2019,E07000199,Tamworth,200000.0,24472.0,8.17,local_authority
+2019,E07000215,Tandridge,427000.0,28931.0,14.76,local_authority
+2019,E07000045,Teignbridge,245000.0,21262.0,11.52,local_authority
+2019,E06000020,Telford and Wrekin,173950.0,22490.0,7.73,local_authority
+2019,E07000076,Tendring,238000.0,21465.0,11.09,local_authority
+2019,E07000083,Tewkesbury,269995.0,24700.0,10.93,local_authority
+2019,E07000114,Thanet,240000.0,21320.0,11.26,local_authority
+2019,E07000102,Three Rivers,465000.0,27589.0,16.85,local_authority
+2019,E06000034,Thurrock,286500.0,26913.0,10.65,local_authority
+2019,E07000115,Tonbridge and Malling,350000.0,29638.0,11.81,local_authority
+2019,E06000027,Torbay,198000.0,20626.0,9.6,local_authority
+2019,W06000020,Torfaen,152000.0,23422.0,6.49,local_authority
+2019,E07000046,Torridge,224475.0,20627.0,10.88,local_authority
+2019,E09000030,Tower Hamlets,490000.0,38000.0,12.89,local_authority
+2019,E08000009,Trafford,270275.0,28718.0,9.41,local_authority
+2019,E07000116,Tunbridge Wells,380000.0,30768.0,12.35,local_authority
+2019,W06000014,Vale of Glamorgan,220000.0,25174.0,8.74,local_authority
+2019,E07000180,Vale of White Horse,339000.0,30551.0,11.1,local_authority
+2019,E08000036,Wakefield,156000.0,22368.0,6.97,local_authority
+2019,E08000030,Walsall,157000.0,22034.0,7.13,local_authority
+2019,E09000031,Waltham Forest,442000.0,29286.0,15.09,local_authority
+2019,E09000032,Wandsworth,625000.0,39077.0,15.99,local_authority
+2019,E06000007,Warrington,190000.0,25177.0,7.55,local_authority
+2019,E07000222,Warwick,310750.0,27956.0,11.12,local_authority
+2019,E07000103,Watford,360000.0,27729.0,12.98,local_authority
+2019,E07000216,Waverley,460000.0,31890.0,14.42,local_authority
+2019,E07000065,Wealden,312500.0,24019.0,13.01,local_authority
+2019,E07000241,Welwyn Hatfield,374000.0,27488.0,13.61,local_authority
+2019,E06000037,West Berkshire,349975.0,28808.0,12.15,local_authority
+2019,E07000047,West Devon,245000.0,19914.0,12.3,local_authority
+2019,E07000127,West Lancashire,192500.0,24120.0,7.98,local_authority
+2019,E07000142,West Lindsey,178000.0,24506.0,7.26,local_authority
+2019,E07000181,West Oxfordshire,342250.0,27068.0,12.64,local_authority
+2019,E07000245,West Suffolk,251893.5,24300.0,10.37,local_authority
+2019,E09000033,Westminster,938000.0,37400.0,25.08,local_authority
+2019,E08000010,Wigan,145000.0,22888.0,6.34,local_authority
+2019,E06000054,Wiltshire,275000.0,23090.0,11.91,local_authority
+2019,E07000094,Winchester,417750.0,27648.0,15.11,local_authority
+2019,E08000015,Wirral,165000.0,24172.0,6.83,local_authority
+2019,E07000217,Woking,390000.0,28803.0,13.54,local_authority
+2019,E06000041,Wokingham,415000.0,29831.0,13.91,local_authority
+2019,E08000031,Wolverhampton,150750.0,22212.0,6.79,local_authority
+2019,E07000237,Worcester,202500.0,24851.0,8.15,local_authority
+2019,E07000229,Worthing,286000.0,23491.0,12.17,local_authority
+2019,W06000006,Wrexham,155000.0,23928.0,6.48,local_authority
+2019,E07000238,Wychavon,270000.0,23870.0,11.31,local_authority
+2019,E07000128,Wyre,155000.0,22314.0,6.95,local_authority
+2019,E07000239,Wyre Forest,184000.0,21029.0,8.75,local_authority
+2019,E06000014,York,243500.0,23965.0,10.16,local_authority
+2020,E07000223,Adur,315000.0,25100.0,12.55,local_authority
+2020,E07000026,Allerdale,163250.0,26292.0,6.21,local_authority
+2020,E07000032,Amber Valley,177000.0,24690.0,7.17,local_authority
+2020,E07000224,Arun,289750.0,22362.0,12.96,local_authority
+2020,E07000170,Ashfield,145000.0,22590.0,6.42,local_authority
+2020,E07000105,Ashford,300000.0,25345.0,11.84,local_authority
+2020,E07000200,Babergh,285000.0,24466.0,11.65,local_authority
+2020,E09000002,Barking and Dagenham,320000.0,26913.0,11.89,local_authority
+2020,E09000003,Barnet,554600.0,27808.0,19.94,local_authority
+2020,E08000016,Barnsley,135000.0,22372.0,6.03,local_authority
+2020,E07000027,Barrow-in-Furness,126000.0,29402.0,4.29,local_authority
+2020,E07000066,Basildon,305000.0,25704.0,11.87,local_authority
+2020,E07000084,Basingstoke and Deane,317000.0,32211.0,9.84,local_authority
+2020,E07000171,Bassetlaw,170000.0,22839.0,7.44,local_authority
+2020,E06000022,Bath and North East Somerset,330000.0,23934.0,13.79,local_authority
+2020,E06000055,Bedford,284995.0,28745.0,9.91,local_authority
+2020,E09000004,Bexley,367000.0,32530.0,11.28,local_authority
+2020,E08000025,Birmingham,187500.0,23601.0,7.94,local_authority
+2020,E07000129,Blaby,226997.5,30341.0,7.48,local_authority
+2020,E06000008,Blackburn with Darwen,124000.0,21221.0,5.84,local_authority
+2020,E06000009,Blackpool,118000.0,19808.0,5.96,local_authority
+2020,E07000033,Bolsover,139950.0,21325.0,6.56,local_authority
+2020,E08000001,Bolton,144950.0,22924.0,6.32,local_authority
+2020,E07000136,Boston,169000.0,20085.0,8.41,local_authority
+2020,E06000058,"Bournemouth, Christchurch and Poole",285000.0,25184.0,11.32,local_authority
+2020,E06000036,Bracknell Forest,355000.0,27997.0,12.68,local_authority
+2020,E08000032,Bradford,140000.0,23791.0,5.88,local_authority
+2020,E07000067,Braintree,290000.0,25629.0,11.32,local_authority
+2020,E07000143,Breckland,225000.0,22851.0,9.85,local_authority
+2020,E09000005,Brent,490000.0,28281.0,17.33,local_authority
+2020,W06000013,Bridgend,162250.0,23469.0,6.91,local_authority
+2020,E06000043,Brighton and Hove,360000.0,27865.0,12.92,local_authority
+2020,E06000023,"Bristol, City of",280000.0,27507.0,10.18,local_authority
+2020,E09000006,Bromley,450000.0,35063.0,12.83,local_authority
+2020,E07000234,Bromsgrove,290000.0,26313.0,11.02,local_authority
+2020,E07000095,Broxbourne,367000.0,29733.0,12.34,local_authority
+2020,E07000172,Broxtowe,192500.0,27126.0,7.1,local_authority
+2020,E06000060,Buckinghamshire,400000.0,30000.0,13.33,local_authority
+2020,E07000117,Burnley,100000.0,22647.0,4.42,local_authority
+2020,E08000002,Bury,180000.0,26744.0,6.73,local_authority
+2020,W06000018,Caerphilly,140000.0,24213.0,5.78,local_authority
+2020,E08000033,Calderdale,149975.0,24962.0,6.01,local_authority
+2020,E07000008,Cambridge,435000.0,31673.0,13.73,local_authority
+2020,E09000007,Camden,800000.0,34525.0,23.17,local_authority
+2020,E07000192,Cannock Chase,180000.0,23854.0,7.55,local_authority
+2020,E07000106,Canterbury,313000.0,24885.0,12.58,local_authority
+2020,W06000015,Cardiff,215000.0,24513.0,8.77,local_authority
+2020,E07000028,Carlisle,145000.0,25293.0,5.73,local_authority
+2020,W06000010,Carmarthenshire,145000.0,23669.0,6.13,local_authority
+2020,E07000069,Castle Point,301750.0,26233.0,11.5,local_authority
+2020,E06000056,Central Bedfordshire,315000.0,30473.0,10.34,local_authority
+2020,W06000008,Ceredigion,183500.0,22028.0,8.33,local_authority
+2020,E07000130,Charnwood,225747.5,25382.0,8.89,local_authority
+2020,E07000078,Cheltenham,270000.0,28370.0,9.52,local_authority
+2020,E07000177,Cherwell,305000.0,28279.0,10.79,local_authority
+2020,E06000049,Cheshire East,240000.0,27053.0,8.87,local_authority
+2020,E06000050,Cheshire West and Chester,210000.0,25780.0,8.15,local_authority
+2020,E07000034,Chesterfield,164000.0,22832.0,7.18,local_authority
+2020,E07000225,Chichester,380000.0,24000.0,15.83,local_authority
+2020,E07000118,Chorley,177500.0,24991.0,7.1,local_authority
+2020,E07000071,Colchester,275000.0,24962.0,11.02,local_authority
+2020,W06000003,Conwy,170000.0,22804.0,7.45,local_authority
+2020,E06000052,Cornwall,237500.0,20710.0,11.47,local_authority
+2020,E07000079,Cotswold,362000.0,26790.0,13.51,local_authority
+2020,E06000047,County Durham,120000.0,23877.0,5.03,local_authority
+2020,E08000026,Coventry,185000.0,24537.0,7.54,local_authority
+2020,E07000163,Craven,230000.0,20611.0,11.16,local_authority
+2020,E07000226,Crawley,295000.0,28298.0,10.42,local_authority
+2020,E09000008,Croydon,390000.0,30619.0,12.74,local_authority
+2020,E07000096,Dacorum,392000.0,29099.0,13.47,local_authority
+2020,E06000005,Darlington,149950.0,24634.0,6.09,local_authority
+2020,E07000107,Dartford,320000.0,33300.0,9.61,local_authority
+2020,W06000004,Denbighshire,157250.0,21038.0,7.47,local_authority
+2020,E06000015,Derby,170000.0,26346.0,6.45,local_authority
+2020,E08000017,Doncaster,138000.0,24604.0,5.61,local_authority
+2020,E06000059,Dorset,296000.0,24564.0,12.05,local_authority
+2020,E07000108,Dover,250000.0,25880.0,9.66,local_authority
+2020,E08000027,Dudley,180000.0,26512.0,6.79,local_authority
+2020,E09000009,Ealing,485000.0,31487.0,15.4,local_authority
+2020,E07000009,East Cambridgeshire,301500.0,27238.0,11.07,local_authority
+2020,E07000085,East Hampshire,365000.0,29786.0,12.25,local_authority
+2020,E07000242,East Hertfordshire,413000.0,32240.0,12.81,local_authority
+2020,E07000137,East Lindsey,177500.0,21128.0,8.4,local_authority
+2020,E06000011,East Riding of Yorkshire,190000.0,25258.0,7.52,local_authority
+2020,E07000193,East Staffordshire,200000.0,25541.0,7.83,local_authority
+2020,E07000244,East Suffolk,245125.0,24193.0,10.13,local_authority
+2020,E07000061,Eastbourne,247750.0,24055.0,10.3,local_authority
+2020,E07000086,Eastleigh,300000.0,27160.0,11.05,local_authority
+2020,E07000030,Eden,200000.0,24317.0,8.22,local_authority
+2020,E07000207,Elmbridge,598250.0,30095.0,19.88,local_authority
+2020,E09000010,Enfield,419497.5,25994.0,16.14,local_authority
+2020,E07000072,Epping Forest,475000.0,28334.0,16.76,local_authority
+2020,E07000208,Epsom and Ewell,475000.0,28010.0,16.96,local_authority
+2020,E07000036,Erewash,168000.0,25071.0,6.7,local_authority
+2020,E07000041,Exeter,259000.0,22663.0,11.43,local_authority
+2020,E07000010,Fenland,198250.0,23972.0,8.27,local_authority
+2020,W06000005,Flintshire,169950.0,23389.0,7.27,local_authority
+2020,E07000112,Folkestone and Hythe,265000.0,24403.0,10.86,local_authority
+2020,E07000080,Forest of Dean,239747.5,23381.0,10.25,local_authority
+2020,E07000119,Fylde,209950.0,28980.0,7.24,local_authority
+2020,E08000037,Gateshead,141000.0,22461.0,6.28,local_authority
+2020,E07000173,Gedling,194000.0,22728.0,8.54,local_authority
+2020,E07000081,Gloucester,210500.0,22813.0,9.23,local_authority
+2020,E07000088,Gosport,215000.0,25311.0,8.49,local_authority
+2020,E07000109,Gravesham,300000.0,26439.0,11.35,local_authority
+2020,E07000145,Great Yarmouth,187250.0,20944.0,8.94,local_authority
+2020,E09000011,Greenwich,445000.0,32170.0,13.83,local_authority
+2020,E07000209,Guildford,450000.0,34273.0,13.13,local_authority
+2020,W06000002,Gwynedd,158750.0,21761.0,7.3,local_authority
+2020,E09000012,Hackney,635000.0,32241.0,19.7,local_authority
+2020,E06000006,Halton,151000.0,24067.0,6.27,local_authority
+2020,E07000164,Hambleton,240000.0,22694.0,10.58,local_authority
+2020,E09000013,Hammersmith and Fulham,775000.0,37204.0,20.83,local_authority
+2020,E07000131,Harborough,295000.0,29693.0,9.94,local_authority
+2020,E09000014,Haringey,510000.0,29986.0,17.01,local_authority
+2020,E07000073,Harlow,289995.0,24371.0,11.9,local_authority
+2020,E07000165,Harrogate,299950.0,25145.0,11.93,local_authority
+2020,E09000015,Harrow,470000.0,32398.0,14.51,local_authority
+2020,E07000089,Hart,415000.0,31732.0,13.08,local_authority
+2020,E06000001,Hartlepool,130000.0,22651.0,5.74,local_authority
+2020,E07000062,Hastings,230000.0,21908.0,10.5,local_authority
+2020,E07000090,Havant,284000.0,23761.0,11.95,local_authority
+2020,E09000016,Havering,376000.0,30833.0,12.19,local_authority
+2020,E06000019,"Herefordshire, County of",245000.0,22257.0,11.01,local_authority
+2020,E07000098,Hertsmere,467077.5,30852.0,15.14,local_authority
+2020,E07000037,High Peak,195000.0,23121.0,8.43,local_authority
+2020,E09000017,Hillingdon,425000.0,29350.0,14.48,local_authority
+2020,E07000132,Hinckley and Bosworth,206500.0,26027.0,7.93,local_authority
+2020,E09000018,Hounslow,423500.0,29666.0,14.28,local_authority
+2020,E07000011,Huntingdonshire,283000.0,28911.0,9.79,local_authority
+2020,E07000120,Hyndburn,110000.0,22459.0,4.9,local_authority
+2020,E07000202,Ipswich,200500.0,22862.0,8.77,local_authority
+2020,W06000001,Isle of Anglesey,185000.0,23399.0,7.91,local_authority
+2020,E06000046,Isle of Wight,220000.0,25026.0,8.79,local_authority
+2020,E09000019,Islington,650000.0,41329.0,15.73,local_authority
+2020,E07000146,King's Lynn and West Norfolk,225000.0,22390.0,10.05,local_authority
+2020,E06000010,"Kingston upon Hull, City of",120000.0,20857.0,5.75,local_authority
+2020,E09000021,Kingston upon Thames,495000.0,36170.0,13.69,local_authority
+2020,E08000034,Kirklees,160000.0,23994.0,6.67,local_authority
+2020,E08000011,Knowsley,158000.0,23700.0,6.67,local_authority
+2020,E09000022,Lambeth,565000.0,36369.0,15.54,local_authority
+2020,E07000121,Lancaster,161000.0,24130.0,6.67,local_authority
+2020,E08000035,Leeds,194000.0,26370.0,7.36,local_authority
+2020,E06000016,Leicester,183000.0,21043.0,8.7,local_authority
+2020,E07000063,Lewes,321500.0,26228.0,12.26,local_authority
+2020,E09000023,Lewisham,430000.0,31480.0,13.66,local_authority
+2020,E07000194,Lichfield,255000.0,30929.0,8.24,local_authority
+2020,E07000138,Lincoln,159950.0,23464.0,6.82,local_authority
+2020,E08000012,Liverpool,130995.0,24963.0,5.25,local_authority
+2020,E06000032,Luton,252000.0,24520.0,10.28,local_authority
+2020,E07000110,Maidstone,318000.0,28868.0,11.02,local_authority
+2020,E07000074,Maldon,325000.0,27440.0,11.84,local_authority
+2020,E07000235,Malvern Hills,271500.0,22145.0,12.26,local_authority
+2020,E08000003,Manchester,195000.0,23017.0,8.47,local_authority
+2020,E07000174,Mansfield,149995.0,22224.0,6.75,local_authority
+2020,E06000035,Medway,254000.0,28132.0,9.03,local_authority
+2020,E07000187,Mendip,268000.0,21435.0,12.5,local_authority
+2020,W06000024,Merthyr Tydfil,117000.0,22852.0,5.12,local_authority
+2020,E09000024,Merton,485000.0,32197.0,15.06,local_authority
+2020,E07000042,Mid Devon,250000.0,22156.0,11.28,local_authority
+2020,E07000203,Mid Suffolk,266000.0,24218.0,10.98,local_authority
+2020,E07000228,Mid Sussex,375000.0,27876.0,13.45,local_authority
+2020,E06000002,Middlesbrough,135000.0,22171.0,6.09,local_authority
+2020,E06000042,Milton Keynes,300000.0,28545.0,10.51,local_authority
+2020,E07000210,Mole Valley,515250.0,25198.0,20.45,local_authority
+2020,W06000021,Monmouthshire,260000.0,30250.0,8.6,local_authority
+2020,W06000012,Neath Port Talbot,123000.0,23757.0,5.18,local_authority
+2020,E07000091,New Forest,340000.0,25704.0,13.23,local_authority
+2020,E07000175,Newark and Sherwood,185000.0,23281.0,7.95,local_authority
+2020,E08000021,Newcastle upon Tyne,165000.0,23271.0,7.09,local_authority
+2020,E07000195,Newcastle-under-Lyme,152000.0,24000.0,6.33,local_authority
+2020,E09000025,Newham,410500.0,28369.0,14.47,local_authority
+2020,W06000022,Newport,177500.0,24406.0,7.27,local_authority
+2020,E07000043,North Devon,255000.0,20848.0,12.23,local_authority
+2020,E06000012,North East Lincolnshire,137000.0,23258.0,5.89,local_authority
+2020,E07000099,North Hertfordshire,365000.0,33311.0,10.96,local_authority
+2020,E07000139,North Kesteven,202000.0,25836.0,7.82,local_authority
+2020,E06000013,North Lincolnshire,145000.0,22726.0,6.38,local_authority
+2020,E07000147,North Norfolk,260000.0,21941.0,11.85,local_authority
+2020,E06000024,North Somerset,270000.0,27721.0,9.74,local_authority
+2020,E08000022,North Tyneside,170250.0,24792.0,6.87,local_authority
+2020,E07000218,North Warwickshire,224950.0,27268.0,8.25,local_authority
+2020,E07000134,North West Leicestershire,227000.0,24324.0,9.33,local_authority
+2020,E06000057,Northumberland,168000.0,23427.0,7.17,local_authority
+2020,E07000148,Norwich,197500.0,23176.0,8.52,local_authority
+2020,E06000018,Nottingham,147925.0,21562.0,6.86,local_authority
+2020,E07000219,Nuneaton and Bedworth,186750.0,24500.0,7.62,local_authority
+2020,E07000135,Oadby and Wigston,235000.0,26570.0,8.84,local_authority
+2020,E08000004,Oldham,140000.0,22498.0,6.22,local_authority
+2020,E07000178,Oxford,400000.0,26313.0,15.2,local_authority
+2020,W06000009,Pembrokeshire,180000.0,22062.0,8.16,local_authority
+2020,E06000031,Peterborough,210000.0,23973.0,8.76,local_authority
+2020,E06000026,Plymouth,182250.0,22188.0,8.21,local_authority
+2020,E06000044,Portsmouth,218000.0,22148.0,9.84,local_authority
+2020,W06000023,Powys,180000.0,22534.0,7.99,local_authority
+2020,E07000123,Preston,152000.0,23509.0,6.47,local_authority
+2020,E06000038,Reading,302500.0,27992.0,10.81,local_authority
+2020,E09000026,Redbridge,430000.0,31200.0,13.78,local_authority
+2020,E06000003,Redcar and Cleveland,134747.5,22015.0,6.12,local_authority
+2020,E07000236,Redditch,220000.0,21821.0,10.08,local_authority
+2020,E07000211,Reigate and Banstead,425000.0,32310.0,13.15,local_authority
+2020,W06000016,Rhondda Cynon Taf,116500.0,23618.0,4.93,local_authority
+2020,E07000124,Ribble Valley,235000.0,28909.0,8.13,local_authority
+2020,E09000027,Richmond upon Thames,662750.0,38212.0,17.34,local_authority
+2020,E08000005,Rochdale,145500.0,22089.0,6.59,local_authority
+2020,E07000075,Rochford,335000.0,25214.0,13.29,local_authority
+2020,E07000125,Rossendale,145000.0,21428.0,6.77,local_authority
+2020,E07000064,Rother,310000.0,21685.0,14.3,local_authority
+2020,E08000018,Rotherham,145000.0,21363.0,6.79,local_authority
+2020,E07000220,Rugby,250000.0,28250.0,8.85,local_authority
+2020,E07000176,Rushcliffe,287500.0,28434.0,10.11,local_authority
+2020,E07000092,Rushmoor,297000.0,32236.0,9.21,local_authority
+2020,E06000017,Rutland,312500.0,30058.0,10.4,local_authority
+2020,E07000167,Ryedale,234950.0,23586.0,9.96,local_authority
+2020,E08000006,Salford,185000.0,23750.0,7.79,local_authority
+2020,E08000028,Sandwell,155995.0,22239.0,7.01,local_authority
+2020,E07000168,Scarborough,168750.0,21557.0,7.83,local_authority
+2020,E07000188,Sedgemoor,220997.5,22448.0,9.84,local_authority
+2020,E08000014,Sefton,176500.0,24244.0,7.28,local_authority
+2020,E07000169,Selby,210000.0,26939.0,7.8,local_authority
+2020,E08000019,Sheffield,168500.0,23954.0,7.03,local_authority
+2020,E06000051,Shropshire,229950.0,22893.0,10.04,local_authority
+2020,E06000039,Slough,325000.0,28794.0,11.29,local_authority
+2020,E08000029,Solihull,289950.0,29068.0,9.97,local_authority
+2020,E07000246,Somerset West and Taunton,235000.0,23052.0,10.19,local_authority
+2020,E07000012,South Cambridgeshire,379997.5,31425.0,12.09,local_authority
+2020,E07000039,South Derbyshire,215000.0,28822.0,7.46,local_authority
+2020,E06000025,South Gloucestershire,288000.0,26419.0,10.9,local_authority
+2020,E07000044,South Hams,311760.0,20850.0,14.95,local_authority
+2020,E07000140,South Holland,192000.0,24920.0,7.7,local_authority
+2020,E07000141,South Kesteven,220000.0,22672.0,9.7,local_authority
+2020,E07000031,South Lakeland,248000.0,25674.0,9.66,local_authority
+2020,E07000149,South Norfolk,260000.0,23735.0,10.95,local_authority
+2020,E07000179,South Oxfordshire,390000.0,34000.0,11.47,local_authority
+2020,E07000126,South Ribble,170000.0,24459.0,6.95,local_authority
+2020,E07000189,South Somerset,230000.0,23380.0,9.84,local_authority
+2020,E07000196,South Staffordshire,235750.0,29839.0,7.9,local_authority
+2020,E08000023,South Tyneside,135000.0,21909.0,6.16,local_authority
+2020,E06000045,Southampton,220000.0,25033.0,8.79,local_authority
+2020,E06000033,Southend-on-Sea,290000.0,26755.0,10.84,local_authority
+2020,E09000028,Southwark,525000.0,33682.0,15.59,local_authority
+2020,E07000213,Spelthorne,400750.0,29762.0,13.47,local_authority
+2020,E08000013,St. Helens,143000.0,25535.0,5.6,local_authority
+2020,E07000197,Stafford,215000.0,26276.0,8.18,local_authority
+2020,E07000198,Staffordshire Moorlands,180000.0,25412.0,7.08,local_authority
+2020,E07000243,Stevenage,275000.0,26017.0,10.57,local_authority
+2020,E08000007,Stockport,233000.0,26078.0,8.93,local_authority
+2020,E06000004,Stockton-on-Tees,150500.0,24241.0,6.21,local_authority
+2020,E06000021,Stoke-on-Trent,124000.0,23677.0,5.24,local_authority
+2020,E07000221,Stratford-on-Avon,315000.0,28004.0,11.25,local_authority
+2020,E08000024,Sunderland,127000.0,22723.0,5.59,local_authority
+2020,E07000214,Surrey Heath,431000.0,35944.0,11.99,local_authority
+2020,E09000029,Sutton,386000.0,28316.0,13.63,local_authority
+2020,E07000113,Swale,250000.0,24501.0,10.2,local_authority
+2020,W06000011,Swansea,155000.0,23164.0,6.69,local_authority
+2020,E06000030,Swindon,229997.5,27145.0,8.47,local_authority
+2020,E08000008,Tameside,155000.0,22104.0,7.01,local_authority
+2020,E07000199,Tamworth,215000.0,23550.0,9.13,local_authority
+2020,E07000215,Tandridge,440000.0,28667.0,15.35,local_authority
+2020,E07000045,Teignbridge,253000.0,20718.0,12.21,local_authority
+2020,E06000020,Telford and Wrekin,180000.0,23369.0,7.7,local_authority
+2020,E07000093,Test Valley,312500.0,27971.0,11.17,local_authority
+2020,E07000083,Tewkesbury,276500.0,26473.0,10.44,local_authority
+2020,E07000114,Thanet,247000.0,22539.0,10.96,local_authority
+2020,E07000102,Three Rivers,474500.0,30516.0,15.55,local_authority
+2020,E06000034,Thurrock,290000.0,28198.0,10.28,local_authority
+2020,E07000115,Tonbridge and Malling,350000.0,29423.0,11.9,local_authority
+2020,E06000027,Torbay,202000.0,21926.0,9.21,local_authority
+2020,W06000020,Torfaen,160000.0,25371.0,6.31,local_authority
+2020,E07000046,Torridge,225000.0,22398.0,10.05,local_authority
+2020,E09000030,Tower Hamlets,515000.0,36605.0,14.07,local_authority
+2020,E08000009,Trafford,283000.0,26890.0,10.52,local_authority
+2020,E07000116,Tunbridge Wells,390000.0,30360.0,12.85,local_authority
+2020,E07000077,Uttlesford,415000.0,28940.0,14.34,local_authority
+2020,W06000014,Vale of Glamorgan,227500.0,24039.0,9.46,local_authority
+2020,E07000180,Vale of White Horse,349997.5,31255.0,11.2,local_authority
+2020,E08000036,Wakefield,159950.0,22030.0,7.26,local_authority
+2020,E08000030,Walsall,159000.0,23960.0,6.64,local_authority
+2020,E09000031,Waltham Forest,461000.0,32191.0,14.32,local_authority
+2020,E09000032,Wandsworth,673000.0,41100.0,16.37,local_authority
+2020,E06000007,Warrington,200000.0,24239.0,8.25,local_authority
+2020,E07000222,Warwick,313000.0,30304.0,10.33,local_authority
+2020,E07000103,Watford,375125.0,29639.0,12.66,local_authority
+2020,E07000216,Waverley,480000.0,31062.0,15.45,local_authority
+2020,E07000065,Wealden,328200.0,26000.0,12.62,local_authority
+2020,E07000241,Welwyn Hatfield,380000.0,28504.0,13.33,local_authority
+2020,E06000037,West Berkshire,340000.0,28098.0,12.1,local_authority
+2020,E07000047,West Devon,258750.0,22371.0,11.57,local_authority
+2020,E07000127,West Lancashire,187500.0,24311.0,7.71,local_authority
+2020,E07000142,West Lindsey,185000.0,26788.0,6.91,local_authority
+2020,E07000245,West Suffolk,250000.0,25346.0,9.86,local_authority
+2020,E09000033,Westminster,1000000.0,41029.0,24.37,local_authority
+2020,E08000010,Wigan,149995.0,24673.0,6.08,local_authority
+2020,E06000054,Wiltshire,275000.0,24528.0,11.21,local_authority
+2020,E07000094,Winchester,420000.0,30965.0,13.56,local_authority
+2020,E06000040,Windsor and Maidenhead,494000.0,35938.0,13.75,local_authority
+2020,E08000015,Wirral,165975.0,23984.0,6.92,local_authority
+2020,E07000217,Woking,400000.0,31866.0,12.55,local_authority
+2020,E06000041,Wokingham,420000.0,31008.0,13.54,local_authority
+2020,E08000031,Wolverhampton,162500.0,22713.0,7.15,local_authority
+2020,E07000237,Worcester,210000.0,22804.0,9.21,local_authority
+2020,E07000229,Worthing,290000.0,26583.0,10.91,local_authority
+2020,W06000006,Wrexham,155000.0,25197.0,6.15,local_authority
+2020,E07000238,Wychavon,280250.0,24582.0,11.4,local_authority
+2020,E07000128,Wyre,165000.0,23219.0,7.11,local_authority
+2020,E07000239,Wyre Forest,195000.0,24373.0,8.0,local_authority
+2020,E06000014,York,250000.0,24154.0,10.35,local_authority
+2021,E07000026,Allerdale,172000.0,29754.0,5.78,local_authority
+2021,E07000032,Amber Valley,205000.0,24568.0,8.34,local_authority
+2021,E07000224,Arun,325000.0,22938.0,14.17,local_authority
+2021,E07000170,Ashfield,170000.0,23466.0,7.24,local_authority
+2021,E07000105,Ashford,318000.0,24333.0,13.07,local_authority
+2021,E07000200,Babergh,320000.0,26685.0,11.99,local_authority
+2021,E09000002,Barking and Dagenham,335000.0,26674.0,12.56,local_authority
+2021,E09000003,Barnet,575000.0,30000.0,19.17,local_authority
+2021,E08000016,Barnsley,145000.0,23018.0,6.3,local_authority
+2021,E07000027,Barrow-in-Furness,140000.0,28416.0,4.93,local_authority
+2021,E07000066,Basildon,340000.0,27016.0,12.59,local_authority
+2021,E07000084,Basingstoke and Deane,335000.0,32544.0,10.29,local_authority
+2021,E06000022,Bath and North East Somerset,368000.0,24204.0,15.2,local_authority
+2021,E06000055,Bedford,304975.0,26609.0,11.46,local_authority
+2021,E09000004,Bexley,391500.0,29274.0,13.37,local_authority
+2021,E08000025,Birmingham,210000.0,24282.0,8.65,local_authority
+2021,E07000129,Blaby,249500.0,24844.0,10.04,local_authority
+2021,E06000008,Blackburn with Darwen,138000.0,20895.0,6.6,local_authority
+2021,E06000009,Blackpool,125000.0,20361.0,6.14,local_authority
+2021,W06000019,Blaenau Gwent,109000.0,21794.0,5.0,local_authority
+2021,E07000033,Bolsover,155000.0,22683.0,6.83,local_authority
+2021,E08000001,Bolton,160000.0,23414.0,6.83,local_authority
+2021,E07000136,Boston,185000.0,22681.0,8.16,local_authority
+2021,E06000058,"Bournemouth, Christchurch and Poole",320405.0,24321.0,13.17,local_authority
+2021,E06000036,Bracknell Forest,375000.0,31911.0,11.75,local_authority
+2021,E08000032,Bradford,155000.0,23687.0,6.54,local_authority
+2021,E07000067,Braintree,310000.0,26586.0,11.66,local_authority
+2021,E07000143,Breckland,250000.0,24150.0,10.35,local_authority
+2021,E09000005,Brent,530000.0,28367.0,18.68,local_authority
+2021,E07000068,Brentwood,478000.0,27310.0,17.5,local_authority
+2021,W06000013,Bridgend,176500.0,23836.0,7.4,local_authority
+2021,E06000043,Brighton and Hove,409250.0,26289.0,15.57,local_authority
+2021,E06000023,"Bristol, City of",315000.0,26936.0,11.69,local_authority
+2021,E07000144,Broadland,275000.0,24778.0,11.1,local_authority
+2021,E09000006,Bromley,498000.0,34020.0,14.64,local_authority
+2021,E07000234,Bromsgrove,320000.0,29424.0,10.88,local_authority
+2021,E07000095,Broxbourne,395000.0,27194.0,14.53,local_authority
+2021,E07000172,Broxtowe,215000.0,26023.0,8.26,local_authority
+2021,E06000060,Buckinghamshire,435000.0,29170.0,14.91,local_authority
+2021,E07000117,Burnley,117500.0,23864.0,4.92,local_authority
+2021,E08000002,Bury,212000.0,27332.0,7.76,local_authority
+2021,W06000018,Caerphilly,155000.0,24782.0,6.25,local_authority
+2021,E08000033,Calderdale,165000.0,23567.0,7.0,local_authority
+2021,E07000008,Cambridge,450000.0,31154.0,14.44,local_authority
+2021,E09000007,Camden,765000.0,35102.0,21.79,local_authority
+2021,E07000192,Cannock Chase,195000.0,25917.0,7.52,local_authority
+2021,E07000106,Canterbury,340000.0,24727.0,13.75,local_authority
+2021,W06000015,Cardiff,240000.0,24657.0,9.73,local_authority
+2021,E07000028,Carlisle,155000.0,21381.0,7.25,local_authority
+2021,W06000010,Carmarthenshire,166500.0,24454.0,6.81,local_authority
+2021,E06000056,Central Bedfordshire,335000.0,30231.0,11.08,local_authority
+2021,W06000008,Ceredigion,215000.0,23401.0,9.19,local_authority
+2021,E07000130,Charnwood,245622.5,24283.0,10.11,local_authority
+2021,E07000070,Chelmsford,380000.0,29487.0,12.89,local_authority
+2021,E07000078,Cheltenham,307500.0,30445.0,10.1,local_authority
+2021,E07000177,Cherwell,330000.0,29579.0,11.16,local_authority
+2021,E06000049,Cheshire East,265000.0,24873.0,10.65,local_authority
+2021,E06000050,Cheshire West and Chester,235000.0,26487.0,8.87,local_authority
+2021,E07000034,Chesterfield,180000.0,22875.0,7.87,local_authority
+2021,E07000225,Chichester,410000.0,24423.0,16.79,local_authority
+2021,E07000118,Chorley,195000.0,25194.0,7.74,local_authority
+2021,E07000071,Colchester,305000.0,24295.0,12.55,local_authority
+2021,W06000003,Conwy,194475.0,22699.0,8.57,local_authority
+2021,E07000029,Copeland,137000.0,32776.0,4.18,local_authority
+2021,E06000052,Cornwall,275000.0,21339.0,12.89,local_authority
+2021,E07000079,Cotswold,410000.0,22067.0,18.58,local_authority
+2021,E06000047,County Durham,128000.0,24245.0,5.28,local_authority
+2021,E08000026,Coventry,200000.0,25725.0,7.77,local_authority
+2021,E07000163,Craven,240000.0,19933.0,12.04,local_authority
+2021,E07000226,Crawley,310000.0,26673.0,11.62,local_authority
+2021,E09000008,Croydon,415000.0,32065.0,12.94,local_authority
+2021,E07000096,Dacorum,425000.0,27308.0,15.56,local_authority
+2021,E06000005,Darlington,153000.0,24784.0,6.17,local_authority
+2021,E07000107,Dartford,330000.0,29056.0,11.36,local_authority
+2021,W06000004,Denbighshire,175750.0,22009.0,7.99,local_authority
+2021,E06000015,Derby,185000.0,26464.0,6.99,local_authority
+2021,E07000035,Derbyshire Dales,290000.0,22365.0,12.97,local_authority
+2021,E08000017,Doncaster,151000.0,24884.0,6.07,local_authority
+2021,E06000059,Dorset,330000.0,24579.0,13.43,local_authority
+2021,E07000108,Dover,280000.0,25463.0,11.0,local_authority
+2021,E08000027,Dudley,200000.0,25567.0,7.82,local_authority
+2021,E09000009,Ealing,525000.0,29676.0,17.69,local_authority
+2021,E07000009,East Cambridgeshire,325000.0,27093.0,12.0,local_authority
+2021,E07000040,East Devon,310550.0,23551.0,13.19,local_authority
+2021,E07000085,East Hampshire,415000.0,29212.0,14.21,local_authority
+2021,E07000242,East Hertfordshire,428375.0,30454.0,14.07,local_authority
+2021,E07000137,East Lindsey,195000.0,20159.0,9.67,local_authority
+2021,E06000011,East Riding of Yorkshire,210000.0,25427.0,8.26,local_authority
+2021,E07000193,East Staffordshire,216250.0,23778.0,9.09,local_authority
+2021,E07000244,East Suffolk,275000.0,23359.0,11.77,local_authority
+2021,E07000061,Eastbourne,272750.0,23627.0,11.54,local_authority
+2021,E07000086,Eastleigh,320000.0,28822.0,11.1,local_authority
+2021,E07000030,Eden,230000.0,22117.0,10.4,local_authority
+2021,E07000207,Elmbridge,627500.0,32836.0,19.11,local_authority
+2021,E09000010,Enfield,460000.0,27519.0,16.72,local_authority
+2021,E07000072,Epping Forest,499995.0,28709.0,17.42,local_authority
+2021,E07000208,Epsom and Ewell,520000.0,29545.0,17.6,local_authority
+2021,E07000036,Erewash,185000.0,26220.0,7.06,local_authority
+2021,E07000041,Exeter,277000.0,23340.0,11.87,local_authority
+2021,E07000010,Fenland,215000.0,23509.0,9.15,local_authority
+2021,W06000005,Flintshire,182500.0,24829.0,7.35,local_authority
+2021,E07000112,Folkestone and Hythe,300745.0,26078.0,11.53,local_authority
+2021,E07000080,Forest of Dean,275000.0,23576.0,11.66,local_authority
+2021,E07000119,Fylde,221995.0,26863.0,8.26,local_authority
+2021,E08000037,Gateshead,148500.0,23263.0,6.38,local_authority
+2021,E07000173,Gedling,212500.0,23215.0,9.15,local_authority
+2021,E07000081,Gloucester,223500.0,23649.0,9.45,local_authority
+2021,E07000088,Gosport,230000.0,26464.0,8.69,local_authority
+2021,E07000109,Gravesham,330000.0,27368.0,12.06,local_authority
+2021,E07000145,Great Yarmouth,206000.0,22283.0,9.24,local_authority
+2021,E09000011,Greenwich,460000.0,31116.0,14.78,local_authority
+2021,E07000209,Guildford,485000.0,32518.0,14.91,local_authority
+2021,W06000002,Gwynedd,175000.0,19875.0,8.81,local_authority
+2021,E09000012,Hackney,595000.0,29775.0,19.98,local_authority
+2021,E06000006,Halton,160250.0,23583.0,6.8,local_authority
+2021,E07000164,Hambleton,269000.0,22875.0,11.76,local_authority
+2021,E09000013,Hammersmith and Fulham,785000.0,37618.0,20.87,local_authority
+2021,E07000131,Harborough,320000.0,28776.0,11.12,local_authority
+2021,E09000014,Haringey,550000.0,28742.0,19.14,local_authority
+2021,E07000073,Harlow,310000.0,24865.0,12.47,local_authority
+2021,E07000165,Harrogate,317230.0,27458.0,11.55,local_authority
+2021,E09000015,Harrow,535500.0,30979.0,17.29,local_authority
+2021,E07000089,Hart,425000.0,30943.0,13.73,local_authority
+2021,E06000001,Hartlepool,135000.0,24421.0,5.53,local_authority
+2021,E07000062,Hastings,270000.0,22988.0,11.75,local_authority
+2021,E07000090,Havant,313000.0,24526.0,12.76,local_authority
+2021,E09000016,Havering,400000.0,30587.0,13.08,local_authority
+2021,E06000019,"Herefordshire, County of",275000.0,22094.0,12.45,local_authority
+2021,E07000098,Hertsmere,527000.0,26391.0,19.97,local_authority
+2021,E07000037,High Peak,222500.0,23623.0,9.42,local_authority
+2021,E09000017,Hillingdon,460000.0,30815.0,14.93,local_authority
+2021,E07000132,Hinckley and Bosworth,233720.0,26220.0,8.91,local_authority
+2021,E07000227,Horsham,420000.0,25787.0,16.29,local_authority
+2021,E09000018,Hounslow,457500.0,26840.0,17.05,local_authority
+2021,E07000011,Huntingdonshire,295000.0,28246.0,10.44,local_authority
+2021,E07000120,Hyndburn,115000.0,23128.0,4.97,local_authority
+2021,E07000202,Ipswich,225000.0,23771.0,9.47,local_authority
+2021,W06000001,Isle of Anglesey,200000.0,26322.0,7.6,local_authority
+2021,E06000046,Isle of Wight,260000.0,21640.0,12.01,local_authority
+2021,E09000019,Islington,642500.0,34832.0,18.45,local_authority
+2021,E09000020,Kensington and Chelsea,1250000.0,39011.0,32.04,local_authority
+2021,E07000146,King's Lynn and West Norfolk,250000.0,22628.0,11.05,local_authority
+2021,E06000010,"Kingston upon Hull, City of",125000.0,22151.0,5.64,local_authority
+2021,E09000021,Kingston upon Thames,530000.0,35130.0,15.09,local_authority
+2021,E08000034,Kirklees,177500.0,23038.0,7.7,local_authority
+2021,E08000011,Knowsley,160000.0,24148.0,6.63,local_authority
+2021,E09000022,Lambeth,560000.0,35484.0,15.78,local_authority
+2021,E07000121,Lancaster,180000.0,25368.0,7.1,local_authority
+2021,E08000035,Leeds,220000.0,26292.0,8.37,local_authority
+2021,E06000016,Leicester,210000.0,21200.0,9.91,local_authority
+2021,E07000063,Lewes,372995.0,27142.0,13.74,local_authority
+2021,E09000023,Lewisham,470000.0,29940.0,15.7,local_authority
+2021,E07000194,Lichfield,280000.0,28709.0,9.75,local_authority
+2021,E07000138,Lincoln,172000.0,21513.0,8.0,local_authority
+2021,E08000012,Liverpool,157000.0,25019.0,6.28,local_authority
+2021,E06000032,Luton,271500.0,24367.0,11.14,local_authority
+2021,E07000110,Maidstone,345000.0,28068.0,12.29,local_authority
+2021,E07000074,Maldon,351250.0,27735.0,12.66,local_authority
+2021,E07000235,Malvern Hills,315000.0,26028.0,12.1,local_authority
+2021,E08000003,Manchester,218000.0,23044.0,9.46,local_authority
+2021,E07000174,Mansfield,165000.0,21802.0,7.57,local_authority
+2021,E06000035,Medway,276000.0,26893.0,10.26,local_authority
+2021,E07000133,Melton,260000.0,19023.0,13.67,local_authority
+2021,E07000187,Mendip,292500.0,22723.0,12.87,local_authority
+2021,W06000024,Merthyr Tydfil,125000.0,24645.0,5.07,local_authority
+2021,E09000024,Merton,544500.0,29884.0,18.22,local_authority
+2021,E07000203,Mid Suffolk,300000.0,25569.0,11.73,local_authority
+2021,E07000228,Mid Sussex,405250.0,27428.0,14.78,local_authority
+2021,E06000002,Middlesbrough,137000.0,21968.0,6.24,local_authority
+2021,E06000042,Milton Keynes,318375.0,29713.0,10.72,local_authority
+2021,E07000210,Mole Valley,560000.0,28039.0,19.97,local_authority
+2021,W06000021,Monmouthshire,290500.0,29914.0,9.71,local_authority
+2021,W06000012,Neath Port Talbot,135000.0,24935.0,5.41,local_authority
+2021,E07000091,New Forest,380000.0,23847.0,15.93,local_authority
+2021,E07000175,Newark and Sherwood,220000.0,23752.0,9.26,local_authority
+2021,E08000021,Newcastle upon Tyne,184000.0,24377.0,7.55,local_authority
+2021,E07000195,Newcastle-under-Lyme,170000.0,24284.0,7.0,local_authority
+2021,E09000025,Newham,434000.0,30473.0,14.24,local_authority
+2021,W06000022,Newport,200000.0,24583.0,8.14,local_authority
+2021,E07000043,North Devon,280000.0,21335.0,13.12,local_authority
+2021,E07000038,North East Derbyshire,215000.0,25660.0,8.38,local_authority
+2021,E06000012,North East Lincolnshire,150000.0,22911.0,6.55,local_authority
+2021,E07000099,North Hertfordshire,395000.0,29444.0,13.42,local_authority
+2021,E07000139,North Kesteven,227500.0,27034.0,8.42,local_authority
+2021,E06000013,North Lincolnshire,162500.0,23974.0,6.78,local_authority
+2021,E07000147,North Norfolk,295000.0,22763.0,12.96,local_authority
+2021,E06000061,North Northamptonshire,233497.5,26083.0,8.95,local_authority
+2021,E06000024,North Somerset,300000.0,24968.0,12.02,local_authority
+2021,E08000022,North Tyneside,180050.0,25179.0,7.15,local_authority
+2021,E07000218,North Warwickshire,242000.0,27246.0,8.88,local_authority
+2021,E07000134,North West Leicestershire,240000.0,25603.0,9.37,local_authority
+2021,E06000057,Northumberland,185000.0,23265.0,7.95,local_authority
+2021,E07000148,Norwich,218000.0,25175.0,8.66,local_authority
+2021,E06000018,Nottingham,165000.0,21406.0,7.71,local_authority
+2021,E07000219,Nuneaton and Bedworth,200000.0,25029.0,7.99,local_authority
+2021,E07000135,Oadby and Wigston,250000.0,22304.0,11.21,local_authority
+2021,E08000004,Oldham,170500.0,23662.0,7.21,local_authority
+2021,E07000178,Oxford,430000.0,29261.0,14.7,local_authority
+2021,W06000009,Pembrokeshire,195000.0,23757.0,8.21,local_authority
+2021,E07000122,Pendle,132500.0,20034.0,6.61,local_authority
+2021,E06000031,Peterborough,220000.0,24572.0,8.95,local_authority
+2021,E06000026,Plymouth,195000.0,22064.0,8.84,local_authority
+2021,E06000044,Portsmouth,235000.0,24999.0,9.4,local_authority
+2021,W06000023,Powys,212500.0,22283.0,9.54,local_authority
+2021,E07000123,Preston,160000.0,22877.0,6.99,local_authority
+2021,E06000038,Reading,320000.0,31183.0,10.26,local_authority
+2021,E09000026,Redbridge,490000.0,31407.0,15.6,local_authority
+2021,E06000003,Redcar and Cleveland,143000.0,21661.0,6.6,local_authority
+2021,E07000236,Redditch,237125.0,24076.0,9.85,local_authority
+2021,E07000211,Reigate and Banstead,452500.0,32291.0,14.01,local_authority
+2021,W06000016,Rhondda Cynon Taf,133000.0,23127.0,5.75,local_authority
+2021,E07000124,Ribble Valley,245000.0,26994.0,9.08,local_authority
+2021,E09000027,Richmond upon Thames,700000.0,36520.0,19.17,local_authority
+2021,E07000166,Richmondshire,246000.0,20407.0,12.05,local_authority
+2021,E08000005,Rochdale,166000.0,22506.0,7.38,local_authority
+2021,E07000075,Rochford,370000.0,31803.0,11.63,local_authority
+2021,E07000125,Rossendale,170000.0,22857.0,7.44,local_authority
+2021,E07000064,Rother,347997.5,22401.0,15.53,local_authority
+2021,E08000018,Rotherham,165000.0,21804.0,7.57,local_authority
+2021,E07000220,Rugby,265000.0,28805.0,9.2,local_authority
+2021,E07000212,Runnymede,440000.0,33500.0,13.13,local_authority
+2021,E07000176,Rushcliffe,305000.0,28780.0,10.6,local_authority
+2021,E07000092,Rushmoor,325000.0,27446.0,11.84,local_authority
+2021,E06000017,Rutland,321000.0,29511.0,10.88,local_authority
+2021,E07000167,Ryedale,249995.0,22548.0,11.09,local_authority
+2021,E08000006,Salford,202500.0,23303.0,8.69,local_authority
+2021,E08000028,Sandwell,174000.0,22853.0,7.61,local_authority
+2021,E07000168,Scarborough,185000.0,22441.0,8.24,local_authority
+2021,E07000188,Sedgemoor,245000.0,21790.0,11.24,local_authority
+2021,E08000014,Sefton,200000.0,23755.0,8.42,local_authority
+2021,E07000169,Selby,225000.0,28812.0,7.81,local_authority
+2021,E08000019,Sheffield,184000.0,25001.0,7.36,local_authority
+2021,E06000051,Shropshire,255000.0,23750.0,10.74,local_authority
+2021,E06000039,Slough,350000.0,29758.0,11.76,local_authority
+2021,E08000029,Solihull,323250.0,30392.0,10.64,local_authority
+2021,E07000246,Somerset West and Taunton,260000.0,23604.0,11.02,local_authority
+2021,E07000012,South Cambridgeshire,396750.0,33715.0,11.77,local_authority
+2021,E07000039,South Derbyshire,225000.0,28712.0,7.84,local_authority
+2021,E06000025,South Gloucestershire,300000.0,26020.0,11.53,local_authority
+2021,E07000044,South Hams,350000.0,24066.0,14.54,local_authority
+2021,E07000140,South Holland,215000.0,24899.0,8.63,local_authority
+2021,E07000141,South Kesteven,242000.0,24341.0,9.94,local_authority
+2021,E07000031,South Lakeland,265000.0,25174.0,10.53,local_authority
+2021,E07000149,South Norfolk,283987.0,26577.0,10.69,local_authority
+2021,E07000179,South Oxfordshire,440000.0,31031.0,14.18,local_authority
+2021,E07000126,South Ribble,185000.0,24148.0,7.66,local_authority
+2021,E07000189,South Somerset,260000.0,23956.0,10.85,local_authority
+2021,E07000196,South Staffordshire,265500.0,27787.0,9.55,local_authority
+2021,E08000023,South Tyneside,149950.0,22863.0,6.56,local_authority
+2021,E06000045,Southampton,233000.0,26970.0,8.64,local_authority
+2021,E06000033,Southend-on-Sea,325000.0,27557.0,11.79,local_authority
+2021,E09000028,Southwark,551500.0,34193.0,16.13,local_authority
+2021,E07000213,Spelthorne,425000.0,31440.0,13.52,local_authority
+2021,E07000240,St Albans,582500.0,37111.0,15.7,local_authority
+2021,E08000013,St. Helens,155000.0,25745.0,6.02,local_authority
+2021,E07000197,Stafford,230000.0,26249.0,8.76,local_authority
+2021,E07000198,Staffordshire Moorlands,198000.0,25906.0,7.64,local_authority
+2021,E07000243,Stevenage,305000.0,23640.0,12.9,local_authority
+2021,E08000007,Stockport,271636.0,25422.0,10.69,local_authority
+2021,E06000004,Stockton-on-Tees,158000.0,24598.0,6.42,local_authority
+2021,E06000021,Stoke-on-Trent,134950.0,22769.0,5.93,local_authority
+2021,E07000221,Stratford-on-Avon,344000.0,27007.0,12.74,local_authority
+2021,E07000082,Stroud,313500.0,25159.0,12.46,local_authority
+2021,E08000024,Sunderland,138000.0,21944.0,6.29,local_authority
+2021,E07000214,Surrey Heath,445000.0,36930.0,12.05,local_authority
+2021,E09000029,Sutton,430000.0,29931.0,14.37,local_authority
+2021,E07000113,Swale,285000.0,26053.0,10.94,local_authority
+2021,W06000011,Swansea,173750.0,23485.0,7.4,local_authority
+2021,E06000030,Swindon,245000.0,27247.0,8.99,local_authority
+2021,E08000008,Tameside,175000.0,23278.0,7.52,local_authority
+2021,E07000199,Tamworth,221500.0,24125.0,9.18,local_authority
+2021,E07000215,Tandridge,475000.0,30006.0,15.83,local_authority
+2021,E07000045,Teignbridge,278000.0,21499.0,12.93,local_authority
+2021,E06000020,Telford and Wrekin,201000.0,23355.0,8.61,local_authority
+2021,E07000076,Tendring,262500.0,25262.0,10.39,local_authority
+2021,E07000093,Test Valley,330000.0,28520.0,11.57,local_authority
+2021,E07000083,Tewkesbury,295000.0,28308.0,10.42,local_authority
+2021,E07000114,Thanet,284247.5,22730.0,12.51,local_authority
+2021,E07000102,Three Rivers,494850.0,29266.0,16.91,local_authority
+2021,E06000034,Thurrock,318995.0,29390.0,10.85,local_authority
+2021,E07000115,Tonbridge and Malling,375000.0,31218.0,12.01,local_authority
+2021,E06000027,Torbay,230000.0,23293.0,9.87,local_authority
+2021,W06000020,Torfaen,165000.0,23370.0,7.06,local_authority
+2021,E09000030,Tower Hamlets,560000.0,35949.0,15.58,local_authority
+2021,E08000009,Trafford,320000.0,27882.0,11.48,local_authority
+2021,E07000116,Tunbridge Wells,430000.0,32352.0,13.29,local_authority
+2021,E07000077,Uttlesford,440000.0,26736.0,16.46,local_authority
+2021,W06000014,Vale of Glamorgan,256500.0,26121.0,9.82,local_authority
+2021,E07000180,Vale of White Horse,370000.0,32099.0,11.53,local_authority
+2021,E08000036,Wakefield,174000.0,23389.0,7.44,local_authority
+2021,E08000030,Walsall,185000.0,23009.0,8.04,local_authority
+2021,E09000031,Waltham Forest,500000.0,31996.0,15.63,local_authority
+2021,E09000032,Wandsworth,640000.0,37929.0,16.87,local_authority
+2021,E06000007,Warrington,226000.0,26020.0,8.69,local_authority
+2021,E07000222,Warwick,330000.0,30002.0,11.0,local_authority
+2021,E07000103,Watford,395000.0,28835.0,13.7,local_authority
+2021,E07000216,Waverley,520000.0,30305.0,17.16,local_authority
+2021,E07000065,Wealden,370000.0,24498.0,15.1,local_authority
+2021,E07000241,Welwyn Hatfield,417500.0,28000.0,14.91,local_authority
+2021,E06000037,West Berkshire,380000.0,31009.0,12.25,local_authority
+2021,E07000047,West Devon,290000.0,19539.0,14.84,local_authority
+2021,E07000127,West Lancashire,212500.0,22884.0,9.29,local_authority
+2021,E07000142,West Lindsey,212250.0,26954.0,7.87,local_authority
+2021,E06000062,West Northamptonshire,275000.0,26644.0,10.32,local_authority
+2021,E07000181,West Oxfordshire,360000.0,27250.0,13.21,local_authority
+2021,E07000245,West Suffolk,271000.0,25751.0,10.52,local_authority
+2021,E09000033,Westminster,863000.0,39635.0,21.77,local_authority
+2021,E08000010,Wigan,160000.0,25527.0,6.27,local_authority
+2021,E06000054,Wiltshire,300000.0,24855.0,12.07,local_authority
+2021,E07000094,Winchester,465000.0,31977.0,14.54,local_authority
+2021,E06000040,Windsor and Maidenhead,512750.0,32210.0,15.92,local_authority
+2021,E08000015,Wirral,195000.0,24630.0,7.92,local_authority
+2021,E07000217,Woking,445000.0,30188.0,14.74,local_authority
+2021,E06000041,Wokingham,447100.0,33925.0,13.18,local_authority
+2021,E08000031,Wolverhampton,177000.0,24283.0,7.29,local_authority
+2021,E07000237,Worcester,226564.5,26283.0,8.62,local_authority
+2021,E07000229,Worthing,330000.0,26673.0,12.37,local_authority
+2021,W06000006,Wrexham,170000.0,23572.0,7.21,local_authority
+2021,E07000238,Wychavon,305000.0,23139.0,13.18,local_authority
+2021,E07000128,Wyre,175000.0,23686.0,7.39,local_authority
+2021,E07000239,Wyre Forest,220000.0,24702.0,8.91,local_authority
+2021,E06000014,York,275000.0,24232.0,11.35,local_authority

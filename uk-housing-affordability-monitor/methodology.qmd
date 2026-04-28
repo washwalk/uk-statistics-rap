@@ -1,0 +1,69 @@
+---
+title: "Methodology"
+---
+
+## Indicator
+
+The headline measure is:
+
+```text
+median house price / median gross annual resident earnings
+```
+
+The monitor uses local authority records where both house price and earnings values are available for the same year and geography code. The latest headline year is therefore the latest year with usable matched values after applying the documented filters, not necessarily the latest release year for either source dataset in isolation.
+
+## Coverage
+
+The current statistical output covers England and Wales. This is because the ONS small-area house price dataset used in the pipeline covers local authorities in England and Wales.
+
+The repository is structured as a UK housing affordability monitor because the workflow is reusable and could be extended with additional official sources for Scotland and Northern Ireland. The current dashboard labels and caveats make the England and Wales coverage explicit.
+
+## Data Sources
+
+The Python pipeline queries the ONS API for the latest published versions of:
+
+- `house-prices-local-authority`: House price statistics for small areas in England and Wales
+- `ashe-tables-7-and-8`: Earnings and hours worked, place of work and residence by local authority
+
+The script then streams the ONS CSV downloads advertised by the API version metadata.
+
+## Filters
+
+House price data are filtered to:
+
+- median price
+- all property types
+- all build statuses
+- September year-ending period
+
+Earnings data are filtered to:
+
+- gross annual pay
+- median
+- all employees
+- all working patterns
+- residence-based geography
+
+## Reproducibility
+
+The workflow is designed as a statistical publication pipeline:
+
+- ONS API metadata determines current data versions
+- Python processes and writes tidy CSV outputs
+- Quarto renders the public website
+- GitHub Actions refreshes the data and deploys to GitHub Pages
+
+In production, this pattern supports scheduled refreshes, manual reruns, auditable source metadata, and a consistent route from source data to public output.
+
+## Limitations
+
+The monitor currently focuses on England and Wales because the ONS house price small-area dataset used here covers England and Wales. The ratio is a concise monitoring indicator, not a lending affordability model.
+
+The indicator does not account for deposits, mortgage interest rates, household income, wealth, taxes, benefits, tenure, housing quality, or within-area inequality. It is best interpreted as a transparent headline measure for comparing local affordability pressure over time and between areas.
+
+## Potential Extensions
+
+- Add Scotland and Northern Ireland using comparable official data sources.
+- Add automated quality checks for missingness, geography changes, and large revisions.
+- Add confidence or quality indicators where source datasets provide them.
+- Add accessibility testing and publication sign-off checks to the workflow.

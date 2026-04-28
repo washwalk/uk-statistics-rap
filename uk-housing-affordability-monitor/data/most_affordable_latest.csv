@@ -1,0 +1,21 @@
+year,area_code,area_name,median_house_price,median_annual_pay,affordability_ratio,area_type
+2021,E07000029,Copeland,137000.0,32776.0,4.18,local_authority
+2021,E07000117,Burnley,117500.0,23864.0,4.92,local_authority
+2021,E07000027,Barrow-in-Furness,140000.0,28416.0,4.93,local_authority
+2021,E07000120,Hyndburn,115000.0,23128.0,4.97,local_authority
+2021,W06000019,Blaenau Gwent,109000.0,21794.0,5.0,local_authority
+2021,W06000024,Merthyr Tydfil,125000.0,24645.0,5.07,local_authority
+2021,E06000047,County Durham,128000.0,24245.0,5.28,local_authority
+2021,W06000012,Neath Port Talbot,135000.0,24935.0,5.41,local_authority
+2021,E06000001,Hartlepool,135000.0,24421.0,5.53,local_authority
+2021,E06000010,"Kingston upon Hull, City of",125000.0,22151.0,5.64,local_authority
+2021,W06000016,Rhondda Cynon Taf,133000.0,23127.0,5.75,local_authority
+2021,E07000026,Allerdale,172000.0,29754.0,5.78,local_authority
+2021,E06000021,Stoke-on-Trent,134950.0,22769.0,5.93,local_authority
+2021,E08000013,St. Helens,155000.0,25745.0,6.02,local_authority
+2021,E08000017,Doncaster,151000.0,24884.0,6.07,local_authority
+2021,E06000009,Blackpool,125000.0,20361.0,6.14,local_authority
+2021,E06000005,Darlington,153000.0,24784.0,6.17,local_authority
+2021,E06000002,Middlesbrough,137000.0,21968.0,6.24,local_authority
+2021,W06000018,Caerphilly,155000.0,24782.0,6.25,local_authority
+2021,E08000010,Wigan,160000.0,25527.0,6.27,local_authority

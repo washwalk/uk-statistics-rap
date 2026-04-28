@@ -1,0 +1,150 @@
+---
+title: "UK Housing Affordability Monitor"
+---
+
+```{python}
+import json
+from pathlib import Path
+
+import pandas as pd
+import plotly.express as px
+
+metadata = json.loads(Path("data/metadata.json").read_text())
+trend = pd.read_csv("data/affordability_trend.csv")
+latest = pd.read_csv("data/affordability_by_area.csv")
+latest = latest[(latest["year"] == metadata["latest_year"]) & (latest["area_type"] == "local_authority")]
+least = pd.read_csv("data/least_affordable_latest.csv")
+most = pd.read_csv("data/most_affordable_latest.csv")
+
+
+def format_table(frame):
+    table = frame[["area_name", "median_house_price", "median_annual_pay", "affordability_ratio"]].copy()
+    table["median_house_price"] = table["median_house_price"].map(lambda value: f"GBP {value:,.0f}")
+    table["median_annual_pay"] = table["median_annual_pay"].map(lambda value: f"GBP {value:,.0f}")
+    table["affordability_ratio"] = table["affordability_ratio"].map(lambda value: f"{value:.2f}x")
+    return table.rename(
+        columns={
+            "area_name": "Area",
+            "median_house_price": "Median house price",
+            "median_annual_pay": "Median annual pay",
+            "affordability_ratio": "House price to earnings ratio",
+        }
+    )
+```
+
+::: {.hero}
+# Housing affordability, automated from official statistics
+
+This monitor combines ONS house price statistics and ASHE earnings data to track how many years of median gross annual pay are implied by the median local house price in England and Wales.
+
+The project is titled as a UK housing affordability monitor because it is designed as a reusable publication workflow. The current statistical output is explicitly England and Wales, reflecting the coverage of the selected ONS small-area house price dataset.
+:::
+
+::: {.stat-grid}
+```{python}
+#| output: asis
+print(f"""
+<div class="stat-card">
+  <div class="label">Latest year</div>
+  <div class="value">{metadata['latest_year']}</div>
+  <div class="small">September year-ending house price period aligned to annual earnings.</div>
+</div>
+<div class="stat-card">
+  <div class="label">Median ratio</div>
+  <div class="value">{metadata['median_ratio_latest']}x</div>
+  <div class="small">Median local authority house-price-to-earnings ratio.</div>
+</div>
+<div class="stat-card">
+  <div class="label">Least affordable</div>
+  <div class="value">{metadata['least_affordable_area']['affordability_ratio']}x</div>
+  <div class="small">{metadata['least_affordable_area']['area_name']}</div>
+</div>
+<div class="stat-card">
+  <div class="label">Areas monitored</div>
+  <div class="value">{metadata['area_count_latest']}</div>
+  <div class="small">Local authorities with matched ONS house price and earnings data.</div>
+</div>
+""")
+```
+:::
+
+## Key Findings
+
+```{python}
+#| output: asis
+least_area = metadata["least_affordable_area"]["area_name"]
+least_ratio = metadata["least_affordable_area"]["affordability_ratio"]
+most_area = metadata["most_affordable_area"]["area_name"]
+most_ratio = metadata["most_affordable_area"]["affordability_ratio"]
+latest_year = metadata["latest_year"]
+median_ratio = metadata["median_ratio_latest"]
+
+print(f"""
+<div class="insight-grid">
+  <div class="insight-card"><strong>Affordability pressure is highly uneven.</strong><br>{least_area} had the highest matched local ratio in {latest_year}, at {least_ratio:.2f} times median resident annual pay.</div>
+  <div class="insight-card"><strong>The typical local ratio remains high.</strong><br>The median local authority ratio was {median_ratio:.2f} in {latest_year}, meaning the median house price was more than ten times median annual pay in the middle local authority.</div>
+  <div class="insight-card"><strong>The workflow favours transparency over complexity.</strong><br>{most_area} had the lowest matched ratio, at {most_ratio:.2f}, using the same published ONS filters and reproducible processing rules.</div>
+</div>
+""")
+```
+
+```{python}
+fig = px.line(
+    trend,
+    x="year",
+    y="affordability_ratio",
+    markers=True,
+    title="Median local house-price-to-earnings ratio over time",
+    labels={"year": "Year", "affordability_ratio": "Median house price / median annual pay"},
+)
+fig.update_traces(line_color="#123c69", marker_color="#f3b700", line_width=3)
+fig.update_layout(height=430, margin=dict(l=20, r=20, t=60, b=20))
+fig.show()
+```
+
+<p class="small">Trend uses the median local authority ratio for matched England and Wales geographies. The latest headline year is determined by the latest year with usable matched ONS house price and ASHE earnings values under the documented filters.</p>
+
+```{python}
+plot_latest = latest.sort_values("affordability_ratio", ascending=False).head(25)
+fig = px.bar(
+    plot_latest.sort_values("affordability_ratio"),
+    x="affordability_ratio",
+    y="area_name",
+    orientation="h",
+    title=f"Highest affordability ratios, {metadata['latest_year']}",
+    labels={"affordability_ratio": "Ratio", "area_name": "Local authority"},
+    color="affordability_ratio",
+    color_continuous_scale="Blues",
+)
+fig.update_layout(height=720, margin=dict(l=20, r=20, t=60, b=20), coloraxis_showscale=False)
+fig.show()
+```
+
+<p class="small">Higher values indicate lower affordability: the median house price is a larger multiple of median resident annual pay.</p>
+
+## Interpretation
+
+The indicator is deliberately simple: a value of `8.0` means the median house price is eight times median gross annual resident earnings in that local authority. This makes local differences easy to explain while keeping the data pipeline reproducible and auditable.
+
+For an interview portfolio, the point is not only the indicator. The project demonstrates how an official-statistics product can be automated end to end: API metadata discovery, reproducible Python processing, documented assumptions, Quarto publication, and GitHub Pages deployment.
+
+::: {.note}
+This is not a full mortgage affordability model. It does not include deposits, interest rates, household composition, wealth, taxes, benefits, or housing quality. It is a clear headline indicator for monitoring spatial and temporal affordability pressure across England and Wales.
+:::
+
+## Most affordable areas
+
+```{python}
+format_table(most).head(10)
+```
+
+## Least affordable areas
+
+```{python}
+format_table(least).head(10)
+```
+
+```{python}
+#| output: asis
+print(f"<p class='small'>Last data refresh: {metadata['generated_at']}</p>")
+```

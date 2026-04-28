@@ -1,0 +1,21 @@
+year,area_code,area_name,median_house_price,median_annual_pay,affordability_ratio,area_type
+2021,E09000020,Kensington and Chelsea,1250000.0,39011.0,32.04,local_authority
+2021,E09000007,Camden,765000.0,35102.0,21.79,local_authority
+2021,E09000033,Westminster,863000.0,39635.0,21.77,local_authority
+2021,E09000013,Hammersmith and Fulham,785000.0,37618.0,20.87,local_authority
+2021,E09000012,Hackney,595000.0,29775.0,19.98,local_authority
+2021,E07000098,Hertsmere,527000.0,26391.0,19.97,local_authority
+2021,E07000210,Mole Valley,560000.0,28039.0,19.97,local_authority
+2021,E09000003,Barnet,575000.0,30000.0,19.17,local_authority
+2021,E09000027,Richmond upon Thames,700000.0,36520.0,19.17,local_authority
+2021,E09000014,Haringey,550000.0,28742.0,19.14,local_authority
+2021,E07000207,Elmbridge,627500.0,32836.0,19.11,local_authority
+2021,E09000005,Brent,530000.0,28367.0,18.68,local_authority
+2021,E07000079,Cotswold,410000.0,22067.0,18.58,local_authority
+2021,E09000019,Islington,642500.0,34832.0,18.45,local_authority
+2021,E09000024,Merton,544500.0,29884.0,18.22,local_authority
+2021,E09000009,Ealing,525000.0,29676.0,17.69,local_authority
+2021,E07000208,Epsom and Ewell,520000.0,29545.0,17.6,local_authority
+2021,E07000068,Brentwood,478000.0,27310.0,17.5,local_authority
+2021,E07000072,Epping Forest,499995.0,28709.0,17.42,local_authority
+2021,E09000015,Harrow,535500.0,30979.0,17.29,local_authority

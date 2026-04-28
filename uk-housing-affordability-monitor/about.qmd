@@ -1,0 +1,33 @@
+---
+title: "About"
+---
+
+This project was built as a portfolio piece for a GSS Senior Statistical Officer interview. It demonstrates practical statistical production skills across the full workflow: sourcing official data, automating processing, documenting methodology, and publishing an accessible analytical product.
+
+## What It Shows
+
+- Use of official ONS API metadata and datasets
+- Reproducible Python data processing
+- Automated Quarto publication
+- GitHub Actions scheduling and deployment
+- Clear explanation of assumptions and limitations
+
+## GSS SSO Relevance
+
+The project is intended to show judgement as well as technical delivery. It keeps the headline statistic simple, explains the limitations clearly, and makes the production route reproducible from source metadata to published page.
+
+Relevant skills demonstrated include:
+
+- turning official statistics into a clear public-facing analytical product
+- using reproducible analytical pipeline principles
+- documenting coverage, filters, and limitations
+- balancing automation with transparency
+- communicating uncertainty and caveats without hiding the main message
+
+## If Extended In Production
+
+The next production improvements would be automated QA checks, fuller UK coverage using comparable sources, geography-change handling, accessibility review, and richer commentary for users who need policy context.
+
+## Repository
+
+The source code is available at [github.com/washwalk/uk-housing-affordability-monitor](https://github.com/washwalk/uk-housing-affordability-monitor).
