@@ -98,6 +98,14 @@ This provides an auditable run history and a public report URL while keeping gen
 - Offline validation for existing generated outputs and run metadata.
 - Version-control friendly project structure.
 
+## Assurance Evidence
+
+- Offline evidence: `make test` validates existing generated outputs and runs the local unit tests without refreshing the ONS API.
+- Live-source evidence: `make integration-test` resolves the latest Retail Sales Index release, rebuilds processed outputs, and validates the refreshed result.
+- Audit evidence: `data/processed/run-metadata.json` records source URLs, row counts, output paths, and validation status for the latest run.
+- Reviewer evidence: the project README, Quarto report, and shared docs describe methodology, source provenance, assumptions, and limitations.
+- Manual controls still needed for production: statistical sign-off, accessibility review, disclosure assessment where relevant, release approval, and incident handling.
+
 ## Interview Summary
 
 This RAP reduces manual handling and improves reproducibility, auditability, and transparency. The code resolves the latest ONS release dynamically, so the same pipeline can be rerun after each monthly publication to produce an updated statistical summary.

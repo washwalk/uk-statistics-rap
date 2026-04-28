@@ -78,6 +78,14 @@ Use `make test` for offline validation of existing outputs. Use `make integratio
 
 `scripts/validate_outputs.py` checks that generated CSV outputs, methodology metadata, and `data/run-metadata.json` exist, required columns are present, affordability ratios are numeric and positive, and area-year rows are not duplicated.
 
+## Assurance Evidence
+
+- Offline evidence: `make test` validates existing CSV outputs, methodology metadata, and run metadata without refreshing source APIs.
+- Live-source evidence: `make integration-test` discovers the latest configured ONS dataset versions, rebuilds the derived CSV outputs, and validates them.
+- Audit evidence: `data/run-metadata.json` records source URLs, input/output row counts, output paths, and validation status for the latest run.
+- Reviewer evidence: the Quarto methodology page, important caveat section, and shared repository docs describe source coverage, filters, and limitations.
+- Manual controls still needed for production: statistical sign-off, accessibility review, disclosure assessment where relevant, release approval, and incident handling.
+
 ## Interview Relevance
 
 This project is designed to evidence skills relevant to a GSS Senior Statistical Officer role:

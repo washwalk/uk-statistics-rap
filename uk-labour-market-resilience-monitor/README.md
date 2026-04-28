@@ -61,6 +61,14 @@ The dashboard is generated into `docs/`. Configure GitHub Pages to serve from th
 
 Data are sourced from public ONS time series pages and JSON endpoints. ONS content is available under the Open Government Licence unless otherwise stated.
 
+## Assurance Evidence
+
+- Offline evidence: `make test` runs validation against existing processed outputs without refreshing the ONS API.
+- Live-source evidence: `make integration-test` fetches the latest configured ONS time series, transforms them, and validates the refreshed outputs.
+- Audit evidence: `data/processed/run-metadata.json` records source URLs, input/output row counts, output paths, and validation status for the latest run.
+- Reviewer evidence: `methodology.md`, the dashboard copy, and shared repository docs explain source choices, transformations, and caveats.
+- Manual controls still needed for production: statistical sign-off, accessibility review, disclosure assessment where relevant, release approval, and incident handling.
+
 ## Interpretation
 
 The monitor uses simple latest-period direction indicators. It is not a forecast, causal model, or replacement for ONS labour market bulletins. Labour market statistics can be revised, so each rebuild represents the latest reproducible view from the source data.

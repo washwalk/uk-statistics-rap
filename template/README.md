@@ -26,6 +26,18 @@ make clean
 
 `make test` should stay offline. It should validate existing outputs and run local unit tests without calling source APIs. Use `make integration-test` when you need to refresh live source data.
 
+## First Adaptation Pass
+
+After copying the folder into a new project:
+
+1. Rename `project_name` in `config.yml`.
+2. Replace the example `source.url` with a stable official source endpoint or download URL.
+3. Update `expected_grain` so it describes one row in the processed dataset.
+4. Update `required_columns` before changing validation code.
+5. Run `make integration-test` once to create raw, processed, and metadata outputs.
+6. Run `make test` without network access to confirm the offline checks are usable in CI.
+7. Replace `src/publish.py` with the approved report, dashboard, or table publication path.
+
 ## Expected Outputs
 
 - `data/raw/source.csv`: downloaded source data or equivalent raw extract.
@@ -37,3 +49,5 @@ make clean
 ## Production Notes
 
 Before using this template for a live official-statistics output, add the controls appropriate to the publication risk: peer review, accessibility checks, disclosure control, dependency management, release sign-off, and incident handling.
+
+Use [`../docs/production-readiness-matrix.md`](../docs/production-readiness-matrix.md) to record which controls are automated, which are manual, and which are not applicable for the output.
