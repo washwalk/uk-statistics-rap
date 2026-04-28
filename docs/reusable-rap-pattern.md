@@ -60,6 +60,9 @@ make build
 make build-labour-market
 make build-retail-sales
 make build-housing
+make build-inflation
+make build-gdp
+make build-population
 ```
 
 The root commands are thin wrappers around each project. This keeps project logic local while giving reviewers and users one predictable interface.

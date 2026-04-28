@@ -1,0 +1,17 @@
+{
+  "project_name": "uk-inflation-monitor",
+  "source": {
+    "name": "ONS CPIH annual inflation rate time series",
+    "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data",
+    "series_id": "L55O",
+    "measure": "CPIH annual inflation rate",
+    "licence": "Open Government Licence"
+  },
+  "paths": {
+    "raw_data": "data/raw/source.json",
+    "raw_metadata": "data/raw/source-metadata.json",
+    "processed_data": "data/processed/analysis.csv",
+    "run_metadata": "data/processed/run-metadata.json",
+    "report": "docs/index.html"
+  }
+}

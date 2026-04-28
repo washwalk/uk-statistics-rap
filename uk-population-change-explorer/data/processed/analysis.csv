@@ -1,0 +1,7 @@
+period,period_type,area_code,area_name,measure,population,change_from_previous,percent_change_from_previous,source_series
+2018,years,K02000001,United Kingdom,UK population estimate,66435550,,,UKPOP
+2019,years,K02000001,United Kingdom,UK population estimate,66796807,361257,0.544,UKPOP
+2020,years,K02000001,United Kingdom,UK population estimate,67081234,284427,0.426,UKPOP
+2021,years,K02000001,United Kingdom,UK population estimate,67026292,-54942,-0.082,UKPOP
+2022,years,K02000001,United Kingdom,UK population estimate,67596281,569989,0.85,UKPOP
+2023,years,K02000001,United Kingdom,UK population estimate,68350000,753719,1.115,UKPOP

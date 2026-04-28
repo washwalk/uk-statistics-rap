@@ -1,0 +1,17 @@
+{
+  "project_name": "uk-population-change-explorer",
+  "source": {
+    "name": "ONS UK population estimate time series",
+    "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop/data",
+    "series_id": "UKPOP",
+    "measure": "UK population estimate",
+    "licence": "Open Government Licence"
+  },
+  "paths": {
+    "raw_data": "data/raw/source.json",
+    "raw_metadata": "data/raw/source-metadata.json",
+    "processed_data": "data/processed/analysis.csv",
+    "run_metadata": "data/processed/run-metadata.json",
+    "report": "docs/index.html"
+  }
+}

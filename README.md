@@ -2,7 +2,7 @@
 
 Examples and guidance for reproducible analytical pipelines (RAP) using UK official statistics.
 
-This repository brings together three small statistical production examples that fetch public Office for National Statistics (ONS) data, process it reproducibly, run quality checks, and publish user-facing outputs through GitHub Pages. It is designed as a practical learning resource for Government Statistical Service (GSS) analysts who want to see how RAP principles can be applied to common statistical outputs.
+This repository brings together six small statistical production examples that fetch public Office for National Statistics (ONS) data, process it reproducibly, run quality checks, and publish user-facing outputs through GitHub Pages. It is designed as a practical learning resource for Government Statistical Service (GSS) analysts who want to see how RAP principles can be applied to common statistical outputs.
 
 ## Who This Is For
 
@@ -16,6 +16,9 @@ This repository brings together three small statistical production examples that
 - [Labour Market Resilience Monitor](https://washwalk.github.io/uk-statistics-rap/uk-labour-market-resilience-monitor/)
 - [ONS Retail Sales RAP](https://washwalk.github.io/uk-statistics-rap/ons-retail-sales-rap/)
 - [UK Housing Affordability Monitor](https://washwalk.github.io/uk-statistics-rap/uk-housing-affordability-monitor/)
+- [UK Inflation Monitor](https://washwalk.github.io/uk-statistics-rap/uk-inflation-monitor/)
+- [UK GDP Release Summary](https://washwalk.github.io/uk-statistics-rap/uk-gdp-release-summary/)
+- [UK Population Change Explorer](https://washwalk.github.io/uk-statistics-rap/uk-population-change-explorer/)
 
 ## Example Projects
 
@@ -24,6 +27,9 @@ This repository brings together three small statistical production examples that
 | `uk-labour-market-resilience-monitor/` | Labour market indicators | Static HTML dashboard | API fetch, validation, processed data, dashboard generation |
 | `ons-retail-sales-rap/` | Retail Sales Index | Quarto statistical summary | API metadata, raw/processed separation, tests, chart/table outputs |
 | `uk-housing-affordability-monitor/` | House-price-to-earnings ratios | Quarto website | multi-source processing, transparent filters, methodology and limitations |
+| `uk-inflation-monitor/` | CPIH inflation | Static HTML summary | time-series API fetch, latest-period calculation, offline validation |
+| `uk-gdp-release-summary/` | GDP index | Static HTML release summary | previous-period growth calculation, revisions caveat, run metadata |
+| `uk-population-change-explorer/` | UK population estimates | Static HTML explorer | area-period validation, positive count checks, derived population change |
 
 See [`docs/project-comparison.md`](docs/project-comparison.md) for a fuller comparison.
 
@@ -67,7 +73,10 @@ A minimal RAP should normally include:
 ├── site/                                  # landing page for the unified GitHub Pages site
 ├── ons-retail-sales-rap/                  # Quarto RAP for Retail Sales Index
 ├── uk-housing-affordability-monitor/      # Quarto monitor for housing affordability
-└── uk-labour-market-resilience-monitor/   # static dashboard for labour market indicators
+├── uk-labour-market-resilience-monitor/   # static dashboard for labour market indicators
+├── uk-inflation-monitor/                  # static monitor for CPIH inflation
+├── uk-gdp-release-summary/                # static summary for GDP index changes
+└── uk-population-change-explorer/         # static explorer for population change
 ```
 
 ## Local Use
@@ -93,6 +102,9 @@ make build                # refresh live data and rebuild all reports/dashboards
 make build-labour-market  # rebuild the labour market monitor
 make build-retail-sales   # rebuild the retail sales report
 make build-housing        # rebuild the housing affordability monitor
+make build-inflation      # rebuild the inflation monitor
+make build-gdp            # rebuild the GDP release summary
+make build-population     # rebuild the population change explorer
 make clean                # remove generated outputs
 ```
 

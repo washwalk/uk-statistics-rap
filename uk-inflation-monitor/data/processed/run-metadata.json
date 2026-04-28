@@ -1,0 +1,18 @@
+{
+  "project_name": "uk-inflation-monitor",
+  "run_timestamp": "2026-04-28T00:00:00+00:00",
+  "source_urls": [
+    "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data"
+  ],
+  "input_row_counts": {
+    "source_points": 6
+  },
+  "output_row_counts": {
+    "processed_data": 6
+  },
+  "outputs": {
+    "processed_data": "data/processed/analysis.csv",
+    "report": "docs/index.html"
+  },
+  "validation_status": "passed"
+}

@@ -1,0 +1,17 @@
+{
+  "project_name": "uk-gdp-release-summary",
+  "source": {
+    "name": "ONS gross domestic product chained volume measure index",
+    "url": "https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/abmi/pn2/data",
+    "series_id": "ABMI",
+    "measure": "GDP chained volume measure index",
+    "licence": "Open Government Licence"
+  },
+  "paths": {
+    "raw_data": "data/raw/source.json",
+    "raw_metadata": "data/raw/source-metadata.json",
+    "processed_data": "data/processed/analysis.csv",
+    "run_metadata": "data/processed/run-metadata.json",
+    "report": "docs/index.html"
+  }
+}
