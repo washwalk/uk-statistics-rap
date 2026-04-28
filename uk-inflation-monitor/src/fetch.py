@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 def load_config() -> dict:
@@ -18,7 +18,8 @@ def fetch() -> None:
     metadata_path.parent.mkdir(parents=True, exist_ok=True)
 
     source_url = config["source"]["url"]
-    with urlopen(source_url, timeout=30) as response:
+    request = Request(source_url, headers={"User-Agent": "uk-statistics-rap/1.0"})
+    with urlopen(request, timeout=30) as response:
         payload = json.loads(response.read().decode("utf-8"))
 
     raw_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

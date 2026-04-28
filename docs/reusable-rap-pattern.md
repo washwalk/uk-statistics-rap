@@ -67,7 +67,7 @@ make build-population
 
 The root commands are thin wrappers around each project. This keeps project logic local while giving reviewers and users one predictable interface.
 
-In this repository, `make test` is offline and validates existing generated outputs. `make integration-test` refreshes live public ONS data before validation. `make build` performs the full refresh and publication-build path.
+In this repository, `make test` is offline and validates existing generated outputs. Where a project has unit tests, they also run under `make test`. `make integration-test` refreshes live public ONS data before validation. `make build` performs the full refresh and publication-build path.
 
 ## Configuration
 
@@ -125,6 +125,8 @@ Good candidates for tests include:
 - joins across sources
 - missing-data handling
 - generation of summary tables used in publication
+
+For compact projects, keep transformation logic testable by separating pure row-building or calculation functions from file I/O. This allows `make test` to check the statistic-specific calculation without fetching live data.
 
 ## Automation Pattern
 

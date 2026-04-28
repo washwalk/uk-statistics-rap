@@ -12,7 +12,9 @@ transform:
 validate:
 	python3 src/validate.py
 
-test: validate
+test:
+	python3 -m unittest discover -s tests
+	$(MAKE) validate
 
 integration-test: fetch transform validate
 

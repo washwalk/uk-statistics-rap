@@ -18,14 +18,7 @@ def source_points(payload: dict) -> tuple[str, list[dict]]:
     raise ValueError("Source payload did not contain months, quarters, or years")
 
 
-def transform() -> None:
-    config = load_config()
-    raw_path = Path(config["paths"]["raw_data"])
-    processed_path = Path(config["paths"]["processed_data"])
-    run_metadata_path = Path(config["paths"]["run_metadata"])
-    processed_path.parent.mkdir(parents=True, exist_ok=True)
-
-    payload = json.loads(raw_path.read_text(encoding="utf-8"))
+def build_rows(config: dict, payload: dict) -> list[dict]:
     period_type, points = source_points(payload)
     rows: list[dict] = []
     previous_value: float | None = None
@@ -46,9 +39,24 @@ def transform() -> None:
             }
         )
         previous_value = value
+    if not rows:
+        raise ValueError("No valid source points were available to transform")
+    return rows
+
+
+def transform() -> None:
+    config = load_config()
+    raw_path = Path(config["paths"]["raw_data"])
+    processed_path = Path(config["paths"]["processed_data"])
+    run_metadata_path = Path(config["paths"]["run_metadata"])
+    processed_path.parent.mkdir(parents=True, exist_ok=True)
+
+    payload = json.loads(raw_path.read_text(encoding="utf-8"))
+    _, points = source_points(payload)
+    rows = build_rows(config, payload)
 
     with processed_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

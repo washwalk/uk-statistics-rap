@@ -7,9 +7,9 @@ This repository contains six compact RAP examples. They are deliberately differe
 | `uk-labour-market-resilience-monitor/` | Building a lightweight indicator dashboard from time series | Simple Python-only workflow, validation script, static dashboard, clear source caveats, standard Make targets, run metadata | Add unit tests, revisions tracking, uncertainty notes, and regional breakdowns |
 | `ons-retail-sales-rap/` | Producing a recurring statistical summary report | Quarto report, Makefile, tests for core calculations, raw/processed/output separation, run metadata, offline output validation | Add accessibility checks and fuller source revision reporting |
 | `uk-housing-affordability-monitor/` | Combining official sources into a derived local-area indicator | Transparent indicator definition, documented filters, Quarto website, clear limitations, output validation command, run metadata | Add fuller tests, geography-change handling, and UK-wide source extensions |
-| `uk-inflation-monitor/` | Building a compact time-series monitor for a high-profile indicator | Single-series API fetch, previous-period change, static report, run metadata, offline validation | Add basket/component breakdowns and fuller revisions notes |
-| `uk-gdp-release-summary/` | Creating a recurring release-summary workflow | Previous-period growth calculation, release caveat, static summary, standard command contract | Add chained-volume measure variants and release-calendar checks |
-| `uk-population-change-explorer/` | Validating area-period demographic outputs | Area code/name fields, positive count checks, derived population change, geography-style validation | Add local-authority breakdowns and geography-change handling |
+| `uk-inflation-monitor/` | Building a compact time-series monitor for a high-profile indicator | Single-series API fetch, tested previous-period change, static report, run metadata, offline validation | Add basket/component breakdowns and fuller revisions notes |
+| `uk-gdp-release-summary/` | Creating a recurring release-summary workflow | Tested previous-period growth calculation, release caveat, static summary, standard command contract | Add chained-volume measure variants and release-calendar checks |
+| `uk-population-change-explorer/` | Validating area-period demographic outputs | Area code/name fields, positive count checks, tested derived population change, geography-style validation | Add local-authority breakdowns and geography-change handling |
 
 ## Which Example To Start From
 
@@ -33,7 +33,7 @@ This repository contains six compact RAP examples. They are deliberately differe
 ## Current Gaps Across The Repo
 
 - Project structure is not fully standardised even though common Make targets and metadata fields now exist.
-- Only one project currently has a conventional unit test suite; the newer compact examples rely on offline output validation.
+- The compact examples now test their core calculations, but fuller publication-level regression tests are still limited.
 - Accessibility checks are documented as a need but not automated.
 - Revisions tracking is not yet implemented.
 
