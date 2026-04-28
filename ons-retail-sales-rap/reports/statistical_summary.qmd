@@ -5,6 +5,7 @@ format:
     toc: false
     number-sections: false
     theme: cosmo
+    include-in-header: ../../site/includes/header-css.html
     include-before-body: ../../site/includes/header.html
     css: styles.css
 execute:

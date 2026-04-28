@@ -13,6 +13,7 @@ format:
     theme: cosmo
     toc: false
     page-layout: article
+    include-in-header: ../site/includes/header-css.html
     include-before-body: ../site/includes/header.html
     css: styles.css
 

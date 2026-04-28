@@ -8,10 +8,20 @@
 .site-header {
   background: #ffffff;
   border-bottom: 1px solid var(--header-line);
+  box-sizing: border-box;
   color: var(--header-ink);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   margin-left: calc(50% - 50vw);
+  min-height: 57px;
   width: 100vw;
+}
+
+.site-header *,
+.site-header *::before,
+.site-header *::after {
+  box-sizing: border-box;
 }
 
 .content > .site-header {
@@ -25,12 +35,14 @@
   gap: 1rem;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 1rem;
+  min-height: 56px;
+  padding: 16px;
 }
 
 .site-header__brand {
   color: var(--header-ink);
   font-weight: 700;
+  line-height: 24px;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -40,10 +52,12 @@
   flex-wrap: wrap;
   gap: 0.8rem;
   font-size: 0.95rem;
+  line-height: 24px;
 }
 
 .site-header__nav a {
   color: var(--header-muted);
+  line-height: 24px;
   text-decoration: none;
 }
 
