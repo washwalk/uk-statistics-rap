@@ -1,0 +1,15 @@
+dataset_id: retail-sales-index
+edition: time-series
+api_base_url: https://api.beta.ons.gov.uk/v1
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  figures_dir: outputs/figures
+  tables_dir: outputs/tables
+
+headline_series:
+  geography: K03000001
+  industry_label_contains: All retailing including automotive fuel
+  prices_label_contains: Chained volume of retail sales
+  seasonal_adjustment_label_contains: Seasonally Adjusted

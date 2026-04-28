@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.quarto/
+.ipynb_checkpoints/
+*.pyc
+quarto-*-linux-amd64.deb
+reports/.gitignore
+
+# Keep reproducible source code under version control, not downloaded/generated data.
+data/raw/*
+data/processed/*
+outputs/figures/*
+outputs/tables/*
+outputs/*.html
+outputs/*_files/
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
