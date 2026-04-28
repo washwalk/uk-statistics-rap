@@ -7,6 +7,9 @@ on:
       - "uk-labour-market-resilience-monitor/**"
       - "ons-retail-sales-rap/**"
       - "uk-housing-affordability-monitor/**"
+      - "uk-inflation-monitor/**"
+      - "uk-gdp-release-summary/**"
+      - "uk-population-change-explorer/**"
       - "site/**"
       - ".github/workflows/pages.yml"
 
@@ -186,6 +189,14 @@ jobs:
           quarto render
           mkdir -p ../_site/uk-housing-affordability-monitor
           cp -R _site/. ../_site/uk-housing-affordability-monitor/
+
+      - name: Publish compact examples
+        run: |
+          for project in uk-inflation-monitor uk-gdp-release-summary uk-population-change-explorer; do
+            (cd "$project" && python -m unittest discover -s tests && python src/validate.py && python src/publish.py)
+            mkdir -p "_site/$project"
+            cp -R "$project/docs/." "_site/$project/"
+          done
 
       - name: Copy landing page assets
         run: cp -R site/. _site/
