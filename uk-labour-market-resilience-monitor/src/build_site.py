@@ -75,14 +75,13 @@ def build_site() -> None:
 
   <main>
     <section class=\"intro\">
-    <p class=\"eyebrow\">ONS labour market monitor</p>
-    <h1>UK Labour Market Resilience Monitor</h1>
-    <p class=\"lede\">Headline labour market signals from official ONS time series.</p>
+    <h1>Labour Market</h1>
+    <p class=\"lede\">Employment, unemployment, inactivity, vacancies, and pay growth.</p>
     <p class=\"small\">Last updated: {html.escape(snapshot['generated_at'])}</p>
     </section>
 
     <section>
-      <h2>Latest values</h2>
+      <h2>Indicators</h2>
       <div class=\"metrics\">
         {''.join(cards)}
       </div>
@@ -90,15 +89,14 @@ def build_site() -> None:
 
     <section class=\"panel\">
       <h2>Trend</h2>
-      <p class=\"small\">Select a series to inspect the recent published trend.</p>
       <label for=\"indicatorSelect\">Indicator</label>
       <select id=\"indicatorSelect\"></select>
       <canvas id=\"trendChart\" height=\"120\"></canvas>
     </section>
 
     <section class=\"note\">
-      <h2>Source and method</h2>
-      <p>Data are rebuilt from ONS public time series. Direction labels compare the latest observation with the previous observation and should be read as monitoring signals, not forecasts.</p>
+      <h2>Source</h2>
+      <p>ONS public time series. Latest observation compared with previous observation.</p>
       <p><a href=\"data/indicators.json\">Download dashboard data JSON</a></p>
     </section>
   </main>

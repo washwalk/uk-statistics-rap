@@ -1,5 +1,5 @@
 ---
-title: "UK Housing Affordability Monitor"
+title: "Housing Affordability"
 ---
 
 ```{python}
@@ -32,43 +32,34 @@ def format_table(frame):
     )
 ```
 
-::: {.intro}
-<p class="eyebrow">ONS housing affordability</p>
+Median house price divided by median annual earnings. England and Wales local authorities.
 
-# Housing Affordability
-
-Median house prices as a multiple of median annual earnings for local authorities in England and Wales.
-:::
-
-::: {.stat-grid}
 ```{python}
 #| output: asis
 print(f"""
+<div class="stat-grid">
   <div class="stat-card">
     <div class="label">Latest year</div>
     <div class="value">{metadata['latest_year']}</div>
-  <div class="small">House prices aligned to annual earnings.</div>
   </div>
   <div class="stat-card">
     <div class="label">Median ratio</div>
     <div class="value">{metadata['median_ratio_latest']}x</div>
-  <div class="small">Typical matched local authority.</div>
   </div>
   <div class="stat-card">
     <div class="label">Least affordable</div>
     <div class="value">{metadata['least_affordable_area']['affordability_ratio']}x</div>
-  <div class="small">{metadata['least_affordable_area']['area_name']}</div>
-</div>
+    <div class="small">{metadata['least_affordable_area']['area_name']}</div>
+  </div>
   <div class="stat-card">
     <div class="label">Areas monitored</div>
     <div class="value">{metadata['area_count_latest']}</div>
-  <div class="small">Matched local authorities.</div>
   </div>
+</div>
 """)
 ```
-:::
 
-## What changed
+## Summary
 
 ```{python}
 #| output: asis
@@ -79,9 +70,7 @@ most_ratio = metadata["most_affordable_area"]["affordability_ratio"]
 latest_year = metadata["latest_year"]
 median_ratio = metadata["median_ratio_latest"]
 
-print(f"""
-<p class="lede">The median local authority ratio was <strong>{median_ratio:.2f}x</strong> in {latest_year}. {least_area} was the least affordable matched area at <strong>{least_ratio:.2f}x</strong>; {most_area} was the most affordable at <strong>{most_ratio:.2f}x</strong>.</p>
-""")
+print(f"<p class='lede'>In {latest_year}, the median local authority ratio was <strong>{median_ratio:.2f}x</strong>. {least_area} was highest at <strong>{least_ratio:.2f}x</strong>; {most_area} was lowest at <strong>{most_ratio:.2f}x</strong>.</p>")
 ```
 
 ```{python}
@@ -98,7 +87,7 @@ fig.update_layout(height=430, margin=dict(l=20, r=20, t=60, b=20))
 fig.show()
 ```
 
-<p class="small">Trend uses the median local authority ratio for matched England and Wales geographies. The latest headline year is determined by the latest year with usable matched ONS house price and ASHE earnings values under the documented filters.</p>
+<p class="small">Higher ratios mean lower affordability.</p>
 
 ```{python}
 plot_latest = latest.sort_values("affordability_ratio", ascending=False).head(25)
@@ -116,26 +105,20 @@ fig.update_layout(height=720, margin=dict(l=20, r=20, t=60, b=20), coloraxis_sho
 fig.show()
 ```
 
-<p class="small">Higher values indicate lower affordability: the median house price is a larger multiple of median resident annual pay.</p>
-
-## Read the indicator
-
-A value of `8.0x` means the median house price is eight times median gross annual resident earnings in that local authority.
-
 ::: {.note}
-This is not a mortgage affordability model. It excludes deposits, interest rates, household composition, wealth, taxes, benefits, and housing quality.
+Not a mortgage affordability model. Excludes deposits, interest rates, wealth, taxes, benefits, and housing quality.
 :::
 
 ## Most affordable areas
 
 ```{python}
-format_table(most).head(10)
+format_table(most).head(10).style.hide(axis="index")
 ```
 
 ## Least affordable areas
 
 ```{python}
-format_table(least).head(10)
+format_table(least).head(10).style.hide(axis="index")
 ```
 
 ```{python}
