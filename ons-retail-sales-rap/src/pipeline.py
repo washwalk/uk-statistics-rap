@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -35,15 +36,30 @@ def run_pipeline(config_path: str = "config.yml") -> dict[str, str]:
     summary_path = write_summary_table(summary, config)
     chart_path = write_trend_chart(cleaned, config)
 
+    metadata_path = Path(config["paths"]["processed_dir"]) / "run-metadata.json"
     manifest = {
         "raw_csv": ingest_result["csv_path"],
         "raw_metadata": ingest_result["metadata_path"],
         "clean_csv": clean_path,
         "summary_csv": summary_path,
         "chart_png": chart_path,
+        "run_metadata": str(metadata_path),
     }
     manifest_path = Path(config["paths"]["processed_dir"]) / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+    run_metadata = {
+        "project_name": "ons-retail-sales-rap",
+        "run_timestamp": datetime.now(timezone.utc).isoformat(),
+        "source_urls": [ingest_result["download_url"]],
+        "source_version": ingest_result["version"],
+        "release_date": ingest_result["release_date"],
+        "input_row_counts": {"raw_csv": int(pd.read_csv(ingest_result["csv_path"]).shape[0])},
+        "output_row_counts": {"clean_csv": int(len(cleaned)), "summary_csv": 1},
+        "outputs": manifest,
+        "validation_status": "not_run",
+    }
+    metadata_path.write_text(json.dumps(run_metadata, indent=2), encoding="utf-8")
     return manifest
 
 

@@ -85,13 +85,34 @@ h2 {
 .note {
   background: var(--soft);
   border: 1px solid var(--line);
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1.25rem;
+}
+
+.note h2 {
+  margin-bottom: 0.4rem;
 }
 
 .note p {
   color: var(--muted);
   margin-bottom: 0;
+}
+
+.guidance {
+  background: #111827;
+  color: #ffffff;
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+}
+
+.guidance p {
+  color: #d8dee8;
+  max-width: 760px;
+}
+
+.guidance a {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 @media (max-width: 720px) {

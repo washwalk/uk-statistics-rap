@@ -56,8 +56,27 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/fetch_ons_data.py
+python scripts/validate_outputs.py
 quarto render
 ```
+
+The project also supports the shared repository command contract:
+
+```bash
+make fetch
+make transform
+make validate
+make test
+make integration-test
+make report
+make clean
+```
+
+Use `make test` for offline validation of existing outputs. Use `make integration-test` to fetch live ONS data and validate refreshed outputs. Use `make report` for the full refresh and Quarto render.
+
+## Validation
+
+`scripts/validate_outputs.py` checks that generated CSV outputs, methodology metadata, and `data/run-metadata.json` exist, required columns are present, affordability ratios are numeric and positive, and area-year rows are not duplicated.
 
 ## Interview Relevance
 

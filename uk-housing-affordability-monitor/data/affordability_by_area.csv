@@ -666,7 +666,6 @@ year,area_code,area_name,median_house_price,median_annual_pay,affordability_rati
 2017,E06000050,Cheshire West and Chester,197500.0,23596.0,8.37,local_authority
 2017,E07000034,Chesterfield,142500.0,20481.0,6.96,local_authority
 2017,E07000225,Chichester,355000.0,22423.0,15.83,local_authority
-2017,E07000225,Chichester,355000.0,22423.0,15.83,local_authority
 2017,E07000118,Chorley,172000.0,22534.0,7.63,local_authority
 2017,E07000071,Colchester,258000.0,23103.0,11.17,local_authority
 2017,W06000003,Conwy,158000.0,20242.0,7.81,local_authority

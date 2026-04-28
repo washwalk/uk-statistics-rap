@@ -182,6 +182,7 @@ def build_outputs() -> None:
         affordability["median_house_price"] / affordability["median_annual_pay"]
     ).round(2)
     affordability["area_type"] = affordability["area_code"].map(area_type)
+    affordability = affordability.drop_duplicates()
     affordability = affordability.sort_values(["year", "area_name"])
 
     latest_year = int(affordability["year"].max())
@@ -219,6 +220,30 @@ def build_outputs() -> None:
         "sources": [house_price_download.__dict__, *[download.__dict__ for download in earnings_downloads]],
     }
     (DATA_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+    run_metadata = {
+        "project_name": "uk-housing-affordability-monitor",
+        "run_timestamp": metadata["generated_at"],
+        "source_urls": [download.csv_url for download in [house_price_download, *earnings_downloads]],
+        "input_row_counts": {
+            "house_prices": int(len(house_prices)),
+            "earnings": int(len(earnings)),
+        },
+        "output_row_counts": {
+            "affordability_by_area.csv": int(len(affordability)),
+            "affordability_trend.csv": int(len(national)),
+            "least_affordable_latest.csv": 20,
+            "most_affordable_latest.csv": 20,
+        },
+        "outputs": {
+            "by_area": str(DATA_DIR / "affordability_by_area.csv"),
+            "trend": str(DATA_DIR / "affordability_trend.csv"),
+            "least_affordable": str(DATA_DIR / "least_affordable_latest.csv"),
+            "most_affordable": str(DATA_DIR / "most_affordable_latest.csv"),
+            "metadata": str(DATA_DIR / "metadata.json"),
+        },
+        "validation_status": "not_run",
+    }
+    (DATA_DIR / "run-metadata.json").write_text(json.dumps(run_metadata, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

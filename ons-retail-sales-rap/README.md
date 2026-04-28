@@ -38,6 +38,18 @@ Run the data pipeline only:
 make pipeline
 ```
 
+The project also supports the shared repository command contract:
+
+```bash
+make fetch
+make transform
+make validate
+make test
+make integration-test
+make report
+make clean
+```
+
 Generate the full report:
 
 ```bash
@@ -46,10 +58,16 @@ make report
 
 If your system only exposes Python as `python3`, use the provided `Makefile`; it calls `python3` directly.
 
-Run tests:
+Run offline validation and tests:
 
 ```bash
 make test
+```
+
+Run a live-source refresh check:
+
+```bash
+make integration-test
 ```
 
 ## Outputs
@@ -58,6 +76,7 @@ make test
 - Clean analytical dataset: `data/processed/retail_sales_index_clean.csv`
 - Headline summary table: `outputs/tables/headline_summary.csv`
 - Trend chart: `outputs/figures/retail_sales_index_trend.png`
+- Run metadata: `data/processed/run-metadata.json`
 - Quarto HTML report: `outputs/statistical_summary.html`
 
 Generated data and reports are excluded from git because they can be recreated from the source code.
@@ -76,6 +95,7 @@ This provides an auditable run history and a public report URL while keeping gen
 - One-command report generation through `make report`.
 - Automated GitHub Pages publication through GitHub Actions.
 - Lightweight automated tests for core transformations.
+- Offline validation for existing generated outputs and run metadata.
 - Version-control friendly project structure.
 
 ## Interview Summary

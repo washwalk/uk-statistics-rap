@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.DS_Store
+
+# Keep source code and placeholder folders, not generated data products.
+data/raw/*
+data/processed/*
+outputs/figures/*
+outputs/tables/*
+outputs/*.html
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep

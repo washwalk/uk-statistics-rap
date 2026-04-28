@@ -22,28 +22,40 @@
 
   <main>
     <section class="intro">
+      <p class="eyebrow">Government Statistical Service RAP examples</p>
       <h1>UK Statistics RAP</h1>
-      <p>Three reproducible statistical reports built from ONS data.</p>
+      <p>Practical examples of reproducible analytical pipelines using public ONS data, offline assurance checks, live-source integration checks, and publishable statistical outputs.</p>
+    </section>
+
+    <section class="note" aria-label="Purpose">
+      <h2>For Analysts Building Reproducible Statistics</h2>
+      <p>This site brings together compact examples that show how official statistics can move from source data to documented public outputs through repeatable code. The examples are designed for GSS analysts, reviewers, and teams improving statistical production workflows.</p>
     </section>
 
     <section class="report-list" aria-label="Reports">
       <article>
         <p class="label">Labour market</p>
         <h2><a href="./uk-labour-market-resilience-monitor/">Labour Market Resilience</a></h2>
-        <p>Employment, unemployment, inactivity, vacancies, and pay growth.</p>
+        <p>Python dashboard covering employment, unemployment, inactivity, vacancies, and pay growth with validation checks and run metadata.</p>
       </article>
 
       <article>
         <p class="label">Retail sales</p>
         <h2><a href="./ons-retail-sales-rap/">Retail Sales Index</a></h2>
-        <p>Latest index value, monthly change, annual change, and five-year trend.</p>
+        <p>Quarto statistical summary with API ingestion, tested transformations, output validation, run metadata, and trend charting.</p>
       </article>
 
       <article>
         <p class="label">Housing</p>
         <h2><a href="./uk-housing-affordability-monitor/">Housing Affordability</a></h2>
-        <p>House-price-to-earnings ratios across England and Wales.</p>
+        <p>Multi-source Quarto monitor calculating house-price-to-earnings ratios across England and Wales with explicit caveats and duplicate-key checks.</p>
       </article>
+    </section>
+
+    <section class="guidance" aria-label="Reusable guidance">
+      <h2>Reusable Guidance</h2>
+      <p>The repository also includes a RAP quality checklist, reusable project pattern, assurance coverage matrix, and comparison of the example projects for teams adapting the approach.</p>
+      <p><a href="https://github.com/washwalk/uk-statistics-rap/tree/main/docs">View the guidance on GitHub</a></p>
     </section>
   </main>
 </body>

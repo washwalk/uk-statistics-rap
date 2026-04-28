@@ -27,6 +27,20 @@ python3 -m venv .venv
 
 Open `docs/index.html` in a browser to view the generated dashboard.
 
+The project also supports the shared repository command contract:
+
+```bash
+make fetch
+make transform
+make validate
+make test
+make integration-test
+make report
+make clean
+```
+
+Use `make test` for offline validation of existing outputs. Use `make integration-test` to fetch live ONS data, transform it, and validate refreshed outputs. Use `make report` for the full refresh and dashboard rebuild.
+
 ## Project Structure
 
 - `src/fetch_ons.py`: fetches source JSON from ONS.
@@ -34,9 +48,10 @@ Open `docs/index.html` in a browser to view the generated dashboard.
 - `src/validate.py`: runs data quality checks.
 - `src/build_site.py`: generates the static dashboard.
 - `data/raw/`: cached raw API responses, ignored by Git.
-- `data/processed/`: processed analytical outputs, ignored by Git.
+- `data/processed/`: processed analytical outputs and run metadata.
 - `docs/`: GitHub Pages site.
 - `.github/workflows/update-and-publish.yml`: scheduled rebuild workflow.
+- `Makefile`: standard local commands for fetch, transform, validate, test, report, and clean.
 
 ## GitHub Pages
 

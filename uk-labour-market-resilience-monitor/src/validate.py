@@ -40,6 +40,9 @@ def validate() -> None:
                 errors.append(f"Negative percentage value in row: {row}")
             if not row.get("period"):
                 errors.append(f"Missing period in row: {row}")
+        keys = [(row.get("indicator_id"), row.get("period")) for row in rows]
+        if len(keys) != len(set(keys)):
+            errors.append("Processed CSV contains duplicate indicator_id and period rows")
 
     snapshot_path = PROCESSED_DIR / "latest_snapshot.json"
     if not snapshot_path.exists():
@@ -53,6 +56,29 @@ def validate() -> None:
     site_data_path = DOCS_DATA_DIR / "indicators.json"
     if not site_data_path.exists():
         errors.append("Missing site data JSON")
+
+    metadata_path = PROCESSED_DIR / "run-metadata.json"
+    if not metadata_path.exists():
+        errors.append("Missing run metadata JSON")
+    else:
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        required = {
+            "project_name",
+            "run_timestamp",
+            "source_urls",
+            "input_row_counts",
+            "output_row_counts",
+            "outputs",
+            "validation_status",
+        }
+        missing = required.difference(metadata)
+        if missing:
+            errors.append(f"Run metadata missing keys: {sorted(missing)}")
+        if not metadata.get("source_urls"):
+            errors.append("Run metadata source_urls is empty")
+        for count_name, count in metadata.get("output_row_counts", {}).items():
+            if not isinstance(count, int) or count <= 0:
+                errors.append(f"Run metadata output row count is invalid for {count_name}: {count}")
 
     if errors:
         raise SystemExit("Validation failed:\n- " + "\n- ".join(errors))

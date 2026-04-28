@@ -1,0 +1,32 @@
+{
+  "project_name": "uk-housing-affordability-monitor",
+  "run_timestamp": "2026-04-27T14:41:06+00:00",
+  "source_urls": [
+    "https://download.ons.gov.uk/downloads/datasets/house-prices-local-authority/editions/time-series/versions/10.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2015/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2016/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2017/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2018/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2019/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2020/versions/1.csv",
+    "https://download.ons.gov.uk/downloads/datasets/ashe-tables-7-and-8/editions/2021/versions/2.csv"
+  ],
+  "input_row_counts": {
+    "house_prices": 0,
+    "earnings": 0
+  },
+  "output_row_counts": {
+    "affordability_by_area.csv": 2162,
+    "affordability_trend.csv": 7,
+    "least_affordable_latest.csv": 20,
+    "most_affordable_latest.csv": 20
+  },
+  "outputs": {
+    "by_area": "data/affordability_by_area.csv",
+    "trend": "data/affordability_trend.csv",
+    "least_affordable": "data/least_affordable_latest.csv",
+    "most_affordable": "data/most_affordable_latest.csv",
+    "metadata": "data/metadata.json"
+  },
+  "validation_status": "not_run"
+}

@@ -75,8 +75,9 @@ def transform() -> dict:
         writer.writerows(all_rows)
 
     latest_path = PROCESSED_DIR / "latest_snapshot.json"
+    generated_at = datetime.now(timezone.utc).isoformat()
     snapshot = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": generated_at,
         "indicators": latest_rows,
     }
     latest_path.write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
@@ -87,6 +88,24 @@ def transform() -> dict:
         "latest": latest_rows,
     }
     (DOCS_DATA_DIR / "indicators.json").write_text(json.dumps(site_payload, indent=2), encoding="utf-8")
+    run_metadata = {
+        "project_name": "uk-labour-market-resilience-monitor",
+        "run_timestamp": generated_at,
+        "source_urls": [f"https://www.ons.gov.uk/{item['path']}" for item in SERIES],
+        "input_row_counts": {item["id"]: len(_observations(json.loads((RAW_DIR / f"{item['id']}.json").read_text(encoding="utf-8")))) for item in SERIES},
+        "output_row_counts": {
+            "labour_market_indicators.csv": len(all_rows),
+            "latest_snapshot.json": len(latest_rows),
+            "docs/data/indicators.json": len(all_rows),
+        },
+        "outputs": {
+            "processed_csv": str(csv_path.relative_to(PROCESSED_DIR.parent.parent)),
+            "latest_snapshot": str(latest_path.relative_to(PROCESSED_DIR.parent.parent)),
+            "site_data": str((DOCS_DATA_DIR / "indicators.json").relative_to(PROCESSED_DIR.parent.parent)),
+        },
+        "validation_status": "not_run",
+    }
+    (PROCESSED_DIR / "run-metadata.json").write_text(json.dumps(run_metadata, indent=2), encoding="utf-8")
     return site_payload
 
 
