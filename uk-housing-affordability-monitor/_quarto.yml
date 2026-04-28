@@ -3,22 +3,10 @@ project:
   output-dir: _site
 
 website:
-  title: "UK Housing Affordability Monitor"
+  title: "UK Statistics RAP"
   site-url: "https://washwalk.github.io/uk-statistics-rap/uk-housing-affordability-monitor/"
   repo-url: "https://github.com/washwalk/uk-statistics-rap"
-  navbar:
-    background: "#ffffff"
-    foreground: "#111827"
-    left:
-      - href: https://washwalk.github.io/uk-statistics-rap/
-        text: UK Statistics RAP
-      - href: index.qmd
-        text: Housing
-      - href: methodology.qmd
-        text: Methodology
-    right:
-      - icon: github
-        href: "https://github.com/washwalk/uk-statistics-rap"
+  navbar: false
 
 format:
   html:

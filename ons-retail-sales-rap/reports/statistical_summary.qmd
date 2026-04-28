@@ -1,5 +1,5 @@
 ---
-title: "Retail Sales"
+pagetitle: "Retail Sales"
 format:
   html:
     toc: false
@@ -43,6 +43,8 @@ source_url = str(summary["source_url"])
 </header>
 
 ::: {.intro}
+# Retail Sales
+
 Retail Sales Index, 2019 = 100.
 :::
 

@@ -11,9 +11,37 @@ body {
   color: var(--ink);
 }
 
-.navbar {
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   border-bottom: 1px solid var(--line);
-  box-shadow: none;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--blue);
+  text-decoration: underline;
 }
 
 .intro h1 {
@@ -65,6 +93,10 @@ body {
   margin-top: 0.45rem;
 }
 
+.stat-card p {
+  margin: 0;
+}
+
 .note {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -74,4 +106,14 @@ body {
 .small {
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    display: block;
+  }
+
+  .site-header nav {
+    margin-top: 0.75rem;
+  }
 }

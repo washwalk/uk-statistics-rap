@@ -1,5 +1,5 @@
 ---
-title: "Housing Affordability"
+pagetitle: "Housing Affordability"
 ---
 
 ```{python}
@@ -32,32 +32,60 @@ def format_table(frame):
     )
 ```
 
+<header class="site-header">
+  <a class="brand" href="../">UK Statistics RAP</a>
+  <nav aria-label="Primary navigation">
+    <a href="../uk-labour-market-resilience-monitor/">Labour market</a>
+    <a href="../ons-retail-sales-rap/">Retail sales</a>
+    <a href="../uk-housing-affordability-monitor/">Housing</a>
+    <a href="https://github.com/washwalk/uk-statistics-rap">GitHub</a>
+  </nav>
+</header>
+
+# Housing Affordability
+
 Median house price divided by median annual earnings. England and Wales local authorities.
 
-```{python}
-#| output: asis
-print(f"""
-<div class="stat-grid">
-  <div class="stat-card">
-    <div class="label">Latest year</div>
-    <div class="value">{metadata['latest_year']}</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Median ratio</div>
-    <div class="value">{metadata['median_ratio_latest']}x</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Least affordable</div>
-    <div class="value">{metadata['least_affordable_area']['affordability_ratio']}x</div>
-    <div class="small">{metadata['least_affordable_area']['area_name']}</div>
-  </div>
-  <div class="stat-card">
-    <div class="label">Areas monitored</div>
-    <div class="value">{metadata['area_count_latest']}</div>
-  </div>
-</div>
-""")
-```
+::: {.stat-grid}
+::: {.stat-card}
+::: {.label}
+Latest year
+:::
+::: {.value}
+`{python} metadata["latest_year"]`
+:::
+:::
+
+::: {.stat-card}
+::: {.label}
+Median ratio
+:::
+::: {.value}
+`{python} metadata["median_ratio_latest"]`x
+:::
+:::
+
+::: {.stat-card}
+::: {.label}
+Least affordable
+:::
+::: {.value}
+`{python} metadata["least_affordable_area"]["affordability_ratio"]`x
+:::
+::: {.small}
+`{python} metadata["least_affordable_area"]["area_name"]`
+:::
+:::
+
+::: {.stat-card}
+::: {.label}
+Areas monitored
+:::
+::: {.value}
+`{python} metadata["area_count_latest"]`
+:::
+:::
+:::
 
 ## Summary
 
