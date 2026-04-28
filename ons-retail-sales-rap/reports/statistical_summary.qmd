@@ -5,6 +5,7 @@ format:
     toc: false
     number-sections: false
     theme: cosmo
+    include-before-body: ../../site/includes/header.html
     css: styles.css
 execute:
   echo: false
@@ -31,16 +32,6 @@ release_date = str(summary["release_date"])
 retrieved_at_utc = str(summary["retrieved_at_utc"])
 source_url = str(summary["source_url"])
 ```
-
-<header class="site-header">
-  <a class="brand" href="../">UK Statistics RAP</a>
-  <nav aria-label="Primary navigation">
-    <a href="../uk-labour-market-resilience-monitor/">Labour market</a>
-    <a href="../ons-retail-sales-rap/">Retail sales</a>
-    <a href="../uk-housing-affordability-monitor/">Housing</a>
-    <a href="https://github.com/washwalk/uk-statistics-rap">GitHub</a>
-  </nav>
-</header>
 
 ::: {.intro}
 # Retail Sales

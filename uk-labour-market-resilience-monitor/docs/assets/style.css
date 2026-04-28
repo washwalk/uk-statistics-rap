@@ -22,38 +22,6 @@ body {
 
 a { color: var(--accent); }
 
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid var(--line);
-  padding: 1rem max(1rem, calc((100vw - 1040px) / 2));
-}
-
-.brand {
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  font-size: 0.95rem;
-}
-
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
 h1 {
   margin: 0;
   font-size: clamp(2rem, 5vw, 3.7rem);
@@ -143,14 +111,4 @@ footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
   padding: 1.5rem max(1.25rem, 6vw);
-}
-
-@media (max-width: 720px) {
-  .site-header {
-    display: block;
-  }
-
-  nav {
-    margin-top: 0.75rem;
-  }
 }

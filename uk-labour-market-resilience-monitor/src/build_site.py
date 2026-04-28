@@ -59,18 +59,21 @@ def build_site() -> None:
   <meta charset=\"utf-8\">
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
   <title>UK Labour Market Resilience Monitor</title>
+  <link rel=\"stylesheet\" href=\"../assets/header.css\">
   <link rel=\"stylesheet\" href=\"assets/style.css\">
   <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>
 </head>
 <body>
   <header class=\"site-header\">
-    <a class=\"brand\" href=\"../\">UK Statistics RAP</a>
-    <nav aria-label=\"Primary navigation\">
-      <a href=\"../uk-labour-market-resilience-monitor/\">Labour market</a>
-      <a href=\"../ons-retail-sales-rap/\">Retail sales</a>
-      <a href=\"../uk-housing-affordability-monitor/\">Housing</a>
-      <a href=\"https://github.com/washwalk/uk-statistics-rap\">GitHub</a>
-    </nav>
+    <div class=\"site-header__inner\">
+      <a class=\"site-header__brand\" href=\"https://washwalk.github.io/uk-statistics-rap/\">UK Statistics RAP</a>
+      <nav class=\"site-header__nav\" aria-label=\"Primary navigation\">
+        <a href=\"https://washwalk.github.io/uk-statistics-rap/uk-labour-market-resilience-monitor/\">Labour market</a>
+        <a href=\"https://washwalk.github.io/uk-statistics-rap/ons-retail-sales-rap/\">Retail sales</a>
+        <a href=\"https://washwalk.github.io/uk-statistics-rap/uk-housing-affordability-monitor/\">Housing</a>
+        <a href=\"https://github.com/washwalk/uk-statistics-rap\">GitHub</a>
+      </nav>
+    </div>
   </header>
 
   <main>

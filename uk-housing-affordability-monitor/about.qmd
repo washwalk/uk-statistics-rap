@@ -2,16 +2,6 @@
 pagetitle: "About"
 ---
 
-<header class="site-header">
-  <a class="brand" href="../">UK Statistics RAP</a>
-  <nav aria-label="Primary navigation">
-    <a href="../uk-labour-market-resilience-monitor/">Labour market</a>
-    <a href="../ons-retail-sales-rap/">Retail sales</a>
-    <a href="../uk-housing-affordability-monitor/">Housing</a>
-    <a href="https://github.com/washwalk/uk-statistics-rap">GitHub</a>
-  </nav>
-</header>
-
 # About
 
 This project was built as a portfolio piece for a GSS Senior Statistical Officer interview. It demonstrates practical statistical production skills across the full workflow: sourcing official data, automating processing, documenting methodology, and publishing an accessible analytical product.

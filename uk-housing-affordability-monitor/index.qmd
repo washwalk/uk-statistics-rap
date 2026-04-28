@@ -32,16 +32,6 @@ def format_table(frame):
     )
 ```
 
-<header class="site-header">
-  <a class="brand" href="../">UK Statistics RAP</a>
-  <nav aria-label="Primary navigation">
-    <a href="../uk-labour-market-resilience-monitor/">Labour market</a>
-    <a href="../ons-retail-sales-rap/">Retail sales</a>
-    <a href="../uk-housing-affordability-monitor/">Housing</a>
-    <a href="https://github.com/washwalk/uk-statistics-rap">GitHub</a>
-  </nav>
-</header>
-
 # Housing Affordability
 
 Median house price divided by median annual earnings. England and Wales local authorities.

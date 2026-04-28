@@ -23,38 +23,6 @@ a {
   color: var(--accent);
 }
 
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid var(--line);
-  padding: 1rem max(1rem, calc((100vw - 1040px) / 2));
-}
-
-.brand {
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  font-size: 0.95rem;
-}
-
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
 main {
   width: min(1040px, calc(100% - 2rem));
   margin: 0 auto;
@@ -127,13 +95,8 @@ h2 {
 }
 
 @media (max-width: 720px) {
-  .site-header,
   .report-list article {
     display: block;
-  }
-
-  nav {
-    margin-top: 0.75rem;
   }
 
   .report-list h2,
