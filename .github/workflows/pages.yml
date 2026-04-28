@@ -168,7 +168,7 @@ jobs:
           quarto render reports/statistical_summary.qmd --output-dir ${{ github.workspace }}/outputs
           mkdir -p ${{ github.workspace }}/_site/ons-retail-sales-rap
           cp ${{ github.workspace }}/outputs/statistical_summary.html ${{ github.workspace }}/_site/ons-retail-sales-rap/index.html
-          cp -R ${{ github.workspace }}/outputs/figures ${{ github.workspace }}/_site/ons-retail-sales-rap/
+          cp -R outputs/figures ${{ github.workspace }}/_site/ons-retail-sales-rap/
 
       - name: Set up Python 3.11 for housing affordability
         uses: actions/setup-python@v5
