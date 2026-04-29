@@ -1,6 +1,6 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T14:07:44.355531+00:00",
+  "run_timestamp": "2026-04-29T14:52:32.596873+00:00",
   "source_urls": [
     "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
     "https://naptan.api.dft.gov.uk/v1/nptg"
@@ -8,8 +8,35 @@
   "source_publisher": "Department for Transport",
   "source_coverage": "England, Scotland and Wales",
   "source_exclusions": "Northern Ireland",
+  "source_fetch_metadata": {
+    "fetched_at": "2026-04-29T14:51:48.965833+00:00",
+    "sources": [
+      {
+        "name": "naptan_access_nodes",
+        "source_url": "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
+        "path": "data/raw/source.csv",
+        "status": 200,
+        "content_type": "application/csv",
+        "etag": "",
+        "last_modified": "",
+        "sha256": "6d4315c4b8ecc4b1535d82787e1f276a803bc49e7836ea58dc1934a7e673f4d2",
+        "bytes": 101140148
+      },
+      {
+        "name": "nptg_gazetteer",
+        "source_url": "https://naptan.api.dft.gov.uk/v1/nptg",
+        "path": "data/raw/nptg.xml",
+        "status": 200,
+        "content_type": "application/xml",
+        "etag": "",
+        "last_modified": "",
+        "sha256": "0882a68d403d16e8883226f05046b1b9adf859500b79813bdd05e0b882596dfc",
+        "bytes": 54620711
+      }
+    ]
+  },
   "input_row_counts": {
-    "source_rows": 434552,
+    "source_rows": 434556,
     "nptg_administrative_areas": 149
   },
   "output_row_counts": {
@@ -19,42 +46,42 @@
     "standard_readiness": 9,
     "audit_requirements": 9,
     "example_stop_audit": 1,
-    "bus_stop_rows": 421248
+    "bus_stop_rows": 421252
   },
   "quality_counts": {
-    "source_rows": 434552,
-    "bus_stop_rows": 421248,
+    "source_rows": 434556,
+    "bus_stop_rows": 421252,
     "administrative_areas": 145,
     "administrative_area_names_available": 145,
     "administrative_area_names_missing": 0,
     "administrative_area_name_match_percent": "100.0",
     "duplicate_atco_codes": 0,
     "status_counts": {
-      "active": 375081,
-      "inactive": 46166,
+      "active": 375084,
+      "inactive": 46167,
       "pending": 1
     },
     "modification_counts": {
-      "new": 121367,
-      "delete": 18041,
+      "new": 121370,
+      "delete": 18042,
       "revise": 246931,
       "blank": 34909
     },
     "modification_datetime_summary": {
-      "records_with_modification_datetime": 420813,
+      "records_with_modification_datetime": 420817,
       "records_missing_modification_datetime": 435,
       "earliest_modification_datetime": "1969-12-31T23:00:00",
-      "latest_modification_datetime": "2026-04-29T09:32:47.038000"
+      "latest_modification_datetime": "2026-04-29T14:34:27"
     },
     "stop_type_counts": {
-      "BCT": 415980,
+      "BCT": 415984,
       "BCS": 4919,
       "BCE": 192,
       "BCQ": 157
     },
     "bus_stop_type_counts": {
-      "MKD": 313003,
-      "CUS": 83918,
+      "MKD": 313006,
+      "CUS": 83919,
       "blank": 5022,
       "HAR": 17905,
       "FLX": 1400
@@ -597,7 +624,7 @@
     "standard_readiness": "data/processed/standard-readiness.csv",
     "audit_requirements": "data/processed/audit-requirements.csv",
     "example_stop_audit": "examples/example-stop-audit.csv",
+    "validation_results": "data/processed/validation-results.json",
     "report": "docs/index.html"
-  },
-  "validation_status": "passed"
+  }
 }

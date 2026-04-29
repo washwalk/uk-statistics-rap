@@ -499,9 +499,13 @@ def transform() -> None:
     config = load_config()
     raw_path = Path(config["paths"]["raw_data"])
     raw_nptg_path = Path(config["paths"]["raw_nptg"])
+    raw_metadata_path = Path(config["paths"]["raw_metadata"])
     with raw_path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
     area_names = parse_area_names(raw_nptg_path)
+    source_fetch_metadata = {}
+    if raw_metadata_path.exists():
+        source_fetch_metadata = json.loads(raw_metadata_path.read_text(encoding="utf-8"))
 
     area_summary, completeness, data_dictionary, readiness, audit_requirements, example_stop_audit, counts = build_outputs(rows, area_names)
 
@@ -521,6 +525,7 @@ def transform() -> None:
                 "source_publisher": config["source"]["publisher"],
                 "source_coverage": config["source"]["coverage"],
                 "source_exclusions": "Northern Ireland",
+                "source_fetch_metadata": source_fetch_metadata,
                 "input_row_counts": {"source_rows": counts["source_rows"], "nptg_administrative_areas": len(area_names)},
                 "output_row_counts": {
                     "area_summary": len(area_summary),
@@ -539,9 +544,9 @@ def transform() -> None:
                     "standard_readiness": config["paths"]["standard_readiness"],
                     "audit_requirements": config["paths"]["audit_requirements"],
                     "example_stop_audit": config["paths"]["example_stop_audit"],
+                    "validation_results": config["paths"]["validation_results"],
                     "report": config["paths"]["report"],
                 },
-                "validation_status": "not_run",
             },
             indent=2,
         )

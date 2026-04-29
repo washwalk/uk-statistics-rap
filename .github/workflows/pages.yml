@@ -37,6 +37,12 @@ jobs:
       labour_market: ${{ steps.filter.outputs.labour_market }}
       retail_sales: ${{ steps.filter.outputs.retail_sales }}
       housing_affordability: ${{ steps.filter.outputs.housing_affordability }}
+      inflation: ${{ steps.filter.outputs.inflation }}
+      gdp: ${{ steps.filter.outputs.gdp }}
+      population: ${{ steps.filter.outputs.population }}
+      bus_stop_standard: ${{ steps.filter.outputs.bus_stop_standard }}
+      site: ${{ steps.filter.outputs.site }}
+      workflow: ${{ steps.filter.outputs.workflow }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -54,6 +60,18 @@ jobs:
               - 'ons-retail-sales-rap/**'
             housing_affordability:
               - 'uk-housing-affordability-monitor/**'
+            inflation:
+              - 'uk-inflation-monitor/**'
+            gdp:
+              - 'uk-gdp-release-summary/**'
+            population:
+              - 'uk-population-change-explorer/**'
+            bus_stop_standard:
+              - 'uk-bus-stop-standard-data-monitor/**'
+            site:
+              - 'site/**'
+            workflow:
+              - '.github/workflows/pages.yml'
 
   ci-labour-market:
     runs-on: ubuntu-latest
@@ -201,13 +219,54 @@ jobs:
           mkdir -p ../_site/uk-housing-affordability-monitor
           cp -R _site/. ../_site/uk-housing-affordability-monitor/
 
-      - name: Publish compact examples
+      - name: Copy committed compact example outputs
         run: |
           for project in uk-inflation-monitor uk-gdp-release-summary uk-population-change-explorer uk-bus-stop-standard-data-monitor; do
-            (cd "$project" && python -m unittest discover -s tests && python src/validate.py && python src/publish.py)
-            mkdir -p "_site/$project"
-            cp -R "$project/docs/." "_site/$project/"
+            if [ -d "$project/docs" ]; then
+              mkdir -p "_site/$project"
+              cp -R "$project/docs/." "_site/$project/"
+            fi
           done
+
+      - name: Build inflation monitor
+        if: github.event_name != 'push' || needs.changes.outputs.inflation == 'true' || needs.changes.outputs.workflow == 'true'
+        working-directory: uk-inflation-monitor
+        run: |
+          python -m unittest discover -s tests
+          python src/validate.py
+          python src/publish.py
+          mkdir -p ../_site/uk-inflation-monitor
+          cp -R docs/. ../_site/uk-inflation-monitor/
+
+      - name: Build GDP release summary
+        if: github.event_name != 'push' || needs.changes.outputs.gdp == 'true' || needs.changes.outputs.workflow == 'true'
+        working-directory: uk-gdp-release-summary
+        run: |
+          python -m unittest discover -s tests
+          python src/validate.py
+          python src/publish.py
+          mkdir -p ../_site/uk-gdp-release-summary
+          cp -R docs/. ../_site/uk-gdp-release-summary/
+
+      - name: Build population explorer
+        if: github.event_name != 'push' || needs.changes.outputs.population == 'true' || needs.changes.outputs.workflow == 'true'
+        working-directory: uk-population-change-explorer
+        run: |
+          python -m unittest discover -s tests
+          python src/validate.py
+          python src/publish.py
+          mkdir -p ../_site/uk-population-change-explorer
+          cp -R docs/. ../_site/uk-population-change-explorer/
+
+      - name: Build bus stop standard monitor
+        if: github.event_name != 'push' || needs.changes.outputs.bus_stop_standard == 'true' || needs.changes.outputs.workflow == 'true'
+        working-directory: uk-bus-stop-standard-data-monitor
+        run: |
+          python -m unittest discover -s tests
+          python src/validate.py
+          python src/publish.py
+          mkdir -p ../_site/uk-bus-stop-standard-data-monitor
+          cp -R docs/. ../_site/uk-bus-stop-standard-data-monitor/
 
       - name: Copy landing page assets
         run: cp -R site/. _site/

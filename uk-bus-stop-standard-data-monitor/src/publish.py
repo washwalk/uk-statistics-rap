@@ -84,6 +84,7 @@ def publish() -> None:
     audit_requirements_path = Path(config["paths"]["audit_requirements"])
     example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
     metadata_path = Path(config["paths"]["run_metadata"])
+    validation_results_path = Path(config["paths"]["validation_results"])
     report_path = Path(config["paths"]["report"])
     report_path.parent.mkdir(parents=True, exist_ok=True)
     data_dir = report_path.parent / "data"
@@ -224,6 +225,8 @@ def publish() -> None:
     shutil.copyfile(audit_requirements_path, data_dir / "audit-requirements.csv")
     shutil.copyfile(example_stop_audit_path, data_dir / "example-stop-audit.csv")
     shutil.copyfile(metadata_path, data_dir / "run-metadata.json")
+    if validation_results_path.exists():
+        shutil.copyfile(validation_results_path, data_dir / "validation-results.json")
 
     report_path.write_text(
         "\n".join(

@@ -19,6 +19,7 @@
     "audit_requirements": "data/processed/audit-requirements.csv",
     "example_stop_audit": "examples/example-stop-audit.csv",
     "run_metadata": "data/processed/run-metadata.json",
+    "validation_results": "data/processed/validation-results.json",
     "report": "docs/index.html"
   }
 }

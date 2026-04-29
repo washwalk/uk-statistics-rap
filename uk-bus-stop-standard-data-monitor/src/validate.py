@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -61,7 +62,7 @@ EXAMPLE_STOP_AUDIT_COLUMNS = {
     "evidence_url",
     "notes",
 }
-REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "source_publisher", "source_coverage", "source_exclusions", "input_row_counts", "output_row_counts", "quality_counts", "outputs", "validation_status"}
+REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "source_publisher", "source_coverage", "source_exclusions", "source_fetch_metadata", "input_row_counts", "output_row_counts", "quality_counts", "outputs"}
 EXPECTED_READINESS_FEATURES = {
     "Bus stop identity and location",
     "Bus stop flag with stop name, route numbers, destination and branding",
@@ -112,6 +113,23 @@ def expected_percent(part: int, total: int) -> str:
     return f"{(part / total) * 100:.1f}"
 
 
+def write_validation_results(path: Path, status: str, errors: list[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "status": status,
+                "validated_at": datetime.now(timezone.utc).isoformat(),
+                "error_count": len(errors),
+                "errors": errors,
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+
 def validate() -> None:
     config = load_config()
     errors: list[str] = []
@@ -129,6 +147,7 @@ def validate() -> None:
     audit_requirements_path = Path(config["paths"]["audit_requirements"])
     example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
     metadata_path = Path(config["paths"]["run_metadata"])
+    validation_results_path = Path(config["paths"]["validation_results"])
 
     for path, columns, label in (
         (area_path, AREA_COLUMNS, "Area summary"),
@@ -276,8 +295,12 @@ def validate() -> None:
             errors.append("Run metadata audit requirements output path does not match config")
         if outputs.get("example_stop_audit") != config["paths"]["example_stop_audit"]:
             errors.append("Run metadata example stop audit output path does not match config")
+        if outputs.get("validation_results") != config["paths"]["validation_results"]:
+            errors.append("Run metadata validation results output path does not match config")
         if outputs.get("report") != config["paths"]["report"]:
             errors.append("Run metadata report output path does not match config")
+        if not isinstance(metadata.get("source_fetch_metadata"), dict):
+            errors.append("Run metadata source fetch metadata must be an object")
         output_counts = metadata.get("output_row_counts", {})
         if output_counts.get("area_summary") != len(area_rows):
             errors.append("Run metadata area summary row count does not match output")
@@ -337,14 +360,10 @@ def validate() -> None:
             errors.append("Run metadata unnamed area count does not match area summary")
         if expected_unnamed_areas:
             errors.append("One or more active administrative area codes could not be matched to NPTG names")
-        if metadata.get("validation_status") not in {"not_run", "passed"}:
-            errors.append("Run metadata validation status must be not_run or passed")
-
     if errors:
+        write_validation_results(validation_results_path, "failed", errors)
         raise SystemExit("Validation failed:\n- " + "\n- ".join(errors))
-    if metadata_path.exists() and metadata:
-        metadata["validation_status"] = "passed"
-        metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    write_validation_results(validation_results_path, "passed", [])
     print("Validation passed")
 
 
