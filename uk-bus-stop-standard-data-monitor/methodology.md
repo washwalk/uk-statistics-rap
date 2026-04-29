@@ -21,11 +21,15 @@ The pipeline then produces these processed outputs:
 - `audit-requirements.csv`: stop-level fields that local transport authorities would need to collect to monitor the proposed standard.
 - `examples/example-stop-audit.csv`: an illustrative stop-audit template keyed by `atco_code`, which should join to NaPTAN `ATCOCode`.
 
+The monitor keeps all registered bus stop records in scope. NaPTAN `Status`, `Modification` and `ModificationDateTime` values are summarised in run metadata and the report so users can distinguish active, inactive and pending records without losing transparency over the full register.
+
 ## Completeness Measures
 
 Completeness is calculated as the share of filtered bus stop records where a field is non-blank. The monitor focuses on fields relevant to stop identification, wayfinding and basic monitoring, including `ATCOCode`, `NaptanCode`, `CommonName`, `Street`, `Indicator`, `Bearing`, `LocalityName`, `Longitude`, `Latitude`, `BusStopType` and `TimingStatus`.
 
 Area-level percentages are field-completeness rates, not route coverage or standard-compliance rates. `Street` means a stop record has a street-name field populated; it does not mean that percentage of streets has a bus route. `Longitude` and `Latitude` completeness means WGS84 coordinate fields are populated. The area summary also reports alternative grid-reference completeness where easting/northing-style fields are present, and an `any_location_reference` rate covering either WGS84 coordinates or a grid reference.
+
+`Status` and `ModificationDateTime` are register metadata. They can show whether a NaPTAN record is active, inactive or pending and when the record was last modified, but they do not show whether a physical stop has recently been inspected or whether facilities are present, maintained or working.
 
 ## Standard Readiness
 

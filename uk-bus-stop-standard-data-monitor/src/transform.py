@@ -342,6 +342,10 @@ def has_grid_reference(row: dict) -> bool:
     return any(is_present(row.get(easting)) and is_present(row.get(northing)) for easting, northing in pairs)
 
 
+def normalise_category(value: str | None) -> str:
+    return (value or "blank").strip().lower() or "blank"
+
+
 def percent(part: int, total: int) -> str:
     if total == 0:
         return "0.0"
@@ -366,6 +370,26 @@ def parse_area_names(path: Path) -> dict[str, str]:
     if not area_names:
         raise ValueError("No administrative area names were available in NPTG data")
     return area_names
+
+
+def modification_date_summary(rows: list[dict]) -> dict:
+    parsed_dates = []
+    missing = 0
+    for row in rows:
+        value = (row.get("ModificationDateTime") or "").strip()
+        if not value:
+            missing += 1
+            continue
+        try:
+            parsed_dates.append(datetime.fromisoformat(value.replace("Z", "+00:00")))
+        except ValueError:
+            missing += 1
+    return {
+        "records_with_modification_datetime": len(parsed_dates),
+        "records_missing_modification_datetime": missing,
+        "earliest_modification_datetime": min(parsed_dates).isoformat() if parsed_dates else "",
+        "latest_modification_datetime": max(parsed_dates).isoformat() if parsed_dates else "",
+    }
 
 
 def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], list[dict], list[dict], list[dict], dict]:
@@ -445,6 +469,9 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
         "administrative_area_names_missing": unnamed_area_count,
         "administrative_area_name_match_percent": percent(named_area_count, named_area_count + unnamed_area_count),
         "duplicate_atco_codes": duplicate_atco_codes,
+        "status_counts": dict(Counter(normalise_category(row.get("Status")) for row in bus_rows)),
+        "modification_counts": dict(Counter(normalise_category(row.get("Modification")) for row in bus_rows)),
+        "modification_datetime_summary": modification_date_summary(bus_rows),
         "stop_type_counts": dict(Counter((row.get("StopType") or "blank").strip() or "blank" for row in bus_rows)),
         "bus_stop_type_counts": dict(Counter((row.get("BusStopType") or "blank").strip() or "blank" for row in bus_rows)),
         "quality_flags": quality_flags,

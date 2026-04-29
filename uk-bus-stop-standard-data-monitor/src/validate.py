@@ -298,6 +298,35 @@ def validate() -> None:
         quality_counts = metadata.get("quality_counts", {})
         if "duplicate_atco_codes" not in quality_counts:
             errors.append("Run metadata does not record duplicate ATCO code count")
+        status_counts = quality_counts.get("status_counts", {})
+        if not isinstance(status_counts, dict) or not status_counts:
+            errors.append("Run metadata does not record status counts")
+        elif sum(status_counts.values()) != output_counts.get("bus_stop_rows"):
+            errors.append("Run metadata status counts do not sum to bus stop rows")
+        modification_counts = quality_counts.get("modification_counts", {})
+        if not isinstance(modification_counts, dict) or not modification_counts:
+            errors.append("Run metadata does not record modification counts")
+        elif sum(modification_counts.values()) != output_counts.get("bus_stop_rows"):
+            errors.append("Run metadata modification counts do not sum to bus stop rows")
+        modification_datetime_summary = quality_counts.get("modification_datetime_summary", {})
+        required_modification_datetime_keys = {
+            "records_with_modification_datetime",
+            "records_missing_modification_datetime",
+            "earliest_modification_datetime",
+            "latest_modification_datetime",
+        }
+        if not isinstance(modification_datetime_summary, dict):
+            errors.append("Run metadata modification datetime summary must be an object")
+        else:
+            missing_datetime_keys = required_modification_datetime_keys.difference(modification_datetime_summary)
+            if missing_datetime_keys:
+                errors.append(f"Run metadata modification datetime summary missing keys: {sorted(missing_datetime_keys)}")
+            elif (
+                modification_datetime_summary["records_with_modification_datetime"]
+                + modification_datetime_summary["records_missing_modification_datetime"]
+                != output_counts.get("bus_stop_rows")
+            ):
+                errors.append("Run metadata modification datetime counts do not sum to bus stop rows")
         if not isinstance(quality_counts.get("quality_flags"), list):
             errors.append("Run metadata quality flags must be a list")
         expected_named_areas = sum(1 for row in area_rows if row.get("administrative_area_code") != "unknown" and row.get("administrative_area_name"))

@@ -24,6 +24,12 @@ def fmt_percent(value: int | float | str) -> str:
     return f"{float(value):.1f}%"
 
 
+def fmt_datetime(value: str) -> str:
+    if not value:
+        return "Not available"
+    return value.replace("T", " ").split("+", 1)[0]
+
+
 def fmt_count_percent(count: int | str, total: int | str, percent: int | float | str) -> str:
     return f"{fmt_count(count)} / {fmt_count(total)} ({fmt_percent(percent)})"
 
@@ -92,6 +98,14 @@ def publish() -> None:
 
     total_stops = int(metadata["output_row_counts"]["bus_stop_rows"])
     area_count = int(metadata["quality_counts"]["administrative_areas"])
+    status_counts = metadata.get("quality_counts", {}).get("status_counts", {})
+    active_stops = int(status_counts.get("active", 0))
+    inactive_stops = int(status_counts.get("inactive", 0))
+    pending_stops = int(status_counts.get("pending", 0))
+    other_status_stops = total_stops - active_stops - inactive_stops - pending_stops
+    not_active_stops = total_stops - active_stops
+    modification_counts = metadata.get("quality_counts", {}).get("modification_counts", {})
+    modification_datetime_summary = metadata.get("quality_counts", {}).get("modification_datetime_summary", {})
     any_location_count = sum(int(row["with_any_location_reference"]) for row in area_rows)
     any_location_percent = (any_location_count / total_stops) * 100
     measurable = sum(1 for row in readiness_rows if row["national_data_status"] in {"available", "partial"})
@@ -122,6 +136,22 @@ def publish() -> None:
         f"<td>{html.escape('; '.join(area_review_notes(row)))}</td>"
         "</tr>"
         for row in area_review_rows[:12]
+    )
+    status_table = "\n".join(
+        "<tr>"
+        f"<td>{html.escape(status.title())}</td>"
+        f"<td>{fmt_count(count)}</td>"
+        f"<td>{fmt_percent((int(count) / total_stops) * 100)}</td>"
+        "</tr>"
+        for status, count in sorted(status_counts.items())
+    )
+    modification_table = "\n".join(
+        "<tr>"
+        f"<td>{html.escape(modification.title())}</td>"
+        f"<td>{fmt_count(count)}</td>"
+        f"<td>{fmt_percent((int(count) / total_stops) * 100)}</td>"
+        "</tr>"
+        for modification, count in sorted(modification_counts.items())
     )
     completeness_table = "\n".join(
         "<tr>"
@@ -207,11 +237,13 @@ def publish() -> None:
                 "</section>",
                 "<section class=\"metrics\">",
                 f"<article class=\"metric\"><p class=\"label\">Registered bus stop records</p><p class=\"value\">{fmt_count(total_stops)}</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Active records</p><p class=\"value\">{fmt_count(active_stops)}</p><p>{fmt_count(not_active_stops)} filtered records are inactive, pending or another status.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Administrative areas</p><p class=\"value\">{fmt_count(area_count)}</p><p>Area summaries joined to official NPTG administrative area names.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Any location reference</p><p class=\"value\">{fmt_percent(any_location_percent)}</p><p>Records with either WGS84 coordinates or a grid reference.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Features evidenced</p><p class=\"value\">{measurable} of {len(readiness_rows)}</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>",
                 "</section>",
                 f"<section class=\"panel warning\"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <a href=\"https://bettertransport.org.uk/better-bus-stops/\"><em>Better Bus Stops: Creating a national bus stop standard</em></a>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p><p>Data refreshed: {html.escape(run_timestamp)} UTC.</p></section>",
+                f"<section class=\"panel\"><h2>Current Register Status</h2><p>The monitor keeps all registered NaPTAN bus stop records in scope for transparency, but the register also marks records by status. Of the {fmt_count(total_stops)} filtered bus stop records, {fmt_count(active_stops)} are marked active, {fmt_count(inactive_stops)} inactive, {fmt_count(pending_stops)} pending, and {fmt_count(other_status_stops)} have another or blank status.</p><p><strong>Important caveat:</strong> NaPTAN <code>Status</code> and <code>ModificationDateTime</code> describe the register record. They are not evidence that a physical stop has recently been inspected, maintained, repaired, or checked for passenger facilities.</p><div class=\"cards\"><article class=\"card\"><h3>Status breakdown</h3><table><thead><tr><th scope=\"col\">Status</th><th scope=\"col\">Records</th><th scope=\"col\">Share</th></tr></thead><tbody>{status_table}</tbody></table></article><article class=\"card\"><h3>Record modification</h3><p>{fmt_count(modification_datetime_summary.get('records_with_modification_datetime', 0))} records have a modification timestamp and {fmt_count(modification_datetime_summary.get('records_missing_modification_datetime', 0))} do not.</p><p>Earliest timestamp: {html.escape(fmt_datetime(modification_datetime_summary.get('earliest_modification_datetime', '')))}.<br>Latest timestamp: {html.escape(fmt_datetime(modification_datetime_summary.get('latest_modification_datetime', '')))}.</p><table><thead><tr><th scope=\"col\">Modification</th><th scope=\"col\">Records</th><th scope=\"col\">Share</th></tr></thead><tbody>{modification_table}</tbody></table></article></div></section>",
                 "<section class=\"panel\"><h2>What This Means For Campaigners</h2><p>Use this page to argue for better stop-level evidence, not to claim that individual stops pass or fail a standard. Current national open data can locate registered bus stops and check some basic information fields, but it cannot prove whether the facilities passengers rely on are present, maintained or working.</p><p>Where authorities already hold shelter, lighting, real-time information or maintenance data, the campaign ask is publication and standardisation. Where they do not hold it, the ask is a stop-level audit.</p><div class=\"cards actions\"><article class=\"card\"><h3>Ask your LTA</h3><ul><li>Which stop-level facility data do you already hold?</li><li>Can it be joined to NaPTAN using <code>ATCOCode</code>?</li><li>Do you publish shelter, seating, lighting, timetable, map, RTI and maintenance fields as open data?</li><li>How often are stop facilities inspected and updated?</li></ul></article><article class=\"card\"><h3>Use the downloads</h3><ul><li>Use the area summary to inspect data completeness in your area.</li><li>Use the audit requirements to request specific evidence fields.</li><li>Use the example stop-audit template as a practical starting point for local surveys.</li></ul></article></div></section>",
                 f"<section class=\"panel callout\"><h2>Campaigning Talking Points</h2><ul class=\"talking-points\"><li>National open data has direct or partial evidence for only <strong>{measurable} of {len(readiness_rows)}</strong> proposed bus stop standard features; <strong>{data_gap_count} of {len(readiness_rows)}</strong> need local stop-level audit evidence.</li><li>The weakest link is not the stop register; it is the absence of a published national facility and maintenance layer.</li><li>NaPTAN can identify registered stops, but it cannot tell passengers whether a stop has a shelter, seat, lighting, printed timetable, route map or working real-time display.</li><li>A national bus stop standard needs a national facility data standard, joined to NaPTAN using <code>ATCOCode</code>.</li><li>If shelters, signs and displays are monitored for contracts or repairs, passengers should be able to see stop-level status as open data.</li><li>Missing data is not the same as missing facilities, but it does limit public accountability.</li></ul></section>",
                 "<section class=\"panel\"><h2>The Missing Link: Published Stop-Level Facility Data</h2><p>In many areas, some facility data probably already exists in local authority, highway, contractor, shelter, lighting or real-time information systems. The problem is that it is not consistently published as open, stop-level data that passengers, campaigners and researchers can join to NaPTAN.</p><p>Current national open data can identify registered bus stops, but it cannot show, for each stop, whether shelters, seats, lighting, timetable cases, route maps, QR codes or real-time displays exist, work, are inspected, or have a named maintenance owner.</p><p><strong>Where the data exists, publish it. Where it does not, audit it. In both cases, link it to NaPTAN <code>ATCOCode</code> and keep it updated.</strong></p></section>",

@@ -1,6 +1,6 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T09:27:24.497332+00:00",
+  "run_timestamp": "2026-04-29T10:33:34.571747+00:00",
   "source_urls": [
     "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
     "https://naptan.api.dft.gov.uk/v1/nptg"
@@ -29,6 +29,23 @@
     "administrative_area_names_missing": 0,
     "administrative_area_name_match_percent": "100.0",
     "duplicate_atco_codes": 0,
+    "status_counts": {
+      "active": 375081,
+      "inactive": 46166,
+      "pending": 1
+    },
+    "modification_counts": {
+      "new": 121367,
+      "delete": 18041,
+      "revise": 246931,
+      "blank": 34909
+    },
+    "modification_datetime_summary": {
+      "records_with_modification_datetime": 420813,
+      "records_missing_modification_datetime": 435,
+      "earliest_modification_datetime": "1969-12-31T23:00:00",
+      "latest_modification_datetime": "2026-04-29T09:32:47.038000"
+    },
     "stop_type_counts": {
       "BCT": 415980,
       "BCS": 4919,

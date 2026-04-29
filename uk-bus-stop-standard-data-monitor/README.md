@@ -13,6 +13,7 @@ This project does not reproduce that report. It provides a data implementation c
 ## What It Tracks
 
 - Registered bus stop records in NaPTAN for England, Scotland and Wales.
+- NaPTAN register status and record-modification metadata, so active, inactive and pending records are visible without removing registered records from the base dataset.
 - Bus stop counts by administrative area, with names joined from the DfT National Public Transport Gazetteer (NPTG).
 - Completeness of passenger-facing and monitoring fields, including stop names, public stop codes, WGS84 coordinates, grid references where present, street, indicator, bearing and locality.
 - A data dictionary explaining what each completeness metric means and what it does not prove.
@@ -63,7 +64,7 @@ make clean             # remove generated raw/processed/report outputs
 
 ## Validation
 
-`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata output paths and row counts match the generated files.
+`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, audit requirements align one-to-one with readiness features, status and modification counts sum to the filtered bus stop total, quality-review prompts are recorded, and metadata output paths and row counts match the generated files.
 
 ## Assurance Evidence
 
@@ -77,6 +78,8 @@ make clean             # remove generated raw/processed/report outputs
 The outputs are best read as a national data-readiness monitor. They show whether the national register can support implementation monitoring, not whether individual stops comply with a future standard.
 
 Percentages are record-level field-completeness rates. For example, `Street` means the stop record has a non-blank street label; it does not mean that share of streets has a bus route. `Longitude` and `Latitude` completeness means WGS84 coordinate fields are populated; areas with 0% WGS84 completeness may still have other location references in source systems.
+
+The monitor keeps all registered bus stop records in scope, but reports NaPTAN `Status` counts separately so active, inactive and pending records are visible. `ModificationDateTime` describes when the NaPTAN register record was modified; it is not a physical stop inspection date and does not indicate facility condition.
 
 ## Limitations
 

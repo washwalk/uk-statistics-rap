@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from transform import build_outputs, is_bus_stop, parse_area_names  # noqa: E402
+from transform import build_outputs, is_bus_stop, modification_date_summary, parse_area_names  # noqa: E402
 
 
 class TransformTests(unittest.TestCase):
@@ -104,6 +104,58 @@ class TransformTests(unittest.TestCase):
         _, _, _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["duplicate_atco_codes"], 1)
+
+    def test_counts_status_and_modification_metadata(self):
+        rows = [
+            {
+                "ATCOCode": "10001",
+                "StopType": "BCT",
+                "BusStopType": "MKD",
+                "AdministrativeAreaCode": "001",
+                "Status": "active",
+                "Modification": "revise",
+                "ModificationDateTime": "2026-01-02T10:00:00",
+            },
+            {
+                "ATCOCode": "10002",
+                "StopType": "BCT",
+                "BusStopType": "MKD",
+                "AdministrativeAreaCode": "001",
+                "Status": "inactive",
+                "Modification": "delete",
+                "ModificationDateTime": "2025-12-31T09:00:00",
+            },
+            {
+                "ATCOCode": "10003",
+                "StopType": "BCT",
+                "BusStopType": "MKD",
+                "AdministrativeAreaCode": "001",
+                "Status": "pending",
+                "Modification": "new",
+                "ModificationDateTime": "",
+            },
+        ]
+
+        _, _, _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+
+        self.assertEqual(counts["status_counts"], {"active": 1, "inactive": 1, "pending": 1})
+        self.assertEqual(counts["modification_counts"], {"revise": 1, "delete": 1, "new": 1})
+        self.assertEqual(counts["modification_datetime_summary"]["records_with_modification_datetime"], 2)
+        self.assertEqual(counts["modification_datetime_summary"]["records_missing_modification_datetime"], 1)
+        self.assertEqual(counts["modification_datetime_summary"]["earliest_modification_datetime"], "2025-12-31T09:00:00")
+        self.assertEqual(counts["modification_datetime_summary"]["latest_modification_datetime"], "2026-01-02T10:00:00")
+
+    def test_modification_date_summary_counts_invalid_dates_as_missing(self):
+        summary = modification_date_summary(
+            [
+                {"ModificationDateTime": "2026-01-02T10:00:00"},
+                {"ModificationDateTime": "not-a-date"},
+                {"ModificationDateTime": ""},
+            ]
+        )
+
+        self.assertEqual(summary["records_with_modification_datetime"], 1)
+        self.assertEqual(summary["records_missing_modification_datetime"], 2)
 
     def test_blank_area_code_falls_back_to_unknown(self):
         rows = [
