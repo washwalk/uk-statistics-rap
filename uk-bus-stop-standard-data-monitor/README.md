@@ -1,6 +1,6 @@
 # UK Bus Stop Standard Data Monitor
 
-Compact reproducible analytical pipeline using DfT NaPTAN open data to show what can currently be monitored nationally for a proposed bus stop standard, and where the facility-data gaps are.
+Compact reproducible analytical pipeline using DfT NaPTAN open data to show that Great Britain already has a strong national bus stop register, but not the published stop-level facility and maintenance data needed to monitor a proposed bus stop standard.
 
 Published report: `https://washwalk.github.io/uk-statistics-rap/uk-bus-stop-standard-data-monitor/`
 
@@ -8,7 +8,7 @@ Published report: `https://washwalk.github.io/uk-statistics-rap/uk-bus-stop-stan
 
 Campaign for Better Transport's December 2024 report, *Better Bus Stops: Creating a national bus stop standard*, makes the policy case for a national standard covering safety, legibility, accessibility and comfort.
 
-This project does not reproduce that report. It provides a data implementation companion: a reproducible prototype showing what the current national stop register can measure and what extra local authority audit fields would be needed to monitor compliance.
+This project does not reproduce that report. It provides a data implementation companion: a reproducible prototype showing what the current national stop register can measure, what it cannot prove, and how a national facilities register linked to NaPTAN `ATCOCode` could close the evidence gap.
 
 ## What It Tracks
 
@@ -19,6 +19,18 @@ This project does not reproduce that report. It provides a data implementation c
 - A data dictionary explaining what each completeness metric means and what it does not prove.
 - A standard-readiness matrix mapping proposed bus stop standard features to current national open-data availability.
 - An audit-requirements matrix and example stop-audit template showing what local transport authorities would need to collect to monitor compliance.
+
+## Data Story
+
+The monitor is built around a simple evidence story:
+
+- NaPTAN provides the national stop-register backbone for identifying and locating registered bus stops.
+- NPTG area names make the register usable for local summaries and review prompts.
+- Current national open data can show register status, location references and field-completeness rates.
+- It cannot confirm whether physical stop facilities exist, work, are maintained or have a named responsible body.
+- A national open facilities register, joined to NaPTAN using `ATCOCode`, would provide the missing evidence layer.
+
+Missing data should not be read as missing facilities. It means that facility evidence is not consistently published as open, stop-level data that can be joined to the national stop register.
 
 ## Workflow
 
@@ -84,6 +96,8 @@ The monitor keeps all registered bus stop records in scope, but reports NaPTAN `
 ## Limitations
 
 NaPTAN is a national transport reference dataset, not an official statistics release. It identifies stops and supports data-quality checks, but it does not consistently record whether stops have shelter, seating, lighting, printed timetables, route maps, QR codes, working real-time displays, cleaning schedules or repair contracts.
+
+The data-based solution proposed by the report is not to replace NaPTAN. It is to keep NaPTAN as the common identity and location backbone, then publish stop-level facility, condition, inspection and maintenance records against `ATCOCode`.
 
 ## Future Audit Fields
 

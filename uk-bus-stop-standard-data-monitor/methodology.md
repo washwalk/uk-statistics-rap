@@ -23,6 +23,8 @@ The pipeline then produces these processed outputs:
 
 The monitor keeps all registered bus stop records in scope. NaPTAN `Status`, `Modification` and `ModificationDateTime` values are summarised in run metadata and the report so users can distinguish active, inactive and pending records without losing transparency over the full register.
 
+The report presents the analysis as a data-readiness story. NaPTAN and NPTG provide a reusable national backbone for stop identity, location and area grouping; the missing element is a published stop-level facility and maintenance layer that can be joined back to NaPTAN using `ATCOCode`.
+
 ## Completeness Measures
 
 Completeness is calculated as the share of filtered bus stop records where a field is non-blank. The monitor focuses on fields relevant to stop identification, wayfinding and basic monitoring, including `ATCOCode`, `NaptanCode`, `CommonName`, `Street`, `Indicator`, `Bearing`, `LocalityName`, `Longitude`, `Latitude`, `BusStopType` and `TimingStatus`.
@@ -51,6 +53,8 @@ Readiness classifications are assigned from whether current national open data c
 
 The audit-requirements matrix translates each readiness feature into the stop-level evidence a local transport authority or asset owner would need to collect. It is designed around a simple join pattern: local audit rows use `atco_code`, which maps to NaPTAN `ATCOCode`. That allows facility evidence to be combined with the national stop register without treating NaPTAN/NPTG as evidence of shelter, seating, lighting or maintenance compliance.
 
+A national facilities register would follow the same join pattern. It would keep NaPTAN as the register backbone and add published facility, condition, inspection, maintenance, responsible-body and defect-status fields supplied by local transport authorities, asset owners, contractors or verified passenger-reporting routes.
+
 ## Validation
 
 Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata paths and row counts match outputs.
@@ -60,6 +64,8 @@ Validation checks that processed files and metadata exist, required columns are 
 NaPTAN does not include Northern Ireland. It is a transport reference dataset rather than an official statistics release.
 
 The dataset cannot, on its own, confirm whether a stop has a shelter, seating, lighting, an up-to-date printed timetable, a route map, a QR code, a working real-time display, a cleaning programme or a repair contract. Those features would need to be collected through a local authority asset audit or a future national facility data standard.
+
+Missing data is not evidence that a facility is absent. It means that the evidence is not consistently available in national open data at stop level.
 
 ## Suggested Future Audit Schema
 
