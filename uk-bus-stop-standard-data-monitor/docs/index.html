@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Bus Stop Standard Data Monitor</title>
+<style>body{font-family:Arial,sans-serif;margin:0;color:#1f2933;background:#f5f2eb}header{background:#b02a20;color:white;padding:1rem 1.25rem}header a{color:white}.wrap{max-width:1080px;margin:auto;padding:1.25rem}.hero,.panel,.metric{background:white;border:1px solid #ead9ce;border-radius:16px;padding:1.25rem;margin:1rem 0}.hero{border-top:8px solid #4f4a99}.lede{font-size:1.2rem;color:#4a5568}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}.label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#6b5b95;font-weight:700}.value{font-size:2rem;font-weight:800;margin:.25rem 0;color:#b02a20}.callout{background:#eef7df;border-left:6px solid #76b947;padding:1rem;border-radius:12px}.warning{background:#fff7ed;border-left:6px solid #f97316;padding:1rem;border-radius:12px}table{width:100%;border-collapse:collapse;background:white}th,td{border-bottom:1px solid #ead9ce;padding:.65rem;text-align:left;vertical-align:top}th{background:#f3e8ff}.status{display:inline-block;border-radius:999px;padding:.2rem .55rem;font-weight:700}.available{background:#dcfce7;color:#166534}.partial{background:#fef3c7;color:#92400e}.not_available{background:#fee2e2;color:#991b1b}.downloads a{display:inline-block;margin-right:1rem;margin-bottom:.5rem}@media(max-width:700px){.wrap{padding:.75rem}table{font-size:.9rem;display:block;overflow-x:auto}} </style>
+</head>
+<body>
+<header><a href="../">UK Statistics RAP</a></header>
+<main class="wrap">
+<section class="hero">
+<p class="label">Open data RAP prototype</p>
+<h1>UK Bus Stop Standard Data Monitor</h1>
+<p class="lede">A reproducible NaPTAN-based prototype showing what national open data can currently tell us about the bus stop estate, and what extra facility data would be needed to monitor a National Bus Stop Standard.</p>
+<div class="callout"><strong>Core finding:</strong> national open data can provide a stop register and data-quality baseline, but it cannot confirm whether each stop meets facility standards for shelter, seating, printed timetable information, route maps, lighting, or working real-time displays.</div>
+</section>
+<section class="metrics">
+<article class="metric"><p class="label">Registered bus stop records</p><p class="value">421,249</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>
+<article class="metric"><p class="label">Administrative areas</p><p class="value">145</p><p>Area-code summaries from the national stop register.</p></article>
+<article class="metric"><p class="label">Longitude populated</p><p class="value">87.7%</p><p>Coordinate completeness for mapped monitoring.</p></article>
+<article class="metric"><p class="label">Available or partially evidenced</p><p class="value">22.2%</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>
+</section>
+<section class="panel warning"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <em>Better Bus Stops: Creating a national bus stop standard</em>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p></section>
+<section class="panel"><h2>Top Areas by Registered Stops</h2><p>Areas are shown as NaPTAN administrative area codes because the compact pipeline uses only the national stop-register extract.</p><table><thead><tr><th>Administrative area code</th><th>Stops</th><th>Coordinates</th><th>NaPTAN code</th><th>Street</th></tr></thead><tbody>
+<tr><td>083</td><td>20,614</td><td>100.0%</td><td>66.5%</td><td>99.0%</td></tr>
+<tr><td>082</td><td>19,991</td><td>100.0%</td><td>96.2%</td><td>59.3%</td></tr>
+<tr><td>107</td><td>16,578</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>105</td><td>15,333</td><td>0.0%</td><td>99.8%</td><td>100.0%</td></tr>
+<tr><td>099</td><td>10,450</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>086</td><td>9,108</td><td>100.0%</td><td>99.5%</td><td>100.0%</td></tr>
+<tr><td>080</td><td>8,604</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>087</td><td>8,421</td><td>100.0%</td><td>94.9%</td><td>100.0%</td></tr>
+<tr><td>075</td><td>7,999</td><td>100.0%</td><td>98.7%</td><td>99.9%</td></tr>
+<tr><td>090</td><td>7,703</td><td>100.0%</td><td>84.8%</td><td>98.8%</td></tr>
+<tr><td>089</td><td>7,356</td><td>100.0%</td><td>93.1%</td><td>90.6%</td></tr>
+<tr><td>091</td><td>7,178</td><td>0.0%</td><td>99.9%</td><td>99.9%</td></tr>
+<tr><td>084</td><td>7,127</td><td>100.0%</td><td>99.8%</td><td>98.9%</td></tr>
+<tr><td>103</td><td>7,081</td><td>100.0%</td><td>99.8%</td><td>100.0%</td></tr>
+<tr><td>101</td><td>7,063</td><td>100.0%</td><td>100.0%</td><td>88.9%</td></tr>
+</tbody></table></section>
+<section class="panel"><h2>Passenger Information Data Completeness</h2><table><thead><tr><th>Field</th><th>Present</th><th>Missing records</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>ATCOCode</td><td>100.0%</td><td>0</td><td>Unique stop identifier used to link stop records across systems.</td></tr>
+<tr><td>NaptanCode</td><td>96.6%</td><td>14,458</td><td>Public-facing stop code suitable for signs, SMS, apps, and passenger information.</td></tr>
+<tr><td>CommonName</td><td>100.0%</td><td>0</td><td>Passenger-facing stop name.</td></tr>
+<tr><td>Street</td><td>94.8%</td><td>22,113</td><td>Street context helps passengers find and distinguish stops.</td></tr>
+<tr><td>Indicator</td><td>95.8%</td><td>17,577</td><td>Short qualifier such as opposite, outside, bay, or stop number.</td></tr>
+<tr><td>Bearing</td><td>97.6%</td><td>10,015</td><td>Direction of travel at the stop.</td></tr>
+<tr><td>LocalityName</td><td>100.0%</td><td>9</td><td>Local place name used to group and present stops.</td></tr>
+<tr><td>Longitude</td><td>87.7%</td><td>51,996</td><td>Coordinate needed for mapping and spatial accessibility checks.</td></tr>
+<tr><td>Latitude</td><td>87.7%</td><td>51,996</td><td>Coordinate needed for mapping and spatial accessibility checks.</td></tr>
+<tr><td>BusStopType</td><td>98.8%</td><td>5,022</td><td>Classifies the physical bus stop type where supplied.</td></tr>
+<tr><td>TimingStatus</td><td>99.6%</td><td>1,828</td><td>Indicates timing-point status used in bus service information.</td></tr>
+</tbody></table></section>
+<section class="panel"><h2>Standard Readiness</h2><table><thead><tr><th>Proposed standard feature</th><th>CBT category requirement</th><th>National data status</th><th>Monitoring note</th></tr></thead><tbody>
+<tr><td>Bus stop identity and location</td><td>All categories</td><td><span class="status available">Available</span></td><td>NaPTAN can provide a national stop register and location baseline.</td></tr>
+<tr><td>Bus stop flag with stop name, route numbers, destination and branding</td><td>Categories 1 to 4</td><td><span class="status partial">Partial</span></td><td>NaPTAN records stop names and public codes but not whether the physical flag displays routes, destinations, or branding.</td></tr>
+<tr><td>Printed timetable of arrival times</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not record whether an up-to-date printed timetable is displayed at the stop.</td></tr>
+<tr><td>Covered shelter with seating</td><td>Categories 1 to 3</td><td><span class="status not_available">Data gap</span></td><td>National open data does not consistently record shelter or seating provision.</td></tr>
+<tr><td>Map of local bus stops and route network</td><td>Categories 1 to 3</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not record whether route maps are displayed at stops.</td></tr>
+<tr><td>Real-time next bus information display</td><td>Categories 1 to 3</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not record whether a working real-time information display is present.</td></tr>
+<tr><td>QR code or weblink to online real-time passenger information</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not consistently record physical QR-code or weblink provision at stops.</td></tr>
+<tr><td>Lighting at bus stop</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not record whether stops have lighting or whether lighting is working.</td></tr>
+<tr><td>Cleaning, inspection, repair and maintenance arrangements</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN is a stop register and does not hold asset-management contracts or inspection records.</td></tr>
+</tbody></table></section>
+<section class="panel"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV, filters bus stop records, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN refresh checks are kept in <code>make integration-test</code>.</p></section>
+<section class="panel"><h2>Assurance and Downloads</h2>
+<p class="downloads"><a href="data/area-summary.csv">Download area summary</a><a href="data/completeness-summary.csv">Download completeness summary</a><a href="data/standard-readiness.csv">Download standard readiness matrix</a><a href="data/run-metadata.json">Download run metadata</a><a href="https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md">Read methodology</a></p></section>
+<section class="panel"><h2>Limitations</h2><p>NaPTAN covers England, Scotland and Wales and is a national transport reference dataset rather than an official statistics release. It does not include Northern Ireland and does not consistently record passenger facility provision such as shelter, seating, printed timetables, route maps, lighting, or real-time displays.</p>
+<p>Source: <a href="https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv">Department for Transport NaPTAN API</a>, Open Government Licence.</p></section>
+</main>
+</body></html>

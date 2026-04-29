@@ -10,6 +10,7 @@ on:
       - "uk-inflation-monitor/**"
       - "uk-gdp-release-summary/**"
       - "uk-population-change-explorer/**"
+      - "uk-bus-stop-standard-data-monitor/**"
       - "site/**"
       - ".github/workflows/pages.yml"
 
@@ -192,7 +193,7 @@ jobs:
 
       - name: Publish compact examples
         run: |
-          for project in uk-inflation-monitor uk-gdp-release-summary uk-population-change-explorer; do
+          for project in uk-inflation-monitor uk-gdp-release-summary uk-population-change-explorer uk-bus-stop-standard-data-monitor; do
             (cd "$project" && python -m unittest discover -s tests && python src/validate.py && python src/publish.py)
             mkdir -p "_site/$project"
             cp -R "$project/docs/." "_site/$project/"

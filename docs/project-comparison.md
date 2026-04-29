@@ -1,6 +1,6 @@
 # Project Comparison
 
-This repository contains six compact RAP examples. They are deliberately different so that GSS users can compare publication styles, automation choices, and statistical risks.
+This repository contains seven compact RAP examples. They are deliberately different so that GSS users can compare publication styles, automation choices, source types, and statistical risks.
 
 | Project | Best used for learning | Strengths | Useful next improvements |
 | --- | --- | --- | --- |
@@ -10,6 +10,7 @@ This repository contains six compact RAP examples. They are deliberately differe
 | `uk-inflation-monitor/` | Building a compact time-series monitor for a high-profile indicator | Single-series API fetch, tested previous-period change, static report, run metadata, offline validation | Add basket/component breakdowns and fuller revisions notes |
 | `uk-gdp-release-summary/` | Creating a recurring release-summary workflow | Tested previous-period growth calculation, release caveat, static summary, standard command contract | Add chained-volume measure variants and release-calendar checks |
 | `uk-population-change-explorer/` | Validating area-period demographic outputs | Area code/name fields, positive count checks, tested derived population change, geography-style validation | Add local-authority breakdowns and geography-change handling |
+| `uk-bus-stop-standard-data-monitor/` | Turning a policy standard into a reproducible open-data readiness monitor | NaPTAN ingest, stop-estate baseline, completeness checks, standard-readiness matrix, clear distinction between measurable fields and data gaps | Add local authority names, facility audit data, and stop-level compliance scoring if audited fields become available |
 
 ## Which Example To Start From
 
@@ -20,10 +21,11 @@ This repository contains six compact RAP examples. They are deliberately differe
 - Use the inflation example if you need a small latest-period monitor for a single time series.
 - Use the GDP example if you need previous-period growth calculations and release-summary caveats.
 - Use the population example if you need area-period checks and positive-count validation.
+- Use the bus stop standard monitor if you need a reference-data audit or a data-readiness companion to a proposed standard.
 
 ## Common RAP Features Across The Examples
 
-- Public official-statistics source data.
+- Public official-statistics or open administrative/reference source data.
 - Repeatable code-based processing.
 - Clear separation between source data and analytical outputs.
 - Methodology or README documentation.

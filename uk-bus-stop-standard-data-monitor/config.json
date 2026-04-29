@@ -1,0 +1,19 @@
+{
+  "project_name": "UK Bus Stop Standard Data Monitor",
+  "source": {
+    "name": "National Public Transport Access Nodes",
+    "publisher": "Department for Transport",
+    "url": "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
+    "licence": "Open Government Licence",
+    "coverage": "England, Scotland and Wales"
+  },
+  "paths": {
+    "raw_data": "data/raw/source.csv",
+    "raw_metadata": "data/raw/source-metadata.json",
+    "area_summary": "data/processed/area-summary.csv",
+    "completeness_summary": "data/processed/completeness-summary.csv",
+    "standard_readiness": "data/processed/standard-readiness.csv",
+    "run_metadata": "data/processed/run-metadata.json",
+    "report": "docs/index.html"
+  }
+}

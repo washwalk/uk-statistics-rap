@@ -2,7 +2,7 @@
 
 Examples and guidance for reproducible analytical pipelines (RAP) using UK official statistics.
 
-This repository brings together six small statistical production examples that fetch public Office for National Statistics (ONS) data, process it reproducibly, run quality checks, and publish user-facing outputs through GitHub Pages. It is designed as a practical learning resource for Government Statistical Service (GSS) analysts who want to see how RAP principles can be applied to common statistical outputs.
+This repository brings together seven small analytical production examples that fetch public UK data, process it reproducibly, run quality checks, and publish user-facing outputs through GitHub Pages. Most examples use Office for National Statistics (ONS) data; the bus stop monitor uses Department for Transport NaPTAN open data. It is designed as a practical learning resource for Government Statistical Service (GSS) analysts who want to see how RAP principles can be applied to common statistical outputs and open-data monitoring products.
 
 ## Who This Is For
 
@@ -19,6 +19,7 @@ This repository brings together six small statistical production examples that f
 - [UK Inflation Monitor](https://washwalk.github.io/uk-statistics-rap/uk-inflation-monitor/)
 - [UK GDP Release Summary](https://washwalk.github.io/uk-statistics-rap/uk-gdp-release-summary/)
 - [UK Population Change Explorer](https://washwalk.github.io/uk-statistics-rap/uk-population-change-explorer/)
+- [UK Bus Stop Standard Data Monitor](https://washwalk.github.io/uk-statistics-rap/uk-bus-stop-standard-data-monitor/)
 
 ## Example Projects
 
@@ -30,12 +31,14 @@ This repository brings together six small statistical production examples that f
 | `uk-inflation-monitor/` | CPIH inflation | Static HTML summary | time-series API fetch, latest-period calculation, offline validation |
 | `uk-gdp-release-summary/` | GDP index | Static HTML release summary | previous-period growth calculation, revisions caveat, run metadata |
 | `uk-population-change-explorer/` | UK population estimates | Static HTML explorer | area-period validation, positive count checks, derived population change |
+| `uk-bus-stop-standard-data-monitor/` | Bus stop standard data readiness | Static HTML monitor | open-data reference-data ingest, completeness checks, standard-readiness matrix |
 
 See [`docs/project-comparison.md`](docs/project-comparison.md) for a fuller comparison.
 
 ## What The Repo Demonstrates
 
 - Fetching official data from public ONS endpoints rather than relying on manual downloads.
+- Fetching DfT open transport reference data where the example is about data readiness rather than official statistics.
 - Separating raw data, processed data, analysis outputs, and publication files.
 - Documenting methodology, assumptions, caveats, and known limitations.
 - Running automated validation or tests before publication.
@@ -76,7 +79,8 @@ A minimal RAP should normally include:
 ├── uk-labour-market-resilience-monitor/   # static dashboard for labour market indicators
 ├── uk-inflation-monitor/                  # static monitor for CPIH inflation
 ├── uk-gdp-release-summary/                # static summary for GDP index changes
-└── uk-population-change-explorer/         # static explorer for population change
+├── uk-population-change-explorer/         # static explorer for population change
+└── uk-bus-stop-standard-data-monitor/     # static open-data monitor for bus stop standard readiness
 ```
 
 ## Local Use
@@ -105,6 +109,7 @@ make build-housing        # rebuild the housing affordability monitor
 make build-inflation      # rebuild the inflation monitor
 make build-gdp            # rebuild the GDP release summary
 make build-population     # rebuild the population change explorer
+make build-bus-stop-standard # rebuild the bus stop standard data monitor
 make clean                # remove generated outputs
 ```
 
@@ -132,10 +137,10 @@ For full publication outputs, run:
 make build
 ```
 
-The live-source and build targets require access to public ONS endpoints. Report targets that render Quarto outputs also require the Quarto CLI.
+The live-source and build targets require access to public ONS or DfT endpoints. Report targets that render Quarto outputs also require the Quarto CLI.
 
 ## Quality And Caveats
 
 These examples are intentionally compact. They demonstrate production patterns, but they are not replacements for full departmental statistical production controls. Before using the pattern in a live official-statistics setting, teams should add the appropriate governance, peer review, accessibility testing, disclosure control, release management, and sign-off processes.
 
-The examples use public ONS data. ONS content is available under the Open Government Licence unless otherwise stated by the source.
+The examples use public ONS and DfT data. Source content is available under the Open Government Licence unless otherwise stated by the publisher.

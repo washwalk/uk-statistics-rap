@@ -1,0 +1,10 @@
+standard_feature,cbt_category_requirement,national_data_status,available_fields,monitoring_note
+Bus stop identity and location,All categories,available,ATCOCode; NaptanCode; CommonName; Longitude; Latitude; AdministrativeAreaCode,NaPTAN can provide a national stop register and location baseline.
+"Bus stop flag with stop name, route numbers, destination and branding",Categories 1 to 4,partial,CommonName; Indicator; Bearing; NaptanCode,"NaPTAN records stop names and public codes but not whether the physical flag displays routes, destinations, or branding."
+Printed timetable of arrival times,Categories 1 to 4,not_available,,NaPTAN does not record whether an up-to-date printed timetable is displayed at the stop.
+Covered shelter with seating,Categories 1 to 3,not_available,BusStopType may describe broad stop form only where populated,National open data does not consistently record shelter or seating provision.
+Map of local bus stops and route network,Categories 1 to 3,not_available,,NaPTAN does not record whether route maps are displayed at stops.
+Real-time next bus information display,Categories 1 to 3,not_available,,NaPTAN does not record whether a working real-time information display is present.
+QR code or weblink to online real-time passenger information,Categories 1 to 4,not_available,,NaPTAN does not consistently record physical QR-code or weblink provision at stops.
+Lighting at bus stop,Categories 1 to 4,not_available,,NaPTAN does not record whether stops have lighting or whether lighting is working.
+"Cleaning, inspection, repair and maintenance arrangements",Categories 1 to 4,not_available,,NaPTAN is a stop register and does not hold asset-management contracts or inspection records.

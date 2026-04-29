@@ -1,0 +1,42 @@
+{
+  "project_name": "UK Bus Stop Standard Data Monitor",
+  "run_timestamp": "2026-04-29T08:43:08.332606+00:00",
+  "source_urls": [
+    "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv"
+  ],
+  "input_row_counts": {
+    "source_rows": 434553
+  },
+  "output_row_counts": {
+    "area_summary": 145,
+    "completeness_summary": 11,
+    "standard_readiness": 9,
+    "bus_stop_rows": 421249
+  },
+  "quality_counts": {
+    "source_rows": 434553,
+    "bus_stop_rows": 421249,
+    "administrative_areas": 145,
+    "duplicate_atco_codes": 0,
+    "stop_type_counts": {
+      "BCT": 415981,
+      "BCS": 4919,
+      "BCE": 192,
+      "BCQ": 157
+    },
+    "bus_stop_type_counts": {
+      "MKD": 313005,
+      "CUS": 83917,
+      "blank": 5022,
+      "HAR": 17905,
+      "FLX": 1400
+    }
+  },
+  "outputs": {
+    "area_summary": "data/processed/area-summary.csv",
+    "completeness_summary": "data/processed/completeness-summary.csv",
+    "standard_readiness": "data/processed/standard-readiness.csv",
+    "report": "docs/index.html"
+  },
+  "validation_status": "passed"
+}
