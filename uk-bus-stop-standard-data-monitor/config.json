@@ -14,6 +14,7 @@
     "raw_metadata": "data/raw/source-metadata.json",
     "area_summary": "data/processed/area-summary.csv",
     "completeness_summary": "data/processed/completeness-summary.csv",
+    "data_dictionary": "data/processed/data-dictionary.csv",
     "standard_readiness": "data/processed/standard-readiness.csv",
     "run_metadata": "data/processed/run-metadata.json",
     "report": "docs/index.html"

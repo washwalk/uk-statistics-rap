@@ -11,6 +11,10 @@ AREA_COLUMNS = {
     "stop_count",
     "with_coordinates",
     "with_coordinates_percent",
+    "with_grid_reference",
+    "with_grid_reference_percent",
+    "with_any_location_reference",
+    "with_any_location_reference_percent",
     "with_naptan_code",
     "with_naptan_code_percent",
     "with_street",
@@ -23,6 +27,7 @@ AREA_COLUMNS = {
     "with_locality_percent",
 }
 COMPLETENESS_COLUMNS = {"field", "records_present", "records_missing", "percent_present", "why_it_matters"}
+DATA_DICTIONARY_COLUMNS = {"field", "source", "monitor_interpretation", "does_not_prove"}
 READINESS_COLUMNS = {"standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"}
 REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "source_publisher", "source_coverage", "source_exclusions", "input_row_counts", "output_row_counts", "quality_counts", "outputs", "validation_status"}
 EXPECTED_READINESS_FEATURES = {
@@ -39,6 +44,8 @@ EXPECTED_READINESS_FEATURES = {
 READINESS_STATUSES = {"available", "partial", "not_available"}
 AREA_COUNT_PERCENT_PAIRS = (
     ("with_coordinates", "with_coordinates_percent"),
+    ("with_grid_reference", "with_grid_reference_percent"),
+    ("with_any_location_reference", "with_any_location_reference_percent"),
     ("with_naptan_code", "with_naptan_code_percent"),
     ("with_street", "with_street_percent"),
     ("with_indicator", "with_indicator_percent"),
@@ -83,12 +90,14 @@ def validate() -> None:
 
     area_path = Path(config["paths"]["area_summary"])
     completeness_path = Path(config["paths"]["completeness_summary"])
+    data_dictionary_path = Path(config["paths"]["data_dictionary"])
     readiness_path = Path(config["paths"]["standard_readiness"])
     metadata_path = Path(config["paths"]["run_metadata"])
 
     for path, columns, label in (
         (area_path, AREA_COLUMNS, "Area summary"),
         (completeness_path, COMPLETENESS_COLUMNS, "Completeness summary"),
+        (data_dictionary_path, DATA_DICTIONARY_COLUMNS, "Data dictionary"),
         (readiness_path, READINESS_COLUMNS, "Standard readiness"),
     ):
         if not path.exists():
@@ -104,7 +113,7 @@ def validate() -> None:
             area_rows = rows
         elif label == "Completeness summary":
             completeness_rows = rows
-        else:
+        elif label == "Standard readiness":
             readiness_rows = rows
 
     total_area_stops = 0
@@ -201,6 +210,8 @@ def validate() -> None:
             errors.append("Run metadata area summary output path does not match config")
         if outputs.get("completeness_summary") != config["paths"]["completeness_summary"]:
             errors.append("Run metadata completeness summary output path does not match config")
+        if outputs.get("data_dictionary") != config["paths"]["data_dictionary"]:
+            errors.append("Run metadata data dictionary output path does not match config")
         if outputs.get("standard_readiness") != config["paths"]["standard_readiness"]:
             errors.append("Run metadata standard readiness output path does not match config")
         if outputs.get("report") != config["paths"]["report"]:
@@ -210,6 +221,9 @@ def validate() -> None:
             errors.append("Run metadata area summary row count does not match output")
         if output_counts.get("completeness_summary") != len(completeness_rows):
             errors.append("Run metadata completeness row count does not match output")
+        data_dictionary_rows, _ = read_csv(data_dictionary_path) if data_dictionary_path.exists() else ([], [])
+        if output_counts.get("data_dictionary") != len(data_dictionary_rows):
+            errors.append("Run metadata data dictionary row count does not match output")
         if output_counts.get("standard_readiness") != len(readiness_rows):
             errors.append("Run metadata readiness row count does not match output")
         if output_counts.get("bus_stop_rows") != total_area_stops:
@@ -217,6 +231,8 @@ def validate() -> None:
         quality_counts = metadata.get("quality_counts", {})
         if "duplicate_atco_codes" not in quality_counts:
             errors.append("Run metadata does not record duplicate ATCO code count")
+        if not isinstance(quality_counts.get("quality_flags"), list):
+            errors.append("Run metadata quality flags must be a list")
         expected_named_areas = sum(1 for row in area_rows if row.get("administrative_area_code") != "unknown" and row.get("administrative_area_name"))
         expected_unnamed_areas = sum(1 for row in area_rows if row.get("administrative_area_code") != "unknown" and not row.get("administrative_area_name"))
         if quality_counts.get("administrative_area_names_available") != expected_named_areas:

@@ -14,6 +14,10 @@ AREA_FIELDS = [
     "stop_count",
     "with_coordinates",
     "with_coordinates_percent",
+    "with_grid_reference",
+    "with_grid_reference_percent",
+    "with_any_location_reference",
+    "with_any_location_reference_percent",
     "with_naptan_code",
     "with_naptan_code_percent",
     "with_street",
@@ -27,6 +31,7 @@ AREA_FIELDS = [
 ]
 
 COMPLETENESS_FIELDS = ["field", "records_present", "records_missing", "percent_present", "why_it_matters"]
+DATA_DICTIONARY_FIELDS = ["field", "source", "monitor_interpretation", "does_not_prove"]
 READINESS_FIELDS = ["standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"]
 
 COMPLETENESS_NOTES = {
@@ -42,6 +47,69 @@ COMPLETENESS_NOTES = {
     "BusStopType": "Classifies the physical bus stop type where supplied.",
     "TimingStatus": "Indicates timing-point status used in bus service information.",
 }
+
+DATA_DICTIONARY = [
+    {
+        "field": "ATCOCode",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Unique stop identifier available for linking records across systems.",
+        "does_not_prove": "That the physical stop is present, accessible, maintained or compliant.",
+    },
+    {
+        "field": "NaptanCode",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Public-facing stop code is populated on the stop record.",
+        "does_not_prove": "That the code is displayed on the physical stop flag or passenger information board.",
+    },
+    {
+        "field": "CommonName",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Passenger-facing stop name is populated.",
+        "does_not_prove": "That the physical stop flag is present, correct or legible.",
+    },
+    {
+        "field": "Street",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Street-name field is populated on the stop record.",
+        "does_not_prove": "The share of streets served by buses, route coverage, or the quality of the street label.",
+    },
+    {
+        "field": "Indicator",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Qualifier such as opposite, outside, bay or stop number is populated.",
+        "does_not_prove": "That the qualifier is visible at the stop or sufficient for wayfinding.",
+    },
+    {
+        "field": "Bearing",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Direction of travel at the stop is populated.",
+        "does_not_prove": "That route destinations are displayed on the physical stop flag.",
+    },
+    {
+        "field": "Longitude/Latitude",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "WGS84 coordinate fields are populated for mapping and spatial checks.",
+        "does_not_prove": "That coordinates are spatially accurate or that other location references are absent.",
+    },
+    {
+        "field": "Grid reference",
+        "source": "NaPTAN access nodes where present",
+        "monitor_interpretation": "Alternative easting/northing location fields are populated where supplied by the source schema.",
+        "does_not_prove": "That WGS84 longitude/latitude fields are populated or that the location has been quality assured.",
+    },
+    {
+        "field": "BusStopType",
+        "source": "NaPTAN access nodes",
+        "monitor_interpretation": "Broad physical stop type is populated.",
+        "does_not_prove": "That shelter, seating, lighting or real-time displays are provided.",
+    },
+    {
+        "field": "AdministrativeAreaCode",
+        "source": "NaPTAN access nodes joined to NPTG",
+        "monitor_interpretation": "Stop can be grouped to an official NPTG administrative area name.",
+        "does_not_prove": "Local authority ownership, maintenance responsibility or standard compliance.",
+    },
+]
 
 STANDARD_READINESS = [
     {
@@ -128,6 +196,11 @@ def has_coordinates(row: dict) -> bool:
     return is_present(row.get("Longitude")) and is_present(row.get("Latitude"))
 
 
+def has_grid_reference(row: dict) -> bool:
+    pairs = (("Easting", "Northing"), ("GridEasting", "GridNorthing"), ("X", "Y"))
+    return any(is_present(row.get(easting)) and is_present(row.get(northing)) for easting, northing in pairs)
+
+
 def percent(part: int, total: int) -> str:
     if total == 0:
         return "0.0"
@@ -154,7 +227,7 @@ def parse_area_names(path: Path) -> dict[str, str]:
     return area_names
 
 
-def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], dict]:
+def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], list[dict], dict]:
     area_names = area_names or {}
     bus_rows = [row for row in rows if is_bus_stop(row)]
     if not bus_rows:
@@ -168,6 +241,8 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
     for area_code, area_rows in sorted(by_area.items(), key=lambda item: (-len(item[1]), item[0])):
         total = len(area_rows)
         with_coordinates = sum(1 for row in area_rows if has_coordinates(row))
+        with_grid_reference = sum(1 for row in area_rows if has_grid_reference(row))
+        with_any_location_reference = sum(1 for row in area_rows if has_coordinates(row) or has_grid_reference(row))
         with_naptan_code = sum(1 for row in area_rows if is_present(row.get("NaptanCode")))
         with_street = sum(1 for row in area_rows if is_present(row.get("Street")))
         with_indicator = sum(1 for row in area_rows if is_present(row.get("Indicator")))
@@ -180,6 +255,10 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
                 "stop_count": total,
                 "with_coordinates": with_coordinates,
                 "with_coordinates_percent": percent(with_coordinates, total),
+                "with_grid_reference": with_grid_reference,
+                "with_grid_reference_percent": percent(with_grid_reference, total),
+                "with_any_location_reference": with_any_location_reference,
+                "with_any_location_reference_percent": percent(with_any_location_reference, total),
                 "with_naptan_code": with_naptan_code,
                 "with_naptan_code_percent": percent(with_naptan_code, total),
                 "with_street": with_street,
@@ -209,6 +288,14 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
     duplicate_atco_codes = len(bus_rows) - len({(row.get("ATCOCode") or "").strip() for row in bus_rows if is_present(row.get("ATCOCode"))})
     named_area_count = sum(1 for row in area_summary if is_present(row["administrative_area_name"]) and row["administrative_area_code"] != "unknown")
     unnamed_area_count = sum(1 for row in area_summary if not is_present(row["administrative_area_name"]) and row["administrative_area_code"] != "unknown")
+    quality_flags = []
+    for row in area_summary:
+        if row["with_coordinates_percent"] == "0.0":
+            quality_flags.append({"area_code": row["administrative_area_code"], "area_name": row["administrative_area_name"], "flag": "no_wgs84_coordinates", "note": "No filtered bus stop records have both Longitude and Latitude populated."})
+        if row["with_street_percent"] == "100.0":
+            quality_flags.append({"area_code": row["administrative_area_code"], "area_name": row["administrative_area_name"], "flag": "all_records_have_street", "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."})
+        if float(row["with_naptan_code_percent"]) < 90:
+            quality_flags.append({"area_code": row["administrative_area_code"], "area_name": row["administrative_area_name"], "flag": "low_public_stop_code_completeness", "note": "Fewer than 90 percent of filtered bus stop records have a public-facing NaptanCode."})
     metadata_counts = {
         "source_rows": len(rows),
         "bus_stop_rows": len(bus_rows),
@@ -219,8 +306,9 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
         "duplicate_atco_codes": duplicate_atco_codes,
         "stop_type_counts": dict(Counter((row.get("StopType") or "blank").strip() or "blank" for row in bus_rows)),
         "bus_stop_type_counts": dict(Counter((row.get("BusStopType") or "blank").strip() or "blank" for row in bus_rows)),
+        "quality_flags": quality_flags,
     }
-    return area_summary, completeness, [dict(row) for row in STANDARD_READINESS], metadata_counts
+    return area_summary, completeness, [dict(row) for row in DATA_DICTIONARY], [dict(row) for row in STANDARD_READINESS], metadata_counts
 
 
 def write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:
@@ -239,10 +327,11 @@ def transform() -> None:
         rows = list(csv.DictReader(handle))
     area_names = parse_area_names(raw_nptg_path)
 
-    area_summary, completeness, readiness, counts = build_outputs(rows, area_names)
+    area_summary, completeness, data_dictionary, readiness, counts = build_outputs(rows, area_names)
 
     write_csv(Path(config["paths"]["area_summary"]), area_summary, AREA_FIELDS)
     write_csv(Path(config["paths"]["completeness_summary"]), completeness, COMPLETENESS_FIELDS)
+    write_csv(Path(config["paths"]["data_dictionary"]), data_dictionary, DATA_DICTIONARY_FIELDS)
     write_csv(Path(config["paths"]["standard_readiness"]), readiness, READINESS_FIELDS)
 
     Path(config["paths"]["run_metadata"]).write_text(
@@ -258,6 +347,7 @@ def transform() -> None:
                 "output_row_counts": {
                     "area_summary": len(area_summary),
                     "completeness_summary": len(completeness),
+                    "data_dictionary": len(data_dictionary),
                     "standard_readiness": len(readiness),
                     "bus_stop_rows": counts["bus_stop_rows"],
                 },
@@ -265,6 +355,7 @@ def transform() -> None:
                 "outputs": {
                     "area_summary": config["paths"]["area_summary"],
                     "completeness_summary": config["paths"]["completeness_summary"],
+                    "data_dictionary": config["paths"]["data_dictionary"],
                     "standard_readiness": config["paths"]["standard_readiness"],
                     "report": config["paths"]["report"],
                 },

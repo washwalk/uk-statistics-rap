@@ -27,6 +27,8 @@ class TransformTests(unittest.TestCase):
                 "LocalityName": "Exampleton",
                 "Longitude": "-1.1",
                 "Latitude": "52.1",
+                "Easting": "450000",
+                "Northing": "250000",
                 "StopType": "BCT",
                 "BusStopType": "MKD",
                 "TimingStatus": "OTH",
@@ -42,6 +44,8 @@ class TransformTests(unittest.TestCase):
                 "LocalityName": "Exampleton",
                 "Longitude": "",
                 "Latitude": "",
+                "Easting": "450100",
+                "Northing": "250100",
                 "StopType": "BCT",
                 "BusStopType": "CUS",
                 "TimingStatus": "",
@@ -64,7 +68,7 @@ class TransformTests(unittest.TestCase):
             },
         ]
 
-        area, completeness, readiness, counts = build_outputs(rows, {"001": "Example Area"})
+        area, completeness, data_dictionary, readiness, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["source_rows"], 3)
         self.assertEqual(counts["bus_stop_rows"], 2)
@@ -73,9 +77,15 @@ class TransformTests(unittest.TestCase):
         self.assertEqual(area[0]["stop_count"], 2)
         self.assertEqual(area[0]["with_coordinates"], 1)
         self.assertEqual(area[0]["with_coordinates_percent"], "50.0")
+        self.assertEqual(area[0]["with_grid_reference"], 2)
+        self.assertEqual(area[0]["with_grid_reference_percent"], "100.0")
+        self.assertEqual(area[0]["with_any_location_reference"], 2)
+        self.assertEqual(area[0]["with_any_location_reference_percent"], "100.0")
         naptan = next(row for row in completeness if row["field"] == "NaptanCode")
         self.assertEqual(naptan["records_present"], 1)
         self.assertEqual(naptan["records_missing"], 1)
+        street_definition = next(row for row in data_dictionary if row["field"] == "Street")
+        self.assertIn("route coverage", street_definition["does_not_prove"])
         self.assertTrue(any(row["standard_feature"] == "Covered shelter with seating" for row in readiness))
         self.assertTrue(any(row["standard_feature"] == "Lighting at bus stop" and row["national_data_status"] == "not_available" for row in readiness))
         self.assertTrue(any(row["national_data_status"] == "not_available" for row in readiness))
@@ -86,7 +96,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10001", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "001"},
         ]
 
-        _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+        _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["duplicate_atco_codes"], 1)
 
@@ -96,7 +106,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD"},
         ]
 
-        area, _, _, counts = build_outputs(rows)
+        area, _, _, _, counts = build_outputs(rows)
 
         self.assertEqual(area[0]["administrative_area_code"], "unknown")
         self.assertEqual(area[0]["administrative_area_name"], "Unknown")
@@ -109,13 +119,34 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "002"},
         ]
 
-        area, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+        area, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(next(row for row in area if row["administrative_area_code"] == "001")["administrative_area_name"], "Example Area")
         self.assertEqual(next(row for row in area if row["administrative_area_code"] == "002")["administrative_area_name"], "")
         self.assertEqual(counts["administrative_area_names_available"], 1)
         self.assertEqual(counts["administrative_area_names_missing"], 1)
         self.assertEqual(counts["administrative_area_name_match_percent"], "50.0")
+
+    def test_adds_quality_flags_for_review_prompts(self):
+        rows = [
+            {
+                "ATCOCode": "10001",
+                "NaptanCode": "",
+                "Street": "High Street",
+                "Longitude": "",
+                "Latitude": "",
+                "StopType": "BCT",
+                "BusStopType": "MKD",
+                "AdministrativeAreaCode": "001",
+            }
+        ]
+
+        _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+
+        flags = {row["flag"] for row in counts["quality_flags"]}
+        self.assertIn("no_wgs84_coordinates", flags)
+        self.assertIn("all_records_have_street", flags)
+        self.assertIn("low_public_stop_code_completeness", flags)
 
     def test_parses_nptg_administrative_area_names(self):
         with TemporaryDirectory() as directory:

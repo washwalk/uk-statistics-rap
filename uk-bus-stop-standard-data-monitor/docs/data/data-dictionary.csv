@@ -1,0 +1,11 @@
+field,source,monitor_interpretation,does_not_prove
+ATCOCode,NaPTAN access nodes,Unique stop identifier available for linking records across systems.,"That the physical stop is present, accessible, maintained or compliant."
+NaptanCode,NaPTAN access nodes,Public-facing stop code is populated on the stop record.,That the code is displayed on the physical stop flag or passenger information board.
+CommonName,NaPTAN access nodes,Passenger-facing stop name is populated.,"That the physical stop flag is present, correct or legible."
+Street,NaPTAN access nodes,Street-name field is populated on the stop record.,"The share of streets served by buses, route coverage, or the quality of the street label."
+Indicator,NaPTAN access nodes,"Qualifier such as opposite, outside, bay or stop number is populated.",That the qualifier is visible at the stop or sufficient for wayfinding.
+Bearing,NaPTAN access nodes,Direction of travel at the stop is populated.,That route destinations are displayed on the physical stop flag.
+Longitude/Latitude,NaPTAN access nodes,WGS84 coordinate fields are populated for mapping and spatial checks.,That coordinates are spatially accurate or that other location references are absent.
+Grid reference,NaPTAN access nodes where present,Alternative easting/northing location fields are populated where supplied by the source schema.,That WGS84 longitude/latitude fields are populated or that the location has been quality assured.
+BusStopType,NaPTAN access nodes,Broad physical stop type is populated.,"That shelter, seating, lighting or real-time displays are provided."
+AdministrativeAreaCode,NaPTAN access nodes joined to NPTG,Stop can be grouped to an official NPTG administrative area name.,"Local authority ownership, maintenance responsibility or standard compliance."

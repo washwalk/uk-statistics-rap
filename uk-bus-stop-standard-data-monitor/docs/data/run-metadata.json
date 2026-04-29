@@ -1,6 +1,6 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T08:57:26.155077+00:00",
+  "run_timestamp": "2026-04-29T09:12:51.262162+00:00",
   "source_urls": [
     "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
     "https://naptan.api.dft.gov.uk/v1/nptg"
@@ -15,6 +15,7 @@
   "output_row_counts": {
     "area_summary": 145,
     "completeness_summary": 11,
+    "data_dictionary": 10,
     "standard_readiness": 9,
     "bus_stop_rows": 421248
   },
@@ -38,11 +39,542 @@
       "blank": 5022,
       "HAR": 17905,
       "FLX": 1400
-    }
+    },
+    "quality_flags": [
+      {
+        "area_code": "083",
+        "area_name": "Greater Manchester",
+        "flag": "low_public_stop_code_completeness",
+        "note": "Fewer than 90 percent of filtered bus stop records have a public-facing NaptanCode."
+      },
+      {
+        "area_code": "107",
+        "area_name": "West Yorkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "105",
+        "area_name": "West Midlands",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "105",
+        "area_name": "West Midlands",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "099",
+        "area_name": "South Yorkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "086",
+        "area_name": "Kent",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "080",
+        "area_name": "Essex",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "087",
+        "area_name": "Lancashire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "090",
+        "area_name": "Merseyside",
+        "flag": "low_public_stop_code_completeness",
+        "note": "Fewer than 90 percent of filtered bus stop records have a public-facing NaptanCode."
+      },
+      {
+        "area_code": "091",
+        "area_name": "Norfolk",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "103",
+        "area_name": "Tyne & Wear",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "102",
+        "area_name": "Surrey",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "100",
+        "area_name": "Staffordshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "100",
+        "area_name": "Staffordshire",
+        "flag": "low_public_stop_code_completeness",
+        "note": "Fewer than 90 percent of filtered bus stop records have a public-facing NaptanCode."
+      },
+      {
+        "area_code": "106",
+        "area_name": "West Sussex",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "095",
+        "area_name": "Nottinghamshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "085",
+        "area_name": "Hertfordshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "078",
+        "area_name": "Durham",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "074",
+        "area_name": "Cumbria",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "074",
+        "area_name": "Cumbria",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "092",
+        "area_name": "North Yorkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "126",
+        "area_name": "Fife",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "104",
+        "area_name": "Warwickshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "079",
+        "area_name": "East Sussex",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "071",
+        "area_name": "Cambridgeshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "127",
+        "area_name": "Glasgow",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "127",
+        "area_name": "Glasgow",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "070",
+        "area_name": "Buckinghamshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "097",
+        "area_name": "Shropshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "094",
+        "area_name": "Northumberland",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "072",
+        "area_name": "Cheshire East",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "112",
+        "area_name": "Aberdeenshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "124",
+        "area_name": "Edinburgh",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "152",
+        "area_name": "Cheshire West & Chester",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "135",
+        "area_name": "Perth & Kinross",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "118",
+        "area_name": "Dumfries & Galloway",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "018",
+        "area_name": "East Riding of Yorkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "133",
+        "area_name": "North Lanarkshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "133",
+        "area_name": "North Lanarkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "139",
+        "area_name": "South Lanarkshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "139",
+        "area_name": "South Lanarkshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "039",
+        "area_name": "Nottingham",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "113",
+        "area_name": "Angus",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "055",
+        "area_name": "Stoke-on-Trent",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "111",
+        "area_name": "Aberdeen",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "032",
+        "area_name": "Milton Keynes",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "017",
+        "area_name": "Derby",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "026",
+        "area_name": "Kingston upon Hull",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "115",
+        "area_name": "Scottish Borders",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "008",
+        "area_name": "Brighton and Hove",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "054",
+        "area_name": "Stockton-on-Tees",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "063",
+        "area_name": "Warrington",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "034",
+        "area_name": "Neath Port Talbot",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "068",
+        "area_name": "York",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "029",
+        "area_name": "Medway",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "132",
+        "area_name": "North Ayrshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "132",
+        "area_name": "North Ayrshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "136",
+        "area_name": "Renfrewshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "136",
+        "area_name": "Renfrewshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "041",
+        "area_name": "Peterborough",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "122",
+        "area_name": "East Lothian",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "002",
+        "area_name": "Blackburn with Darwen",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "120",
+        "area_name": "East Ayrshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "120",
+        "area_name": "East Ayrshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "138",
+        "area_name": "South Ayrshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "138",
+        "area_name": "South Ayrshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "047",
+        "area_name": "Redcar & Cleveland",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "137",
+        "area_name": "Shetland Islands",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "035",
+        "area_name": "Newport",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "036",
+        "area_name": "North East Lincolnshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "003",
+        "area_name": "Blackpool",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "031",
+        "area_name": "Middlesbrough",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "053",
+        "area_name": "Southend-on-Sea",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "022",
+        "area_name": "Hartlepool",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "061",
+        "area_name": "Torfaen",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "129",
+        "area_name": "Inverclyde",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "129",
+        "area_name": "Inverclyde",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "059",
+        "area_name": "Thurrock",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "117",
+        "area_name": "West Dunbartonshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "117",
+        "area_name": "West Dunbartonshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "030",
+        "area_name": "Merthyr Tydfil",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "121",
+        "area_name": "East Dunbartonshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "121",
+        "area_name": "East Dunbartonshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "123",
+        "area_name": "East Renfrewshire",
+        "flag": "no_wgs84_coordinates",
+        "note": "No filtered bus stop records have both Longitude and Latitude populated."
+      },
+      {
+        "area_code": "123",
+        "area_name": "East Renfrewshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "116",
+        "area_name": "Clackmannanshire",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "110",
+        "area_name": "National - National Rail",
+        "flag": "all_records_have_street",
+        "note": "Every filtered bus stop record has a non-blank Street field; this is field completeness, not street or route coverage."
+      },
+      {
+        "area_code": "110",
+        "area_name": "National - National Rail",
+        "flag": "low_public_stop_code_completeness",
+        "note": "Fewer than 90 percent of filtered bus stop records have a public-facing NaptanCode."
+      }
+    ]
   },
   "outputs": {
     "area_summary": "data/processed/area-summary.csv",
     "completeness_summary": "data/processed/completeness-summary.csv",
+    "data_dictionary": "data/processed/data-dictionary.csv",
     "standard_readiness": "data/processed/standard-readiness.csv",
     "report": "docs/index.html"
   },

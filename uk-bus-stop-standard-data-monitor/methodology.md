@@ -16,11 +16,14 @@ The pipeline then produces three processed outputs:
 
 - `area-summary.csv`: stop counts and selected completeness rates by administrative area code and NPTG area name.
 - `completeness-summary.csv`: national completeness rates for fields that support passenger information and monitoring.
+- `data-dictionary.csv`: definitions of key fields, their monitor interpretation and what they do not prove.
 - `standard-readiness.csv`: a matrix mapping proposed National Bus Stop Standard features to current national open-data availability.
 
 ## Completeness Measures
 
 Completeness is calculated as the share of filtered bus stop records where a field is non-blank. The monitor focuses on fields relevant to stop identification, wayfinding and basic monitoring, including `ATCOCode`, `NaptanCode`, `CommonName`, `Street`, `Indicator`, `Bearing`, `LocalityName`, `Longitude`, `Latitude`, `BusStopType` and `TimingStatus`.
+
+Area-level percentages are field-completeness rates, not route coverage or standard-compliance rates. `Street` means a stop record has a street-name field populated; it does not mean that percentage of streets has a bus route. `Longitude` and `Latitude` completeness means WGS84 coordinate fields are populated. The area summary also reports alternative grid-reference completeness where easting/northing-style fields are present, and an `any_location_reference` rate covering either WGS84 coordinates or a grid reference.
 
 ## Standard Readiness
 
@@ -40,7 +43,7 @@ Readiness classifications are assigned from whether current national open data c
 
 ## Validation
 
-Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, and metadata paths and row counts match outputs.
+Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, quality-review prompts are recorded, and metadata paths and row counts match outputs.
 
 ## Limitations
 

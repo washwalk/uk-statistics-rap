@@ -14,7 +14,8 @@ This project does not reproduce that report. It provides a data implementation c
 
 - Registered bus stop records in NaPTAN for England, Scotland and Wales.
 - Bus stop counts by administrative area, with names joined from the DfT National Public Transport Gazetteer (NPTG).
-- Completeness of passenger-facing and monitoring fields, including stop names, public stop codes, coordinates, street, indicator, bearing and locality.
+- Completeness of passenger-facing and monitoring fields, including stop names, public stop codes, WGS84 coordinates, grid references where present, street, indicator, bearing and locality.
+- A data dictionary explaining what each completeness metric means and what it does not prove.
 - A standard-readiness matrix mapping proposed bus stop standard features to current national open-data availability.
 
 ## Workflow
@@ -52,13 +53,14 @@ make clean             # remove generated raw/processed/report outputs
 - Source fetch metadata: `data/raw/source-metadata.json`
 - Area summary: `data/processed/area-summary.csv`
 - Completeness summary: `data/processed/completeness-summary.csv`
+- Data dictionary: `data/processed/data-dictionary.csv`
 - Standard-readiness matrix: `data/processed/standard-readiness.csv`
 - Run metadata: `data/processed/run-metadata.json`
 - Static report: `docs/index.html`
 
 ## Validation
 
-`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, and metadata output paths and row counts match the generated files.
+`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, quality-review prompts are recorded, and metadata output paths and row counts match the generated files.
 
 ## Assurance Evidence
 
@@ -70,6 +72,8 @@ make clean             # remove generated raw/processed/report outputs
 ## Interpretation
 
 The outputs are best read as a national data-readiness monitor. They show whether the national register can support implementation monitoring, not whether individual stops comply with a future standard.
+
+Percentages are record-level field-completeness rates. For example, `Street` means the stop record has a non-blank street label; it does not mean that share of streets has a bus route. `Longitude` and `Latitude` completeness means WGS84 coordinate fields are populated; areas with 0% WGS84 completeness may still have other location references in source systems.
 
 ## Limitations
 
