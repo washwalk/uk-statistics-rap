@@ -8,11 +8,28 @@
     "licence": "Open Government Licence",
     "coverage": "England, Scotland and Wales"
   },
+  "bods": {
+    "name": "Bus Open Data Service API metadata",
+    "publisher": "Department for Transport",
+    "coverage": "England",
+    "licence": "Open Government Licence",
+    "endpoints": {
+      "timetables": "https://data.bus-data.dft.gov.uk/api/v1/dataset/",
+      "location_feeds": "https://data.bus-data.dft.gov.uk/api/v1/datafeed/",
+      "fares": "https://data.bus-data.dft.gov.uk/api/v1/fares/dataset/"
+    }
+  },
   "paths": {
     "raw_data": "data/raw/source.csv",
     "raw_nptg": "data/raw/nptg.xml",
     "raw_metadata": "data/raw/source-metadata.json",
+    "raw_bods_timetables": "data/raw/bods-timetables.json",
+    "raw_bods_location_feeds": "data/raw/bods-location-feeds.json",
+    "raw_bods_fares": "data/raw/bods-fares.json",
+    "raw_bods_metadata": "data/raw/bods-source-metadata.json",
     "area_summary": "data/processed/area-summary.csv",
+    "bods_summary": "data/processed/bods-summary.csv",
+    "bods_area_summary": "data/processed/bods-area-summary.csv",
     "completeness_summary": "data/processed/completeness-summary.csv",
     "data_dictionary": "data/processed/data-dictionary.csv",
     "standard_readiness": "data/processed/standard-readiness.csv",

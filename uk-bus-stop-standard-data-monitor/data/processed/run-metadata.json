@@ -1,6 +1,6 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T14:52:32.596873+00:00",
+  "run_timestamp": "2026-04-29T20:55:30.028511+00:00",
   "source_urls": [
     "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
     "https://naptan.api.dft.gov.uk/v1/nptg"
@@ -35,6 +35,7 @@
       }
     ]
   },
+  "bods_fetch_metadata": {},
   "input_row_counts": {
     "source_rows": 434556,
     "nptg_administrative_areas": 149
@@ -46,7 +47,9 @@
     "standard_readiness": 9,
     "audit_requirements": 9,
     "example_stop_audit": 1,
-    "bus_stop_rows": 421252
+    "bus_stop_rows": 421252,
+    "bods_summary": 0,
+    "bods_area_summary": 0
   },
   "quality_counts": {
     "source_rows": 434556,
@@ -617,6 +620,7 @@
       }
     ]
   },
+  "bods_quality_counts": {},
   "outputs": {
     "area_summary": "data/processed/area-summary.csv",
     "completeness_summary": "data/processed/completeness-summary.csv",
@@ -624,6 +628,8 @@
     "standard_readiness": "data/processed/standard-readiness.csv",
     "audit_requirements": "data/processed/audit-requirements.csv",
     "example_stop_audit": "examples/example-stop-audit.csv",
+    "bods_summary": "data/processed/bods-summary.csv",
+    "bods_area_summary": "data/processed/bods-area-summary.csv",
     "validation_results": "data/processed/validation-results.json",
     "report": "docs/index.html"
   }

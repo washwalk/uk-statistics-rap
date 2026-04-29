@@ -261,8 +261,16 @@ jobs:
       - name: Build bus stop standard monitor
         if: github.event_name != 'push' || needs.changes.outputs.bus_stop_standard == 'true' || needs.changes.outputs.workflow == 'true'
         working-directory: uk-bus-stop-standard-data-monitor
+        env:
+          BODS_API_KEY: ${{ secrets.BODS_API_KEY }}
+          LIVE_BODS_REFRESH: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 9 28 * *' }}
         run: |
           python -m unittest discover -s tests
+          if [ "$LIVE_BODS_REFRESH" = "true" ] && [ -n "$BODS_API_KEY" ]; then
+            python src/fetch.py
+            python src/fetch_bods.py
+            python src/transform.py
+          fi
           python src/validate.py
           python src/publish.py
           mkdir -p ../_site/uk-bus-stop-standard-data-monitor

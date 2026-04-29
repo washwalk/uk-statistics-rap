@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from transform import build_outputs, is_bus_stop, modification_date_summary, parse_area_names  # noqa: E402
+from transform import build_bods_outputs, build_outputs, is_bus_stop, modification_date_summary, parse_area_names  # noqa: E402
 
 
 class TransformTests(unittest.TestCase):
@@ -225,6 +225,42 @@ class TransformTests(unittest.TestCase):
     def test_empty_bus_records_fail(self):
         with self.assertRaises(ValueError):
             build_outputs([{"StopType": "RLY", "BusStopType": "", "AdministrativeAreaCode": "001"}])
+
+    def test_builds_bods_outputs_from_optional_raw_metadata(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            timetables = root / "bods-timetables.json"
+            location_feeds = root / "bods-location-feeds.json"
+            fares = root / "bods-fares.json"
+            timetables.write_text(
+                """
+[
+  {"status": "published", "admin_areas": [{"atco_code": "001", "name": "Example Area"}]},
+  {"status": "inactive", "admin_areas": [{"atco_code": "001", "name": "Example Area"}]}
+]
+""",
+                encoding="utf-8",
+            )
+            location_feeds.write_text('[{"status": "published"}]\n', encoding="utf-8")
+            fares.write_text('[{"status": "published"}]\n', encoding="utf-8")
+            config = {
+                "paths": {
+                    "raw_bods_timetables": str(timetables),
+                    "raw_bods_location_feeds": str(location_feeds),
+                    "raw_bods_fares": str(fares),
+                }
+            }
+
+            summary, area_summary, metadata = build_bods_outputs(config, {"001": "Example Area"})
+
+        metrics = {row["metric"]: row["value"] for row in summary}
+        self.assertEqual(metrics["published_timetable_datasets"], 1)
+        self.assertEqual(metrics["published_location_feeds"], 1)
+        self.assertEqual(metrics["published_fare_datasets"], 1)
+        self.assertEqual(area_summary[0]["administrative_area_code"], "001")
+        self.assertEqual(area_summary[0]["bods_timetable_dataset_count"], 2)
+        self.assertIn("not stop-level facilities evidence", area_summary[0]["caveat"])
+        self.assertEqual(metadata["bods_input_row_counts"]["timetables"], 2)
 
 
 if __name__ == "__main__":

@@ -27,6 +27,8 @@ AREA_COLUMNS = {
     "with_locality",
     "with_locality_percent",
 }
+BODS_SUMMARY_COLUMNS = {"metric", "value", "source", "note"}
+BODS_AREA_COLUMNS = {"administrative_area_code", "administrative_area_name", "bods_timetable_dataset_count", "evidence_level", "caveat"}
 COMPLETENESS_COLUMNS = {"field", "records_present", "records_missing", "percent_present", "why_it_matters"}
 DATA_DICTIONARY_COLUMNS = {"field", "source", "monitor_interpretation", "does_not_prove"}
 READINESS_COLUMNS = {"standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"}
@@ -146,6 +148,8 @@ def validate() -> None:
     readiness_path = Path(config["paths"]["standard_readiness"])
     audit_requirements_path = Path(config["paths"]["audit_requirements"])
     example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
+    bods_summary_path = Path(config["paths"]["bods_summary"])
+    bods_area_summary_path = Path(config["paths"]["bods_area_summary"])
     metadata_path = Path(config["paths"]["run_metadata"])
     validation_results_path = Path(config["paths"]["validation_results"])
 
@@ -176,6 +180,47 @@ def validate() -> None:
             audit_requirement_rows = rows
         elif label == "Example stop audit":
             example_stop_audit_columns = fieldnames
+
+    bods_summary_rows: list[dict] = []
+    bods_area_rows: list[dict] = []
+    for path, columns, label in (
+        (bods_summary_path, BODS_SUMMARY_COLUMNS, "BODS summary"),
+        (bods_area_summary_path, BODS_AREA_COLUMNS, "BODS area summary"),
+    ):
+        if not path.exists():
+            continue
+        rows, fieldnames = read_csv(path)
+        missing = columns.difference(fieldnames)
+        if missing:
+            errors.append(f"{label} missing columns: {sorted(missing)}")
+        if label == "BODS summary":
+            bods_summary_rows = rows
+        else:
+            bods_area_rows = rows
+
+    if bods_summary_path.exists() != bods_area_summary_path.exists():
+        errors.append("BODS summary and BODS area summary must be generated together")
+    for row in bods_summary_rows:
+        try:
+            value = int(row.get("value", ""))
+        except ValueError:
+            errors.append(f"BODS summary value is not an integer for {row.get('metric')}")
+            continue
+        if value < 0:
+            errors.append(f"BODS summary value is negative for {row.get('metric')}")
+        note = row.get("note", "").lower()
+        if "facilit" in note and "not" not in note:
+            errors.append(f"BODS summary note may overclaim facilities evidence for {row.get('metric')}")
+    for row in bods_area_rows:
+        try:
+            count = int(row.get("bods_timetable_dataset_count", ""))
+        except ValueError:
+            errors.append(f"BODS area timetable count is not an integer for {row.get('administrative_area_code')}")
+            continue
+        if count <= 0:
+            errors.append(f"BODS area timetable count is not positive for {row.get('administrative_area_code')}")
+        if "not stop-level facilities evidence" not in row.get("caveat", ""):
+            errors.append(f"BODS area caveat missing facilities warning for {row.get('administrative_area_code')}")
 
     total_area_stops = 0
     seen_areas: set[str] = set()
@@ -295,12 +340,18 @@ def validate() -> None:
             errors.append("Run metadata audit requirements output path does not match config")
         if outputs.get("example_stop_audit") != config["paths"]["example_stop_audit"]:
             errors.append("Run metadata example stop audit output path does not match config")
+        if outputs.get("bods_summary") != config["paths"]["bods_summary"]:
+            errors.append("Run metadata BODS summary output path does not match config")
+        if outputs.get("bods_area_summary") != config["paths"]["bods_area_summary"]:
+            errors.append("Run metadata BODS area summary output path does not match config")
         if outputs.get("validation_results") != config["paths"]["validation_results"]:
             errors.append("Run metadata validation results output path does not match config")
         if outputs.get("report") != config["paths"]["report"]:
             errors.append("Run metadata report output path does not match config")
         if not isinstance(metadata.get("source_fetch_metadata"), dict):
             errors.append("Run metadata source fetch metadata must be an object")
+        if not isinstance(metadata.get("bods_fetch_metadata"), dict):
+            errors.append("Run metadata BODS fetch metadata must be an object")
         output_counts = metadata.get("output_row_counts", {})
         if output_counts.get("area_summary") != len(area_rows):
             errors.append("Run metadata area summary row count does not match output")
@@ -316,6 +367,10 @@ def validate() -> None:
         example_stop_audit_rows, _ = read_csv(example_stop_audit_path) if example_stop_audit_path.exists() else ([], [])
         if output_counts.get("example_stop_audit") != len(example_stop_audit_rows):
             errors.append("Run metadata example stop audit row count does not match output")
+        if output_counts.get("bods_summary") != len(bods_summary_rows):
+            errors.append("Run metadata BODS summary row count does not match output")
+        if output_counts.get("bods_area_summary") != len(bods_area_rows):
+            errors.append("Run metadata BODS area summary row count does not match output")
         if output_counts.get("bus_stop_rows") != total_area_stops:
             errors.append("Area stop counts do not sum to metadata bus stop row count")
         quality_counts = metadata.get("quality_counts", {})

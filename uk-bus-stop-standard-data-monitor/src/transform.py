@@ -29,6 +29,14 @@ AREA_FIELDS = [
     "with_locality",
     "with_locality_percent",
 ]
+BODS_SUMMARY_FIELDS = ["metric", "value", "source", "note"]
+BODS_AREA_FIELDS = [
+    "administrative_area_code",
+    "administrative_area_name",
+    "bods_timetable_dataset_count",
+    "evidence_level",
+    "caveat",
+]
 
 COMPLETENESS_FIELDS = ["field", "records_present", "records_missing", "percent_present", "why_it_matters"]
 DATA_DICTIONARY_FIELDS = ["field", "source", "monitor_interpretation", "does_not_prove"]
@@ -372,6 +380,88 @@ def parse_area_names(path: Path) -> dict[str, str]:
     return area_names
 
 
+def load_json_rows(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        raise ValueError(f"Expected {path} to contain a JSON list")
+    return [row for row in payload if isinstance(row, dict)]
+
+
+def value_for(row: dict, *names: str) -> str:
+    for name in names:
+        value = row.get(name)
+        if value is not None and str(value).strip():
+            return str(value).strip()
+    return ""
+
+
+def normalise_status(row: dict) -> str:
+    return normalise_category(value_for(row, "status", "Status"))
+
+
+def extract_admin_areas(row: dict) -> list[dict]:
+    for name in ("admin_areas", "adminAreas", "adminAreasServed"):
+        value = row.get(name)
+        if isinstance(value, list):
+            return [item for item in value if isinstance(item, dict)]
+    return []
+
+
+def build_bods_outputs(config: dict, area_names: dict[str, str]) -> tuple[list[dict], list[dict], dict] | None:
+    paths = config["paths"]
+    timetables = load_json_rows(Path(paths["raw_bods_timetables"]))
+    location_feeds = load_json_rows(Path(paths["raw_bods_location_feeds"]))
+    fares = load_json_rows(Path(paths["raw_bods_fares"]))
+    if not any((timetables, location_feeds, fares)):
+        return None
+
+    published_timetables = sum(1 for row in timetables if normalise_status(row) == "published")
+    published_location_feeds = sum(1 for row in location_feeds if normalise_status(row) == "published")
+    published_fares = sum(1 for row in fares if normalise_status(row) == "published")
+    bods_summary = [
+        {"metric": "timetable_datasets", "value": len(timetables), "source": "BODS timetables API", "note": "Dataset metadata rows fetched from BODS."},
+        {"metric": "published_timetable_datasets", "value": published_timetables, "source": "BODS timetables API", "note": "Published timetable metadata does not prove printed timetable display at stops."},
+        {"metric": "location_feeds", "value": len(location_feeds), "source": "BODS location feeds API", "note": "Location-feed metadata does not prove physical RTI displays exist or work."},
+        {"metric": "published_location_feeds", "value": published_location_feeds, "source": "BODS location feeds API", "note": "Published AVL data is service-data evidence, not stop-facility evidence."},
+        {"metric": "fare_datasets", "value": len(fares), "source": "BODS fares API", "note": "Fares metadata is contextual and not facilities evidence."},
+        {"metric": "published_fare_datasets", "value": published_fares, "source": "BODS fares API", "note": "Published fares data does not evidence bus stop condition or maintenance."},
+    ]
+
+    area_counts: Counter[str] = Counter()
+    for row in timetables:
+        for area in extract_admin_areas(row):
+            area_code = value_for(area, "atco_code", "atcoCode", "code")
+            if area_code:
+                area_counts[area_code] += 1
+
+    bods_area_summary = [
+        {
+            "administrative_area_code": area_code,
+            "administrative_area_name": area_names.get(area_code, ""),
+            "bods_timetable_dataset_count": count,
+            "evidence_level": "area_catalogue_metadata",
+            "caveat": "BODS area metadata indicates service-data publication context; it is not stop-level facilities evidence.",
+        }
+        for area_code, count in sorted(area_counts.items(), key=lambda item: (-item[1], item[0]))
+    ]
+    metadata = {
+        "bods_input_row_counts": {
+            "timetables": len(timetables),
+            "location_feeds": len(location_feeds),
+            "fares": len(fares),
+        },
+        "bods_area_count": len(bods_area_summary),
+        "bods_status_counts": {
+            "timetables": dict(Counter(normalise_status(row) for row in timetables)),
+            "location_feeds": dict(Counter(normalise_status(row) for row in location_feeds)),
+            "fares": dict(Counter(normalise_status(row) for row in fares)),
+        },
+    }
+    return bods_summary, bods_area_summary, metadata
+
+
 def modification_date_summary(rows: list[dict]) -> dict:
     parsed_dates = []
     missing = 0
@@ -500,14 +590,24 @@ def transform() -> None:
     raw_path = Path(config["paths"]["raw_data"])
     raw_nptg_path = Path(config["paths"]["raw_nptg"])
     raw_metadata_path = Path(config["paths"]["raw_metadata"])
+    raw_bods_metadata_path = Path(config["paths"]["raw_bods_metadata"])
     with raw_path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
     area_names = parse_area_names(raw_nptg_path)
     source_fetch_metadata = {}
     if raw_metadata_path.exists():
         source_fetch_metadata = json.loads(raw_metadata_path.read_text(encoding="utf-8"))
+    bods_fetch_metadata = {}
+    if raw_bods_metadata_path.exists():
+        bods_fetch_metadata = json.loads(raw_bods_metadata_path.read_text(encoding="utf-8"))
 
     area_summary, completeness, data_dictionary, readiness, audit_requirements, example_stop_audit, counts = build_outputs(rows, area_names)
+    bods_outputs = build_bods_outputs(config, area_names)
+    bods_metadata = {}
+    if bods_outputs:
+        bods_summary, bods_area_summary, bods_metadata = bods_outputs
+        write_csv(Path(config["paths"]["bods_summary"]), bods_summary, BODS_SUMMARY_FIELDS)
+        write_csv(Path(config["paths"]["bods_area_summary"]), bods_area_summary, BODS_AREA_FIELDS)
 
     write_csv(Path(config["paths"]["area_summary"]), area_summary, AREA_FIELDS)
     write_csv(Path(config["paths"]["completeness_summary"]), completeness, COMPLETENESS_FIELDS)
@@ -526,6 +626,7 @@ def transform() -> None:
                 "source_coverage": config["source"]["coverage"],
                 "source_exclusions": "Northern Ireland",
                 "source_fetch_metadata": source_fetch_metadata,
+                "bods_fetch_metadata": bods_fetch_metadata,
                 "input_row_counts": {"source_rows": counts["source_rows"], "nptg_administrative_areas": len(area_names)},
                 "output_row_counts": {
                     "area_summary": len(area_summary),
@@ -535,8 +636,11 @@ def transform() -> None:
                     "audit_requirements": len(audit_requirements),
                     "example_stop_audit": len(example_stop_audit),
                     "bus_stop_rows": counts["bus_stop_rows"],
+                    "bods_summary": len(bods_summary) if bods_outputs else 0,
+                    "bods_area_summary": len(bods_area_summary) if bods_outputs else 0,
                 },
                 "quality_counts": counts,
+                "bods_quality_counts": bods_metadata,
                 "outputs": {
                     "area_summary": config["paths"]["area_summary"],
                     "completeness_summary": config["paths"]["completeness_summary"],
@@ -544,6 +648,8 @@ def transform() -> None:
                     "standard_readiness": config["paths"]["standard_readiness"],
                     "audit_requirements": config["paths"]["audit_requirements"],
                     "example_stop_audit": config["paths"]["example_stop_audit"],
+                    "bods_summary": config["paths"]["bods_summary"],
+                    "bods_area_summary": config["paths"]["bods_area_summary"],
                     "validation_results": config["paths"]["validation_results"],
                     "report": config["paths"]["report"],
                 },

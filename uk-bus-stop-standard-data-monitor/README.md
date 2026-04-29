@@ -19,6 +19,7 @@ This project does not reproduce that report. It provides a data implementation c
 - A data dictionary explaining what each completeness metric means and what it does not prove.
 - A standard-readiness matrix mapping proposed bus stop standard features to current national open-data availability.
 - An audit-requirements matrix and example stop-audit template showing what local transport authorities would need to collect to monitor compliance.
+- Optional Bus Open Data Service (BODS) API metadata, refreshed during scheduled/manual live builds when `BODS_API_KEY` is available, to add service-data context without treating it as facilities evidence.
 
 ## Data Story
 
@@ -36,6 +37,7 @@ Missing data should not be read as missing facilities. It means that facility ev
 
 ```text
 NaPTAN CSV API + NPTG XML API -> raw cache -> area/completeness/readiness/audit CSVs -> validation -> static HTML report
+Optional monthly BODS API metadata -> BODS service-data summaries -> static HTML report
 ```
 
 Offline tests use small fixtures and committed processed outputs. Live-source refreshes are isolated in `make integration-test` so routine assurance does not depend on network availability.
@@ -52,6 +54,7 @@ Offline tests use small fixtures and committed processed outputs. Live-source re
 
 ```bash
 make fetch             # fetch live NaPTAN CSV and NPTG XML into data/raw/
+make fetch-bods        # fetch BODS API metadata when BODS_API_KEY is set
 make transform         # build processed summaries and metadata
 make validate          # validate existing generated outputs only
 make test              # offline unit tests and validation only
@@ -65,7 +68,10 @@ make clean             # remove generated raw/processed/report outputs
 - Raw source response: `data/raw/source.csv`
 - Raw NPTG gazetteer response: `data/raw/nptg.xml`
 - Source fetch metadata: `data/raw/source-metadata.json`
+- Optional raw BODS API metadata: `data/raw/bods-*.json`
 - Area summary: `data/processed/area-summary.csv`
+- Optional BODS service-data summary: `data/processed/bods-summary.csv`
+- Optional BODS area summary: `data/processed/bods-area-summary.csv`
 - Completeness summary: `data/processed/completeness-summary.csv`
 - Data dictionary: `data/processed/data-dictionary.csv`
 - Standard-readiness matrix: `data/processed/standard-readiness.csv`
@@ -92,6 +98,8 @@ The outputs are best read as a national data-readiness monitor. They show whethe
 Percentages are record-level field-completeness rates. For example, `Street` means the stop record has a non-blank street label; it does not mean that share of streets has a bus route. `Longitude` and `Latitude` completeness means WGS84 coordinate fields are populated; areas with 0% WGS84 completeness may still have other location references in source systems.
 
 The monitor keeps all registered bus stop records in scope, but reports NaPTAN `Status` counts separately so active, inactive and pending records are visible. `ModificationDateTime` describes when the NaPTAN register record was modified; it is not a physical stop inspection date and does not indicate facility condition.
+
+BODS enrichment, when present, is service-data evidence only. It can indicate published timetable, fares or vehicle-location metadata around services and areas, but it does not prove that a physical stop has a printed timetable, route map, QR code, working real-time display, shelter, seating, lighting, cleaning programme, inspection record or repair contract.
 
 ## Limitations
 

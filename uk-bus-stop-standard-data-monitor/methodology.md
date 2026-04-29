@@ -20,10 +20,19 @@ The pipeline then produces these processed outputs:
 - `standard-readiness.csv`: a matrix mapping proposed National Bus Stop Standard features to current national open-data availability.
 - `audit-requirements.csv`: stop-level fields that local transport authorities would need to collect to monitor the proposed standard.
 - `examples/example-stop-audit.csv`: an illustrative stop-audit template keyed by `atco_code`, which should join to NaPTAN `ATCOCode`.
+- `bods-summary.csv` and `bods-area-summary.csv`: optional BODS service-data summaries, produced only when BODS API metadata has been fetched.
 
 The monitor keeps all registered bus stop records in scope. NaPTAN `Status`, `Modification` and `ModificationDateTime` values are summarised in run metadata and the report so users can distinguish active, inactive and pending records without losing transparency over the full register.
 
 The report presents the analysis as a data-readiness story. NaPTAN and NPTG provide a reusable national backbone for stop identity, location and area grouping; the missing element is a published stop-level facility and maintenance layer that can be joined back to NaPTAN using `ATCOCode`.
+
+## BODS Enrichment
+
+Bus Open Data Service metadata is used as optional service-data context. When `BODS_API_KEY` is available during a scheduled or manually triggered live build, the pipeline fetches BODS timetable dataset, vehicle-location feed and fares dataset metadata. Normal push builds and offline tests do not require the BODS API.
+
+BODS can show whether service, timetable, fares and vehicle-location data is published for operators, services and areas. It cannot prove that a physical stop has a printed timetable, route map, QR code, working real-time display, shelter, seating, lighting, cleaning programme, inspection record or repair contract.
+
+The first implementation uses BODS API metadata rather than full TransXChange, SIRI-VM or NeTEx parsing. Area-level joins are therefore interpreted as service-data context, not stop-level service coverage or facilities evidence.
 
 ## Completeness Measures
 
@@ -60,6 +69,8 @@ The practical policy test is whether each standard obligation can be audited at 
 ## Validation
 
 Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata paths and row counts match outputs.
+
+When optional BODS outputs are present, validation also checks their schemas, row counts, non-negative metrics and facilities-evidence caveats.
 
 ## Limitations
 

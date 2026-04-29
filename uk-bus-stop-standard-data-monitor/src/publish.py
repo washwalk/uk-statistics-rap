@@ -16,6 +16,12 @@ def read_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle))
 
 
+def read_csv_if_exists(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    return read_csv(path)
+
+
 def fmt_count(value: int | str) -> str:
     return f"{int(value):,}"
 
@@ -83,6 +89,8 @@ def publish() -> None:
     readiness_path = Path(config["paths"]["standard_readiness"])
     audit_requirements_path = Path(config["paths"]["audit_requirements"])
     example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
+    bods_summary_path = Path(config["paths"]["bods_summary"])
+    bods_area_summary_path = Path(config["paths"]["bods_area_summary"])
     metadata_path = Path(config["paths"]["run_metadata"])
     validation_results_path = Path(config["paths"]["validation_results"])
     report_path = Path(config["paths"]["report"])
@@ -95,6 +103,8 @@ def publish() -> None:
     data_dictionary_rows = read_csv(data_dictionary_path)
     readiness_rows = read_csv(readiness_path)
     audit_requirement_rows = read_csv(audit_requirements_path)
+    bods_summary_rows = read_csv_if_exists(bods_summary_path)
+    bods_area_rows = read_csv_if_exists(bods_area_summary_path)
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 
     total_stops = int(metadata["output_row_counts"]["bus_stop_rows"])
@@ -198,6 +208,34 @@ def publish() -> None:
             "<tr><td>Standard readiness</td><td>The monitor can show which proposed standard features have national data evidence.</td><td>Shelter, seating, lighting, printed timetable, route map, RTI display, QR/weblink, cleaning or repair compliance.</td></tr>",
         ]
     )
+    bods_metric_lookup = {row["metric"]: row["value"] for row in bods_summary_rows}
+    bods_metric_cards = "".join(
+        [
+            f"<article class=\"metric\"><p class=\"label\">BODS timetables</p><p class=\"value\">{fmt_count(bods_metric_lookup.get('published_timetable_datasets', 0))}</p><p>Published timetable datasets fetched from BODS metadata.</p></article>",
+            f"<article class=\"metric\"><p class=\"label\">BODS AVL feeds</p><p class=\"value\">{fmt_count(bods_metric_lookup.get('published_location_feeds', 0))}</p><p>Published vehicle-location feeds; not evidence of physical RTI displays.</p></article>",
+            f"<article class=\"metric\"><p class=\"label\">BODS fare datasets</p><p class=\"value\">{fmt_count(bods_metric_lookup.get('published_fare_datasets', 0))}</p><p>Published fares datasets included as service-data context.</p></article>",
+            f"<article class=\"metric\"><p class=\"label\">BODS areas</p><p class=\"value\">{fmt_count(len(bods_area_rows))}</p><p>Administrative areas referenced by fetched timetable metadata.</p></article>",
+        ]
+    )
+    bods_section = "".join(
+        [
+            "<section class=\"panel\"><h2>Where BODS Fits</h2>",
+            "<p>The Bus Open Data Service strengthens the service-data side of the evidence chain. It can show whether timetable, route, fares and vehicle-location data is published for operators, services and areas linked to the national stop register.</p>",
+            "<p>But BODS is not a stop facilities register. It does not prove that a physical stop has a printed timetable, route map, QR code, working real-time display, shelter, seating, lighting, cleaning regime, inspection record or repair contract.</p>",
+            "<div class=\"callout\"><strong>Interpretation:</strong> BODS can help assess service-data publication around NaPTAN/NPTG geography. The policy test remains whether passenger-facing obligations are evidenced at stop level and joined to <code>ATCOCode</code>.</div>",
+            "<table><caption>How BODS supports the monitor without replacing stop-level facilities evidence.</caption><thead><tr><th scope=\"col\">Theme</th><th scope=\"col\">BODS can add</th><th scope=\"col\">Still missing</th></tr></thead><tbody>",
+            "<tr><td>Timetables</td><td>Published timetable and service metadata by operator, line and area.</td><td>Whether printed timetables are displayed and current at physical stops.</td></tr>",
+            "<tr><td>Passenger information</td><td>Digital service-data availability and service identifiers.</td><td>Physical signs, maps, QR codes, display condition and legibility.</td></tr>",
+            "<tr><td>Real time</td><td>Vehicle-location feed publication and metadata.</td><td>Whether stop real-time screens exist, are visible or are working.</td></tr>",
+            "<tr><td>Area coverage</td><td>Administrative-area service-data context where BODS metadata includes area references.</td><td>Stop-level ownership, facility condition, inspection and maintenance responsibility.</td></tr>",
+            "</tbody></table>",
+            (f"<div class=\"metrics\">{bods_metric_cards}</div>" if bods_summary_rows else "<p><strong>BODS enrichment:</strong> Live BODS metrics are refreshed only during monthly or manually triggered builds when <code>BODS_API_KEY</code> is available.</p>"),
+            "</section>",
+        ]
+    )
+    bods_download_links = ""
+    if bods_summary_rows:
+        bods_download_links = "<a href=\"data/bods-summary.csv\">Download BODS summary</a><a href=\"data/bods-area-summary.csv\">Download BODS area summary</a>"
     facility_source_table = "\n".join(
         [
             "<tr><td>Stop identity</td><td><code>atco_code</code>; <code>audit_date</code></td><td>NaPTAN and local audit records</td><td>Joins local facility evidence to the national stop register.</td></tr>",
@@ -224,6 +262,10 @@ def publish() -> None:
     shutil.copyfile(readiness_path, data_dir / "standard-readiness.csv")
     shutil.copyfile(audit_requirements_path, data_dir / "audit-requirements.csv")
     shutil.copyfile(example_stop_audit_path, data_dir / "example-stop-audit.csv")
+    if bods_summary_path.exists():
+        shutil.copyfile(bods_summary_path, data_dir / "bods-summary.csv")
+    if bods_area_summary_path.exists():
+        shutil.copyfile(bods_area_summary_path, data_dir / "bods-area-summary.csv")
     shutil.copyfile(metadata_path, data_dir / "run-metadata.json")
     if validation_results_path.exists():
         shutil.copyfile(validation_results_path, data_dir / "validation-results.json")
@@ -259,6 +301,7 @@ f"<section class=\"panel callout\"><h2>The Data Story In Five Points</h2><ol cla
                 "<section class=\"panel\"><h2>What National Data Can And Cannot Measure</h2><p>The national register is the right foundation for a monitor, but it is not the same thing as facility evidence. The table below separates what the current data can support from what still needs local publication or audit.</p><table><caption>Current national open-data capability and remaining evidence gaps.</caption><thead><tr><th scope=\"col\">Theme</th><th scope=\"col\">Can measure nationally today</th><th scope=\"col\">Cannot prove nationally today</th></tr></thead><tbody>",
                 can_measure_table,
                 "</tbody></table></section>",
+                bods_section,
                 f"<section class=\"panel callout\"><h2>Campaigning Talking Points</h2><ul class=\"talking-points\"><li>National open data has direct or partial evidence for only <strong>{measurable} of {len(readiness_rows)}</strong> proposed bus stop standard features; <strong>{data_gap_count} of {len(readiness_rows)}</strong> need local stop-level audit evidence.</li><li>The weakest link is not the stop register; it is the absence of a published national facility and maintenance layer.</li><li>NaPTAN can identify registered stops, but it cannot tell passengers whether a stop has a shelter, seat, lighting, printed timetable, route map or working real-time display.</li><li>A national bus stop standard needs a national facility data standard, joined to NaPTAN using <code>ATCOCode</code>.</li><li>If shelters, signs and displays are monitored for contracts or repairs, passengers should be able to see stop-level status as open data.</li><li>Missing data is not the same as missing facilities, but it does limit public accountability.</li></ul></section>",
                 "<section class=\"panel\"><h2>What This Means For Campaigners</h2><p>Use this page to argue for better stop-level evidence, not to claim that individual stops pass or fail a standard. Current national open data can locate registered bus stops and check some basic information fields, but it cannot prove whether the facilities passengers rely on are present, maintained or working.</p><p>Where authorities already hold shelter, lighting, real-time information or maintenance data, the campaign ask is publication and standardisation. Where they do not hold it, the ask is a stop-level audit.</p><div class=\"cards actions\"><article class=\"card\"><h3>Ask your LTA</h3><ul><li>Which stop-level facility data do you already hold?</li><li>Can each record be joined to NaPTAN using <code>ATCOCode</code>?</li><li>Who owns or maintains each shelter, sign, display, lighting asset and timetable case?</li><li>When was each facility last checked, and is there an open defect status?</li><li>Will the data be published under an open licence and updated regularly?</li></ul></article><article class=\"card\"><h3>Use the downloads</h3><ul><li>Find gaps in your area using the area summary.</li><li>Ask the right evidence questions using the audit requirements.</li><li>Start collecting stop-level evidence with the example audit template.</li></ul></article></div></section>",
                 "<section class=\"panel\"><h2>The Missing Link: Published Stop-Level Facility Data</h2><p>In many areas, some facility data probably already exists in local authority, highway, contractor, shelter, lighting or real-time information systems. The problem is that it is not consistently published as open, stop-level data that passengers, campaigners and researchers can join to NaPTAN.</p><p>Current national open data can identify registered bus stops, but it cannot show, for each stop, whether shelters, seats, lighting, timetable cases, route maps, QR codes or real-time displays exist, work, are inspected, or have a named maintenance owner.</p><p><strong>Where the data exists, publish it. Where it does not, audit it. In both cases, link it to NaPTAN <code>ATCOCode</code> and keep it updated.</strong></p></section>",
@@ -290,7 +333,7 @@ f"<section class=\"panel callout\"><h2>The Data Story In Five Points</h2><ol cla
                 "</tbody></table></section>",
                 "<section class=\"panel\"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV and the NPTG gazetteer XML, filters bus stop records, joins official administrative area names, produces area and completeness summaries, and publishes a standard-readiness matrix for proposed bus stop standard categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN and NPTG refresh checks are kept in <code>make integration-test</code>.</p></section>",
                 "<section class=\"panel\"><h2>Assurance and Downloads</h2>",
-                "<p>Downloads support five practical jobs: find gaps, ask the right questions, collect evidence, check caveats and reproduce the analysis.</p><div class=\"cards\"><article class=\"card download-card\"><h3>Find gaps in your area</h3><p><a href=\"data/area-summary.csv\">Area summary CSV</a></p><p>Stop counts and completeness rates for every administrative area.</p></article><article class=\"card download-card\"><h3>Ask the right questions</h3><p><a href=\"data/audit-requirements.csv\">Audit requirements CSV</a></p><p>Fields needed to evidence shelter, seating, lighting, information and maintenance provision.</p></article><article class=\"card download-card\"><h3>Start collecting evidence</h3><p><a href=\"data/example-stop-audit.csv\">Example stop-audit template</a></p><p>Illustrative stop-level template keyed by <code>atco_code</code>.</p></article><article class=\"card download-card\"><h3>Check what data proves</h3><p><a href=\"data/data-dictionary.csv\">Data dictionary CSV</a></p><p>Definitions of what each NaPTAN/NPTG field does and does not prove.</p></article></div><p class=\"downloads\"><a href=\"data/completeness-summary.csv\">Download completeness summary</a><a href=\"data/standard-readiness.csv\">Download standard readiness matrix</a><a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md\">Read methodology</a></p></section>",
+                f"<p>Downloads support five practical jobs: find gaps, ask the right questions, collect evidence, check caveats and reproduce the analysis.</p><div class=\"cards\"><article class=\"card download-card\"><h3>Find gaps in your area</h3><p><a href=\"data/area-summary.csv\">Area summary CSV</a></p><p>Stop counts and completeness rates for every administrative area.</p></article><article class=\"card download-card\"><h3>Ask the right questions</h3><p><a href=\"data/audit-requirements.csv\">Audit requirements CSV</a></p><p>Fields needed to evidence shelter, seating, lighting, information and maintenance provision.</p></article><article class=\"card download-card\"><h3>Start collecting evidence</h3><p><a href=\"data/example-stop-audit.csv\">Example stop-audit template</a></p><p>Illustrative stop-level template keyed by <code>atco_code</code>.</p></article><article class=\"card download-card\"><h3>Check what data proves</h3><p><a href=\"data/data-dictionary.csv\">Data dictionary CSV</a></p><p>Definitions of what each NaPTAN/NPTG field does and does not prove.</p></article></div><p class=\"downloads\"><a href=\"data/completeness-summary.csv\">Download completeness summary</a><a href=\"data/standard-readiness.csv\">Download standard readiness matrix</a>{bods_download_links}<a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md\">Read methodology</a></p></section>",
                 "<section class=\"panel\"><h2>Limitations</h2><p>NaPTAN covers England, Scotland and Wales and is a national transport reference dataset rather than an official statistics release. It does not include Northern Ireland and does not consistently record passenger facility provision such as shelter, seating, printed timetables, route maps, lighting, or real-time displays.</p>",
                 f"<p>Sources: <a href=\"{html.escape(config['source']['url'])}\">{html.escape(config['source']['publisher'])} NaPTAN API</a> and <a href=\"{html.escape(config['source']['nptg_url'])}\">{html.escape(config['source']['publisher'])} NPTG API</a>, Open Government Licence.</p></section>",
                 "</main>",
