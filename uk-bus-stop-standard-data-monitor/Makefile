@@ -22,4 +22,4 @@ report: integration-test
 	python3 src/publish.py
 
 clean:
-	rm -f data/raw/source.csv data/raw/nptg.xml data/raw/source-metadata.json data/processed/area-summary.csv data/processed/completeness-summary.csv data/processed/data-dictionary.csv data/processed/standard-readiness.csv data/processed/run-metadata.json docs/index.html docs/data/area-summary.csv docs/data/completeness-summary.csv docs/data/data-dictionary.csv docs/data/standard-readiness.csv docs/data/run-metadata.json
+	rm -f data/raw/source.csv data/raw/nptg.xml data/raw/source-metadata.json data/processed/area-summary.csv data/processed/completeness-summary.csv data/processed/data-dictionary.csv data/processed/standard-readiness.csv data/processed/audit-requirements.csv data/processed/run-metadata.json examples/example-stop-audit.csv docs/index.html docs/data/area-summary.csv docs/data/completeness-summary.csv docs/data/data-dictionary.csv docs/data/standard-readiness.csv docs/data/audit-requirements.csv docs/data/example-stop-audit.csv docs/data/run-metadata.json

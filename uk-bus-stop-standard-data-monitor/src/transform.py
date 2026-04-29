@@ -33,6 +33,38 @@ AREA_FIELDS = [
 COMPLETENESS_FIELDS = ["field", "records_present", "records_missing", "percent_present", "why_it_matters"]
 DATA_DICTIONARY_FIELDS = ["field", "source", "monitor_interpretation", "does_not_prove"]
 READINESS_FIELDS = ["standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"]
+AUDIT_REQUIREMENT_FIELDS = ["standard_feature", "audit_field", "field_type", "collection_level", "why_needed", "example_values"]
+EXAMPLE_STOP_AUDIT_FIELDS = [
+    "atco_code",
+    "audit_date",
+    "auditing_body",
+    "proposed_standard_category",
+    "has_clear_stop_flag",
+    "displayed_route_numbers",
+    "displayed_destinations",
+    "has_shelter",
+    "has_seating",
+    "shelter_condition_rating",
+    "has_printed_timetable",
+    "timetable_last_checked_date",
+    "has_route_map",
+    "route_map_last_checked_date",
+    "has_rti_display",
+    "rti_display_working",
+    "rti_last_checked_datetime",
+    "has_qr_or_weblink",
+    "qr_or_weblink_target",
+    "qr_or_weblink_working",
+    "has_lighting",
+    "lighting_working",
+    "lighting_ownership",
+    "has_cleaning_programme",
+    "has_repair_contract",
+    "inspection_frequency",
+    "condition_rating",
+    "evidence_url",
+    "notes",
+]
 
 COMPLETENESS_NOTES = {
     "ATCOCode": "Unique stop identifier used to link stop records across systems.",
@@ -177,6 +209,115 @@ STANDARD_READINESS = [
     },
 ]
 
+AUDIT_REQUIREMENTS = [
+    {
+        "standard_feature": "Bus stop identity and location",
+        "audit_field": "atco_code; audit_date; auditing_body; evidence_url",
+        "field_type": "identifier; date; text; url",
+        "collection_level": "Stop-level audit joined to NaPTAN using ATCOCode",
+        "why_needed": "Confirms the audited asset can be linked back to the national stop register and evidence trail.",
+        "example_values": "2400A12345; 2026-04-29; Example Council; https://example.org/evidence/2400A12345",
+    },
+    {
+        "standard_feature": "Bus stop flag with stop name, route numbers, destination and branding",
+        "audit_field": "has_clear_stop_flag; displayed_route_numbers; displayed_destinations",
+        "field_type": "boolean; text; text",
+        "collection_level": "Stop-level physical audit",
+        "why_needed": "NaPTAN records names and codes, but not whether the physical flag is present, legible, branded, or displaying route information.",
+        "example_values": "true; 12|27|89; City centre|Hospital",
+    },
+    {
+        "standard_feature": "Printed timetable of arrival times",
+        "audit_field": "has_printed_timetable; timetable_last_checked_date",
+        "field_type": "boolean; date",
+        "collection_level": "Stop-level physical audit",
+        "why_needed": "Confirms whether an up-to-date printed timetable is displayed at the stop.",
+        "example_values": "true; 2026-04-29",
+    },
+    {
+        "standard_feature": "Covered shelter with seating",
+        "audit_field": "has_shelter; has_seating; shelter_condition_rating",
+        "field_type": "boolean; boolean; category",
+        "collection_level": "Stop-level physical audit",
+        "why_needed": "National open data does not consistently record shelter or seating provision or condition.",
+        "example_values": "true; true; good",
+    },
+    {
+        "standard_feature": "Map of local bus stops and route network",
+        "audit_field": "has_route_map; route_map_last_checked_date",
+        "field_type": "boolean; date",
+        "collection_level": "Stop-level physical audit",
+        "why_needed": "Confirms whether route maps are displayed and recently checked.",
+        "example_values": "false;",
+    },
+    {
+        "standard_feature": "Real-time next bus information display",
+        "audit_field": "has_rti_display; rti_display_working; rti_last_checked_datetime",
+        "field_type": "boolean; boolean; datetime",
+        "collection_level": "Stop-level physical audit or asset management system",
+        "why_needed": "Confirms whether a real-time display exists and was working at audit time.",
+        "example_values": "true; true; 2026-04-29T10:30:00Z",
+    },
+    {
+        "standard_feature": "QR code or weblink to online real-time passenger information",
+        "audit_field": "has_qr_or_weblink; qr_or_weblink_target; qr_or_weblink_working",
+        "field_type": "boolean; url; boolean",
+        "collection_level": "Stop-level physical audit",
+        "why_needed": "Confirms whether physical digital-access information is provided and usable.",
+        "example_values": "true; https://example.org/stop/2400A12345; true",
+    },
+    {
+        "standard_feature": "Lighting at bus stop",
+        "audit_field": "has_lighting; lighting_working; lighting_ownership",
+        "field_type": "boolean; boolean; category",
+        "collection_level": "Stop-level physical audit or asset management system",
+        "why_needed": "NaPTAN does not record whether lighting exists, is working, or who maintains it.",
+        "example_values": "true; true; highway_authority",
+    },
+    {
+        "standard_feature": "Cleaning, inspection, repair and maintenance arrangements",
+        "audit_field": "has_cleaning_programme; has_repair_contract; inspection_frequency; condition_rating",
+        "field_type": "boolean; boolean; category; category",
+        "collection_level": "Local authority asset management system linked to stop-level audit",
+        "why_needed": "Confirms whether maintenance arrangements exist and records current asset condition.",
+        "example_values": "true; true; monthly; fair",
+    },
+]
+
+EXAMPLE_STOP_AUDIT = [
+    {
+        "atco_code": "2400A12345",
+        "audit_date": "2026-04-29",
+        "auditing_body": "Example Council",
+        "proposed_standard_category": "Category 2",
+        "has_clear_stop_flag": "true",
+        "displayed_route_numbers": "12|27|89",
+        "displayed_destinations": "City centre|Hospital",
+        "has_shelter": "true",
+        "has_seating": "true",
+        "shelter_condition_rating": "good",
+        "has_printed_timetable": "true",
+        "timetable_last_checked_date": "2026-04-29",
+        "has_route_map": "false",
+        "route_map_last_checked_date": "",
+        "has_rti_display": "true",
+        "rti_display_working": "true",
+        "rti_last_checked_datetime": "2026-04-29T10:30:00Z",
+        "has_qr_or_weblink": "true",
+        "qr_or_weblink_target": "https://example.org/stop/2400A12345",
+        "qr_or_weblink_working": "true",
+        "has_lighting": "true",
+        "lighting_working": "true",
+        "lighting_ownership": "highway_authority",
+        "has_cleaning_programme": "true",
+        "has_repair_contract": "true",
+        "inspection_frequency": "monthly",
+        "condition_rating": "fair",
+        "evidence_url": "https://example.org/evidence/2400A12345",
+        "notes": "Illustrative row only; replace with local audit evidence.",
+    }
+]
+
 
 def load_config() -> dict:
     return json.loads(Path("config.json").read_text(encoding="utf-8"))
@@ -227,7 +368,7 @@ def parse_area_names(path: Path) -> dict[str, str]:
     return area_names
 
 
-def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], list[dict], dict]:
+def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], list[dict], list[dict], list[dict], dict]:
     area_names = area_names or {}
     bus_rows = [row for row in rows if is_bus_stop(row)]
     if not bus_rows:
@@ -308,7 +449,15 @@ def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) ->
         "bus_stop_type_counts": dict(Counter((row.get("BusStopType") or "blank").strip() or "blank" for row in bus_rows)),
         "quality_flags": quality_flags,
     }
-    return area_summary, completeness, [dict(row) for row in DATA_DICTIONARY], [dict(row) for row in STANDARD_READINESS], metadata_counts
+    return (
+        area_summary,
+        completeness,
+        [dict(row) for row in DATA_DICTIONARY],
+        [dict(row) for row in STANDARD_READINESS],
+        [dict(row) for row in AUDIT_REQUIREMENTS],
+        [dict(row) for row in EXAMPLE_STOP_AUDIT],
+        metadata_counts,
+    )
 
 
 def write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:
@@ -327,12 +476,14 @@ def transform() -> None:
         rows = list(csv.DictReader(handle))
     area_names = parse_area_names(raw_nptg_path)
 
-    area_summary, completeness, data_dictionary, readiness, counts = build_outputs(rows, area_names)
+    area_summary, completeness, data_dictionary, readiness, audit_requirements, example_stop_audit, counts = build_outputs(rows, area_names)
 
     write_csv(Path(config["paths"]["area_summary"]), area_summary, AREA_FIELDS)
     write_csv(Path(config["paths"]["completeness_summary"]), completeness, COMPLETENESS_FIELDS)
     write_csv(Path(config["paths"]["data_dictionary"]), data_dictionary, DATA_DICTIONARY_FIELDS)
     write_csv(Path(config["paths"]["standard_readiness"]), readiness, READINESS_FIELDS)
+    write_csv(Path(config["paths"]["audit_requirements"]), audit_requirements, AUDIT_REQUIREMENT_FIELDS)
+    write_csv(Path(config["paths"]["example_stop_audit"]), example_stop_audit, EXAMPLE_STOP_AUDIT_FIELDS)
 
     Path(config["paths"]["run_metadata"]).write_text(
         json.dumps(
@@ -349,6 +500,8 @@ def transform() -> None:
                     "completeness_summary": len(completeness),
                     "data_dictionary": len(data_dictionary),
                     "standard_readiness": len(readiness),
+                    "audit_requirements": len(audit_requirements),
+                    "example_stop_audit": len(example_stop_audit),
                     "bus_stop_rows": counts["bus_stop_rows"],
                 },
                 "quality_counts": counts,
@@ -357,6 +510,8 @@ def transform() -> None:
                     "completeness_summary": config["paths"]["completeness_summary"],
                     "data_dictionary": config["paths"]["data_dictionary"],
                     "standard_readiness": config["paths"]["standard_readiness"],
+                    "audit_requirements": config["paths"]["audit_requirements"],
+                    "example_stop_audit": config["paths"]["example_stop_audit"],
                     "report": config["paths"]["report"],
                 },
                 "validation_status": "not_run",

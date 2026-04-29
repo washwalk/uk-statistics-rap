@@ -1,6 +1,6 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T09:12:51.262162+00:00",
+  "run_timestamp": "2026-04-29T09:27:24.497332+00:00",
   "source_urls": [
     "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
     "https://naptan.api.dft.gov.uk/v1/nptg"
@@ -17,6 +17,8 @@
     "completeness_summary": 11,
     "data_dictionary": 10,
     "standard_readiness": 9,
+    "audit_requirements": 9,
+    "example_stop_audit": 1,
     "bus_stop_rows": 421248
   },
   "quality_counts": {
@@ -576,6 +578,8 @@
     "completeness_summary": "data/processed/completeness-summary.csv",
     "data_dictionary": "data/processed/data-dictionary.csv",
     "standard_readiness": "data/processed/standard-readiness.csv",
+    "audit_requirements": "data/processed/audit-requirements.csv",
+    "example_stop_audit": "examples/example-stop-audit.csv",
     "report": "docs/index.html"
   },
   "validation_status": "passed"

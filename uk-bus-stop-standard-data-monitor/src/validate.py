@@ -29,6 +29,38 @@ AREA_COLUMNS = {
 COMPLETENESS_COLUMNS = {"field", "records_present", "records_missing", "percent_present", "why_it_matters"}
 DATA_DICTIONARY_COLUMNS = {"field", "source", "monitor_interpretation", "does_not_prove"}
 READINESS_COLUMNS = {"standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"}
+AUDIT_REQUIREMENT_COLUMNS = {"standard_feature", "audit_field", "field_type", "collection_level", "why_needed", "example_values"}
+EXAMPLE_STOP_AUDIT_COLUMNS = {
+    "atco_code",
+    "audit_date",
+    "auditing_body",
+    "proposed_standard_category",
+    "has_clear_stop_flag",
+    "displayed_route_numbers",
+    "displayed_destinations",
+    "has_shelter",
+    "has_seating",
+    "shelter_condition_rating",
+    "has_printed_timetable",
+    "timetable_last_checked_date",
+    "has_route_map",
+    "route_map_last_checked_date",
+    "has_rti_display",
+    "rti_display_working",
+    "rti_last_checked_datetime",
+    "has_qr_or_weblink",
+    "qr_or_weblink_target",
+    "qr_or_weblink_working",
+    "has_lighting",
+    "lighting_working",
+    "lighting_ownership",
+    "has_cleaning_programme",
+    "has_repair_contract",
+    "inspection_frequency",
+    "condition_rating",
+    "evidence_url",
+    "notes",
+}
 REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "source_publisher", "source_coverage", "source_exclusions", "input_row_counts", "output_row_counts", "quality_counts", "outputs", "validation_status"}
 EXPECTED_READINESS_FEATURES = {
     "Bus stop identity and location",
@@ -86,12 +118,16 @@ def validate() -> None:
     area_rows: list[dict] = []
     completeness_rows: list[dict] = []
     readiness_rows: list[dict] = []
+    audit_requirement_rows: list[dict] = []
+    example_stop_audit_columns: list[str] = []
     metadata: dict = {}
 
     area_path = Path(config["paths"]["area_summary"])
     completeness_path = Path(config["paths"]["completeness_summary"])
     data_dictionary_path = Path(config["paths"]["data_dictionary"])
     readiness_path = Path(config["paths"]["standard_readiness"])
+    audit_requirements_path = Path(config["paths"]["audit_requirements"])
+    example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
     metadata_path = Path(config["paths"]["run_metadata"])
 
     for path, columns, label in (
@@ -99,6 +135,8 @@ def validate() -> None:
         (completeness_path, COMPLETENESS_COLUMNS, "Completeness summary"),
         (data_dictionary_path, DATA_DICTIONARY_COLUMNS, "Data dictionary"),
         (readiness_path, READINESS_COLUMNS, "Standard readiness"),
+        (audit_requirements_path, AUDIT_REQUIREMENT_COLUMNS, "Audit requirements"),
+        (example_stop_audit_path, EXAMPLE_STOP_AUDIT_COLUMNS, "Example stop audit"),
     ):
         if not path.exists():
             errors.append(f"Missing {label.lower()}: {path}")
@@ -115,6 +153,10 @@ def validate() -> None:
             completeness_rows = rows
         elif label == "Standard readiness":
             readiness_rows = rows
+        elif label == "Audit requirements":
+            audit_requirement_rows = rows
+        elif label == "Example stop audit":
+            example_stop_audit_columns = fieldnames
 
     total_area_stops = 0
     seen_areas: set[str] = set()
@@ -188,6 +230,22 @@ def validate() -> None:
     if not any(row.get("national_data_status") == "not_available" for row in readiness_rows):
         errors.append("Standard readiness does not identify any national data gaps")
 
+    audit_requirement_feature_list = [row.get("standard_feature", "") for row in audit_requirement_rows]
+    audit_requirement_features = set(audit_requirement_feature_list)
+    duplicate_audit_features = sorted(feature for feature in audit_requirement_features if audit_requirement_feature_list.count(feature) > 1)
+    if duplicate_audit_features:
+        errors.append(f"Audit requirements contain duplicate features: {duplicate_audit_features}")
+    if readiness_features != audit_requirement_features:
+        errors.append("Audit requirements features do not match standard readiness features")
+    for row in audit_requirement_rows:
+        if not row.get("audit_field", "").strip():
+            errors.append(f"Audit requirements missing audit field for {row.get('standard_feature')}")
+        if row.get("standard_feature") in EXPECTED_READINESS_FEATURES and not row.get("why_needed", "").strip():
+            errors.append(f"Audit requirements missing rationale for {row.get('standard_feature')}")
+        for field in [part.strip() for part in row.get("audit_field", "").split(";") if part.strip()]:
+            if field not in example_stop_audit_columns:
+                errors.append(f"Example stop audit missing audit requirements field {field}")
+
     if not metadata_path.exists():
         errors.append(f"Missing run metadata: {metadata_path}")
     else:
@@ -214,6 +272,10 @@ def validate() -> None:
             errors.append("Run metadata data dictionary output path does not match config")
         if outputs.get("standard_readiness") != config["paths"]["standard_readiness"]:
             errors.append("Run metadata standard readiness output path does not match config")
+        if outputs.get("audit_requirements") != config["paths"]["audit_requirements"]:
+            errors.append("Run metadata audit requirements output path does not match config")
+        if outputs.get("example_stop_audit") != config["paths"]["example_stop_audit"]:
+            errors.append("Run metadata example stop audit output path does not match config")
         if outputs.get("report") != config["paths"]["report"]:
             errors.append("Run metadata report output path does not match config")
         output_counts = metadata.get("output_row_counts", {})
@@ -226,6 +288,11 @@ def validate() -> None:
             errors.append("Run metadata data dictionary row count does not match output")
         if output_counts.get("standard_readiness") != len(readiness_rows):
             errors.append("Run metadata readiness row count does not match output")
+        if output_counts.get("audit_requirements") != len(audit_requirement_rows):
+            errors.append("Run metadata audit requirements row count does not match output")
+        example_stop_audit_rows, _ = read_csv(example_stop_audit_path) if example_stop_audit_path.exists() else ([], [])
+        if output_counts.get("example_stop_audit") != len(example_stop_audit_rows):
+            errors.append("Run metadata example stop audit row count does not match output")
         if output_counts.get("bus_stop_rows") != total_area_stops:
             errors.append("Area stop counts do not sum to metadata bus stop row count")
         quality_counts = metadata.get("quality_counts", {})

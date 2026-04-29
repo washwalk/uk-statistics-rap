@@ -32,12 +32,31 @@ def status_label(status: str) -> str:
     return {"available": "Available", "partial": "Partial", "not_available": "Data gap"}.get(status, status)
 
 
+def quality_flag_label(flag: str) -> str:
+    labels = {
+        "all_records_have_street": "All records have Street populated",
+        "low_public_stop_code_completeness": "Low public stop code completeness",
+        "no_wgs84_coordinates": "No WGS84 longitude/latitude",
+    }
+    return labels.get(flag, flag.replace("_", " ").capitalize())
+
+
+def quality_flag_examples(flags: list[dict], flag: str) -> str:
+    names = [row.get("area_name") or row.get("area_code") for row in flags if row.get("flag") == flag]
+    examples = ", ".join(html.escape(name) for name in names[:3] if name)
+    if len(names) > 3:
+        examples += f", plus {len(names) - 3} more"
+    return examples
+
+
 def publish() -> None:
     config = load_config()
     area_path = Path(config["paths"]["area_summary"])
     completeness_path = Path(config["paths"]["completeness_summary"])
     data_dictionary_path = Path(config["paths"]["data_dictionary"])
     readiness_path = Path(config["paths"]["standard_readiness"])
+    audit_requirements_path = Path(config["paths"]["audit_requirements"])
+    example_stop_audit_path = Path(config["paths"]["example_stop_audit"])
     metadata_path = Path(config["paths"]["run_metadata"])
     report_path = Path(config["paths"]["report"])
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -48,14 +67,15 @@ def publish() -> None:
     completeness_rows = read_csv(completeness_path)
     data_dictionary_rows = read_csv(data_dictionary_path)
     readiness_rows = read_csv(readiness_path)
+    audit_requirement_rows = read_csv(audit_requirements_path)
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 
     total_stops = int(metadata["output_row_counts"]["bus_stop_rows"])
     area_count = int(metadata["quality_counts"]["administrative_areas"])
-    coordinate_row = next(row for row in completeness_rows if row["field"] == "Longitude")
-    naptan_row = next(row for row in completeness_rows if row["field"] == "NaptanCode")
+    any_location_count = sum(int(row["with_any_location_reference"]) for row in area_rows)
+    any_location_percent = (any_location_count / total_stops) * 100
     measurable = sum(1 for row in readiness_rows if row["national_data_status"] in {"available", "partial"})
-    readiness_percent = (measurable / len(readiness_rows)) * 100
+    run_timestamp = metadata["run_timestamp"].replace("T", " ").split(".", 1)[0]
 
     top_area_rows = "\n".join(
         "<tr>"
@@ -95,12 +115,21 @@ def publish() -> None:
         "</tr>"
         for row in readiness_rows
     )
+    audit_requirements_table = "\n".join(
+        "<tr>"
+        f"<td>{html.escape(row['standard_feature'])}</td>"
+        f"<td>{html.escape(row['audit_field'])}</td>"
+        f"<td>{html.escape(row['collection_level'])}</td>"
+        f"<td>{html.escape(row['why_needed'])}</td>"
+        "</tr>"
+        for row in audit_requirement_rows
+    )
     quality_flags = metadata.get("quality_counts", {}).get("quality_flags", [])
     quality_flag_counts = {}
     for row in quality_flags:
         quality_flag_counts[row.get("flag", "unknown")] = quality_flag_counts.get(row.get("flag", "unknown"), 0) + 1
     quality_flag_items = "".join(
-        f"<li><strong>{html.escape(flag.replace('_', ' '))}:</strong> {fmt_count(count)} administrative areas</li>"
+        f"<li><strong>{html.escape(quality_flag_label(flag))}:</strong> {fmt_count(count)} administrative areas. Examples: {quality_flag_examples(quality_flags, flag)}</li>"
         for flag, count in sorted(quality_flag_counts.items())
     ) or "<li>No quality-review prompts were generated.</li>"
 
@@ -108,6 +137,8 @@ def publish() -> None:
     shutil.copyfile(completeness_path, data_dir / "completeness-summary.csv")
     shutil.copyfile(data_dictionary_path, data_dir / "data-dictionary.csv")
     shutil.copyfile(readiness_path, data_dir / "standard-readiness.csv")
+    shutil.copyfile(audit_requirements_path, data_dir / "audit-requirements.csv")
+    shutil.copyfile(example_stop_audit_path, data_dir / "example-stop-audit.csv")
     shutil.copyfile(metadata_path, data_dir / "run-metadata.json")
 
     report_path.write_text(
@@ -132,31 +163,34 @@ def publish() -> None:
                 "<section class=\"metrics\">",
                 f"<article class=\"metric\"><p class=\"label\">Registered bus stop records</p><p class=\"value\">{fmt_count(total_stops)}</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Administrative areas</p><p class=\"value\">{fmt_count(area_count)}</p><p>Area summaries joined to official NPTG administrative area names.</p></article>",
-                f"<article class=\"metric\"><p class=\"label\">Longitude populated</p><p class=\"value\">{fmt_percent(coordinate_row['percent_present'])}</p><p>Coordinate completeness for mapped monitoring.</p></article>",
-                f"<article class=\"metric\"><p class=\"label\">Available or partially evidenced</p><p class=\"value\">{fmt_percent(readiness_percent)}</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Any location reference</p><p class=\"value\">{fmt_percent(any_location_percent)}</p><p>Records with either WGS84 coordinates or a grid reference.</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Features evidenced</p><p class=\"value\">{measurable} of {len(readiness_rows)}</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>",
                 "</section>",
-                "<section class=\"panel warning\"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <em>Better Bus Stops: Creating a national bus stop standard</em>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p></section>",
+                f"<section class=\"panel warning\"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <a href=\"https://bettertransport.org.uk/better-bus-stops/\"><em>Better Bus Stops: Creating a national bus stop standard</em></a>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p><p>Data refreshed: {html.escape(run_timestamp)} UTC.</p></section>",
                 "<section class=\"panel warning\"><h2>How to Read the Percentages</h2><p>Percentages on this page are NaPTAN field-completeness rates for registered bus stop records. They do not measure bus route coverage, street coverage, passenger facilities, or compliance with a bus stop standard.</p><p><code>Street</code> means the stop record has a street label. It does not mean that share of streets has a bus route. <code>Longitude/latitude</code> means WGS84 coordinate fields are populated; 0% means those fields are blank in NaPTAN for that area, not necessarily that no location reference exists anywhere.</p></section>",
-                "<section class=\"panel\"><h2>Largest Areas: NaPTAN Field Completeness</h2><p>Area names are sourced from the DfT National Public Transport Gazetteer and joined to NaPTAN stops using <code>AdministrativeAreaCode</code>. Cells show populated records / total records and the corresponding percentage.</p><table><thead><tr><th>Administrative area</th><th>Stops</th><th>Longitude/latitude populated</th><th>Grid reference populated</th><th>Any location reference</th><th>Public stop code populated</th><th>Street field populated</th></tr></thead><tbody>",
+                "<section class=\"panel\"><h2>Largest Areas: NaPTAN Field Completeness</h2><p>Area names are sourced from the DfT National Public Transport Gazetteer and joined to NaPTAN stops using <code>AdministrativeAreaCode</code>. Cells show populated records / total records and the corresponding percentage.</p><table><caption>Field completeness for the 15 administrative areas with the most filtered bus stop records.</caption><thead><tr><th scope=\"col\">Administrative area</th><th scope=\"col\">Stops</th><th scope=\"col\">Longitude/latitude populated</th><th scope=\"col\">Grid reference populated</th><th scope=\"col\">Any location reference</th><th scope=\"col\">Public stop code populated</th><th scope=\"col\">Street field populated</th></tr></thead><tbody>",
                 top_area_rows,
                 "</tbody></table></section>",
                 "<section class=\"panel\"><h2>Data-Quality Review Prompts</h2><p>These are prompts for follow-up review, not validation failures. They highlight patterns that can otherwise be misread, such as areas with no WGS84 longitude/latitude or areas where every record has a street label.</p><ul>",
                 quality_flag_items,
                 "</ul></section>",
-                "<section class=\"panel\"><h2>NaPTAN Field Completeness</h2><table><thead><tr><th>Field</th><th>Present</th><th>Missing records</th><th>Why it matters</th></tr></thead><tbody>",
+                "<section class=\"panel\"><h2>NaPTAN Field Completeness</h2><table><caption>National field-completeness rates for filtered bus stop records.</caption><thead><tr><th scope=\"col\">Field</th><th scope=\"col\">Present</th><th scope=\"col\">Missing records</th><th scope=\"col\">Why it matters</th></tr></thead><tbody>",
                 completeness_table,
                 "</tbody></table></section>",
-                "<section class=\"panel\"><h2>Data Dictionary</h2><p>This table defines how the monitor interprets key fields and, just as importantly, what each field does not prove.</p><table><thead><tr><th>Field</th><th>Monitor interpretation</th><th>Does not prove</th></tr></thead><tbody>",
+                "<section class=\"panel\"><h2>Data Dictionary</h2><p>This table defines how the monitor interprets key fields and, just as importantly, what each field does not prove.</p><table><caption>Definitions and caveats for key NaPTAN/NPTG fields used by the monitor.</caption><thead><tr><th scope=\"col\">Field</th><th scope=\"col\">Monitor interpretation</th><th scope=\"col\">Does not prove</th></tr></thead><tbody>",
                 data_dictionary_table,
                 "</tbody></table></section>",
-                "<section class=\"panel\"><h2>Standard Readiness</h2><table><thead><tr><th>Proposed standard feature</th><th>CBT category requirement</th><th>National data status</th><th>Monitoring note</th></tr></thead><tbody>",
+                "<section class=\"panel\"><h2>Standard Readiness</h2><p><strong>Data gap</strong> means the feature is not available in current national open data. It does not mean the facility is absent at the stop.</p><table><caption>Readiness of national open data to monitor proposed bus stop standard features.</caption><thead><tr><th scope=\"col\">Proposed standard feature</th><th scope=\"col\">CBT category requirement</th><th scope=\"col\">National data status</th><th scope=\"col\">Monitoring note</th></tr></thead><tbody>",
                 readiness_table,
+                "</tbody></table></section>",
+                "<section class=\"panel\"><h2>What LTAs Would Need To Collect</h2><p>A compliance monitor would need stop-level audit evidence joined to NaPTAN using <code>ATCOCode</code>. The fields below are an implementation checklist, not a statement that the facilities are absent.</p><table><caption>Stop-level audit fields needed to fill national open-data gaps.</caption><thead><tr><th scope=\"col\">Proposed standard feature</th><th scope=\"col\">Audit fields</th><th scope=\"col\">Collection level</th><th scope=\"col\">Why needed</th></tr></thead><tbody>",
+                audit_requirements_table,
                 "</tbody></table></section>",
                 "<section class=\"panel\"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV and the NPTG gazetteer XML, filters bus stop records, joins official administrative area names, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN and NPTG refresh checks are kept in <code>make integration-test</code>.</p></section>",
                 "<section class=\"panel\"><h2>Assurance and Downloads</h2>",
-                "<p class=\"downloads\"><a href=\"data/area-summary.csv\">Download area summary</a><a href=\"data/completeness-summary.csv\">Download completeness summary</a><a href=\"data/data-dictionary.csv\">Download data dictionary</a><a href=\"data/standard-readiness.csv\">Download standard readiness matrix</a><a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md\">Read methodology</a></p></section>",
+                "<p>Downloads include area-level field completeness, national completeness, field definitions, the readiness matrix, audit requirements, an illustrative stop-audit template, and run metadata.</p><p class=\"downloads\"><a href=\"data/area-summary.csv\">Download area summary</a><a href=\"data/completeness-summary.csv\">Download completeness summary</a><a href=\"data/data-dictionary.csv\">Download data dictionary</a><a href=\"data/standard-readiness.csv\">Download standard readiness matrix</a><a href=\"data/audit-requirements.csv\">Download audit requirements</a><a href=\"data/example-stop-audit.csv\">Download example stop-audit template</a><a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md\">Read methodology</a></p></section>",
                 "<section class=\"panel\"><h2>Limitations</h2><p>NaPTAN covers England, Scotland and Wales and is a national transport reference dataset rather than an official statistics release. It does not include Northern Ireland and does not consistently record passenger facility provision such as shelter, seating, printed timetables, route maps, lighting, or real-time displays.</p>",
-                f"<p>Source: <a href=\"{html.escape(config['source']['url'])}\">{html.escape(config['source']['publisher'])} NaPTAN API</a>, Open Government Licence.</p></section>",
+                f"<p>Sources: <a href=\"{html.escape(config['source']['url'])}\">{html.escape(config['source']['publisher'])} NaPTAN API</a> and <a href=\"{html.escape(config['source']['nptg_url'])}\">{html.escape(config['source']['publisher'])} NPTG API</a>, Open Government Licence.</p></section>",
                 "</main>",
                 "</body></html>",
             ]

@@ -68,7 +68,7 @@ class TransformTests(unittest.TestCase):
             },
         ]
 
-        area, completeness, data_dictionary, readiness, counts = build_outputs(rows, {"001": "Example Area"})
+        area, completeness, data_dictionary, readiness, audit_requirements, example_stop_audit, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["source_rows"], 3)
         self.assertEqual(counts["bus_stop_rows"], 2)
@@ -89,6 +89,11 @@ class TransformTests(unittest.TestCase):
         self.assertTrue(any(row["standard_feature"] == "Covered shelter with seating" for row in readiness))
         self.assertTrue(any(row["standard_feature"] == "Lighting at bus stop" and row["national_data_status"] == "not_available" for row in readiness))
         self.assertTrue(any(row["national_data_status"] == "not_available" for row in readiness))
+        self.assertEqual({row["standard_feature"] for row in readiness}, {row["standard_feature"] for row in audit_requirements})
+        lighting = next(row for row in audit_requirements if row["standard_feature"] == "Lighting at bus stop")
+        self.assertIn("has_lighting", lighting["audit_field"])
+        self.assertEqual(example_stop_audit[0]["atco_code"], "2400A12345")
+        self.assertIn("has_shelter", example_stop_audit[0])
 
     def test_counts_duplicate_atco_codes(self):
         rows = [
@@ -96,7 +101,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10001", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "001"},
         ]
 
-        _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+        _, _, _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["duplicate_atco_codes"], 1)
 
@@ -106,7 +111,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD"},
         ]
 
-        area, _, _, _, counts = build_outputs(rows)
+        area, _, _, _, _, _, counts = build_outputs(rows)
 
         self.assertEqual(area[0]["administrative_area_code"], "unknown")
         self.assertEqual(area[0]["administrative_area_name"], "Unknown")
@@ -119,7 +124,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "002"},
         ]
 
-        area, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+        area, _, _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(next(row for row in area if row["administrative_area_code"] == "001")["administrative_area_name"], "Example Area")
         self.assertEqual(next(row for row in area if row["administrative_area_code"] == "002")["administrative_area_name"], "")
@@ -141,7 +146,7 @@ class TransformTests(unittest.TestCase):
             }
         ]
 
-        _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+        _, _, _, _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         flags = {row["flag"] for row in counts["quality_flags"]}
         self.assertIn("no_wgs84_coordinates", flags)

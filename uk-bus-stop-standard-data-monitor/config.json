@@ -16,6 +16,8 @@
     "completeness_summary": "data/processed/completeness-summary.csv",
     "data_dictionary": "data/processed/data-dictionary.csv",
     "standard_readiness": "data/processed/standard-readiness.csv",
+    "audit_requirements": "data/processed/audit-requirements.csv",
+    "example_stop_audit": "examples/example-stop-audit.csv",
     "run_metadata": "data/processed/run-metadata.json",
     "report": "docs/index.html"
   }

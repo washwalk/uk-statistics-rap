@@ -17,11 +17,12 @@ This project does not reproduce that report. It provides a data implementation c
 - Completeness of passenger-facing and monitoring fields, including stop names, public stop codes, WGS84 coordinates, grid references where present, street, indicator, bearing and locality.
 - A data dictionary explaining what each completeness metric means and what it does not prove.
 - A standard-readiness matrix mapping proposed bus stop standard features to current national open-data availability.
+- An audit-requirements matrix and example stop-audit template showing what local transport authorities would need to collect to monitor compliance.
 
 ## Workflow
 
 ```text
-NaPTAN CSV API + NPTG XML API -> raw cache -> area/completeness/readiness CSVs -> validation -> static HTML report
+NaPTAN CSV API + NPTG XML API -> raw cache -> area/completeness/readiness/audit CSVs -> validation -> static HTML report
 ```
 
 Offline tests use small fixtures and committed processed outputs. Live-source refreshes are isolated in `make integration-test` so routine assurance does not depend on network availability.
@@ -55,12 +56,14 @@ make clean             # remove generated raw/processed/report outputs
 - Completeness summary: `data/processed/completeness-summary.csv`
 - Data dictionary: `data/processed/data-dictionary.csv`
 - Standard-readiness matrix: `data/processed/standard-readiness.csv`
+- Audit-requirements matrix: `data/processed/audit-requirements.csv`
+- Example stop-audit template: `examples/example-stop-audit.csv`
 - Run metadata: `data/processed/run-metadata.json`
 - Static report: `docs/index.html`
 
 ## Validation
 
-`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, quality-review prompts are recorded, and metadata output paths and row counts match the generated files.
+`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata output paths and row counts match the generated files.
 
 ## Assurance Evidence
 
@@ -82,3 +85,5 @@ NaPTAN is a national transport reference dataset, not an official statistics rel
 ## Future Audit Fields
 
 A full National Bus Stop Standard monitor would need local authority audit fields such as proposed category, shelter, seating, printed timetable, route map, RTI display, QR/weblink, lighting, accessible boarding area, cleaning programme, repair contract, condition rating, audit date and evidence URL.
+
+This prototype publishes `data/processed/audit-requirements.csv` and `examples/example-stop-audit.csv` to make that stop-level evidence model explicit. The join key is `ATCOCode`, represented as `atco_code` in the example audit template.

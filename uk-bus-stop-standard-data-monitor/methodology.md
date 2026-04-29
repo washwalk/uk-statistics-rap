@@ -12,12 +12,14 @@ The live NaPTAN CSV is stored unchanged in `data/raw/source.csv`. The live NPTG 
 
 Administrative area names are parsed from NPTG `AdministrativeArea` records and joined to stop summaries using `AdministrativeAreaCode`. Names are used for interpretation only; stop counts and completeness measures are calculated from filtered NaPTAN bus stop records.
 
-The pipeline then produces three processed outputs:
+The pipeline then produces these processed outputs:
 
 - `area-summary.csv`: stop counts and selected completeness rates by administrative area code and NPTG area name.
 - `completeness-summary.csv`: national completeness rates for fields that support passenger information and monitoring.
 - `data-dictionary.csv`: definitions of key fields, their monitor interpretation and what they do not prove.
 - `standard-readiness.csv`: a matrix mapping proposed National Bus Stop Standard features to current national open-data availability.
+- `audit-requirements.csv`: stop-level fields that local transport authorities would need to collect to monitor the proposed standard.
+- `examples/example-stop-audit.csv`: an illustrative stop-audit template keyed by `atco_code`, which should join to NaPTAN `ATCOCode`.
 
 ## Completeness Measures
 
@@ -41,9 +43,13 @@ Records are treated as bus stop records where `StopType` starts with `BC`, which
 
 Readiness classifications are assigned from whether current national open data can monitor a proposed feature directly. Stop identity and location are `available`; stop-flag information is `partial` because NaPTAN records names and public codes but not physical sign content; facility and maintenance features are `not_available` because they are not consistently recorded in NaPTAN/NPTG.
 
+## Audit Requirements
+
+The audit-requirements matrix translates each readiness feature into the stop-level evidence a local transport authority or asset owner would need to collect. It is designed around a simple join pattern: local audit rows use `atco_code`, which maps to NaPTAN `ATCOCode`. That allows facility evidence to be combined with the national stop register without treating NaPTAN/NPTG as evidence of shelter, seating, lighting or maintenance compliance.
+
 ## Validation
 
-Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, quality-review prompts are recorded, and metadata paths and row counts match outputs.
+Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata paths and row counts match outputs.
 
 ## Limitations
 
