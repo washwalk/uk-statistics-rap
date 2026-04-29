@@ -55,6 +55,8 @@ The audit-requirements matrix translates each readiness feature into the stop-le
 
 A national facilities register would follow the same join pattern. It would keep NaPTAN as the register backbone and add published facility, condition, inspection, maintenance, responsible-body and defect-status fields supplied by local transport authorities, asset owners, contractors or verified passenger-reporting routes.
 
+The practical policy test is whether each standard obligation can be audited at stop level and joined back to NaPTAN using `ATCOCode`. If the evidence cannot be joined, it cannot be consistently monitored nationally without bespoke local reconciliation.
+
 ## Validation
 
 Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, audit requirements align one-to-one with readiness features, quality-review prompts are recorded, and metadata paths and row counts match outputs.

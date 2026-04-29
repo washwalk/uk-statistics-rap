@@ -1,17 +1,26 @@
-.PHONY: install fetch transform validate report test integration-test clean
+.DELETE_ON_ERROR:
+
+PYTHON ?= $(if $(wildcard ../.venv/bin/python),../.venv/bin/python,$(if $(wildcard .venv/bin/python),.venv/bin/python,python3))
+
+.PHONY: install fetch transform validate report report-live report-offline test integration-test clean
 
 install:
-	python3 -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -r requirements.txt
 
 fetch:
-	python3 scripts/fetch_ons_data.py
+	$(PYTHON) scripts/fetch_ons_data.py
 
 transform: fetch
 
 validate:
-	python3 scripts/validate_outputs.py
+	$(PYTHON) scripts/validate_outputs.py
 
-report: integration-test
+report: report-live
+
+report-live: integration-test
+	quarto render
+
+report-offline: transform validate
 	quarto render
 
 test: validate

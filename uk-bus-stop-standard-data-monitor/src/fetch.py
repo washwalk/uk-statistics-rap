@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -29,13 +30,20 @@ def fetch() -> None:
         with urllib.request.urlopen(request, timeout=120) as response:
             body = response.read()
             content_type = response.headers.get("Content-Type", "")
+            etag = response.headers.get("ETag", "")
+            last_modified = response.headers.get("Last-Modified", "")
+            status = response.status
         path.write_bytes(body)
         fetched_sources.append(
             {
                 "name": label,
                 "source_url": url,
                 "path": str(path),
+                "status": status,
                 "content_type": content_type,
+                "etag": etag,
+                "last_modified": last_modified,
+                "sha256": hashlib.sha256(body).hexdigest(),
                 "bytes": len(body),
             }
         )

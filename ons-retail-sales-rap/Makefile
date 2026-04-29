@@ -1,24 +1,33 @@
-.PHONY: install fetch transform validate pipeline report test integration-test clean
+.DELETE_ON_ERROR:
+
+PYTHON ?= $(if $(wildcard ../.venv/bin/python),../.venv/bin/python,$(if $(wildcard .venv/bin/python),.venv/bin/python,python3))
+
+.PHONY: install fetch transform validate pipeline report report-live report-offline test integration-test clean
 
 install:
-	python3 -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -r requirements.txt
 
 fetch:
-	python3 -m src.pipeline
+	$(PYTHON) -m src.pipeline
 
 transform: fetch
 
 validate:
-	python3 scripts/validate_outputs.py
+	$(PYTHON) scripts/validate_outputs.py
 
 pipeline:
-	python3 -m src.pipeline
+	$(PYTHON) -m src.pipeline
 
-report: integration-test
+report: report-live
+
+report-live: integration-test
+	quarto render reports/statistical_summary.qmd --output-dir ../outputs
+
+report-offline: transform validate
 	quarto render reports/statistical_summary.qmd --output-dir ../outputs
 
 test: validate
-	python3 -m pytest
+	$(PYTHON) -m pytest
 
 integration-test: pipeline validate
 

@@ -1,4 +1,11 @@
-.PHONY: install validate test integration-test build build-labour-market build-retail-sales build-housing build-inflation build-gdp build-population build-bus-stop-standard clean
+.DELETE_ON_ERROR:
+
+PYTHON := $(if $(wildcard $(CURDIR)/.venv/bin/python),$(CURDIR)/.venv/bin/python,python3)
+PAGES_WORKFLOW ?= pages.yml
+PAGES_BRANCH ?= main
+export PYTHON
+
+.PHONY: install validate test integration-test build build-labour-market build-retail-sales build-housing build-inflation build-gdp build-population build-bus-stop-standard verify-pages clean
 
 install:
 	$(MAKE) -C uk-labour-market-resilience-monitor install
@@ -58,6 +65,11 @@ build-population:
 
 build-bus-stop-standard:
 	$(MAKE) -C uk-bus-stop-standard-data-monitor report
+
+verify-pages:
+	RUN_ID="$$(gh run list --workflow "$(PAGES_WORKFLOW)" --branch "$(PAGES_BRANCH)" --limit 1 --json databaseId --jq '.[0].databaseId')"; \
+	test -n "$$RUN_ID" || { printf "No Pages workflow run found\n"; exit 1; }; \
+	gh run watch "$$RUN_ID" --exit-status
 
 clean:
 	$(MAKE) -C uk-labour-market-resilience-monitor clean
