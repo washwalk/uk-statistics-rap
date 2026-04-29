@@ -1,11 +1,12 @@
 import unittest
+from tempfile import TemporaryDirectory
 
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from transform import build_outputs, is_bus_stop  # noqa: E402
+from transform import build_outputs, is_bus_stop, parse_area_names  # noqa: E402
 
 
 class TransformTests(unittest.TestCase):
@@ -63,11 +64,12 @@ class TransformTests(unittest.TestCase):
             },
         ]
 
-        area, completeness, readiness, counts = build_outputs(rows)
+        area, completeness, readiness, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["source_rows"], 3)
         self.assertEqual(counts["bus_stop_rows"], 2)
         self.assertEqual(area[0]["administrative_area_code"], "001")
+        self.assertEqual(area[0]["administrative_area_name"], "Example Area")
         self.assertEqual(area[0]["stop_count"], 2)
         self.assertEqual(area[0]["with_coordinates"], 1)
         self.assertEqual(area[0]["with_coordinates_percent"], "50.0")
@@ -84,7 +86,7 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10001", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "001"},
         ]
 
-        _, _, _, counts = build_outputs(rows)
+        _, _, _, counts = build_outputs(rows, {"001": "Example Area"})
 
         self.assertEqual(counts["duplicate_atco_codes"], 1)
 
@@ -94,10 +96,43 @@ class TransformTests(unittest.TestCase):
             {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD"},
         ]
 
-        area, _, _, _ = build_outputs(rows)
+        area, _, _, counts = build_outputs(rows)
 
         self.assertEqual(area[0]["administrative_area_code"], "unknown")
+        self.assertEqual(area[0]["administrative_area_name"], "Unknown")
         self.assertEqual(area[0]["stop_count"], 2)
+        self.assertEqual(counts["administrative_area_names_missing"], 0)
+
+    def test_counts_missing_area_names(self):
+        rows = [
+            {"ATCOCode": "10001", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "001"},
+            {"ATCOCode": "10002", "StopType": "BCT", "BusStopType": "MKD", "AdministrativeAreaCode": "002"},
+        ]
+
+        area, _, _, counts = build_outputs(rows, {"001": "Example Area"})
+
+        self.assertEqual(next(row for row in area if row["administrative_area_code"] == "001")["administrative_area_name"], "Example Area")
+        self.assertEqual(next(row for row in area if row["administrative_area_code"] == "002")["administrative_area_name"], "")
+        self.assertEqual(counts["administrative_area_names_available"], 1)
+        self.assertEqual(counts["administrative_area_names_missing"], 1)
+        self.assertEqual(counts["administrative_area_name_match_percent"], "50.0")
+
+    def test_parses_nptg_administrative_area_names(self):
+        with TemporaryDirectory() as directory:
+            fixture = Path(directory) / "nptg_fixture.xml"
+            fixture.write_text(
+                """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<NptgLocalities xmlns=\"http://www.naptan.org.uk/\">
+  <AdministrativeAreas>
+    <AdministrativeArea><AdministrativeAreaCode>001</AdministrativeAreaCode><Name>Example Area</Name></AdministrativeArea>
+    <AdministrativeArea><AdministrativeAreaCode>002</AdministrativeAreaCode><Name>Second Area</Name></AdministrativeArea>
+  </AdministrativeAreas>
+</NptgLocalities>
+""",
+                encoding="utf-8",
+            )
+
+            self.assertEqual(parse_area_names(fixture), {"001": "Example Area", "002": "Second Area"})
 
     def test_empty_bus_records_fail(self):
         with self.assertRaises(ValueError):

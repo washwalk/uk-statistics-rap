@@ -13,33 +13,34 @@ This project does not reproduce that report. It provides a data implementation c
 ## What It Tracks
 
 - Registered bus stop records in NaPTAN for England, Scotland and Wales.
-- Bus stop counts by administrative area code.
+- Bus stop counts by administrative area, with names joined from the DfT National Public Transport Gazetteer (NPTG).
 - Completeness of passenger-facing and monitoring fields, including stop names, public stop codes, coordinates, street, indicator, bearing and locality.
 - A standard-readiness matrix mapping proposed bus stop standard features to current national open-data availability.
 
 ## Workflow
 
 ```text
-NaPTAN CSV API -> raw cache -> area/completeness/readiness CSVs -> validation -> static HTML report
+NaPTAN CSV API + NPTG XML API -> raw cache -> area/completeness/readiness CSVs -> validation -> static HTML report
 ```
 
 Offline tests use small fixtures and committed processed outputs. Live-source refreshes are isolated in `make integration-test` so routine assurance does not depend on network availability.
 
 ## Source
 
-- Source: Department for Transport National Public Transport Access Nodes (NaPTAN).
-- Endpoint: `https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv`.
+- Sources: Department for Transport National Public Transport Access Nodes (NaPTAN) and National Public Transport Gazetteer (NPTG).
+- NaPTAN endpoint: `https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv`.
+- NPTG endpoint: `https://naptan.api.dft.gov.uk/v1/nptg`.
 - Coverage: England, Scotland and Wales. Northern Ireland is not included.
 - Licence: Open Government Licence unless otherwise stated by DfT.
 
 ## Local Development
 
 ```bash
-make fetch             # fetch live NaPTAN CSV into data/raw/
+make fetch             # fetch live NaPTAN CSV and NPTG XML into data/raw/
 make transform         # build processed summaries and metadata
 make validate          # validate existing generated outputs only
 make test              # offline unit tests and validation only
-make integration-test  # refresh live NaPTAN data, transform, and validate
+make integration-test  # refresh live NaPTAN/NPTG data, transform, and validate
 make report            # refresh live data and build the static report
 make clean             # remove generated raw/processed/report outputs
 ```
@@ -47,6 +48,7 @@ make clean             # remove generated raw/processed/report outputs
 ## Outputs
 
 - Raw source response: `data/raw/source.csv`
+- Raw NPTG gazetteer response: `data/raw/nptg.xml`
 - Source fetch metadata: `data/raw/source-metadata.json`
 - Area summary: `data/processed/area-summary.csv`
 - Completeness summary: `data/processed/completeness-summary.csv`
@@ -56,12 +58,12 @@ make clean             # remove generated raw/processed/report outputs
 
 ## Validation
 
-`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, and metadata output paths and row counts match the generated files.
+`src/validate.py` checks that processed outputs and run metadata exist, required columns are present, outputs are non-empty, area stop counts sum to the metadata total, active area codes are matched to NPTG names, completeness percentages are valid, readiness statuses use expected values, expected proposed-standard features are present, and metadata output paths and row counts match the generated files.
 
 ## Assurance Evidence
 
-- Offline evidence: `make test` checks transformation logic and validates committed processed outputs without calling the NaPTAN API.
-- Live-source evidence: `make integration-test` fetches the configured NaPTAN source, rebuilds summaries, and validates the result.
+- Offline evidence: `make test` checks transformation logic and validates committed processed outputs without calling the NaPTAN or NPTG APIs.
+- Live-source evidence: `make integration-test` fetches the configured NaPTAN and NPTG sources, rebuilds summaries, and validates the result.
 - Audit evidence: `data/processed/run-metadata.json` records source URL, input/output row counts, quality counts, outputs, and validation status.
 - Reviewer evidence: `methodology.md`, the README, and the static report explain the source, transformation, validation checks, limitations, and relationship to the campaign report.
 

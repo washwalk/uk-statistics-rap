@@ -1,32 +1,40 @@
 {
   "project_name": "UK Bus Stop Standard Data Monitor",
-  "run_timestamp": "2026-04-29T08:43:08.332606+00:00",
+  "run_timestamp": "2026-04-29T08:57:26.155077+00:00",
   "source_urls": [
-    "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv"
+    "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
+    "https://naptan.api.dft.gov.uk/v1/nptg"
   ],
+  "source_publisher": "Department for Transport",
+  "source_coverage": "England, Scotland and Wales",
+  "source_exclusions": "Northern Ireland",
   "input_row_counts": {
-    "source_rows": 434553
+    "source_rows": 434552,
+    "nptg_administrative_areas": 149
   },
   "output_row_counts": {
     "area_summary": 145,
     "completeness_summary": 11,
     "standard_readiness": 9,
-    "bus_stop_rows": 421249
+    "bus_stop_rows": 421248
   },
   "quality_counts": {
-    "source_rows": 434553,
-    "bus_stop_rows": 421249,
+    "source_rows": 434552,
+    "bus_stop_rows": 421248,
     "administrative_areas": 145,
+    "administrative_area_names_available": 145,
+    "administrative_area_names_missing": 0,
+    "administrative_area_name_match_percent": "100.0",
     "duplicate_atco_codes": 0,
     "stop_type_counts": {
-      "BCT": 415981,
+      "BCT": 415980,
       "BCS": 4919,
       "BCE": 192,
       "BCQ": 157
     },
     "bus_stop_type_counts": {
-      "MKD": 313005,
-      "CUS": 83917,
+      "MKD": 313003,
+      "CUS": 83918,
       "blank": 5022,
       "HAR": 17905,
       "FLX": 1400

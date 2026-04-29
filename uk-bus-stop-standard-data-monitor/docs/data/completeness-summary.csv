@@ -1,12 +1,12 @@
 field,records_present,records_missing,percent_present,why_it_matters
-ATCOCode,421249,0,100.0,Unique stop identifier used to link stop records across systems.
-NaptanCode,406791,14458,96.6,"Public-facing stop code suitable for signs, SMS, apps, and passenger information."
-CommonName,421249,0,100.0,Passenger-facing stop name.
-Street,399136,22113,94.8,Street context helps passengers find and distinguish stops.
-Indicator,403672,17577,95.8,"Short qualifier such as opposite, outside, bay, or stop number."
-Bearing,411234,10015,97.6,Direction of travel at the stop.
-LocalityName,421240,9,100.0,Local place name used to group and present stops.
-Longitude,369253,51996,87.7,Coordinate needed for mapping and spatial accessibility checks.
-Latitude,369253,51996,87.7,Coordinate needed for mapping and spatial accessibility checks.
-BusStopType,416227,5022,98.8,Classifies the physical bus stop type where supplied.
-TimingStatus,419421,1828,99.6,Indicates timing-point status used in bus service information.
+ATCOCode,421248,0,100.0,Unique stop identifier used to link stop records across systems.
+NaptanCode,406790,14458,96.6,"Public-facing stop code suitable for signs, SMS, apps, and passenger information."
+CommonName,421248,0,100.0,Passenger-facing stop name.
+Street,399135,22113,94.8,Street context helps passengers find and distinguish stops.
+Indicator,403658,17590,95.8,"Short qualifier such as opposite, outside, bay, or stop number."
+Bearing,411233,10015,97.6,Direction of travel at the stop.
+LocalityName,421239,9,100.0,Local place name used to group and present stops.
+Longitude,369252,51996,87.7,Coordinate needed for mapping and spatial accessibility checks.
+Latitude,369252,51996,87.7,Coordinate needed for mapping and spatial accessibility checks.
+BusStopType,416226,5022,98.8,Classifies the physical bus stop type where supplied.
+TimingStatus,419420,1828,99.6,Indicates timing-point status used in bus service information.

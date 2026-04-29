@@ -7,6 +7,7 @@ from pathlib import Path
 
 AREA_COLUMNS = {
     "administrative_area_code",
+    "administrative_area_name",
     "stop_count",
     "with_coordinates",
     "with_coordinates_percent",
@@ -23,7 +24,7 @@ AREA_COLUMNS = {
 }
 COMPLETENESS_COLUMNS = {"field", "records_present", "records_missing", "percent_present", "why_it_matters"}
 READINESS_COLUMNS = {"standard_feature", "cbt_category_requirement", "national_data_status", "available_fields", "monitoring_note"}
-REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "input_row_counts", "output_row_counts", "quality_counts", "outputs", "validation_status"}
+REQUIRED_METADATA = {"project_name", "run_timestamp", "source_urls", "source_publisher", "source_coverage", "source_exclusions", "input_row_counts", "output_row_counts", "quality_counts", "outputs", "validation_status"}
 EXPECTED_READINESS_FEATURES = {
     "Bus stop identity and location",
     "Bus stop flag with stop name, route numbers, destination and branding",
@@ -112,6 +113,9 @@ def validate() -> None:
         area_code = row.get("administrative_area_code", "")
         if not area_code:
             errors.append("Area summary contains blank administrative area code")
+        area_name = row.get("administrative_area_name", "")
+        if area_code != "unknown" and not area_name:
+            errors.append(f"Area summary missing administrative area name for area {area_code}")
         if area_code in seen_areas:
             errors.append(f"Area summary contains duplicate area code {area_code}")
         seen_areas.add(area_code)
@@ -186,6 +190,12 @@ def validate() -> None:
             errors.append("Run metadata project name does not match config")
         if config["source"]["url"] not in metadata.get("source_urls", []):
             errors.append("Run metadata does not include configured source URL")
+        if config["source"].get("nptg_url") not in metadata.get("source_urls", []):
+            errors.append("Run metadata does not include configured NPTG source URL")
+        if metadata.get("source_publisher") != config["source"]["publisher"]:
+            errors.append("Run metadata source publisher does not match config")
+        if metadata.get("source_coverage") != config["source"]["coverage"]:
+            errors.append("Run metadata source coverage does not match config")
         outputs = metadata.get("outputs", {})
         if outputs.get("area_summary") != config["paths"]["area_summary"]:
             errors.append("Run metadata area summary output path does not match config")
@@ -207,6 +217,14 @@ def validate() -> None:
         quality_counts = metadata.get("quality_counts", {})
         if "duplicate_atco_codes" not in quality_counts:
             errors.append("Run metadata does not record duplicate ATCO code count")
+        expected_named_areas = sum(1 for row in area_rows if row.get("administrative_area_code") != "unknown" and row.get("administrative_area_name"))
+        expected_unnamed_areas = sum(1 for row in area_rows if row.get("administrative_area_code") != "unknown" and not row.get("administrative_area_name"))
+        if quality_counts.get("administrative_area_names_available") != expected_named_areas:
+            errors.append("Run metadata named area count does not match area summary")
+        if quality_counts.get("administrative_area_names_missing") != expected_unnamed_areas:
+            errors.append("Run metadata unnamed area count does not match area summary")
+        if expected_unnamed_areas:
+            errors.append("One or more active administrative area codes could not be matched to NPTG names")
         if metadata.get("validation_status") not in {"not_run", "passed"}:
             errors.append("Run metadata validation status must be not_run or passed")
 

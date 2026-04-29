@@ -5,10 +5,12 @@ import json
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from xml.etree.ElementTree import iterparse
 
 
 AREA_FIELDS = [
     "administrative_area_code",
+    "administrative_area_name",
     "stop_count",
     "with_coordinates",
     "with_coordinates_percent",
@@ -132,7 +134,28 @@ def percent(part: int, total: int) -> str:
     return f"{(part / total) * 100:.1f}"
 
 
-def build_outputs(rows: list[dict]) -> tuple[list[dict], list[dict], list[dict], dict]:
+def local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def parse_area_names(path: Path) -> dict[str, str]:
+    area_names: dict[str, str] = {}
+    for event, elem in iterparse(path, events=("end",)):
+        if local_name(elem.tag) != "AdministrativeArea":
+            continue
+        values = {local_name(child.tag): (child.text or "").strip() for child in list(elem)}
+        area_code = values.get("AdministrativeAreaCode", "")
+        area_name = values.get("Name", "")
+        if area_code and area_name:
+            area_names[area_code] = area_name
+        elem.clear()
+    if not area_names:
+        raise ValueError("No administrative area names were available in NPTG data")
+    return area_names
+
+
+def build_outputs(rows: list[dict], area_names: dict[str, str] | None = None) -> tuple[list[dict], list[dict], list[dict], dict]:
+    area_names = area_names or {}
     bus_rows = [row for row in rows if is_bus_stop(row)]
     if not bus_rows:
         raise ValueError("No bus stop records were available to transform")
@@ -153,6 +176,7 @@ def build_outputs(rows: list[dict]) -> tuple[list[dict], list[dict], list[dict],
         area_summary.append(
             {
                 "administrative_area_code": area_code,
+                "administrative_area_name": area_names.get(area_code, "Unknown" if area_code == "unknown" else ""),
                 "stop_count": total,
                 "with_coordinates": with_coordinates,
                 "with_coordinates_percent": percent(with_coordinates, total),
@@ -183,10 +207,15 @@ def build_outputs(rows: list[dict]) -> tuple[list[dict], list[dict], list[dict],
         )
 
     duplicate_atco_codes = len(bus_rows) - len({(row.get("ATCOCode") or "").strip() for row in bus_rows if is_present(row.get("ATCOCode"))})
+    named_area_count = sum(1 for row in area_summary if is_present(row["administrative_area_name"]) and row["administrative_area_code"] != "unknown")
+    unnamed_area_count = sum(1 for row in area_summary if not is_present(row["administrative_area_name"]) and row["administrative_area_code"] != "unknown")
     metadata_counts = {
         "source_rows": len(rows),
         "bus_stop_rows": len(bus_rows),
         "administrative_areas": len(area_summary),
+        "administrative_area_names_available": named_area_count,
+        "administrative_area_names_missing": unnamed_area_count,
+        "administrative_area_name_match_percent": percent(named_area_count, named_area_count + unnamed_area_count),
         "duplicate_atco_codes": duplicate_atco_codes,
         "stop_type_counts": dict(Counter((row.get("StopType") or "blank").strip() or "blank" for row in bus_rows)),
         "bus_stop_type_counts": dict(Counter((row.get("BusStopType") or "blank").strip() or "blank" for row in bus_rows)),
@@ -205,10 +234,12 @@ def write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:
 def transform() -> None:
     config = load_config()
     raw_path = Path(config["paths"]["raw_data"])
+    raw_nptg_path = Path(config["paths"]["raw_nptg"])
     with raw_path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
+    area_names = parse_area_names(raw_nptg_path)
 
-    area_summary, completeness, readiness, counts = build_outputs(rows)
+    area_summary, completeness, readiness, counts = build_outputs(rows, area_names)
 
     write_csv(Path(config["paths"]["area_summary"]), area_summary, AREA_FIELDS)
     write_csv(Path(config["paths"]["completeness_summary"]), completeness, COMPLETENESS_FIELDS)
@@ -219,8 +250,11 @@ def transform() -> None:
             {
                 "project_name": config["project_name"],
                 "run_timestamp": datetime.now(timezone.utc).isoformat(),
-                "source_urls": [config["source"]["url"]],
-                "input_row_counts": {"source_rows": counts["source_rows"]},
+                "source_urls": [config["source"]["url"], config["source"]["nptg_url"]],
+                "source_publisher": config["source"]["publisher"],
+                "source_coverage": config["source"]["coverage"],
+                "source_exclusions": "Northern Ireland",
+                "input_row_counts": {"source_rows": counts["source_rows"], "nptg_administrative_areas": len(area_names)},
                 "output_row_counts": {
                     "area_summary": len(area_summary),
                     "completeness_summary": len(completeness),

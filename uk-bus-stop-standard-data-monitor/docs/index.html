@@ -15,35 +15,35 @@
 <div class="callout"><strong>Core finding:</strong> national open data can provide a stop register and data-quality baseline, but it cannot confirm whether each stop meets facility standards for shelter, seating, printed timetable information, route maps, lighting, or working real-time displays.</div>
 </section>
 <section class="metrics">
-<article class="metric"><p class="label">Registered bus stop records</p><p class="value">421,249</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>
-<article class="metric"><p class="label">Administrative areas</p><p class="value">145</p><p>Area-code summaries from the national stop register.</p></article>
+<article class="metric"><p class="label">Registered bus stop records</p><p class="value">421,248</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>
+<article class="metric"><p class="label">Administrative areas</p><p class="value">145</p><p>Area summaries joined to official NPTG administrative area names.</p></article>
 <article class="metric"><p class="label">Longitude populated</p><p class="value">87.7%</p><p>Coordinate completeness for mapped monitoring.</p></article>
 <article class="metric"><p class="label">Available or partially evidenced</p><p class="value">22.2%</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>
 </section>
 <section class="panel warning"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <em>Better Bus Stops: Creating a national bus stop standard</em>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p></section>
-<section class="panel"><h2>Top Areas by Registered Stops</h2><p>Areas are shown as NaPTAN administrative area codes because the compact pipeline uses only the national stop-register extract.</p><table><thead><tr><th>Administrative area code</th><th>Stops</th><th>Coordinates</th><th>NaPTAN code</th><th>Street</th></tr></thead><tbody>
-<tr><td>083</td><td>20,614</td><td>100.0%</td><td>66.5%</td><td>99.0%</td></tr>
-<tr><td>082</td><td>19,991</td><td>100.0%</td><td>96.2%</td><td>59.3%</td></tr>
-<tr><td>107</td><td>16,578</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
-<tr><td>105</td><td>15,333</td><td>0.0%</td><td>99.8%</td><td>100.0%</td></tr>
-<tr><td>099</td><td>10,450</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
-<tr><td>086</td><td>9,108</td><td>100.0%</td><td>99.5%</td><td>100.0%</td></tr>
-<tr><td>080</td><td>8,604</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
-<tr><td>087</td><td>8,421</td><td>100.0%</td><td>94.9%</td><td>100.0%</td></tr>
-<tr><td>075</td><td>7,999</td><td>100.0%</td><td>98.7%</td><td>99.9%</td></tr>
-<tr><td>090</td><td>7,703</td><td>100.0%</td><td>84.8%</td><td>98.8%</td></tr>
-<tr><td>089</td><td>7,356</td><td>100.0%</td><td>93.1%</td><td>90.6%</td></tr>
-<tr><td>091</td><td>7,178</td><td>0.0%</td><td>99.9%</td><td>99.9%</td></tr>
-<tr><td>084</td><td>7,127</td><td>100.0%</td><td>99.8%</td><td>98.9%</td></tr>
-<tr><td>103</td><td>7,081</td><td>100.0%</td><td>99.8%</td><td>100.0%</td></tr>
-<tr><td>101</td><td>7,063</td><td>100.0%</td><td>100.0%</td><td>88.9%</td></tr>
+<section class="panel"><h2>Top Areas by Registered Stops</h2><p>Area names are sourced from the DfT National Public Transport Gazetteer and joined to NaPTAN stops using <code>AdministrativeAreaCode</code>.</p><table><thead><tr><th>Administrative area</th><th>Stops</th><th>Coordinates</th><th>NaPTAN code</th><th>Street</th></tr></thead><tbody>
+<tr><td>Greater Manchester (083)</td><td>20,614</td><td>100.0%</td><td>66.5%</td><td>99.0%</td></tr>
+<tr><td>Greater London (082)</td><td>19,991</td><td>100.0%</td><td>96.2%</td><td>59.3%</td></tr>
+<tr><td>West Yorkshire (107)</td><td>16,578</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>West Midlands (105)</td><td>15,333</td><td>0.0%</td><td>99.8%</td><td>100.0%</td></tr>
+<tr><td>South Yorkshire (099)</td><td>10,450</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>Kent (086)</td><td>9,108</td><td>100.0%</td><td>99.5%</td><td>100.0%</td></tr>
+<tr><td>Essex (080)</td><td>8,604</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr>
+<tr><td>Lancashire (087)</td><td>8,421</td><td>100.0%</td><td>94.9%</td><td>100.0%</td></tr>
+<tr><td>Derbyshire (075)</td><td>7,999</td><td>100.0%</td><td>98.7%</td><td>99.9%</td></tr>
+<tr><td>Merseyside (090)</td><td>7,703</td><td>100.0%</td><td>84.8%</td><td>98.8%</td></tr>
+<tr><td>Lincolnshire (089)</td><td>7,356</td><td>100.0%</td><td>93.1%</td><td>90.6%</td></tr>
+<tr><td>Norfolk (091)</td><td>7,178</td><td>0.0%</td><td>99.9%</td><td>99.9%</td></tr>
+<tr><td>Hampshire (084)</td><td>7,127</td><td>100.0%</td><td>99.8%</td><td>98.9%</td></tr>
+<tr><td>Tyne &amp; Wear (103)</td><td>7,081</td><td>100.0%</td><td>99.8%</td><td>100.0%</td></tr>
+<tr><td>Suffolk (101)</td><td>7,063</td><td>100.0%</td><td>100.0%</td><td>88.9%</td></tr>
 </tbody></table></section>
 <section class="panel"><h2>Passenger Information Data Completeness</h2><table><thead><tr><th>Field</th><th>Present</th><th>Missing records</th><th>Why it matters</th></tr></thead><tbody>
 <tr><td>ATCOCode</td><td>100.0%</td><td>0</td><td>Unique stop identifier used to link stop records across systems.</td></tr>
 <tr><td>NaptanCode</td><td>96.6%</td><td>14,458</td><td>Public-facing stop code suitable for signs, SMS, apps, and passenger information.</td></tr>
 <tr><td>CommonName</td><td>100.0%</td><td>0</td><td>Passenger-facing stop name.</td></tr>
 <tr><td>Street</td><td>94.8%</td><td>22,113</td><td>Street context helps passengers find and distinguish stops.</td></tr>
-<tr><td>Indicator</td><td>95.8%</td><td>17,577</td><td>Short qualifier such as opposite, outside, bay, or stop number.</td></tr>
+<tr><td>Indicator</td><td>95.8%</td><td>17,590</td><td>Short qualifier such as opposite, outside, bay, or stop number.</td></tr>
 <tr><td>Bearing</td><td>97.6%</td><td>10,015</td><td>Direction of travel at the stop.</td></tr>
 <tr><td>LocalityName</td><td>100.0%</td><td>9</td><td>Local place name used to group and present stops.</td></tr>
 <tr><td>Longitude</td><td>87.7%</td><td>51,996</td><td>Coordinate needed for mapping and spatial accessibility checks.</td></tr>
@@ -62,7 +62,7 @@
 <tr><td>Lighting at bus stop</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN does not record whether stops have lighting or whether lighting is working.</td></tr>
 <tr><td>Cleaning, inspection, repair and maintenance arrangements</td><td>Categories 1 to 4</td><td><span class="status not_available">Data gap</span></td><td>NaPTAN is a stop register and does not hold asset-management contracts or inspection records.</td></tr>
 </tbody></table></section>
-<section class="panel"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV, filters bus stop records, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN refresh checks are kept in <code>make integration-test</code>.</p></section>
+<section class="panel"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV and the NPTG gazetteer XML, filters bus stop records, joins official administrative area names, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN and NPTG refresh checks are kept in <code>make integration-test</code>.</p></section>
 <section class="panel"><h2>Assurance and Downloads</h2>
 <p class="downloads"><a href="data/area-summary.csv">Download area summary</a><a href="data/completeness-summary.csv">Download completeness summary</a><a href="data/standard-readiness.csv">Download standard readiness matrix</a><a href="data/run-metadata.json">Download run metadata</a><a href="https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md">Read methodology</a></p></section>
 <section class="panel"><h2>Limitations</h2><p>NaPTAN covers England, Scotland and Wales and is a national transport reference dataset rather than an official statistics release. It does not include Northern Ireland and does not consistently record passenger facility provision such as shelter, seating, printed timetables, route maps, lighting, or real-time displays.</p>

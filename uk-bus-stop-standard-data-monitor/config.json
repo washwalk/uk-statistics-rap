@@ -4,11 +4,13 @@
     "name": "National Public Transport Access Nodes",
     "publisher": "Department for Transport",
     "url": "https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv",
+    "nptg_url": "https://naptan.api.dft.gov.uk/v1/nptg",
     "licence": "Open Government Licence",
     "coverage": "England, Scotland and Wales"
   },
   "paths": {
     "raw_data": "data/raw/source.csv",
+    "raw_nptg": "data/raw/nptg.xml",
     "raw_metadata": "data/raw/source-metadata.json",
     "area_summary": "data/processed/area-summary.csv",
     "completeness_summary": "data/processed/completeness-summary.csv",

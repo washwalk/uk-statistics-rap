@@ -53,7 +53,7 @@ def publish() -> None:
 
     top_area_rows = "\n".join(
         "<tr>"
-        f"<td>{html.escape(row['administrative_area_code'])}</td>"
+        f"<td>{html.escape(row['administrative_area_name'])} ({html.escape(row['administrative_area_code'])})</td>"
         f"<td>{fmt_count(row['stop_count'])}</td>"
         f"<td>{fmt_percent(row['with_coordinates_percent'])}</td>"
         f"<td>{fmt_percent(row['with_naptan_code_percent'])}</td>"
@@ -106,12 +106,12 @@ def publish() -> None:
                 "</section>",
                 "<section class=\"metrics\">",
                 f"<article class=\"metric\"><p class=\"label\">Registered bus stop records</p><p class=\"value\">{fmt_count(total_stops)}</p><p>NaPTAN records filtered to bus stop infrastructure.</p></article>",
-                f"<article class=\"metric\"><p class=\"label\">Administrative areas</p><p class=\"value\">{fmt_count(area_count)}</p><p>Area-code summaries from the national stop register.</p></article>",
+                f"<article class=\"metric\"><p class=\"label\">Administrative areas</p><p class=\"value\">{fmt_count(area_count)}</p><p>Area summaries joined to official NPTG administrative area names.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Longitude populated</p><p class=\"value\">{fmt_percent(coordinate_row['percent_present'])}</p><p>Coordinate completeness for mapped monitoring.</p></article>",
                 f"<article class=\"metric\"><p class=\"label\">Available or partially evidenced</p><p class=\"value\">{fmt_percent(readiness_percent)}</p><p>Proposed features with direct or partial evidence in current national open data.</p></article>",
                 "</section>",
                 "<section class=\"panel warning\"><h2>Relationship to Campaign for Better Transport's Report</h2><p>This page does not reproduce <em>Better Bus Stops: Creating a national bus stop standard</em>. It is a data implementation companion: it tests what a national monitoring pipeline could measure today and identifies the facility fields that local transport authorities would need to audit.</p></section>",
-                "<section class=\"panel\"><h2>Top Areas by Registered Stops</h2><p>Areas are shown as NaPTAN administrative area codes because the compact pipeline uses only the national stop-register extract.</p><table><thead><tr><th>Administrative area code</th><th>Stops</th><th>Coordinates</th><th>NaPTAN code</th><th>Street</th></tr></thead><tbody>",
+                "<section class=\"panel\"><h2>Top Areas by Registered Stops</h2><p>Area names are sourced from the DfT National Public Transport Gazetteer and joined to NaPTAN stops using <code>AdministrativeAreaCode</code>.</p><table><thead><tr><th>Administrative area</th><th>Stops</th><th>Coordinates</th><th>NaPTAN code</th><th>Street</th></tr></thead><tbody>",
                 top_area_rows,
                 "</tbody></table></section>",
                 "<section class=\"panel\"><h2>Passenger Information Data Completeness</h2><table><thead><tr><th>Field</th><th>Present</th><th>Missing records</th><th>Why it matters</th></tr></thead><tbody>",
@@ -120,7 +120,7 @@ def publish() -> None:
                 "<section class=\"panel\"><h2>Standard Readiness</h2><table><thead><tr><th>Proposed standard feature</th><th>CBT category requirement</th><th>National data status</th><th>Monitoring note</th></tr></thead><tbody>",
                 readiness_table,
                 "</tbody></table></section>",
-                "<section class=\"panel\"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV, filters bus stop records, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN refresh checks are kept in <code>make integration-test</code>.</p></section>",
+                "<section class=\"panel\"><h2>Method</h2><p>The pipeline fetches the NaPTAN national access-node CSV and the NPTG gazetteer XML, filters bus stop records, joins official administrative area names, produces area and completeness summaries, and publishes a standard-readiness matrix based on Campaign for Better Transport's proposed categories and features.</p><p>Offline tests validate transformation logic and committed outputs. Live NaPTAN and NPTG refresh checks are kept in <code>make integration-test</code>.</p></section>",
                 "<section class=\"panel\"><h2>Assurance and Downloads</h2>",
                 "<p class=\"downloads\"><a href=\"data/area-summary.csv\">Download area summary</a><a href=\"data/completeness-summary.csv\">Download completeness summary</a><a href=\"data/standard-readiness.csv\">Download standard readiness matrix</a><a href=\"data/run-metadata.json\">Download run metadata</a><a href=\"https://github.com/washwalk/uk-statistics-rap/blob/main/uk-bus-stop-standard-data-monitor/methodology.md\">Read methodology</a></p></section>",
                 "<section class=\"panel\"><h2>Limitations</h2><p>NaPTAN covers England, Scotland and Wales and is a national transport reference dataset rather than an official statistics release. It does not include Northern Ireland and does not consistently record passenger facility provision such as shelter, seating, printed timetables, route maps, lighting, or real-time displays.</p>",

@@ -2,17 +2,19 @@
 
 ## Source
 
-The pipeline uses the Department for Transport National Public Transport Access Nodes (NaPTAN) API. NaPTAN is the national register of public transport access points in England, Scotland and Wales.
+The pipeline uses the Department for Transport National Public Transport Access Nodes (NaPTAN) API and National Public Transport Gazetteer (NPTG) API. NaPTAN is the national register of public transport access points in England, Scotland and Wales. NPTG supplies the official administrative area names used to make area-code outputs readable.
 
-The configured source is `https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv`.
+The configured sources are `https://naptan.api.dft.gov.uk/v1/access-nodes?dataFormat=csv` and `https://naptan.api.dft.gov.uk/v1/nptg`.
 
 ## Processing
 
-The live CSV is stored unchanged in `data/raw/source.csv`. The transform step reads the CSV and filters to bus-related records where `StopType` begins with `BC` or `BusStopType` is populated.
+The live NaPTAN CSV is stored unchanged in `data/raw/source.csv`. The live NPTG XML is stored unchanged in `data/raw/nptg.xml`. The transform step reads the NaPTAN CSV and filters to bus-related records where `StopType` begins with `BC` or `BusStopType` is populated.
+
+Administrative area names are parsed from NPTG `AdministrativeArea` records and joined to stop summaries using `AdministrativeAreaCode`. Names are used for interpretation only; stop counts and completeness measures are calculated from filtered NaPTAN bus stop records.
 
 The pipeline then produces three processed outputs:
 
-- `area-summary.csv`: stop counts and selected completeness rates by administrative area code.
+- `area-summary.csv`: stop counts and selected completeness rates by administrative area code and NPTG area name.
 - `completeness-summary.csv`: national completeness rates for fields that support passenger information and monitoring.
 - `standard-readiness.csv`: a matrix mapping proposed National Bus Stop Standard features to current national open-data availability.
 
@@ -30,9 +32,15 @@ The statuses are:
 - `partial`: current national open data contains some related fields, but not enough to confirm physical provision.
 - `not_available`: the feature is not consistently recorded in the national open dataset.
 
+## Classification Rules
+
+Records are treated as bus stop records where `StopType` starts with `BC`, which is the NaPTAN bus/coach stop family used in the source extract, or where `BusStopType` is populated. This keeps the filter transparent and testable while allowing for records where the bus stop type field carries the relevant bus-stop signal.
+
+Readiness classifications are assigned from whether current national open data can monitor a proposed feature directly. Stop identity and location are `available`; stop-flag information is `partial` because NaPTAN records names and public codes but not physical sign content; facility and maintenance features are `not_available` because they are not consistently recorded in NaPTAN/NPTG.
+
 ## Validation
 
-Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, expected readiness features are present, and metadata paths and row counts match outputs.
+Validation checks that processed files and metadata exist, required columns are present, files are non-empty, percentages are between 0 and 100, area counts sum to the total number of filtered bus stop records, active area codes are matched to NPTG names, expected readiness features are present, and metadata paths and row counts match outputs.
 
 ## Limitations
 

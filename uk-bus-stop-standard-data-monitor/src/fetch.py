@@ -13,25 +13,38 @@ def load_config() -> dict:
 def fetch() -> None:
     config = load_config()
     raw_path = Path(config["paths"]["raw_data"])
+    raw_nptg_path = Path(config["paths"]["raw_nptg"])
     metadata_path = Path(config["paths"]["raw_metadata"])
     raw_path.parent.mkdir(parents=True, exist_ok=True)
 
-    request = urllib.request.Request(
-        config["source"]["url"],
-        headers={"User-Agent": "uk-statistics-rap/1.0"},
-    )
-    with urllib.request.urlopen(request, timeout=120) as response:
-        body = response.read()
-        content_type = response.headers.get("Content-Type", "")
+    fetched_sources = []
+    for label, url, path in (
+        ("naptan_access_nodes", config["source"]["url"], raw_path),
+        ("nptg_gazetteer", config["source"]["nptg_url"], raw_nptg_path),
+    ):
+        request = urllib.request.Request(
+            url,
+            headers={"User-Agent": "uk-statistics-rap/1.0"},
+        )
+        with urllib.request.urlopen(request, timeout=120) as response:
+            body = response.read()
+            content_type = response.headers.get("Content-Type", "")
+        path.write_bytes(body)
+        fetched_sources.append(
+            {
+                "name": label,
+                "source_url": url,
+                "path": str(path),
+                "content_type": content_type,
+                "bytes": len(body),
+            }
+        )
 
-    raw_path.write_bytes(body)
     metadata_path.write_text(
         json.dumps(
             {
-                "source_url": config["source"]["url"],
                 "fetched_at": datetime.now(timezone.utc).isoformat(),
-                "content_type": content_type,
-                "bytes": len(body),
+                "sources": fetched_sources,
             },
             indent=2,
         )
